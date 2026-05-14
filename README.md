@@ -1,17 +1,299 @@
-## My Project
+# AI-DLC Discovery
 
-TODO: Fill this README out!
+> **Define what to build before AI builds it.**
 
-Be sure to:
+A role-based interview workflow that produces the two canonical inputs AI-DLC needs **before** the Inception phase:
 
-* Change the title in this README
-* Edit your repository description on GitHub
+1. **Vision Document** — what to build and why (Business role)
+2. **Technical Environment Document** — what tools and constraints apply (Technical role)
 
-## Security
+Plus a handoff file of pre-declared open questions that AI-DLC resolves during Requirements Analysis.
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+---
 
-## License
+## Table of Contents
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
+- [Why this exists](#why-this-exists)
+- [Who it's for](#who-its-for)
+- [What it produces](#what-it-produces)
+- [Core design principles](#core-design-principles)
+- [Install](#install)
+- [How to invoke](#how-to-invoke)
+- [Repository layout](#repository-layout)
+- [Key documentation](#key-documentation)
+- [Language support](#language-support)
+- [Pre-loading context from files or MCP](#pre-loading-context-from-files-or-mcp)
+- [What it is **not**](#what-it-is-not)
+- [Known limitations (today)](#known-limitations-today)
+- [Next step](#next-step)
 
+---
+
+## Why this exists
+
+AI-DLC's quality depends on what you feed it. The [AI-DLC quickstart](https://github.com/awslabs/aidlc-workflows/blob/main/docs/writing-inputs/inputs-quickstart.md) tells you to prepare a Vision Document and a Technical Environment Document before kicking off Inception — but writing those from a blank page is slow and easy to skip. Teams either show up with half-baked inputs (and spend the first hour of AI-DLC answering clarifying questions) or skip the documents entirely (and get generic output).
+
+**`aidlc-discovery` replaces the blank page with a guided interview**: multiple-choice and short-text questions in natural language, section by section, per role, with state saved between sessions. The tool picks up the language of your workspace — if your steering files (e.g. `CLAUDE.md`), your invocation prompt, or your explicit instructions are in Spanish, Portuguese, French, Japanese, or any other language, the whole interview and the final documents are produced in that language. At the end, you get the two documents AI-DLC expects — formatted, validated, and with known ambiguities pre-declared.
+
+## Who it's for
+
+- **Product owners, PMs, business analysts** → produce a coherent Vision Document without a template crawl.
+- **Tech leads, architects, staff engineers** → lock in the technical stack and constraints before code gets generated on top of wrong assumptions.
+- **Teams where Business and Technical are different people** → the tool persists progress per role, so each person can work in their own session.
+- **Teams working in any language** → the whole interview (and the final documents) render in the language of your workspace. See [Language support](#language-support).
+
+## What it produces
+
+After a full session, you have a `Product-Definition/` folder in your workspace with:
+
+```
+Product-Definition/
+├── aidlc-discovery-state.md     # Session state (per-question progress)
+├── audit.md                     # Append-only log of every interaction
+├── role-selection.md            # Business / Technical / Both
+├── project-type.md              # Brand-new / Feature on existing / Migration
+├── business/
+│   ├── vision-questions.md
+│   └── vision-answers-history.md
+├── technical/
+│   ├── tech-env-questions.md
+│   └── tech-env-answers-history.md
+├── visual/                      # Optional — only if you opt into Visual Sketch
+│   ├── user-journey.md          # Mermaid flowchart(s)
+│   └── mockups/
+│       ├── index.html
+│       └── <NN>-<slug>.html
+├── open-questions.md            # 🎯 Handoff to AI-DLC
+├── vision-document.md           # ✅ AI-DLC input #1
+└── technical-environment.md     # ✅ AI-DLC input #2
+```
+
+You paste the final three files into AI-DLC and start Inception with everything AI-DLC needs already in place. The optional `visual/` folder is a sidecar for human review — AI-DLC does not consume it.
+
+## Core design principles
+
+- **Natural language, no jargon at the surface.** The user picks "brand-new project" or "new feature on an existing product" — not "greenfield" vs "brownfield". Surface wording is rendered in the user's own language (detected from steering files, invocation prompt, or explicit instruction).
+- **Question → Doc → Approval.** Questions are written into a markdown file, not asked in chat. You fill in `[Answer]:` tags, reply `ready`, and the tool validates. Same pattern AI-DLC uses internally.
+- **Per-question state.** You can stop after any batch and resume next week. The state file knows exactly which question is next.
+- **Two depths per role.** Quick pass (~10 min, core questions only) for prototypes and POCs. Full interview (~25–35 min) for production-grade work.
+- **Gate at the end of each role.** Before the final document is rendered, you review and either request changes or approve.
+- **Batched writes.** The tool groups file writes per batch (not per question) so the loop stays snappy.
+- **Complete audit trail.** Every interaction, answer, and approval is logged with ISO-8601 timestamps.
+
+## Install
+
+One-time setup per project. Paste the install prompt from [install.md](install.md) into your AI agent (Claude Code, Kiro, Cursor, Cline, Amazon Q Developer, Antigravity, or any agent with shell access). The agent downloads the latest release into `.aidlc/aidlc-discovery/`, wires up the correct rules / steering file for your IDE, and adds `.aidlc/` to `.gitignore`.
+
+See [install.md](install.md) for the full prompt, the IDE-specific paths, manual install, and how to update.
+
+## How to invoke
+
+Once installed, invoke the workflow from any chat in the project by saying it naturally:
+
+```
+start aidlc-discovery
+```
+
+or in Spanish:
+
+```
+inicia aidlc-discovery
+```
+
+or:
+
+```
+prepare AI-DLC discovery
+```
+
+The agent reads the rules file set up during install, loads `.aidlc/aidlc-discovery/aidlc-discovery-rules/aidlc-discovery-core-workflow.md`, and begins the interview.
+
+**Universal fallback** (works even without installation, in any agent that reads local files):
+
+```
+Read .aidlc/aidlc-discovery/aidlc-discovery-rules/aidlc-discovery-core-workflow.md
+and execute the workflow in the current working directory.
+```
+
+The tool will:
+
+1. Show a welcome banner.
+2. Detect whether you have an existing session in this workspace.
+3. If new → ask your role (Business / Technical / Both sequential), project type (brand-new / feature on existing / migration), and the interview depth.
+4. If resuming → show you where you left off and let you continue, start the other role, or edit a completed section.
+5. After all selected roles are approved, optionally offer a **Visual Sketch** stage that asks five short questions and then asks your IDE / agent to generate a Mermaid user journey and self-contained HTML mockups under `Product-Definition/visual/`. Default is to skip.
+
+## Repository layout
+
+What ships in each GitHub release (and lands in your project under `.aidlc/aidlc-discovery/` after install):
+
+```
+aidlc-discovery/
+├── README.md                                  # ← You are here
+├── how-to-use.md                              # End-to-end walkthroughs and examples
+├── install.md                                 # Install / update prompt (one-shot)
+├── CHANGELOG.md                               # Version history and roadmap
+├── CONTRIBUTING.md                            # How to contribute
+├── CODE_OF_CONDUCT.md                         # Amazon Open Source Code of Conduct
+├── LICENSE                                    # MIT-0
+├── VERSION                                    # Installed version tag (set by release)
+├── .source                                    # Provenance: repo, tag, commit, build time
+└── aidlc-discovery-rules/
+    ├── aidlc-discovery-core-workflow.md          # Entry point (the AI reads this first)
+    └── aidlc-discovery-rule-details/
+        ├── common/                            # welcome, session continuity, role selection,
+        │                                      #   question format, content validation, audit format,
+        │                                      #   language handling
+        ├── shared/                            # project-type question, open-questions collector
+        ├── business/                          # vision interview + completion gate
+        └── technical/                         # tech-env interview + completion gate
+```
+
+The repository also contains `.github/workflows/release.yml`, which packages each `v*.*.*` tag into a downloadable zip that the install prompt consumes.
+
+After install, your project ends up with:
+
+```
+<your-project>/
+├── .aidlc/aidlc-discovery/      ← what the release zip expands into (gitignored by default)
+├── <rules-file-for-your-IDE> ← created by the installer, e.g. CLAUDE.md or .kiro/steering/aidlc-discovery.md
+└── Product-Definition/        ← created on first session, then persisted
+```
+
+The rule folder contains 14 markdown files, ~2 900 lines total. Each file has a single responsibility and is loaded only when its stage runs.
+
+## Key documentation
+
+Read these in roughly this order — each builds on the previous.
+
+- **[README.md](README.md)** — you are here. Design principles, architecture, repository layout, language policy, limitations.
+- **[install.md](install.md)** — one-prompt AI-assisted installer plus manual-install instructions and the IDE-to-rules-file mapping.
+- **[how-to-use.md](how-to-use.md)** — end-to-end walkthrough with a worked example (OrderFlow) and five side-flows: resuming, changing an answer, handing off to AI-DLC, using another language, and pre-loading context from files or MCP.
+- **[CHANGELOG.md](CHANGELOG.md)** — version history, what shipped in each release, and what's planned next.
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — how to file issues, structure PRs, update the rule set, and test changes across supported IDEs.
+- **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** — Amazon Open Source Code of Conduct (reference pointer).
+- **[LICENSE](LICENSE)** — MIT-0.
+
+Inside the rule set:
+
+- **[aidlc-discovery-rules/aidlc-discovery-core-workflow.md](aidlc-discovery-rules/aidlc-discovery-core-workflow.md)** — the entry point your agent loads when you invoke the tool. Orchestrates every stage.
+- **[aidlc-discovery-rules/aidlc-discovery-rule-details/common/language-handling.md](aidlc-discovery-rules/aidlc-discovery-rule-details/common/language-handling.md)** — authoritative reference for which content is rendered in the user's language and which stays in English.
+- **[aidlc-discovery-rules/aidlc-discovery-rule-details/business/vision-interview.md](aidlc-discovery-rules/aidlc-discovery-rule-details/business/vision-interview.md)** and **[technical/tech-env-interview.md](aidlc-discovery-rules/aidlc-discovery-rule-details/technical/tech-env-interview.md)** — the complete question banks for both roles.
+- **[aidlc-discovery-rules/aidlc-discovery-rule-details/shared/visual-sketch.md](aidlc-discovery-rules/aidlc-discovery-rule-details/shared/visual-sketch.md)** — the optional opt-in stage that produces a Mermaid user journey and HTML mockups; runs after Open Questions and before the Final Handoff.
+
+## Language support
+
+The tool adapts to your workspace's language automatically. It detects the user's language in this order:
+
+1. **Explicit instruction** — you say *"responde en español"*, *"work in French"*, etc.
+2. **Steering files** — `CLAUDE.md`, `.cursorrules`, `.kiro/steering/`, `AGENTS.md` in the workspace or parents; if those are predominantly in another language, the tool follows.
+3. **Your invocation prompt language** — *"Lee aidlc-discovery/... y ejecuta"* → Spanish.
+4. **Default** — English.
+
+After detection the tool confirms once (in the detected language), then uses that language for every user-facing artefact: welcome banner, questions, progress headers, gate messages, and the final `vision-document.md`, `technical-environment.md`, and `open-questions.md`.
+
+**Control files stay in English, always.** Those are `aidlc-discovery-state.md` (session state the AI reads to resume) and `audit.md` (append-only audit log). File names, directory names, internal identifiers (`Q1`, `T14`, `OQ-B-1`), and the `[Answer]:` tag also stay in English because AI-DLC and downstream tooling parse them by string match.
+
+If you need the final documents in English too (to hand off to an English-only team while keeping your own session in another language), the tool offers a one-time bilingual render at the end of the session: `vision-document.en.md` alongside `vision-document.md`.
+
+## Pre-loading context from files or MCP
+
+The workflow itself does not fetch or parse external sources. **However**, the agent you run it on (Claude, Kiro, Cursor, Amazon Q, etc.) can already read files, explore git repositories, and query MCP servers. You can leverage that before — or alongside — invoking the workflow, and the agent will use the context when answering the interview questions.
+
+### The pattern
+
+Add a single preamble to your invocation that tells the agent what to read first. The workflow starts normally afterwards, but the agent's answers to multiple-choice and free-text questions are now informed by what it saw.
+
+### Example — Technical role with a local codebase
+
+```
+Before starting, please read the following as context:
+
+  - /workspace/orderflow-platform/README.md
+  - /workspace/orderflow-platform/package.json
+  - /workspace/orderflow-platform/cdk.json
+  - /workspace/docs/arch/system-overview.md
+  - /workspace/docs/standards/code-style.md
+
+Then read .aidlc/aidlc-discovery/aidlc-discovery-rules/aidlc-discovery-core-workflow.md
+and execute the workflow. When a question can be answered from the files
+above, propose the answer in the [Answer]: field with a short "(source:
+<file>)" note so I can verify. Only ask me directly for things the files
+don't cover.
+```
+
+### Example — Business role with a vision Word doc
+
+```
+I have an existing vision doc at /workspace/docs/OrderFlow-Vision-v3.docx.
+Please read it first, then read .aidlc/aidlc-discovery/aidlc-discovery-rules/aidlc-discovery-core-workflow.md
+and execute the workflow for the Business role only. For each question,
+either propose an answer extracted from the Vision doc (with a section
+reference) or tell me it's not covered and ask me directly.
+```
+
+### Example — MCP-connected sources (docs, wikis, repos)
+
+```
+You have access to the AWS Documentation MCP server
+(awslabs.aws-documentation-mcp-server). Before starting, consult:
+
+  - https://docs.aws.amazon.com/lambda/latest/dg/welcome.html         (service overview)
+  - https://docs.aws.amazon.com/lambda/latest/dg/lambda-foundation.html (core concepts)
+  - https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html  (best practices)
+
+Then read .aidlc/aidlc-discovery/aidlc-discovery-rules/aidlc-discovery-core-workflow.md and
+execute. Use what you found to pre-fill what you can. Cite the source
+inline as "(source: <URL or path>)". Ask me only for the rest.
+```
+
+The same pattern works with any MCP server that exposes documentation, wikis,
+or repositories — swap the server name and URLs for your own (for example,
+`https://github.com/your-org/your-repo` or `https://wiki.example.com/standards`).
+
+### What you get today vs what a formal extraction mode would add
+
+| Capability | Today (ask your agent) | Future formal mode |
+|---|---|---|
+| Agent reads files / MCP before answering | ✅ | ✅ |
+| Agent fills in what it can infer | ✅ | ✅ |
+| Source shown next to each answer | ⚠️ Depends on prompt wording; you have to ask | ✅ Enforced by rules, consistent every time |
+| Secrets filter before content lands in `audit.md` | ❌ The agent's default safety applies; no redaction guarantees | ✅ Pre-ingestion secret scan |
+| Contradiction detection across sources | ❌ Agent may silently prefer one source | ✅ Flagged explicitly for you to resolve |
+| Coverage report ("12/20 answered from sources, 8 still to ask") | ❌ Not structured | ✅ Produced as `pre-filled-analysis.md` before the first batch |
+| Bulk review UI ("approve all covered, correct partial, answer rest") | ❌ You review one at a time | ✅ Section-level approval |
+
+### Recommended practice today
+
+- **Do** pre-load sources — it saves real time on both roles.
+- **Do** ask the agent to cite the source inline so you can verify at a glance.
+- **Do** skim every pre-filled answer before replying `ready` — the agent's best inference is still just inference.
+- **Don't** load secrets (`.env`, credentials, private keys). If a file has them, exclude it from your preamble.
+- **Don't** assume contradictions will be flagged — if two sources disagree, you may need to ask explicitly: *"Are any of my answers contradicted by the sources?"* before approving the completion gate.
+
+## What it is **not**
+
+- Not a replacement for AI-DLC — it is its **front door**.
+- Not a validator of business logic — the tool asks the questions, you answer. It flags ambiguities but does not "grade" your vision.
+- Not a code generator — no source code is produced here. Code generation happens inside AI-DLC's Construction phase.
+- Not a UI builder — the optional Visual Sketch stage produces static HTML mockups and a Mermaid user journey for review and alignment, never functional components or runnable apps. Implementation belongs to AI-DLC Construction.
+- Not an automated extraction tool — it does not, on its own, crawl your repo or parse Word files to pre-fill answers. **But** you can ask your AI agent (Claude, Kiro, Cursor, Q Developer) to read source files, MCP-connected repos, or documents *before* invoking the workflow and use that context while answering. The agent already has those capabilities; see [Pre-loading context from files or MCP](#pre-loading-context-from-files-or-mcp). A first-class, rule-governed extraction mode with citations and contradiction detection is planned.
+
+## Known limitations (today)
+
+| Limitation | Workaround |
+|---|---|
+| No multi-user identity / session locking | Treat one `Product-Definition/` folder as one session. Coordinate handoffs out of band. |
+| No rule-governed extraction with citations or contradiction detection | You can still ask your agent to read sources before starting — see [Pre-loading context from files or MCP](#pre-loading-context-from-files-or-mcp). A formal mode with source attribution is planned. |
+| Depth Quick skips some sections entirely | You can upgrade Quick → Full mid-session and the skipped sections become available. |
+| Example-code questions require pasting | You can answer "B) see file path" in T26–T29 and the tool will treat it as a reference. |
+
+These are tracked as future work.
+
+---
+
+## Next step
+
+Once you've read this, go to [how-to-use.md](how-to-use.md) for a complete end-to-end walkthrough with examples: what you type, what the tool writes, what each file looks like at each stage, and how to hand the outputs to AI-DLC.
+
+Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). This project follows the [Amazon Open Source Code of Conduct](CODE_OF_CONDUCT.md) and is licensed under [MIT-0](LICENSE).
