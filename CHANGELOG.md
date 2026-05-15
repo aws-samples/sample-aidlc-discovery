@@ -23,6 +23,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [0.2.1] — 2026-05-15
+
+Bugfix follow-up to v0.2.0. Improves the UX of the AI-DLC handoff prompt so users can copy and paste it cleanly without dragging the banner or stale conditional headers along.
+
+### Fixed
+
+- **Handoff prompt is now a separate, copy-clean code block.** Previously, the completion banner and the "paste this into a fresh context:" instruction lived inside the same code block as the prompt, forcing the user to hand-select the prompt portion. The agent now prints the banner and a one-line instruction OUTSIDE any code fence, then opens its own fenced code block for the prompt content with no leading indentation. Selecting the entire fenced block now copies exactly what AI-DLC needs.
+- **Stale "OPTIONAL inputs (only if Visual Sketch was approved...)" header no longer appears** when the user skipped or discarded the Visual Sketch. The rule (`aidlc-discovery-rules/aidlc-discovery-core-workflow.md` §"Final Handoff") now uses an explicit `INCLUDE_OPTIONAL` boolean derived from the filesystem (checks `Product-Definition/visual/user-journey.md` AND `Product-Definition/visual/mockups/*.html` exist) and either includes the OPTIONAL block in full or omits it entirely. No orphan headers, no caveat text.
+- **Handoff prompt body is now rendered in English even in non-English sessions.** AI-DLC interoperability requires English file paths and section names; only the instructional line ("Copy the block below and paste it...") localises.
+
+### Changed
+
+- The Final Handoff stage in `aidlc-discovery-core-workflow.md` is rewritten as a 6-step rendering procedure (Steps 4a–4f) instead of a single template-with-caveats block. Each step has a single responsibility (banner / instruction / open fence / required block / conditional optional / closing line / close fence) and the rule states the rendering rules explicitly so agents do not need to interpret embedded conditionals.
+- `how-to-use.md` §"Final handoff" updated to match the new on-screen output, including a separate "what the user sees" block and "what the user copies" block.
+
+---
+
 ## [0.2.0] — 2026-05-15
 
 Second release. Adds an optional UI sketch stage, reorganises the output folder for clarity, and ships a self-describing handoff prompt for AI-DLC.
@@ -123,5 +140,6 @@ First working version. All core stages and both role interviews are complete.
 ---
 
 [Unreleased]: #unreleased
+[0.2.1]: #021--2026-05-15
 [0.2.0]: #020--2026-05-15
 [0.1.0]: #010--2026-04-28

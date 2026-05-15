@@ -615,7 +615,9 @@ Discard and Skip). Laura approves.
 
 ### 8. Final handoff
 
-With both roles ✅ complete and the Visual Sketch stage resolved (approved, skipped, or discarded), the tool prints the handoff prompt below. The OPTIONAL block appears only if you approved the Visual Sketch — it is omitted when the stage was skipped or discarded.
+With both roles ✅ complete and the Visual Sketch stage resolved (approved, skipped, or discarded), the tool prints three things in this order: a completion banner, a one-line instruction to the user, and — inside its own fenced code block — the paste-ready prompt for AI-DLC. The OPTIONAL block inside the prompt is included only if the Visual Sketch was approved.
+
+**On screen, the user sees:**
 
 ```
 ╔════════════════════════════════════════════════════════════════╗
@@ -624,48 +626,56 @@ With both roles ✅ complete and the Visual Sketch stage resolved (approved, ski
 ║                                                                ║
 ╚════════════════════════════════════════════════════════════════╝
 
-To kick off AI-DLC, paste this into a fresh context:
-
-  I'm starting a new project. Please read the following inputs before
-  beginning the AI-DLC workflow:
-
-  REQUIRED inputs (always present):
-
-  • Product-Definition/vision-document.md
-    The Vision Document — what we're building, who it's for, the success
-    metrics, and what's in/out of MVP scope. Use this as the primary input
-    to Requirements Analysis.
-
-  • Product-Definition/technical-environment.md
-    The Technical Environment Document — required languages, frameworks,
-    cloud services, architecture patterns, security/compliance constraints,
-    testing standards, and example code patterns. These are binding
-    constraints for NFR Requirements, NFR Design, Infrastructure Design,
-    and Code Generation.
-
-  • Product-Definition/open-questions.md
-    Pre-declared ambiguities and open items the user already knows about.
-    Treat each as a clarifying question to resolve during Requirements
-    Analysis — do not silently assume defaults.
-
-  OPTIONAL inputs (only if Visual Sketch was approved — check if folder exists):
-
-  • Product-Definition/visual/user-journey.md
-    Mermaid flowchart(s) showing the user journey through the product per
-    persona. Use as reference for UX flows when designing requirements
-    and APIs.
-
-  • Product-Definition/visual/mockups/index.html and the screen files
-    Self-contained HTML mockups of the main screens. NOT functional code —
-    they are visual references for primary CTAs, screen-to-screen
-    navigation, and the data each screen displays. Cross-reference against
-    user-journey.md.
-
-  Please confirm you've read all available files, then begin the AI-DLC
-  workflow at the Inception phase.
+📋 Copy the block below and paste it into a fresh AI-DLC context:
 ```
 
-See [Side-flow — handing off to AI-DLC](#side-flow-3-handing-off-to-ai-dlc) for more detail.
+**And immediately below, in a separate code block (this is what the user copies):**
+
+```
+I'm starting a new project. Please read the following inputs before
+beginning the AI-DLC workflow:
+
+REQUIRED inputs (always present):
+
+• Product-Definition/vision-document.md
+  The Vision Document — what we're building, who it's for, the success
+  metrics, and what's in/out of MVP scope. Use this as the primary
+  input to Requirements Analysis.
+
+• Product-Definition/technical-environment.md
+  The Technical Environment Document — required languages, frameworks,
+  cloud services, architecture patterns, security/compliance
+  constraints, testing standards, and example code patterns. These are
+  binding constraints for NFR Requirements, NFR Design, Infrastructure
+  Design, and Code Generation.
+
+• Product-Definition/open-questions.md
+  Pre-declared ambiguities and open items the user already knows about.
+  Treat each as a clarifying question to resolve during Requirements
+  Analysis — do not silently assume defaults.
+
+OPTIONAL inputs (Visual Sketch outputs — review alongside the documents above):
+
+• Product-Definition/visual/user-journey.md
+  Mermaid flowchart(s) showing the user journey through the product
+  per persona. Use as reference for UX flows when designing
+  requirements and APIs.
+
+• Product-Definition/visual/mockups/index.html and the screen files
+  Self-contained HTML mockups of the main screens. NOT functional
+  code — they are visual references for primary CTAs, screen-to-screen
+  navigation, and the data each screen displays. Cross-reference
+  against user-journey.md.
+
+Please confirm you've read all available files, then begin the AI-DLC
+workflow at the Inception phase.
+```
+
+If you skipped or discarded the Visual Sketch, the OPTIONAL block is omitted entirely — the prompt jumps from the third REQUIRED bullet directly to the closing line.
+
+When you're working in a non-English session, the banner and the "Copy the block below..." line are translated, but the prompt itself stays in English. AI-DLC interoperability depends on English file paths and section names.
+
+See [Side-flow — handing off to AI-DLC](#side-flow-3-handing-off-to-ai-dlc) for what AI-DLC does with each file.
 
 ---
 

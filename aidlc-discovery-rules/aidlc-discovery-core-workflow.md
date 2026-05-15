@@ -235,57 +235,87 @@ Product-Definition/
 
 ## Final Handoff (ALWAYS EXECUTE)
 
-1. Confirm all selected roles are ✅ complete in `aidlc-discovery-state.md`
-2. Confirm Visual Sketch reached a terminal state (`✅ Complete`, `Skipped`, or `Discarded`) — see `## Visual Sketch` block above
-3. Render the handoff message. Adapt the OPTIONAL block based on whether `Product-Definition/visual/` exists (i.e. Visual Sketch was approved):
+1. Confirm all selected roles are ✅ complete in `aidlc-discovery-state.md`.
+2. Confirm Visual Sketch reached a terminal state (`✅ Complete`, `Skipped`, or `Discarded`) — see `## Visual Sketch` block above.
+3. Decide whether to include the OPTIONAL block in the handoff prompt:
+   - Check the filesystem for `Product-Definition/visual/`.
+   - If the folder exists AND contains `user-journey.md` AND a `mockups/` subdirectory with at least one `.html` file → set `INCLUDE_OPTIONAL = true`.
+   - Otherwise → set `INCLUDE_OPTIONAL = false`.
+4. Render the output to chat in **this exact order**. The banner and instructional line are visible context for the user — they are NOT part of the prompt the user copies. The prompt itself goes inside its own fenced code block with three backticks and **no leading indentation**.
 
-```
-AI-DLC Discovery Complete ✅
+   **Step 4a** — Print the completion banner exactly as shown (outside any code fence):
 
-To kick off AI-DLC, paste this into a fresh context:
+       ╔════════════════════════════════════════════════════════════════╗
+       ║                                                                ║
+       ║   AI-DLC Discovery Complete ✅                                 ║
+       ║                                                                ║
+       ╚════════════════════════════════════════════════════════════════╝
 
-  I'm starting a new project. Please read the following inputs before
-  beginning the AI-DLC workflow:
+   **Step 4b** — Print one instructional line in the user's language, outside any code fence. Examples:
 
-  REQUIRED inputs (always present):
+   - English: `📋 Copy the block below and paste it into a fresh AI-DLC context:`
+   - Spanish: `📋 Copia el bloque de abajo y pégalo en una conversación nueva de AI-DLC:`
+   - Portuguese: `📋 Copie o bloco abaixo e cole numa nova conversa do AI-DLC:`
+   - French: `📋 Copiez le bloc ci-dessous et collez-le dans une nouvelle conversation AI-DLC :`
+   - Other languages: render the same intent.
 
-  • Product-Definition/vision-document.md
-    The Vision Document — what we're building, who it's for, the success
-    metrics, and what's in/out of MVP scope. Use this as the primary input
-    to Requirements Analysis.
+   **Step 4c** — Open a fenced code block (three backticks, no language tag), then print the **REQUIRED block** verbatim with NO leading indentation:
 
-  • Product-Definition/technical-environment.md
-    The Technical Environment Document — required languages, frameworks,
-    cloud services, architecture patterns, security/compliance constraints,
-    testing standards, and example code patterns. These are binding
-    constraints for NFR Requirements, NFR Design, Infrastructure Design,
-    and Code Generation.
+       I'm starting a new project. Please read the following inputs before
+       beginning the AI-DLC workflow:
 
-  • Product-Definition/open-questions.md
-    Pre-declared ambiguities and open items the user already knows about.
-    Treat each as a clarifying question to resolve during Requirements
-    Analysis — do not silently assume defaults.
+       REQUIRED inputs (always present):
 
-  OPTIONAL inputs (only if Visual Sketch was approved — check if folder exists):
+       • Product-Definition/vision-document.md
+         The Vision Document — what we're building, who it's for, the success
+         metrics, and what's in/out of MVP scope. Use this as the primary
+         input to Requirements Analysis.
 
-  • Product-Definition/visual/user-journey.md
-    Mermaid flowchart(s) showing the user journey through the product per
-    persona. Use as reference for UX flows when designing requirements
-    and APIs.
+       • Product-Definition/technical-environment.md
+         The Technical Environment Document — required languages, frameworks,
+         cloud services, architecture patterns, security/compliance
+         constraints, testing standards, and example code patterns. These are
+         binding constraints for NFR Requirements, NFR Design, Infrastructure
+         Design, and Code Generation.
 
-  • Product-Definition/visual/mockups/index.html and the screen files
-    Self-contained HTML mockups of the main screens. NOT functional code —
-    they are visual references for primary CTAs, screen-to-screen
-    navigation, and the data each screen displays. Cross-reference against
-    user-journey.md.
+       • Product-Definition/open-questions.md
+         Pre-declared ambiguities and open items the user already knows about.
+         Treat each as a clarifying question to resolve during Requirements
+         Analysis — do not silently assume defaults.
 
-  Please confirm you've read all available files, then begin the AI-DLC
-  workflow at the Inception phase.
-```
+   **Step 4d** — IF `INCLUDE_OPTIONAL == true`, print a blank line then the **OPTIONAL block** verbatim. IF `INCLUDE_OPTIONAL == false`, skip this step entirely — do not print "OPTIONAL inputs", do not print "(check if folder exists)", do not leave a placeholder.
 
-   When generating the message, include the OPTIONAL block only if `Product-Definition/visual/` exists. If the user skipped or discarded Visual Sketch, omit the entire OPTIONAL section.
+   OPTIONAL block (only when included):
 
-4. **MANDATORY**: Log completion in `Product-Definition/audit.md`
+       OPTIONAL inputs (Visual Sketch outputs — review alongside the documents above):
+
+       • Product-Definition/visual/user-journey.md
+         Mermaid flowchart(s) showing the user journey through the product
+         per persona. Use as reference for UX flows when designing
+         requirements and APIs.
+
+       • Product-Definition/visual/mockups/index.html and the screen files
+         Self-contained HTML mockups of the main screens. NOT functional
+         code — they are visual references for primary CTAs, screen-to-screen
+         navigation, and the data each screen displays. Cross-reference
+         against user-journey.md.
+
+   **Step 4e** — Print a blank line, then the closing line of the prompt verbatim:
+
+       Please confirm you've read all available files, then begin the AI-DLC
+       workflow at the Inception phase.
+
+   **Step 4f** — Close the fenced code block (three backticks).
+
+5. **MANDATORY**: Log completion in `Product-Definition/audit.md`.
+
+### Rendering rules — do NOT violate
+
+- The banner (Step 4a) and the instructional line (Step 4b) live OUTSIDE the code fence. The user must not copy them.
+- Inside the code fence (Steps 4c–4e), every line starts at column 1. No leading two-space indent. No bullet indent beyond what's shown above (the "  " before "The Vision Document — ..." is two spaces aligning with the bullet text, intentional and part of the prompt).
+- The prompt is rendered in **English** even when the rest of the workflow runs in another language. AI-DLC interoperability requires English keys, file paths, and section names. Only the instructional line (Step 4b) localises.
+- When `INCLUDE_OPTIONAL == false`, the resulting prompt must read seamlessly from the third REQUIRED bullet directly to the closing line. There must be no orphan "OPTIONAL inputs" header, no "(only if Visual Sketch was approved...)" caveat, and no empty placeholder text.
+- The completion banner is visible regardless of `INCLUDE_OPTIONAL`. It is not conditional.
 
 ---
 
