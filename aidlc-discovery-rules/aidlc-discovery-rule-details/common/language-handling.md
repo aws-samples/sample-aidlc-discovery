@@ -74,7 +74,7 @@ Once the language is set, every **user-facing string** the tool writes is in tha
 These are **control strings**. Translate them and the tool breaks.
 
 - ❌ File names (`aidlc-discovery-state.md`, `vision-document.md`, etc.)
-- ❌ Directory names (`Product-Definition/`, `business/`, `technical/`)
+- ❌ Directory names (`Product-Definition/`, `interview/`, `business/`, `technical/`, `visual/`)
 - ❌ The `[Answer]:` tag (parsed by string match)
 - ❌ The `[CORE]` marker in state
 - ❌ Question identifiers: `Q1`, `Q2`, `T14`, `QB2`, `TB3`, `OQ-B-1`, `OQ-T-2`

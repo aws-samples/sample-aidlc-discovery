@@ -20,9 +20,10 @@ If no state file exists:
    ```
    Product-Definition/
    ├── aidlc-discovery-state.md           (from template below)
-   ├── audit.md                     (from common/audit-format.md)
-   ├── business/
-   └── technical/
+   ├── audit.md                           (from common/audit-format.md)
+   └── interview/
+       ├── business/
+       └── technical/
    ```
 2. Write the initial state file:
    ```markdown

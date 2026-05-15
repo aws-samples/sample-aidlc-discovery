@@ -126,7 +126,7 @@ All subsequent rule detail file references (e.g., `common/role-selection.md`, `b
    - **B) Technical** — fill in the Technical Environment Document only
    - **C) Both (sequential)** — complete Business first, then Technical (Technical will use the Vision as context)
    - **X) Other** — user describes a custom flow
-4. Write the selection into `Product-Definition/role-selection.md`
+4. Write the selection into `Product-Definition/interview/role-selection.md`
 5. Update `Product-Definition/aidlc-discovery-state.md` with the chosen role
 6. **MANDATORY**: Log user's response in `Product-Definition/audit.md` with complete raw input
 
@@ -137,7 +137,7 @@ All subsequent rule detail file references (e.g., `common/role-selection.md`, `b
 1. **MANDATORY**: Log user input in `Product-Definition/audit.md`
 2. Load all steps from `shared/greenfield-vs-brownfield.md`
 3. Ask whether the project is Greenfield or Brownfield (multiple choice per `common/question-format-guide.md`)
-4. Write the answer into `Product-Definition/project-type.md`
+4. Write the answer into `Product-Definition/interview/project-type.md`
 5. Update `Product-Definition/aidlc-discovery-state.md` with the project type
 6. **MANDATORY**: Log user's response in `Product-Definition/audit.md`
 
@@ -154,9 +154,9 @@ All subsequent rule detail file references (e.g., `common/role-selection.md`, `b
 2. Load all steps from `business/vision-interview.md`
 3. **Step 0 — Depth Selection**: ask the user Quick pass (~10 min, 8 core questions) vs Full interview (~25 min, all 18 questions); record in state
 4. Execute per-section interview using the per-question granularity tracked in `aidlc-discovery-state.md`
-5. Each batch: write 5–7 unanswered questions into `Product-Definition/business/vision-questions.md` using the formats in `common/question-format-guide.md` (with the mandatory progress header and "ready" footer)
+5. Each batch: write 5–7 unanswered questions into `Product-Definition/interview/business/vision-questions.md` using the formats in `common/question-format-guide.md` (with the mandatory progress header and "ready" footer)
 6. Wait for the user to reply with the single word **`ready`**; then **re-read** the file (do NOT rely on in-memory content)
-7. Validate answers per `common/content-validation.md`, flag ambiguities, write the batch into `Product-Definition/business/vision-answers-history.md` (batched append — one block per batch, not per question), tick off state entries
+7. Validate answers per `common/content-validation.md`, flag ambiguities, write the batch into `Product-Definition/interview/business/vision-answers-history.md` (batched append — one block per batch, not per question), tick off state entries
 8. Continue until all selected sections are complete (depth-dependent)
 9. Execute completion steps from `business/vision-completion.md`:
    - Render `Product-Definition/vision-document.md`
@@ -178,8 +178,8 @@ All subsequent rule detail file references (e.g., `common/role-selection.md`, `b
 3. If `Product-Definition/vision-document.md` exists, load it as context for coherence (but do NOT modify it)
 4. **Step 0 — Depth Selection**: ask the user Quick pass (~12 min, 10 core questions) vs Full interview (~35 min, all 29 questions); record in state
 5. Execute per-section interview using per-question granularity
-6. Each batch: write 5–7 unanswered questions into `Product-Definition/technical/tech-env-questions.md` using the formats in `common/question-format-guide.md` (with the mandatory progress header and "ready" footer)
-7. Wait for the user to reply with the single word **`ready`**; re-read; validate; append the batch (batched write, one block per batch) to `Product-Definition/technical/tech-env-answers-history.md`
+6. Each batch: write 5–7 unanswered questions into `Product-Definition/interview/technical/tech-env-questions.md` using the formats in `common/question-format-guide.md` (with the mandatory progress header and "ready" footer)
+7. Wait for the user to reply with the single word **`ready`**; re-read; validate; append the batch (batched write, one block per batch) to `Product-Definition/interview/technical/tech-env-answers-history.md`
 8. Continue until all selected sections are complete
 9. Execute completion steps from `technical/tech-env-completion.md`:
    - Render `Product-Definition/technical-environment.md`
@@ -210,7 +210,7 @@ All subsequent rule detail file references (e.g., `common/role-selection.md`, `b
 3. Step 0 — present the opt-in question and wait for `ready`
 4. If the user picks **No** → log `Visual Sketch — Skipped` and proceed to Final Handoff
 5. If the user picks **Yes**:
-   - Step 1 — write the 5-question mini-interview into `Product-Definition/visual/visual-questions.md`, wait for `ready`, validate, append to `visual-answers-history.md`, tick state checkboxes
+   - Step 1 — write the 5-question mini-interview into `Product-Definition/interview/visual/visual-questions.md`, wait for `ready`, validate, append to `visual-answers-history.md`, tick state checkboxes
    - Step 2 — read context (Vision, Technical Environment, visual answers) and generate `user-journey.md` (Mermaid) and one self-contained HTML file per journey node under `visual/mockups/`, plus `index.html`
    - Step 3 — run the cross-validation checks from `shared/visual-sketch.md`
    - Step 4 — present the gate (Request Changes / Approve and Continue / Discard and Skip)
@@ -218,15 +218,17 @@ All subsequent rule detail file references (e.g., `common/role-selection.md`, `b
 6. Whatever path was taken, proceed to Final Handoff
 7. **MANDATORY**: Log every batch write, validation result, and gate decision in `Product-Definition/audit.md`
 
-**Output (sidecar — not a formal AI-DLC input)**:
+**Output (sidecar — referenced in the AI-DLC handoff but not a formal AI-DLC interview input)**:
 ```
-Product-Definition/visual/
-├── visual-questions.md
-├── visual-answers-history.md
-├── user-journey.md
-└── mockups/
-    ├── index.html
-    └── <NN>-<slug>.html  ×N
+Product-Definition/
+├── visual/                            # output — referenced by the handoff prompt
+│   ├── user-journey.md
+│   └── mockups/
+│       ├── index.html
+│       └── <NN>-<slug>.html  ×N
+└── interview/visual/                  # workspace — process artefacts
+    ├── visual-questions.md
+    └── visual-answers-history.md
 ```
 
 ---
@@ -235,24 +237,53 @@ Product-Definition/visual/
 
 1. Confirm all selected roles are ✅ complete in `aidlc-discovery-state.md`
 2. Confirm Visual Sketch reached a terminal state (`✅ Complete`, `Skipped`, or `Discarded`) — see `## Visual Sketch` block above
-3. Present the final handoff message:
+3. Render the handoff message. Adapt the OPTIONAL block based on whether `Product-Definition/visual/` exists (i.e. Visual Sketch was approved):
 
 ```
 AI-DLC Discovery Complete ✅
 
-Outputs ready for AI-DLC Inception:
-  - Product-Definition/vision-document.md
-  - Product-Definition/technical-environment.md
-  - Product-Definition/open-questions.md
+To kick off AI-DLC, paste this into a fresh context:
 
-Optional sidecar (if Visual Sketch was approved):
-  - Product-Definition/visual/user-journey.md
-  - Product-Definition/visual/mockups/index.html
+  I'm starting a new project. Please read the following inputs before
+  beginning the AI-DLC workflow:
 
-To kick off AI-DLC, run the AI-DLC workflow and point it at the
-Product-Definition/ directory as the primary input. The visual/
-folder is for human review and is not consumed by AI-DLC.
+  REQUIRED inputs (always present):
+
+  • Product-Definition/vision-document.md
+    The Vision Document — what we're building, who it's for, the success
+    metrics, and what's in/out of MVP scope. Use this as the primary input
+    to Requirements Analysis.
+
+  • Product-Definition/technical-environment.md
+    The Technical Environment Document — required languages, frameworks,
+    cloud services, architecture patterns, security/compliance constraints,
+    testing standards, and example code patterns. These are binding
+    constraints for NFR Requirements, NFR Design, Infrastructure Design,
+    and Code Generation.
+
+  • Product-Definition/open-questions.md
+    Pre-declared ambiguities and open items the user already knows about.
+    Treat each as a clarifying question to resolve during Requirements
+    Analysis — do not silently assume defaults.
+
+  OPTIONAL inputs (only if Visual Sketch was approved — check if folder exists):
+
+  • Product-Definition/visual/user-journey.md
+    Mermaid flowchart(s) showing the user journey through the product per
+    persona. Use as reference for UX flows when designing requirements
+    and APIs.
+
+  • Product-Definition/visual/mockups/index.html and the screen files
+    Self-contained HTML mockups of the main screens. NOT functional code —
+    they are visual references for primary CTAs, screen-to-screen
+    navigation, and the data each screen displays. Cross-reference against
+    user-journey.md.
+
+  Please confirm you've read all available files, then begin the AI-DLC
+  workflow at the Inception phase.
 ```
+
+   When generating the message, include the OPTIONAL block only if `Product-Definition/visual/` exists. If the user skipped or discarded Visual Sketch, omit the entire OPTIONAL section.
 
 4. **MANDATORY**: Log completion in `Product-Definition/audit.md`
 
@@ -291,29 +322,39 @@ See `common/audit-format.md` for the exact template.
 ## Directory Structure
 
 ```text
-<WORKSPACE-ROOT>/                        # Where the user invokes the rule (cwd)
+<WORKSPACE-ROOT>/                              # Where the user invokes the rule (cwd)
 │
-├── Product-Definition/                  # Generated by aidlc-discovery (ALL outputs live here)
+├── Product-Definition/                        # Generated by aidlc-discovery (ALL outputs live here)
+│   │
+│   │   # Control files — read by the workflow to resume / audit
 │   ├── aidlc-discovery-state.md               # Per-question state + role progress
-│   ├── audit.md                         # Append-only ISO8601 log
-│   ├── role-selection.md                # Business | Technical | Both
-│   ├── project-type.md                  # Greenfield | Brownfield
-│   ├── business/
-│   │   ├── vision-questions.md          # Active questions with [Answer]: tags
-│   │   └── vision-answers-history.md    # Confirmed answers (append-only)
-│   ├── technical/
-│   │   ├── tech-env-questions.md        # Active questions with [Answer]: tags
-│   │   └── tech-env-answers-history.md  # Confirmed answers (append-only)
-│   ├── visual/                          # Optional — only if Visual Sketch was approved
-│   │   ├── visual-questions.md
-│   │   ├── visual-answers-history.md
-│   │   ├── user-journey.md              # Mermaid flowchart(s)
+│   ├── audit.md                               # Append-only ISO8601 log
+│   │
+│   │   # Final outputs — referenced in the AI-DLC handoff prompt
+│   ├── vision-document.md                     # ✅ FINAL — Vision Document (Business)
+│   ├── technical-environment.md               # ✅ FINAL — Technical Environment (Technical)
+│   ├── open-questions.md                      # ✅ FINAL — Pre-declared ambiguities
+│   │
+│   │   # Visual sidecar — only present if Visual Sketch was approved
+│   ├── visual/
+│   │   ├── user-journey.md                    # Mermaid flowchart(s)
 │   │   └── mockups/
-│   │       ├── index.html               # Hub linking every screen
-│   │       └── <NN>-<slug>.html         # One file per journey node
-│   ├── open-questions.md                # Handoff to AI-DLC Requirements Analysis
-│   ├── vision-document.md               # ✅ FINAL output (Business)
-│   └── technical-environment.md         # ✅ FINAL output (Technical)
+│   │       ├── index.html                     # Hub linking every screen
+│   │       └── <NN>-<slug>.html               # One file per journey node
+│   │
+│   │   # Process workspace — drafts and batches; descartable post-handoff
+│   └── interview/
+│       ├── role-selection.md                  # Initial Q: Business | Technical | Both
+│       ├── project-type.md                    # Initial Q: brand-new | feature | migration
+│       ├── business/
+│       │   ├── vision-questions.md            # Active questions with [Answer]: tags
+│       │   └── vision-answers-history.md      # Confirmed answers (append-only)
+│       ├── technical/
+│       │   ├── tech-env-questions.md
+│       │   └── tech-env-answers-history.md
+│       └── visual/                            # Only if Visual Sketch was approved
+│           ├── visual-questions.md
+│           └── visual-answers-history.md
 │
 └── aidlc-discovery-rules/                     # The rule set itself (read-only for the workflow)
     ├── aidlc-discovery-core-workflow.md       # ← You are here
@@ -324,6 +365,8 @@ See `common/audit-format.md` for the exact template.
         └── shared/
 ```
 
-**CRITICAL RULE**:
-- Generated artefacts: `Product-Definition/` only
-- The `aidlc-discovery-rules/` directory is the rule set and must not be edited by the workflow itself
+**CRITICAL RULES**:
+- Generated artefacts: `Product-Definition/` only.
+- The `Product-Definition/` root holds **two control files**, **three final outputs** consumed by AI-DLC, and the **optional `visual/` sidecar** referenced from the handoff prompt.
+- All process artefacts (initial setup answers, per-batch question files, answer history) live under `Product-Definition/interview/`.
+- The `aidlc-discovery-rules/` directory is the rule set and must not be edited by the workflow itself.

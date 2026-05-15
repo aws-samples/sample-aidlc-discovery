@@ -41,7 +41,8 @@ Outputs land in
     ├── vision-document.md            ← Business output
     ├── technical-environment.md      ← Technical output
     ├── open-questions.md             ← Hand-off to AI-DLC
-    └── visual/  (optional)           ← User journey + HTML mockups
+    ├── visual/  (optional)           ← User journey + HTML mockups
+    └── interview/                    ← Process workspace (drafts, batches)
 
 Let's get started.
 ```

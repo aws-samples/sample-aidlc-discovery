@@ -111,7 +111,7 @@ How this works
   • You can stop mid-way and resume later — state is saved per question.
 ```
 
-Then the tool writes `Product-Definition/role-selection.md`:
+Then the tool writes `Product-Definition/interview/role-selection.md`:
 
 ```markdown
 # Role Selection
@@ -148,7 +148,7 @@ ready
 
 ### 2. Project type
 
-The tool writes `Product-Definition/project-type.md`:
+The tool writes `Product-Definition/interview/project-type.md`:
 
 ```markdown
 # Project Type
@@ -219,7 +219,7 @@ The tool records both answers, maps internally (B → Brownfield), updates state
 
 ### 3. Business role — depth selection
 
-First thing in the Business role, the tool writes `Product-Definition/business/vision-questions.md`:
+First thing in the Business role, the tool writes `Product-Definition/interview/business/vision-questions.md`:
 
 ```markdown
 # Business Interview — Depth Selection
@@ -251,7 +251,7 @@ The tool records the depth and builds the question set. Because project type is 
 
 ### 4. Answering a batch
 
-The tool writes the first batch into `Product-Definition/business/vision-questions.md`:
+The tool writes the first batch into `Product-Definition/interview/business/vision-questions.md`:
 
 ```markdown
 # Business Interview — Section 1 of 6: Executive Summary
@@ -587,7 +587,7 @@ B) No — skip and go straight to the AI-DLC handoff
 ```
 
 Laura picks **A**. The tool writes a 5-question batch into
-`Product-Definition/visual/visual-questions.md` covering persona, depth (happy
+`Product-Definition/interview/visual/visual-questions.md` covering persona, depth (happy
 path vs happy path + error paths), style (wireframe / lo-fi / branded), sample
 data (realistic vs placeholder) and viewport (desktop / mobile / both).
 
@@ -615,7 +615,7 @@ Discard and Skip). Laura approves.
 
 ### 8. Final handoff
 
-With both roles ✅ complete and the Visual Sketch stage resolved (approved, skipped, or discarded), the tool shows:
+With both roles ✅ complete and the Visual Sketch stage resolved (approved, skipped, or discarded), the tool prints the handoff prompt below. The OPTIONAL block appears only if you approved the Visual Sketch — it is omitted when the stage was skipped or discarded.
 
 ```
 ╔════════════════════════════════════════════════════════════════╗
@@ -624,27 +624,45 @@ With both roles ✅ complete and the Visual Sketch stage resolved (approved, ski
 ║                                                                ║
 ╚════════════════════════════════════════════════════════════════╝
 
-Outputs ready for AI-DLC Inception:
-  • Product-Definition/vision-document.md
-  • Product-Definition/technical-environment.md
-  • Product-Definition/open-questions.md
-
-Optional sidecar (only if you approved the Visual Sketch stage):
-  • Product-Definition/visual/user-journey.md
-  • Product-Definition/visual/mockups/index.html
-
 To kick off AI-DLC, paste this into a fresh context:
 
-  I want to start a new project. Please read
-  `Product-Definition/vision-document.md` and
-  `Product-Definition/technical-environment.md`, then begin the
-  AIDLC workflow. Treat the items in `Product-Definition/open-questions.md`
-  as pre-declared ambiguities to resolve during Requirements Analysis.
+  I'm starting a new project. Please read the following inputs before
+  beginning the AI-DLC workflow:
 
-Total time: ~48 minutes (Business 22 min, Technical 26 min). The visual
-folder is for human review — AI-DLC does not consume it.
-State, audit, and answer history remain in Product-Definition/
-for future reference.
+  REQUIRED inputs (always present):
+
+  • Product-Definition/vision-document.md
+    The Vision Document — what we're building, who it's for, the success
+    metrics, and what's in/out of MVP scope. Use this as the primary input
+    to Requirements Analysis.
+
+  • Product-Definition/technical-environment.md
+    The Technical Environment Document — required languages, frameworks,
+    cloud services, architecture patterns, security/compliance constraints,
+    testing standards, and example code patterns. These are binding
+    constraints for NFR Requirements, NFR Design, Infrastructure Design,
+    and Code Generation.
+
+  • Product-Definition/open-questions.md
+    Pre-declared ambiguities and open items the user already knows about.
+    Treat each as a clarifying question to resolve during Requirements
+    Analysis — do not silently assume defaults.
+
+  OPTIONAL inputs (only if Visual Sketch was approved — check if folder exists):
+
+  • Product-Definition/visual/user-journey.md
+    Mermaid flowchart(s) showing the user journey through the product per
+    persona. Use as reference for UX flows when designing requirements
+    and APIs.
+
+  • Product-Definition/visual/mockups/index.html and the screen files
+    Self-contained HTML mockups of the main screens. NOT functional code —
+    they are visual references for primary CTAs, screen-to-screen
+    navigation, and the data each screen displays. Cross-reference against
+    user-journey.md.
+
+  Please confirm you've read all available files, then begin the AI-DLC
+  workflow at the Inception phase.
 ```
 
 See [Side-flow — handing off to AI-DLC](#side-flow-3-handing-off-to-ai-dlc) for more detail.
@@ -794,25 +812,24 @@ This back-propagation step is what keeps the final document coherent even when a
 
 ## Side-flow 3: handing off to AI-DLC
 
-At the end of the session, you have three files AI-DLC needs:
+At the end of the session, you have three required files AI-DLC needs, plus an optional visual sidecar if you ran the Visual Sketch stage:
+
+**Required**
 
 - `Product-Definition/vision-document.md`
 - `Product-Definition/technical-environment.md`
 - `Product-Definition/open-questions.md`
 
+**Optional (only if Visual Sketch was approved)**
+
+- `Product-Definition/visual/user-journey.md`
+- `Product-Definition/visual/mockups/index.html` and the screen files
+
 ### Option 1 — Same AI assistant, fresh context
 
-The simplest handoff: close the current chat / session / window, start a new one, then paste:
+The simplest handoff: close the current chat / session / window, start a new one, then paste the handoff prompt the tool printed at the end (the one in [Final handoff](#8-final-handoff)). It tells AI-DLC the path of every file and what each one contains.
 
-```
-I want to start a new project. Please read
-`Product-Definition/vision-document.md` and
-`Product-Definition/technical-environment.md`, then begin the
-AIDLC workflow. Treat the items in `Product-Definition/open-questions.md`
-as pre-declared ambiguities to resolve during Requirements Analysis.
-```
-
-AI-DLC will scan both documents, detect greenfield vs brownfield from the project-type metadata, and jump into Requirements Analysis with most of its usual clarifying questions already answered.
+If you skipped or discarded Visual Sketch, the tool already omitted the OPTIONAL block from the printed prompt, so you can just paste it as-is.
 
 ### Option 2 — Different AI assistant or later session
 
@@ -825,13 +842,16 @@ Same prompt, same files. The documents are self-contained markdown — they do n
 | `vision-document.md` | Primary input to Requirements Analysis. Skips "what are we building?" clarifying questions. |
 | `technical-environment.md` | Binding constraints for NFR Requirements, NFR Design, Infrastructure Design, and Code Generation. |
 | `open-questions.md` | First batch of clarifying questions AI-DLC will present in the `requirement-verification-questions.md` file. |
+| `visual/user-journey.md` (optional) | Reference for UX flows when designing requirements and APIs. |
+| `visual/mockups/*.html` (optional) | Visual references for primary CTAs, screen-to-screen navigation, and the data each screen displays. NOT functional code — Construction phase regenerates real components. |
 
 ### What to keep from the `Product-Definition/` folder
 
-After handoff, you can delete or archive the interview artefacts (`business/`, `technical/`, `vision-questions.md`, `tech-env-questions.md`) if you want. But keep:
+After handoff, you can delete or archive the `interview/` folder (initial setup answers, per-batch question files, answer history) if you want. But keep:
 
 - `vision-document.md` and `technical-environment.md` — AI-DLC references them throughout the workflow.
 - `open-questions.md` — AI-DLC consumes it during Requirements Analysis.
+- `visual/` — if you ran Visual Sketch, useful for stakeholder alignment and as Construction-phase context.
 - `audit.md` — valuable for post-mortems or compliance review; never deleted.
 - `aidlc-discovery-state.md` — small, keep it for future reference (e.g. if you re-run this tool for a v2).
 

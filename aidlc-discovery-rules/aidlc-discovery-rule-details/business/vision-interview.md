@@ -6,7 +6,7 @@ Structured interview that produces `Product-Definition/vision-document.md`. Base
 
 ## Step 0 — Depth selection (run ONCE at the start of the Business role)
 
-Before writing any interview questions, ask the user how deep they want to go. Write this into `Product-Definition/business/vision-questions.md`:
+Before writing any interview questions, ask the user how deep they want to go. Write this into `Product-Definition/interview/business/vision-questions.md`:
 
 ```markdown
 # Business Interview — Depth Selection
@@ -48,7 +48,7 @@ When the user replies `ready`:
 For each section:
 
 1. Select unanswered questions from the bank below (only those matching the chosen depth and project type).
-2. Write a batch of 5–7 questions into `Product-Definition/business/vision-questions.md` using the formats from `common/question-format-guide.md`.
+2. Write a batch of 5–7 questions into `Product-Definition/interview/business/vision-questions.md` using the formats from `common/question-format-guide.md`.
 3. Start every batch with the mandatory **progress header**:
 
    ```markdown

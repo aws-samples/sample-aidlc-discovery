@@ -17,7 +17,7 @@ Asked once per session, immediately after Role Selection. The answer branches se
 
 ## Question to ask (user-facing — keep the wording exactly like this)
 
-Write the following into `Product-Definition/project-type.md`:
+Write the following into `Product-Definition/interview/project-type.md`:
 
 ```markdown
 # Project Type

@@ -12,7 +12,7 @@ AI-DLC's Requirements Analysis works best when it knows up front what is uncerta
 
 For each completed role, scan:
 
-1. `Product-Definition/<role>/*-answers-history.md` for:
+1. `Product-Definition/interview/<role>/*-answers-history.md` for:
    - Answers tagged `X)` with wording that expresses uncertainty ("maybe", "not sure", "we haven't decided", "TBD")
    - Answers that combine options with a deferral ("A for now, possibly B later")
    - Caveats that include temporal markers ("to be revisited", "phase 2", "after pilot")

@@ -11,10 +11,10 @@ Execute `shared/open-questions-collector.md` for the Technical role. This update
 ## Step 2 — Render the Technical Environment Document
 
 Read:
-- `Product-Definition/role-selection.md`
-- `Product-Definition/project-type.md`
+- `Product-Definition/interview/role-selection.md`
+- `Product-Definition/interview/project-type.md`
 - `Product-Definition/vision-document.md` (if present — used only for cross-references in prose)
-- `Product-Definition/technical/tech-env-answers-history.md`
+- `Product-Definition/interview/technical/tech-env-answers-history.md`
 - `Product-Definition/open-questions.md`
 
 Write `Product-Definition/technical-environment.md` using the structure below. All sections are mandatory; if one has no content, include a short "Not applicable — <reason>" line.
@@ -244,18 +244,7 @@ Wait for the user's explicit choice.
      - Technical (Technical Env Doc):  ✅ Complete (approved <ISO8601>)
      ```
   2. Log approval in `audit.md` with stage label `Technical Interview — Completion`.
-  3. Transition to the Final Handoff described in `aidlc-discovery-core-workflow.md`:
-     ```
-     AI-DLC Discovery Complete ✅
-
-     Outputs ready for AI-DLC Inception:
-       - Product-Definition/vision-document.md
-       - Product-Definition/technical-environment.md
-       - Product-Definition/open-questions.md
-
-     To kick off AI-DLC, run the AI-DLC workflow and point it at the
-     Product-Definition/ directory as the primary input.
-     ```
+  3. Transition to the Final Handoff described in `aidlc-discovery-core-workflow.md`. The handoff message presents the three required AI-DLC inputs (`vision-document.md`, `technical-environment.md`, `open-questions.md`) plus, when Visual Sketch was approved, the optional `visual/` sidecar. Use the exact template in `aidlc-discovery-core-workflow.md` §"Final Handoff".
 
 ## Step 6 — Log everything
 

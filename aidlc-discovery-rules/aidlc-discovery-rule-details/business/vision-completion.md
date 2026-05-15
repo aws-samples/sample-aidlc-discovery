@@ -11,9 +11,9 @@ Execute `shared/open-questions-collector.md` for the Business role only. This pr
 ## Step 2 — Render the Vision Document
 
 Read:
-- `Product-Definition/role-selection.md`
-- `Product-Definition/project-type.md`
-- `Product-Definition/business/vision-answers-history.md`
+- `Product-Definition/interview/role-selection.md`
+- `Product-Definition/interview/project-type.md`
+- `Product-Definition/interview/business/vision-answers-history.md`
 - `Product-Definition/open-questions.md`
 
 Write `Product-Definition/vision-document.md` using the structure below. All sections are mandatory. If a section has no content, include a short "Not applicable — <reason>" line rather than omitting the heading.

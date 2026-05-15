@@ -9,14 +9,14 @@ Structured interview that produces `Product-Definition/technical-environment.md`
 Before the first question, load for context (do NOT modify):
 
 - `Product-Definition/vision-document.md` if it exists (from the Business role)
-- `Product-Definition/project-type.md`
-- `Product-Definition/role-selection.md`
+- `Product-Definition/interview/project-type.md`
+- `Product-Definition/interview/role-selection.md`
 
 If the Vision Document exists, use it to pre-fill educated defaults in questions (e.g. suggest a deployment model aligned with the MVP's NFR priorities). Always present the user with full options anyway — the Technical role may override Business-driven assumptions.
 
 ## Step 0 — Depth selection (run ONCE at the start of the Technical role)
 
-Write this into `Product-Definition/technical/tech-env-questions.md`:
+Write this into `Product-Definition/interview/technical/tech-env-questions.md`:
 
 ```markdown
 # Technical Interview — Depth Selection
@@ -60,7 +60,7 @@ When the user replies `ready`:
 Same as the Business interview:
 
 1. Select unanswered questions from the bank matching depth and project type.
-2. Write 5–7 questions per batch into `Product-Definition/technical/tech-env-questions.md`.
+2. Write 5–7 questions per batch into `Product-Definition/interview/technical/tech-env-questions.md`.
 3. Start every batch with the mandatory **progress header** and end with the mandatory **footer**:
 
    ```markdown

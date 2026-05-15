@@ -10,7 +10,7 @@ Determine which of the two AI-DLC Discovery the user wants to produce in this se
 
 ## Question to ask
 
-Write the following into `Product-Definition/role-selection.md` using the `[Answer]:` tag format from `question-format-guide.md`. Then stop and wait for the user to answer.
+Write the following into `Product-Definition/interview/role-selection.md` using the `[Answer]:` tag format from `question-format-guide.md`. Then stop and wait for the user to answer.
 
 ```markdown
 # Role Selection

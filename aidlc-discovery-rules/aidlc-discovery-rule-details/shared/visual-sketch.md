@@ -11,7 +11,7 @@ This stage is **opt-in**. Default is to skip. Visuals are a sidecar — they liv
 
 ## Step 0 — Prompt the user (always)
 
-Before generating anything, ask the user whether they want to run this stage. Write a single question into `Product-Definition/visual-prompt.md`:
+Before generating anything, ask the user whether they want to run this stage. Write a single question into `Product-Definition/interview/visual-prompt.md`:
 
 ```markdown
 # Visual Sketch — Optional
@@ -28,7 +28,7 @@ B) No — skip and go straight to the AI-DLC handoff
 
 Wait for the user to reply `ready` (or the localised equivalent — see `common/language-handling.md`). Re-read the file. Then:
 
-- **B** → log the choice in `audit.md` (stage `Visual Sketch — Skipped`), delete `visual-prompt.md`, proceed to Final Handoff.
+- **B** → log the choice in `audit.md` (stage `Visual Sketch — Skipped`), delete `Product-Definition/interview/visual-prompt.md`, proceed to Final Handoff.
 - **A** → continue with Step 1.
 
 Update `aidlc-discovery-state.md`:
@@ -41,7 +41,7 @@ Update `aidlc-discovery-state.md`:
 
 ## Step 1 — Mini-interview (5 questions)
 
-Write the following batch into `Product-Definition/visual/visual-questions.md`. Render in the user's language (see `common/language-handling.md`). Per-question state tracked in `aidlc-discovery-state.md` under `## Visual Questions` as `[ ] V1`…`[ ] V5`.
+Write the following batch into `Product-Definition/interview/visual/visual-questions.md`. Render in the user's language (see `common/language-handling.md`). Per-question state tracked in `aidlc-discovery-state.md` under `## Visual Questions` as `[ ] V1`…`[ ] V5`.
 
 ```markdown
 # Visual Sketch — Questions (5)
@@ -95,7 +95,7 @@ C) Both — same screens generated twice, one set per viewport
 Reply `ready` when all 5 answers are filled.
 ```
 
-Wait for `ready`, re-read, validate per `common/content-validation.md`, append a single block to `Product-Definition/visual/visual-answers-history.md`, tick all five state checkboxes.
+Wait for `ready`, re-read, validate per `common/content-validation.md`, append a single block to `Product-Definition/interview/visual/visual-answers-history.md`, tick all five state checkboxes.
 
 ## Step 2 — Generation (delegated to the agent)
 
@@ -106,7 +106,7 @@ The agent now produces the visuals. Follow this exact order — do not reorder.
 Read in this order:
 1. `Product-Definition/vision-document.md` — primary source for personas, features, primary actions, terminology.
 2. `Product-Definition/technical-environment.md` (if it exists) — informs anything visible to the user (auth choice, multi-language, accessibility constraints).
-3. `Product-Definition/visual/visual-answers-history.md` — the 5 answers.
+3. `Product-Definition/interview/visual/visual-answers-history.md` — the 5 answers.
 
 ### 2b. Generate the user journey first
 
@@ -193,18 +193,19 @@ Write `Product-Definition/visual/mockups/index.html`. It lists every screen with
 
 ```
 Product-Definition/
-└── visual/
+├── visual/                            # output — referenced from the AI-DLC handoff
+│   ├── user-journey.md
+│   └── mockups/
+│       ├── index.html
+│       ├── 01-<slug>.html
+│       ├── 02-<slug>.html
+│       └── ...
+└── interview/visual/                  # workspace — process artefacts
     ├── visual-questions.md
-    ├── visual-answers-history.md
-    ├── user-journey.md
-    └── mockups/
-        ├── index.html
-        ├── 01-<slug>.html
-        ├── 02-<slug>.html
-        └── ...
+    └── visual-answers-history.md
 ```
 
-If V5 = Both, replace the flat layout with `mockups/desktop/…` and `mockups/mobile/…`, plus a single top-level `index.html` linking to both viewport indexes.
+If V5 = Both, replace the flat `mockups/` layout with `mockups/desktop/…` and `mockups/mobile/…`, plus a single top-level `index.html` linking to both viewport indexes.
 
 ## Step 3 — Validate before presenting the gate
 
@@ -269,7 +270,7 @@ Wait for the user's explicit choice.
   2. Log approval in `audit.md` with stage `Visual Sketch — Completion`.
   3. Proceed to Final Handoff.
 - **Discard and Skip**:
-  1. Delete `Product-Definition/visual/` entirely.
+  1. Delete `Product-Definition/visual/` AND `Product-Definition/interview/visual/` entirely.
   2. Update state status to `Discarded`.
   3. Log in `audit.md` with stage `Visual Sketch — Discarded` and the user's reason if given.
   4. Proceed to Final Handoff.
