@@ -8,10 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
-### Changed
-
-- **Release packaging trimmed.** The published zip (and therefore the installed `.aidlc/aidlc-discovery/` package) now ships only the runtime rules (`aidlc-discovery-rules/`), user-facing reference docs (`README.md`, `how-to-use.md`, `CHANGELOG.md`), `LICENSE`, `VERSION`, and `.source`. Repo-governance files (`install.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`) are no longer bundled — they are not needed inside the installed package. Updated the Manual install layout in `install.md` accordingly.
-
 ### Planned
 
 - **First-class source ingestion (formal extraction mode)** — a rule-governed alternative to the prompt-based [pre-loading pattern](README.md#pre-loading-context-from-files-or-mcp). Will include:
@@ -24,6 +20,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Multi-user identity and session locking so two people can work on the same `Product-Definition/` folder without trampling each other's state.
 - Optional re-open of approved sections post-gate without manual state editing.
 - End-to-end validation of the install flow in Kiro, Cursor, Cline, Amazon Q Developer, Antigravity, and Copilot — move each from "experimental" to "validated" in [install.md](install.md).
+
+---
+
+## [0.2.2] — 2026-06-02
+
+Patch release. Trims the published package so it ships only what the installed `.aidlc/aidlc-discovery/` needs.
+
+### Changed
+
+- **Release packaging trimmed.** The published zip (and therefore the installed `.aidlc/aidlc-discovery/` package) now ships only the runtime rules (`aidlc-discovery-rules/`), user-facing reference docs (`README.md`, `how-to-use.md`, `CHANGELOG.md`), `LICENSE`, `VERSION`, and `.source`. Repo-governance files (`install.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`) are no longer bundled — they are not needed inside the installed package. Updated the Manual install layout in `install.md` accordingly.
 
 ---
 
@@ -144,6 +150,7 @@ First working version. All core stages and both role interviews are complete.
 ---
 
 [Unreleased]: #unreleased
+[0.2.2]: #022--2026-06-02
 [0.2.1]: #021--2026-05-15
 [0.2.0]: #020--2026-05-15
 [0.1.0]: #010--2026-04-28
