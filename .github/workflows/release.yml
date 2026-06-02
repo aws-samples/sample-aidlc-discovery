@@ -38,11 +38,12 @@ jobs:
           STAGE="staging/aidlc-discovery"
           mkdir -p "${STAGE}"
 
-          # Copy only the files that belong in the release — not .github/,
-          # not the staging dir itself, not any VCS junk.
+          # Copy only what belongs in the installed package: the runtime rules,
+          # user-facing reference docs, and LICENSE. Repo-governance docs
+          # (install.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md) are intentionally
+          # excluded — they are not needed inside .aidlc/aidlc-discovery/.
           cp -r aidlc-discovery-rules "${STAGE}/"
-          cp README.md how-to-use.md install.md CHANGELOG.md "${STAGE}/"
-          cp CONTRIBUTING.md CODE_OF_CONDUCT.md LICENSE "${STAGE}/"
+          cp README.md how-to-use.md CHANGELOG.md LICENSE "${STAGE}/"
 
           # Stamp the installed version so `cat .aidlc/aidlc-discovery/VERSION`
           # reports what the user has.

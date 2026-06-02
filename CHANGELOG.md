@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- **Release packaging trimmed.** The published zip (and therefore the installed `.aidlc/aidlc-discovery/` package) now ships only the runtime rules (`aidlc-discovery-rules/`), user-facing reference docs (`README.md`, `how-to-use.md`, `CHANGELOG.md`), `LICENSE`, `VERSION`, and `.source`. Repo-governance files (`install.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`) are no longer bundled — they are not needed inside the installed package. Updated the Manual install layout in `install.md` accordingly.
+
 ### Planned
 
 - **First-class source ingestion (formal extraction mode)** — a rule-governed alternative to the prompt-based [pre-loading pattern](README.md#pre-loading-context-from-files-or-mcp). Will include:

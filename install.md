@@ -171,7 +171,7 @@ If your agent does not have shell access (for example, a web-only assistant), do
 
 - Go to `https://github.com/aws-samples/sample-aidlc-discovery/releases/latest` and download the zip asset named `aidlc-discovery-v<version>.zip`.
 - Alternative: clone the repo at a specific tag: `git clone --branch v0.1.0 https://github.com/aws-samples/sample-aidlc-discovery.git`.
-- Extract the contents. You should see a top-level `aidlc-discovery/` directory containing `aidlc-discovery-rules/`, `README.md`, `how-to-use.md`, `install.md`, `CHANGELOG.md`, `VERSION`, `.source`.
+- Extract the contents. You should see a top-level `aidlc-discovery/` directory containing `aidlc-discovery-rules/`, `README.md`, `how-to-use.md`, `CHANGELOG.md`, `VERSION`, `.source`.
 
 ### 2. Copy into your project
 
@@ -185,7 +185,6 @@ Copy the extracted `aidlc-discovery/` directory into `.aidlc/aidlc-discovery/` a
         ├── .source
         ├── README.md
         ├── how-to-use.md
-        ├── install.md
         ├── CHANGELOG.md
         └── aidlc-discovery-rules/
             ├── aidlc-discovery-core-workflow.md
