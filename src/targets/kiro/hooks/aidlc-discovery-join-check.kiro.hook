@@ -1,0 +1,13 @@
+{
+  "name": "aidlc-discovery-join-check",
+  "version": "1.0.0",
+  "description": "When a role's state changes, reminds the orchestrator to run the deterministic join-barrier checker before consolidating open questions.",
+  "when": {
+    "type": "postToolUse",
+    "toolTypes": [".*write.*"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "If a role's state just changed to 'complete', run the join-barrier checker before proceeding:\n1. Run: node .kiro/aidlc-common/scripts/process-checker.js Product-Definition/state/session-index.md\n2. If 'join' is 'ready', run the open-questions (join) skill to consolidate and flag contradictions.\n3. Otherwise, continue the in-progress role. Do not run the join until both roles are complete."
+  }
+}

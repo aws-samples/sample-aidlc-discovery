@@ -1,0 +1,16 @@
+{
+  "_comment": "Claude Code / Claude Cowork desktop adapter. Core skills under .claude/skills/ are agentskills.io-compatible and load as-is. Entry point: /aidlc-discovery slash command (.claude/commands/). This file adds the join-barrier hook (Claude hook schema).",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/aidlc-common/scripts/process-checker.js Product-Definition/state/session-index.md"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -23,6 +23,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [2.0.0] — 2026-06-02 (skill-based multiplatform rewrite · pre-release)
+
+v2 repackages aidlc-discovery as an **independent, skill-based, multiplatform** tool. The interview *method* (question banks, Quick/Full depth, visual sketch) is reused from v1; the *packaging and orchestration* are new. AI-DLC is a consumer of the output, not its container.
+
+### Added
+
+- **Skill-based architecture** (agentskills.io): a `discovery-orchestrator` (setup) plus `product-discovery`, `tech-discovery`, `open-questions`, and `visual-sketch` skills, with shared `aidlc-common/` (orchestrator protocol, conventions, deterministic `process-checker.js`).
+- **Multiplatform via core + adapters + `build.js`** → `dist/<target>/`: `kiro` (IDE/CLI), `claude` (Claude Code **and** Claude Cowork desktop), `amazon-quick`. All are Tier 1.
+- **Parallel roles**: PM ∥ tech lead in separate sessions, with **single-writer state per role** and a deterministic **join barrier** (`process-checker.js`) that consolidates open-questions and reconciles cross-role contradictions. Turns v1's `Both-Sequential` into `Both-Parallel` without races.
+- **Two interaction modes**: `batch` (file `[Answer]:`) and `conversational` (question-by-question in chat).
+- **Self-contained bundles**: `build.js` packages the v1 question banks into each target, so installs don't depend on fetching v1.
+
+### Changed
+
+- **Install model**: from "download release zip into `.aidlc/`" (v1) to "`node build.js` → copy `dist/<target>/` into the platform's install dir" (v2), plus an automated install prompt per platform.
+
+### Removed
+
+- **Language module**: v2 drops explicit language detection/handling — the agent uses the user's language, like AI-DLC. Control tokens and control files stay in English.
+
+### Fixed
+
+- **Batch information loss**: reinstated v1's split between an active-batch buffer (`*-questions.md`) and an **append-only `*-answers-history.md`**, which the initial v2 scaffolding had omitted.
+
+---
+
 ## [0.2.2] — 2026-06-02
 
 Patch release. Trims the published package so it ships only what the installed `.aidlc/aidlc-discovery/` needs.
