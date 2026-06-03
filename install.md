@@ -16,7 +16,7 @@ step — the user should not have to create any file manually.
 
 1. Download the latest aidlc-discovery release:
    - Use the GitHub API to find the latest release asset URL:
-     curl -sL https://api.github.com/repos/aws-samples/sample-aidlc-discovery/releases/latest \
+     curl -sL https://api.github.com/repos/aws-samples/sample-aidlc-discovery/releases/tags/v1.0.0 \
        | grep -o '"browser_download_url": *"[^"]*\.zip"' \
        | head -1 \
        | cut -d'"' -f4
@@ -169,8 +169,8 @@ If your agent does not have shell access (for example, a web-only assistant), do
 
 ### 1. Download and extract the release
 
-- Go to `https://github.com/aws-samples/sample-aidlc-discovery/releases/latest` and download the zip asset named `aidlc-discovery-v<version>.zip`.
-- Alternative: clone the repo at a specific tag: `git clone --branch v0.1.0 https://github.com/aws-samples/sample-aidlc-discovery.git`.
+- Go to `https://github.com/aws-samples/sample-aidlc-discovery/releases/tag/v1.0.0` and download the zip asset named `aidlc-discovery-v1.0.0.zip`.
+- Alternative: clone the repo at a specific tag: `git clone --branch v1.0.0 https://github.com/aws-samples/sample-aidlc-discovery.git`.
 - Extract the contents. You should see a top-level `aidlc-discovery/` directory containing `aidlc-discovery-rules/`, `README.md`, `how-to-use.md`, `CHANGELOG.md`, `VERSION`, `.source`.
 
 ### 2. Copy into your project

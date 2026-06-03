@@ -33,6 +33,16 @@ Patch release. Trims the published package so it ships only what the installed `
 
 ---
 
+## [1.0.0] — 2026-06-02
+
+First **stable** release. Promotes the 0.2.x line to a supported **1.0.0** major — same functionality, now versioned as v1.
+
+### Changed
+
+- The install prompt now pins to the **v1.0.0** release instead of `latest`, so v1 installations stay on the v1 line as later majors ship.
+
+---
+
 ## [0.2.1] — 2026-05-15
 
 Bugfix follow-up to v0.2.0. Improves the UX of the AI-DLC handoff prompt so users can copy and paste it cleanly without dragging the banner or stale conditional headers along.
@@ -151,6 +161,7 @@ First working version. All core stages and both role interviews are complete.
 
 [Unreleased]: #unreleased
 [0.2.2]: #022--2026-06-02
+[1.0.0]: #100--2026-06-02
 [0.2.1]: #021--2026-05-15
 [0.2.0]: #020--2026-05-15
 [0.1.0]: #010--2026-04-28
