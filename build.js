@@ -38,7 +38,7 @@ function build(target) {
     copyDir(path.join(SRC, "targets", target), out);
     console.log(`built ${path.relative(ROOT, out)}`);
   } else if (target === "amazon-quick") {
-    // Quick installs ONE self-contained skill folder under ~/.quickwork/.../skills/<name>/.
+    // Quick installs ONE self-contained skill folder (imported via the UI); everything is bundled inside it.
     const skill = path.join(dist, "skills", "aidlc-discovery");
     copyDir(path.join(SRC, "targets", "amazon-quick"), skill); // SKILL.md
     copyCore(skill);                                           // core bundled INSIDE the skill folder

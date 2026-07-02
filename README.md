@@ -64,7 +64,7 @@ node build.js kiro       # one target
 |---|---|---|
 | Kiro IDE / CLI | `dist/kiro/.kiro/` → project `.kiro/` | `start aidlc-discovery` |
 | Claude Code / Cowork desktop | `dist/claude/.claude/` → project `.claude/` | `/aidlc-discovery` |
-| Amazon Quick desktop | `dist/amazon-quick/skills/aidlc-discovery/` → `~/.quickwork/profiles/federate-prod/skills/` | `start aidlc-discovery` |
+| Amazon Quick desktop | `dist/amazon-quick/skills/aidlc-discovery/` → import via UI (Agents & skills → Skills → + Create → Import from file) | `start aidlc-discovery` |
 
 Automated prompt install + per-platform reference tables → **[install.md](install.md)**.
 

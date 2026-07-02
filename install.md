@@ -2,7 +2,7 @@
 
 Two ways to install:
 
-- **Automated (paste a prompt)** — your agent downloads the matching bundle from the `v2.0.0` release and installs it. No Node, no local build. *Recommended for users.*
+- **Automated (paste a prompt)** — your agent downloads the matching bundle from the `v2.0.1` release and installs it. No Node, no local build. *Recommended for users.*
 - **From source (build)** — run `node build.js` and copy `dist/<target>/` yourself (the per-platform sections below). *For contributors / offline.*
 
 ## Automated install (paste a prompt)
@@ -13,17 +13,19 @@ Paste this into your agent (Kiro, Claude Code, or Amazon Quick desktop):
 Set up aidlc-discovery v2 in this project. Do every step yourself and report back when done:
 
 1. Detect which platform you are running in: Kiro, Claude Code, or Amazon Quick desktop.
-2. Download the matching asset from the v2.0.0 release (replace <platform> with kiro | claude | quick):
-   https://github.com/aws-samples/sample-aidlc-discovery/releases/download/v2.0.0/aidlc-discovery-<platform>-v2.0.0.zip
+2. Download the matching asset from the v2.0.1 release (replace <platform> with kiro | claude | quick):
+   https://github.com/aws-samples/sample-aidlc-discovery/releases/download/v2.0.1/aidlc-discovery-<platform>-v2.0.1.zip
 3. Unzip and install to the platform's location:
    - kiro   -> merge the bundle into ./.kiro/
    - claude -> merge the bundle into ./.claude/
-   - quick  -> copy the aidlc-discovery/ skill folder into ~/.quickwork/profiles/federate-prod/skills/
+   - quick  -> import the aidlc-discovery/ skill folder through the Quick desktop UI
+               (Agents & skills -> Skills tab -> + Create -> Import from file -> select SKILL.md).
+               Quick places the skill under your own profile; do not hardcode a profile path.
 4. Confirm the install path and the invocation phrase
    (Kiro / Quick: "start aidlc-discovery"; Claude Code: "/aidlc-discovery").
 ```
 
-> `v2.0.0` is a pre-release, so the prompt pins the `v2.0.0` tag explicitly — it works even while `releases/latest` still points to v1.
+> `v2.0.1` is a pre-release, so the prompt pins the `v2.0.1` tag explicitly — it works even while `releases/latest` still points to v1.
 
 ## Prerequisites
 
@@ -86,20 +88,24 @@ cp -R dist/claude/.claude/* <your-project>/.claude/
 
 ## Amazon Quick desktop
 
-Quick installs each skill as an **isolated, self-contained folder** under your user profile.
+Quick installs each skill as an **isolated, self-contained folder** under your own profile. Quick
+resolves that location itself — never hardcode a profile path (it differs per user and sign-in).
 
 | Piece | Location | Role |
 |---|---|---|
-| Skill | `~/.quickwork/profiles/federate-prod/skills/aidlc-discovery/SKILL.md` | the Quick skill (conversational transport) |
-| Core (bundled inside) | `…/aidlc-discovery/aidlc-common/` + `skills/` + `aidlc-discovery-rules/` | core packaged inside the skill folder (Quick does not load siblings) |
+| Skill | `aidlc-discovery/SKILL.md` | the Quick skill (conversational transport) |
+| Core (bundled inside) | `aidlc-discovery/aidlc-common/` + `skills/` + `aidlc-discovery-rules/` | core packaged inside the skill folder (Quick does not load siblings) |
 
-**Install (copy):**
+**Install (UI — recommended):** In the Quick desktop app, choose **Agents & skills** → **Skills** tab →
+**+ Create** → **Import from file**, then select `dist/amazon-quick/skills/aidlc-discovery/SKILL.md`
+(or upload a zip of the `aidlc-discovery/` folder if your build supports folder import). Quick places
+the skill under your profile automatically.
+
+**Build the bundle first:**
 ```bash
 node build.js amazon-quick
-mkdir -p ~/.quickwork/profiles/federate-prod/skills
-cp -R dist/amazon-quick/skills/aidlc-discovery ~/.quickwork/profiles/federate-prod/skills/
+# -> dist/amazon-quick/skills/aidlc-discovery/  (import this folder via the UI above)
 ```
-**Install (UI):** Settings → Capabilities → Skills → **Import** → select `…/aidlc-discovery/SKILL.md` (or **Upload** a zip of the folder).
 **Invoke:** `start aidlc-discovery`. Requires the Amazon Quick **desktop** app and sign-in.
 
 ---

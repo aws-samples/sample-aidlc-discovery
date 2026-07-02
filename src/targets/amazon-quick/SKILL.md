@@ -21,9 +21,9 @@ depends-on: [quick_suite__spaces]
 
 Amazon Quick adapter for AI-DLC Discovery. This skill is **self-contained**: the shared core is bundled
 inside this skill's own folder (`aidlc-common/`, `skills/`, `aidlc-discovery-rules/`), because Quick
-installs each skill as an isolated folder under `~/.quickwork/profiles/federate-prod/skills/<name>/`
-and does not load sibling directories. Interaction is **conversational** (Quick has no file-based
-`[Answer]:` flow): questions are asked in chat.
+loads each skill as an isolated folder and does not load sibling directories. All file references below
+are **relative to this skill's folder**; Quick resolves the actual install location. Interaction is
+**conversational** (Quick has no file-based `[Answer]:` flow): questions are asked in chat.
 
 ## Workflow
 

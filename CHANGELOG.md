@@ -23,6 +23,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [2.0.1] — 2026-07-02 (pre-release)
+
+Patch release. Fixes the Amazon Quick installation.
+
+### Fixed
+
+- **Amazon Quick install fix.** Some users installing from GitHub hit an "access to a private folder" error during Amazon Quick setup. The skill now describes its bundled files (`aidlc-common/`, `skills/`, `aidlc-discovery-rules/`) **relative to its own folder**, matching how Quick resolves the install location. The install docs now use the supported desktop UI import flow (**Agents & skills → Skills → + Create → Import from file**), and the automated install prompt is pinned to `v2.0.1` so users pull the corrected assets.
+
+---
+
 ## [2.0.0] — 2026-06-02 (skill-based multiplatform rewrite · pre-release)
 
 v2 repackages aidlc-discovery as an **independent, skill-based, multiplatform** tool. The interview *method* (question banks, Quick/Full depth, visual sketch) is reused from v1; the *packaging and orchestration* are new. AI-DLC is a consumer of the output, not its container.
@@ -186,6 +196,8 @@ First working version. All core stages and both role interviews are complete.
 ---
 
 [Unreleased]: #unreleased
+[2.0.1]: #201--2026-07-02
+[2.0.0]: #200--2026-06-02-skill-based-multiplatform-rewrite--pre-release
 [0.2.2]: #022--2026-06-02
 [1.0.0]: #100--2026-06-02
 [0.2.1]: #021--2026-05-15
