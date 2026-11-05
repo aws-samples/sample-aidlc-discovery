@@ -26,7 +26,7 @@ inputs:
     default: production
 depends-on: [discovery-signals, discovery-personas, discovery-use-case-scoring, discovery-working-backwards, discovery-gtm, discovery-prototype, discovery-validate, discovery-handoff]
 tools: [file_read, file_write, run_python]
-version: "0.4.0"
+version: "3.0.0"
 license: MIT-0
 ---
 

@@ -23,7 +23,7 @@ inputs:
     type: string
     default: discovery/data/
 tools: [file_rag_search, file_read, file_read_pdf, file_read_docx, run_python, file_write]
-version: "0.4.0"
+version: "3.0.0"
 license: MIT-0
 ---
 

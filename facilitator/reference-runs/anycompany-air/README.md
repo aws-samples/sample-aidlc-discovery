@@ -2,7 +2,7 @@
 
 **Facilitators only. Spoilers.**
 
-One complete Discovery run on the Air sample, with its telemetry, made by the automated end-to-end test on 30 October 2026 with skill 0.4.0: the skill ran all five phases in Claude Code with no team present, taking its defaults at every checkpoint. It passed every automated check (`TESTING.md`). Use it as the example of the current formats; `../anycompany-air-with-team/` shows what a team adds, but predates them.
+One complete Discovery run on the Air sample, with its telemetry, made by the automated end-to-end test on 30 October 2026 with skill 3.0.0: the skill ran all five phases in Claude Code with no team present, taking its defaults at every checkpoint. It passed every automated check (`TESTING.md`). Use it as the example of the current formats; `../anycompany-air-with-team/` shows what a team adds, but predates them.
 
 What to look at, in workshop order:
 

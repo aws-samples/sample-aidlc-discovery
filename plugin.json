@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "aidlc-discovery",
   "id": "aidlc-discovery",
-  "version": "0.4.0",
+  "version": "3.0.0",
   "format_version": "0.1",
   "description": "AI-DLC Discovery: run a Discovery workshop in five phases, from customer feedback to a Discovery brief, with one skill per job.",
   "license": "MIT-0",

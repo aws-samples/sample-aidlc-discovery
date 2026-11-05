@@ -19,7 +19,7 @@ inputs:
     type: string
     required: true
 tools: [file_read, file_write]
-version: "0.4.0"
+version: "3.0.0"
 license: MIT-0
 ---
 

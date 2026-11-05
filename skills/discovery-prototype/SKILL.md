@@ -22,7 +22,7 @@ inputs:
     required: false
 depends-on: [discovery-personas]
 tools: [file_read, file_write, open_in_session_tab]
-version: "0.4.0"
+version: "3.0.0"
 license: MIT-0
 ---
 

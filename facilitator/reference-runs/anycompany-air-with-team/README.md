@@ -4,7 +4,7 @@
 
 One complete Discovery run on the Air sample, facilitated by hand in Amazon Quick Desktop on 29 October 2026 by following `../../dry-run-air.md`, with the team's answers pasted from it. Unlike the unattended run (`../anycompany-air/`), every checkpoint here has a team decision in it: challenges, an override, changes to the prototype plan, and a decision review. It passes every automated check (`TESTING.md`).
 
-**Made before the telemetry and skill 0.4.0.** This run has no Say and do table, no telemetry evidence, no roadmap in `next-steps.md`, no candidates from Signals, no separate buyer and end-user personas, no AI feature block, and no AI quality target; a run today has all of them.
+**Made before the telemetry and skill 3.0.0.** This run has no Say and do table, no telemetry evidence, no roadmap in `next-steps.md`, no candidates from Signals, no separate buyer and end-user personas, no AI feature block, and no AI quality target; a run today has all of them.
 
 What it shows that the unattended run cannot:
 

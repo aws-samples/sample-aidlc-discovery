@@ -25,7 +25,7 @@ inputs:
     type: number
     default: 3
 tools: [file_rag_search, file_read, run_python, file_write]
-version: "0.4.0"
+version: "3.0.0"
 license: MIT-0
 ---
 

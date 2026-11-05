@@ -19,7 +19,7 @@ inputs:
     type: string
     default: score
 tools: [file_read, run_python, file_write]
-version: "0.4.0"
+version: "3.0.0"
 license: MIT-0
 ---
 
