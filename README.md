@@ -49,19 +49,19 @@ In this repository each skill is its own folder under [`skills/`](skills/), with
 
 ## Install
 
-1. Clone or download this repository, and build the package (Python 3.9 or later, no dependencies):
+1. Get the package. Either download `aidlc-discovery-vX.Y.Z.zip` from the [latest release](https://github.com/aws-samples/sample-aidlc-discovery/releases/latest) and unzip it, which gives you an `aidlc-discovery` folder, or clone this repository and build it (Python 3.9 or later, no dependencies):
 
    ```bash
    python3 scripts/build.py
    ```
 
    This writes `dist/aidlc-discovery/`: the plugin manifest and one skill, `aidlc-discovery`, with its modules.
-2. In Amazon Quick Desktop, open **Customize**, then **Skills**, choose **Create**, then **From folder**. Select `dist/aidlc-discovery`.
+2. In Amazon Quick Desktop, open **Customize**, then **Skills**, choose **Create**, then **From folder**. Select the unzipped `aidlc-discovery` folder, or `dist/aidlc-discovery` if you built it.
 3. In a new chat, ask `List my skills`. You should see one skill, **AI-DLC Discovery Workshop**.
 
 **How Amazon Quick stores the skill.** Importing from a folder uploads a snapshot of the skill to Amazon Quick's own storage. Amazon Quick reads that snapshot, not the folder on your computer, so you can move or delete the folder after importing, and changing files in it has no effect until you import again.
 
-**To update:** delete **AI-DLC Discovery Workshop** in **Customize**, **Skills** (the ⋮ menu on its row); build again (or download the new version); import the new `dist/aidlc-discovery`; and start a new chat. Check the version in `List my skills`.
+**To update:** delete **AI-DLC Discovery Workshop** in **Customize**, **Skills** (the ⋮ menu on its row); build again (or download and unzip the new release); import the new `aidlc-discovery` folder; and start a new chat. Check the version in `List my skills`.
 
 Copying the skill folder by hand into the Amazon Quick profile folder is not a supported install: Amazon Quick may not pick up later changes to it. Import from a folder.
 
