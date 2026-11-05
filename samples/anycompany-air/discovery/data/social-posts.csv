@@ -1,0 +1,71 @@
+id,date,channel,segment,text
+SOC-0001,2026-05-01,social,frequent_flyer,Status expired with zero warning. Thanks for the loyalty.
+SOC-0002,2026-05-11,social,leisure,Business class prices are wild
+SOC-0003,2026-05-11,social,leisure,"Mobile boarding pass, no queue, on time. Love it"
+SOC-0004,2026-05-14,social,leisure,AnyCompany Air sale is the same price as everyone else's normal price
+SOC-0005,2026-05-18,social,leisure,"Kid kicked my seat for two hours, not the airline's fault I guess"
+SOC-0006,2026-05-20,social,corporate,Smoothest airport experience I've had in ages flying @AnyCompanyAir out of Porto
+SOC-0007,2026-05-25,social,frequent_flyer,Other airline's app has a 3D cabin view and honestly it's great. AnyCompany Air next?
+SOC-0008,2026-06-01,social,leisure,"3D seat map when, @AnyCompanyAir"
+SOC-0009,2026-06-02,social,corporate,@AnyCompanyAir crew made my nervous flyer daughter feel so safe today
+SOC-0010,2026-06-03,social,frequent_flyer,Love how I can book a flight in 30 seconds but rebooking a cancelled one takes an afternoon
+SOC-0011,2026-06-03,social,leisure,The booking site is fine but multi-city would be nice @AnyCompanyAir
+SOC-0012,2026-06-05,social,frequent_flyer,That landing in Dublin was spicy
+SOC-0013,2026-06-10,social,leisure,"Not a complaint, but a 3D seat preview would be amazing"
+SOC-0014,2026-06-11,social,frequent_flyer,Boarding in Budapest took ten minutes flat. Impressive
+SOC-0015,2026-06-11,social,leisure,Searched twice and the price went up 40 euros. Not booking.
+SOC-0016,2026-06-17,social,corporate,"Sat on the floor at Nice for 6 hours, there's a flight leaving at 14:40 with seats and nobody at the desk can move me"
+SOC-0017,2026-06-18,social,leisure,"Love the airline, hate the prices"
+SOC-0018,2026-06-19,social,frequent_flyer,"Saw a 3D seat map demo at a conference, would love that in the AnyCompany Air app"
+SOC-0019,2026-06-22,social,leisure,Can't afford to take the family on AnyCompany Air anymore
+SOC-0020,2026-06-28,social,leisure,"Booked in 4 minutes on the app, honestly painless"
+SOC-0021,2026-07-01,social,corporate,"Payment failed twice, worked the third time. Classic."
+SOC-0022,2026-07-01,social,leisure,Who chooses the music during boarding
+SOC-0023,2026-07-03,social,leisure,Every airline in 2026 has bag tracking except @AnyCompanyAir apparently
+SOC-0024,2026-07-04,social,frequent_flyer,"Filed a lost bag report in Warsaw, no update since. Do I just buy new everything?"
+SOC-0025,2026-07-05,social,leisure,Turbulence over the Alps was something else
+SOC-0026,2026-07-06,social,leisure,"Delay notification at 10:30, then nothing. No new times, no options, no humans. Nice gate is chaos"
+SOC-0027,2026-07-10,social,corporate,Spent my holiday's first evening on hold with the airline instead of at dinner. 90 minutes for a rebooking.
+SOC-0028,2026-07-17,social,frequent_flyer,Cancelled again on the Budapest route. I'm switching airlines for this one.
+SOC-0029,2026-07-20,social,frequent_flyer,Put an AirTag in my suitcase because the airline won't tell me where it is. It's in Warsaw. The airline says it's 'being traced'.
+SOC-0030,2026-07-20,social,leisure,Third cancellation on the Athens route this summer. Every time: call the hotline. Every time: 55 minutes on hold.
+SOC-0031,2026-07-25,social,corporate,Flight cancelled. App: 'Something went wrong.' Yes. Yes it did.
+SOC-0032,2026-07-27,social,leisure,"On time, coffee was good, landed early. Rare these days"
+SOC-0033,2026-08-03,social,leisure,"Shout out to the @AnyCompanyAir crew on the 06:10 to Stockholm, absolute pros"
+SOC-0034,2026-08-04,social,corporate,Why is plane coffee always like this
+SOC-0035,2026-08-06,social,leisure,"Cancelled at midnight by text, hotline closed until 7. Thanks @AnyCompanyAir"
+SOC-0036,2026-08-06,social,leisure,Flew AnyCompany Air because the low-cost flight was cancelled. Paid 269 euros. At least it left on time.
+SOC-0037,2026-08-09,social,leisure,"Flying to Oslo for a wedding, wish me luck"
+SOC-0038,2026-08-12,social,leisure,"Flight to Madrid cancelled, app says call, hold time 90 min and counting. Come on @AnyCompanyAir"
+SOC-0039,2026-08-15,social,frequent_flyer,Feature request: show me the actual seat in 3D before I pay 35 euros for it
+SOC-0040,2026-08-15,social,leisure,Hold music for 175 minutes so far. It's a good song the first 30 times.
+SOC-0041,2026-08-16,social,corporate,The disruption experience is the whole product. Everything else is fine until it isn't.
+SOC-0042,2026-08-18,social,frequent_flyer,"Stuck in Nice. 2h delay, missed connection, no rebooking option anywhere online. Desk queue goes round the terminal."
+SOC-0043,2026-08-20,social,corporate,"Pro tip if your AnyCompany Air flight gets cancelled: don't bother with the app, call immediately before the good flights fill up"
+SOC-0044,2026-08-22,social,leisure,Honestly when AnyCompany Air runs on time it's my favourite airline
+SOC-0045,2026-08-22,social,leisure,Low-cost to Athens: 49 euros. AnyCompany Air: 149. Same airport.
+SOC-0046,2026-08-23,social,leisure,Why are fares on the Munich route so high this summer
+SOC-0047,2026-08-24,social,leisure,"Waiting at the belt in Lisbon, belt stopped, my bag never came. Desk had a queue of 40 people with the same problem."
+SOC-0048,2026-08-25,social,leisure,Lounge pancakes in Rome are elite
+SOC-0049,2026-08-27,social,frequent_flyer,AnyCompany Air on time again. Five for five this year
+SOC-0050,2026-08-28,social,frequent_flyer,"Bag finally arrived after 9 days. Nobody told me it was coming, the courier just turned up at 23:00"
+SOC-0051,2026-08-28,social,corporate,Got rebooked automatically to a flight 15 days from now. I have a job. @AnyCompanyAir
+SOC-0052,2026-09-05,social,corporate,@AnyCompanyAir your app tells me my flight is cancelled and then has no buttons. What am I supposed to do with that
+SOC-0053,2026-09-06,social,frequent_flyer,My bag is having a better holiday in Seville than I am in Brussels
+SOC-0054,2026-09-07,social,corporate,"Window seat, on time, sunset over Oslo. Can't complain"
+SOC-0055,2026-09-09,social,leisure,The new uniforms look sharp @AnyCompanyAir
+SOC-0056,2026-09-12,social,frequent_flyer,"My parents are stuck in Nice after a cancellation and can't get through on the phone. They don't know how to use the app, and the app can't help anyway"
+SOC-0057,2026-09-12,social,frequent_flyer,Rebooking queue at Prague is longer than the security queue
+SOC-0058,2026-09-12,social,leisure,Why does every airline website still look like 2012
+SOC-0059,2026-09-18,social,frequent_flyer,Upsell pages longer than the flight
+SOC-0060,2026-09-20,social,frequent_flyer,"Loyalty app shows 3700 points, website shows something else"
+SOC-0061,2026-09-22,social,corporate,509 euros to Hamburg @AnyCompanyAir. For a two-hour flight. Seriously.
+SOC-0062,2026-09-23,social,leisure,"@AnyCompanyAir please add a 3D seat map, it would be so cool"
+SOC-0063,2026-09-24,social,leisure,Points from 3 flights still missing @AnyCompanyAir
+SOC-0064,2026-09-26,social,leisure,Anyone know if AnyCompany Air has Wi-Fi on the Prague flights?
+SOC-0065,2026-09-26,social,leisure,Day 8 without my bag. @AnyCompanyAir tracing reference leads to an error page.
+SOC-0066,2026-10-02,social,frequent_flyer,Early arrival in Budapest! Never happens
+SOC-0067,2026-10-03,social,frequent_flyer,Middle seat again lol
+SOC-0068,2026-10-07,social,leisure,@AnyCompanyAir why does the website show me alternative flights after a cancellation but won't let me pick one
+SOC-0069,2026-10-10,social,frequent_flyer,Claim form for my damaged bag has crashed twice. Giving up.
+SOC-0070,2026-10-11,social,frequent_flyer,Fares to Zurich doubled since last year

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phase map: every stage of AI-DLC Discovery</title>
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<main class="wide">
+
+<p class="kicker">Reference · AI-DLC Discovery</p>
+<h1>Phase map: every stage, what it asks, what it does</h1>
+<p class="subtitle">One page per stage, for facilitators and for slides. Each stage says its question, its skill, what it needs, its steps, what it leaves behind, its checkpoint, and where it goes wrong.</p>
+
+<p>Sources: <a href="../../skills/aidlc-discovery/SKILL.md">the entry skill</a>, each job skill under <a href="../../skills/">skills/</a>, and <a href="../../facilitator/run-sheet.md">the run-sheet</a>. Terms follow the <a href="glossary.html">glossary</a>. Examples come from the unattended Air run (<a href="../../facilitator/reference-runs/anycompany-air/">reference-runs/anycompany-air/</a>); the run facilitated with a team (<a href="../../facilitator/reference-runs/anycompany-air-with-team/">anycompany-air-with-team/</a>) shows the team's decisions and is the one train-the-trainer demos. When a skill changes, check this sheet against it.</p>
+
+<h2>The day at a glance</h2>
+
+<div class="relay">
+  <div class="stage ph0"><b>Setup</b><span>09:00 · 30 min</span><span class="out">PROJECT.md</span></div>
+  <div class="stage ph1"><b>Signals</b><span>09:30 · 60 min</span><span class="out">signal-summary.md</span></div>
+  <div class="stage ph2"><b>Working Backwards</b><span>10:45 · 75 + 45 min</span><span class="out">prd.md + riskiest-assumption.md</span></div>
+  <div class="stage ph3"><b>Prototype</b><span>13:45 · 60 min</span><span class="out">index.html + persona-critique.md</span></div>
+  <div class="stage ph4"><b>Validate</b><span>15:00 · 45 min</span><span class="out">decision.md</span></div>
+  <div class="stage ph5"><b>Handoff</b><span>15:45 · 30 min</span></div>
+</div>
+
+<p>The file under each arrow must exist before the next stage starts (the entry skill's <em>To start, it needs</em> table). About 6.5 working hours, then a 45-minute readout at 16:15. A team on its own can spread the stages over several sessions, because every artifact is a file.</p>
+
+<table>
+<thead><tr><th>Stage</th><th>The question</th><th>Skills</th><th>The team leaves with</th></tr></thead>
+<tbody>
+<tr><td><span class="chip ph0">Setup</span></td><td>What are we here to move, and with which data?</td><td><code>aidlc-discovery</code></td><td>Product, people, business metric with baseline, data input</td></tr>
+<tr><td><span class="chip ph1">Signals</span></td><td>What are customers telling us?</td><td><code>discovery-signals</code></td><td>Team hypotheses; Signal Analysis Report; testable hypotheses</td></tr>
+<tr><td><span class="chip ph2">Working Backwards</span></td><td>Which problem first, for whom, and how would we announce it?</td><td><code>discovery-personas</code>, <code>-use-case-scoring</code>, <code>-working-backwards</code>, <code>-gtm</code></td><td>Personas; scored use cases; PR/FAQ; PRD; GTM draft; riskiest assumption</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>What would it look like?</td><td><code>discovery-prototype</code>, <code>-personas</code></td><td>Clickable prototype in versions; persona critique</td></tr>
+<tr><td><span class="chip ph4">Validate</span></td><td>What could make it fail, and how will we know it worked?</td><td><code>discovery-validate</code>, <code>-gtm</code>, <code>-use-case-scoring</code></td><td>Four risks; pre-mortem; success criteria; commit, pivot, or park</td></tr>
+<tr><td><span class="chip ph5">Handoff</span></td><td>What does the build start from?</td><td><code>discovery-handoff</code></td><td>Discovery brief (15 sections); next steps</td></tr>
+</tbody>
+</table>
+
+<h2>The rules that run through every stage</h2>
+<ol class="steps">
+<li><b>The team decides.</b> The assistant drafts, cites, and asks. No score, ranking, or decision is final until the team confirms it. Every stage ends at a checkpoint.</li>
+<li><b>Evidence labels.</b> Every claim in the PR/FAQ, PRD, GTM section, and brief is <b>Known</b> (backed by the data), <b>Assumed</b> (believed, not shown), or <b>Needs evidence</b> (it matters to the decision and must be tested).</li>
+<li><b>Anonymized.</b> No names, emails, companies, or account identifiers in quotes. Raw data stays in <code>discovery/data/</code>, which is never committed.</li>
+<li><b>No architecture.</b> Discovery decides who, what, and why. Technology choices belong to the build.</li>
+<li><b>Files, not chat.</b> Every artifact is saved under <code>discovery/[project]/</code> as soon as it exists. With a team Space, that path is in the Space.</li>
+<li><b>One step at a time,</b> with the progress board at every checkpoint, and three lists carried forward: what we know, what we don't know, what we're assuming.</li>
+<li><b>The customer's interest only.</b> No artifact mentions the facilitator's company's commercial interest.</li>
+</ol>
+
+<!-- ============================== BEFORE ============================== -->
+<section class="phase ph0">
+<p class="kicker">Before the day · optional</p>
+<h2>Signal Briefs</h2>
+<p class="q">How does a team bring its evidence without bringing its data?</p>
+<p class="slide">When data can't leave the building, the team writes one anonymized page per customer problem, and brings only those.</p>
+<dl class="facts">
+<dt>Skill</dt><dd><a href="../../skills/discovery-signal-brief/SKILL.md"><code>discovery-signal-brief</code></a>, run by the team in its own environment, days before.</dd>
+<dt>Steps</dt><dd>Find the evidence → measure volumes as aggregates → write the brief (seven fields: theme, job, anonymized evidence with volumes, impact, confidence, segment, next step) → anonymization check, then the team reads it once more.</dd>
+<dt>Leaves</dt><dd><code>discovery/signal-briefs/[problem].md</code>, one per problem.</dd>
+<dt>Quality bar</dt><dd>Someone who never saw the raw data could write the first paragraph of a press release from the brief alone.</dd>
+</dl>
+<p>Used by the AnyCompany Health sample, where the data never leaves the insurer. The other two inputs are production data (the default) and a synthetic dataset prepared before the day; the assistant never invents data on the day.</p>
+</section>
+
+<!-- ============================== TEAM SPACE ============================== -->
+<section class="phase ph0">
+<p class="kicker">Any stage · optional · Amazon Quick only</p>
+<h2>Team Space</h2>
+<p class="q">Where is the workshop saved, and who writes to it?</p>
+<p class="slide">Save the workshop in a team Space, and everyone can follow it, open the prototype, and take over from their own Amazon Quick. One driver at a time.</p>
+<dl class="facts">
+<dt>Skill</dt><dd><a href="../../skills/discovery-team-space/SKILL.md"><code>discovery-team-space</code></a>. On when <code>storage: space</code> is set in the config, or when the team asks at kickoff ("save the workshop in our team Space"). With a Space attached and <code>storage</code> empty, it asks once: "Save the workshop in the [space] Space, or in this folder?" Design: <a href="../../docs/team-space.md">docs/team-space.md</a>.</dd>
+<dt>Before the day</dt><dd>The team creates and names the Space, shares it as <b>Owners</b> with everyone who may follow or take over, and each person attaches it to their chat (the <b>+</b> menu, then <b>Spaces</b>). The skill test-writes <code>PROJECT.md</code>, reads it back, and adds Storage and Driver lines.</dd>
+<dt>What changes</dt><dd>Only where files are read from and written to. The phases, checkpoints, files, and paths stay the same.</dd>
+<dt>One driver</dt><dd>Saving replaces a file, so before every write the skill reads <code>PROJECT.md</code>. If someone else is driving, it stops: "[Driver] is driving this workshop since [time]. Take over?" Everyone else reads, asks questions, and opens the prototype. Owners can take over; Viewers read.</dd>
+<dt>Customer data</dt><dd>Everyone a Space is shared with can read it. Sample data is fictional and can go in. Real data goes in the team Space only if nobody who shouldn't see it has access: the team confirms, and <code>PROJECT.md</code> records it. Otherwise it stays local, or in a separate restricted Space named in the start prompt.</dd>
+<dt>Take over</dt><dd>"Continue the AI-DLC Discovery workshop for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [role]. Start at [step]." The previous driver stops writing.</dd>
+<dt>Pods</dt><dd>One project per pod in the same Space, <code>discovery/[project]-[pod]/</code>, each with its own driver, created after scoring. The facilitator sees every pod.</dd>
+<dt>Goes wrong</dt><dd>Two people wrote at once: the last save wins, so compare what each changed and redo the lost change as the agreed driver. The Space isn't attached: saves fail or land locally. A Viewer tries to drive: make them an Owner, or let an Owner drive.</dd>
+</dl>
+<p>Lesson: <a href="../lessons/0009-team-space.html">0009 Running in a team Space</a>.</p>
+</section>
+
+<!-- ============================== SETUP ============================== -->
+<section class="phase ph0">
+<p class="kicker">Stage 0 · 09:00 · 30 min</p>
+<h2>Setup and kickoff</h2>
+<p class="q">What are we here to move, and with which data?</p>
+<p class="slide">Agree the product, the people, the one business metric and its baseline, and where the evidence comes from.</p>
+<dl class="facts">
+<dt>Skill</dt><dd><a href="../../skills/aidlc-discovery/SKILL.md"><code>aidlc-discovery</code></a>, Step 1.</dd>
+<dt>Confirms, in order</dt><dd>The product and who uses it; who is in the room and whether they split into pods; the business metric with its current value; the data input (<code>production</code>, <code>signal-briefs</code>, <code>synthetic</code>) and where it is; the engagement reference (never a CRM or account identifier).</dd>
+<dt>Where it's saved</dt><dd>A local working folder, or a team Space (recommended in Amazon Quick; see above). The start prompt names it: "Start an AI-DLC Discovery workshop. Project: [name]. Engagement reference: [reference or Self-serve]. Save the workshop in the [Space name] space. Data: [input], in [folder]." Leave out the Space sentence for a local folder.</dd>
+<dt>Leaves</dt><dd><code>discovery/[project]/PROJECT.md</code>: scope, choices, phase status (and, with a Space, Storage and Driver).</dd>
+<dt>Good looks like</dt><dd>It drafts the setup from what it can find and asks the room to confirm. The product owner confirms the business metric aloud, because everything is scored against it.</dd>
+<dt>Facilitator move</dt><dd>Don't confirm the setup yourself; ask the product owner "Is anything here wrong or missing?" If the sponsor leaves after kickoff, ask them now whether this is the metric they care about.</dd>
+<dt>Goes wrong</dt><dd>The data doesn't match the product. It must stop and offer real data, Signal Briefs, or a prepared dataset, and never write data to fill the gap.</dd>
+</dl>
+</section>
+
+<!-- ============================== SIGNALS ============================== -->
+<section class="phase ph1">
+<p class="kicker">Stage 1 · 09:30 · 60 min</p>
+<h2>Signals</h2>
+<p class="q">What are customers telling us?</p>
+<p class="slide">The team writes down what it believes first; then the data shows which beliefs hold, with counts and customer quotes.</p>
+<dl class="facts">
+<dt>Skill</dt><dd><a href="../../skills/discovery-signals/SKILL.md"><code>discovery-signals</code></a></dd>
+<dt>Needs</dt><dd>The data from Setup.</dd>
+</dl>
+<ol class="steps">
+<li><b>Team hypotheses, before any analysis.</b> At least three, each a sentence the data could prove wrong, written down as given. AI analysis is persuasive; with beliefs on record, the team can check itself.</li>
+<li><b>Find and check the data.</b> An inventory: sources, counts, period, gaps. The team confirms it is what it meant to bring.</li>
+<li><b>Analyze.</b> Per record: sentiment, category, urgency, root cause, persona signal, quote; aggregated with Python. Signal Briefs are merged and cross-checked instead.</li>
+<li><b>Signal Analysis Report.</b> Three to seven top signals scored on frequency, severity, and reach (out of 30), each with who, evidence, quotes, and a root-cause hypothesis; a "What the team expected" table; five customer voices; data gaps.</li>
+<li><b>Hypotheses.</b> Five to ten, each with evidence, confidence, and a test, including the team's own that the data didn't settle.</li>
+<li><b>Review.</b> The top three signals, five full quotes read aloud, then: what contradicts this, and what is under-represented?</li>
+</ol>
+<dl class="facts">
+<dt>Leaves</dt><dd><code>signals/team-hypotheses.md</code>, <code>signal-summary.md</code>, <code>hypotheses.md</code></dd>
+<dt>Checkpoint</dt><dd>"Here are the top signals and their evidence. What do you challenge before we decide what to work on?"</dd>
+<dt>Principle</dt><dd>Weigh signal over frequency: severity and reach count as much as volume. In AnyCompany Air, "Delayed baggage" is the top single call reason, but disruption is split across six reasons and is 42 of 110 calls.</dd>
+<dt>Facilitator moves</dt><dd>Ask the quietest person first. Before confirming the inventory, ask the person closest to each gap whether that data exists. With a contradicted belief, read what the person got right first. Ask "Where does it work well?" before the challenge. Close by crediting challengers by name and getting a yes from the product owner.</dd>
+<dt>Goes wrong</dt><dd>It skips the hypotheses or jumps to verdicts: stop it and restart the phase at Step 1.</dd>
+</dl>
+</section>
+
+<!-- ============================== WB 1 ============================== -->
+<section class="phase ph2">
+<p class="kicker">Stage 2a · 10:45 · 75 min</p>
+<h2>Working Backwards I: personas and scoring</h2>
+<p class="q">Which problem first, and for whom?</p>
+<p class="slide">Put faces on the signals, then score 3 to 5 problems on six weighted dimensions. The team confirms every score and picks one.</p>
+
+<h3>Personas</h3>
+<dl class="facts">
+<dt>Skill</dt><dd><a href="../../skills/discovery-personas/SKILL.md"><code>discovery-personas</code></a>, mode <code>generate</code>.</dd>
+<dt>Does</dt><dd>Finds behavioural segments in the feedback and writes three or more personas, one of them a customer who is <b>satisfied today</b>, so the team sees what it could break. Every quote is real; each persona has a confidence rating and an evidence count. Synthetic data or Signal Briefs cap confidence at Medium.</dd>
+<dt>Check</dt><dd>"Have you met this person?" Any persona the team doesn't recognise is changed or dropped. Overlaps go to <code>set-aside-personas.md</code>.</dd>
+<dt>Leaves</dt><dd><code>working-backwards/personas/[name].md</code></dd>
+</dl>
+
+<h3>Use case scoring</h3>
+<dl class="facts">
+<dt>Skill</dt><dd><a href="../../skills/discovery-use-case-scoring/SKILL.md"><code>discovery-use-case-scoring</code></a></dd>
+<dt>Candidates</dt><dd>3 to 5 <b>problems</b>, not features, each with five fields: who, problem, evidence, business metric, owner in the room.</dd>
+<dt>Weights</dt><dd>Fixed before the first score: pain 25, outcome 25, reach 15, fit 10, feasibility 15, adoption load 10. The sponsor may move one by up to 10 points.</dd>
+<dt>Gate</dt><dd>Merge duplicates first, then drop any candidate failing: evidence, outcome, owner, build path, or painkiller ("would customers notice if it never shipped?").</dd>
+<dt>Score</dt><dd>1 to 5 on each dimension, each with one line of evidence. Business outcome is scored against the metric agreed at setup. Weighted score = Σ(score × weight) ÷ 100.</dd>
+<dt>Confidence</dt><dd>High: three or more independent signals incl. one quantitative. Medium: two, or one strong quantitative. Low: one source, or an assumption.</dd>
+<dt>Decision</dt><dd>≥ 3.5 and High → <b>build first</b>. ≥ 3.5 and Medium/Low → <b>prototype to learn</b>. 2.5–3.4 → <b>defer</b>. &lt; 2.5 → <b>drop</b>. Only one candidate per team (or pod) goes forward; others that qualify are "defer, next in line".</dd>
+<dt>Leaves</dt><dd><code>working-backwards/use-case-scoring.md</code>, with an Overrides table.</dd>
+<dt>Checkpoint</dt><dd>Every score confirmed or overridden with a reason; one use case selected per pod.</dd>
+<dt>Facilitator moves</dt><dd>Feasibility belongs to the engineering lead: "What would make this a 2, and what a 4?" Ask a candidate's owner before the room agrees. After an override, show whether the decision changed. "Agree with all" when the room agrees; spend time on the disagreements.</dd>
+</dl>
+<p><b>Lunch, 12:00.</b> "Draft the PR/FAQ while we're away." The skill runs Working Backwards in <code>draft</code> mode and writes a straw man for the team to challenge.</p>
+</section>
+
+<!-- ============================== WB 2 ============================== -->
+<section class="phase ph2">
+<p class="kicker">Stage 2b · 13:00 · 45 min</p>
+<h2>Working Backwards II: from press release to riskiest assumption</h2>
+<p class="q">How would we announce it, and what must the prototype prove?</p>
+<p class="slide">Write the press release before anything is built. If the benefit can't be announced clearly, don't build it.</p>
+<dl class="facts">
+<dt>Skills</dt><dd><a href="../../skills/discovery-working-backwards/SKILL.md"><code>discovery-working-backwards</code></a>, then <a href="../../skills/discovery-gtm/SKILL.md"><code>discovery-gtm</code></a> in <code>draft</code> mode.</dd>
+<dt>Needs</dt><dd>The selected use case, the Signal Analysis Report, the personas, the scoring.</dd>
+</dl>
+<ol class="steps">
+<li><b>The five questions,</b> one at a time: <b>Listen</b> (who, insights, pain) · <b>Define</b> (the problem; framing rules) · <b>Invent</b> (solutions, capabilities, differentiator) · <b>Refine</b> · <b>Test</b>. Define produces three sentences:
+  <ul class="tight">
+  <li><b>Today statement:</b> "Today, [persona] have to [problem] when [context]. They need a way to [<i>outcome, never a mechanism</i>]."</li>
+  <li><b>How Might We:</b> "How might we [outcome] for [persona] so that [benefit]?"</li>
+  <li><b>North Star:</b> "Deploy [<i>capability, not a product name</i>] by [when] to [metric 1] and [metric 2], in order to [goal]." Its numbers are the day's targets.</li>
+  </ul></li>
+<li><b>Feature description.</b> 3 to 5 feature ideas; the team chooses or combines one.</li>
+<li><b>PR/FAQ.</b> Headline, subheading, <b>exactly seven paragraphs</b> (summary, problem, solution, leader quote, customer experience, testimonial, call to action), 500 to 700 words, no headings inside. Then 5–7 customer FAQs and 5–7 internal FAQs. The testimonial is from a persona, labelled synthetic. A writing audit runs before the team sees it. The team reads it aloud and changes what doesn't sound like them.</li>
+<li><b>Readiness check.</b> Seven questions: persona, pain today, prototype experience (the <i>slice</i>), vision, views and signals, data, prototype metric. <b>GREEN</b> none missing · <b>AMBER</b> 1–3 gaps, carry as open hypotheses · <b>RED</b> 4+, fix the PR/FAQ before prototyping.</li>
+<li><b>PRD.</b> P0, P1, P2. P0 small enough to prototype in an hour. No architecture.</li>
+<li><b>Riskiest assumption.</b> From the Assumed and Needs evidence claims: the one that, if wrong, ends the idea; what the prototype must show; how Validate will judge it.</li>
+<li><b>GTM draft</b> (about 10 min): first adopters with 2–3 design partners, a positioning line that names the main alternative (including doing nothing), business model and launch plan as hypotheses.</li>
+</ol>
+<dl class="facts">
+<dt>Leaves</dt><dd><code>working-backwards.md</code>, <code>feature-description.md</code>, <code>prfaq.md</code> (with readiness check and Prototype scope), <code>prd.md</code>, <code>riskiest-assumption.md</code>, <code>gtm.md</code></dd>
+<dt>Checkpoint</dt><dd>"Here is what you chose, why, and what the prototype must prove. Ready to prototype?"</dd>
+<dt>Facilitator moves</dt><dd>Listen for the framing first: an outcome in "need a way to", a capability in the North Star. AMBER is a good result; don't chase GREEN. For the riskiest assumption, everyone chooses <i>before anyone speaks</i>. Set the pass mark now, before any result. Put a name and date on every open question that blocks the build. Targets are said aloud by the people who own them.</dd>
+<dt>Goes wrong</dt><dd>The press release reads like a vision document (headings, &gt; 700 words, paragraphs doing two jobs): ask for seven paragraphs, one job each, and the writing audit. The team accepts the draft unchanged: have it read aloud.</dd>
+</dl>
+</section>
+
+<!-- ============================== PROTOTYPE ============================== -->
+<section class="phase ph3">
+<p class="kicker">Stage 3 · 13:45 · 60 min</p>
+<h2>Prototype</h2>
+<p class="q">What would it look like?</p>
+<p class="slide">A clickable, multi-screen prototype aimed at the riskiest assumption, critiqued by the personas, and changed at least once.</p>
+<dl class="facts">
+<dt>Skills</dt><dd><a href="../../skills/discovery-prototype/SKILL.md"><code>discovery-prototype</code></a>, which calls <code>discovery-personas</code> in <code>critique</code> mode.</dd>
+<dt>Needs</dt><dd><code>prd.md</code> and <code>riskiest-assumption.md</code>.</dd>
+</dl>
+<ol class="steps">
+<li><b>Plan the screens.</b> 4 to 8: entry, main task steps, confirmation, the main unhappy path. One screen is marked the <b>test moment</b>, where the riskiest assumption becomes visible.</li>
+<li><b>Build</b> from the shell: one self-contained HTML file with Flow, Mobile, and Desktop views. Only the region between the edit markers changes. Opens on the Flow board.</li>
+<li><b>Team click-through</b> as the main persona. Note reactions; don't change anything yet.</li>
+<li><b>Persona critique.</b> Each persona walks the core flow in its own voice and gives a day-one adoption score with a reason. It usually finds what the team missed.</li>
+<li><b>Iterate.</b> The team picks which findings to fix. Every iteration is a new version file, never an overwrite, logged with the finding behind each change. A fix that promises an unconfirmed capability is logged as Needs evidence.</li>
+</ol>
+<dl class="facts">
+<dt>Leaves</dt><dd><code>prototype/v1.html</code>, <code>v2.html</code>…, <code>index.html</code> (current), <code>versions.md</code>, <code>compare.html</code>, <code>persona-critique.md</code>, <code>notes.md</code></dd>
+<dt>Checkpoint</dt><dd>"Here is what your personas said and what we changed. Ready to try to break it?"</dd>
+<dt>Facilitator moves</dt><dd>When the assistant changes the agreed plan, read each change and ask its owner "Keep it, or change it back?" Mark claims on screen nobody has confirmed as Needs evidence. "Looks good" at the first click-through is fine; the critique finds the problems. When the assistant asks a factual question (what time does the line close?), get the answer from the person who knows, or mark it Needs evidence. Fix first what touches the riskiest assumption, then what is cheap; if a finding changes what the assumption means, update it now.</dd>
+<dt>Goes wrong</dt><dd>One plain page: it didn't build from the shell. Looks finished but tests nothing: go back to the test moment. The team iterates on colours: ask what the persona would trip over. The compare page shows empty frames in Amazon Quick: open <code>compare.html</code> from the working folder in a browser.</dd>
+</dl>
+</section>
+
+<!-- ============================== VALIDATE ============================== -->
+<section class="phase ph4">
+<p class="kicker">Stage 4 · 15:00 · 45 min</p>
+<h2>Validate</h2>
+<p class="q">What could make it fail, and how will we know it worked?</p>
+<p class="slide">Try to prove it fails with what's in the room, set measurable success criteria, then decide: commit, pivot, or park.</p>
+<dl class="facts">
+<dt>Skills</dt><dd><a href="../../skills/discovery-validate/SKILL.md"><code>discovery-validate</code></a> (<code>review</code>, then <code>decide</code>), <code>discovery-gtm</code> (<code>complete</code>), and <code>discovery-use-case-scoring</code> (<code>rescore</code>) if the review changed a score.</dd>
+<dt>Needs</dt><dd><code>prototype/index.html</code> and <code>persona-critique.md</code>.</dd>
+</dl>
+<ol class="steps">
+<li><b>Re-walk</b> the iterated prototype with the primary personas, only for what changed (5 min). The critique judged v1; Validate judges the version handed off.</li>
+<li><b>Four risks</b>, after <a href="https://www.svpg.com/four-big-risks/">Cagan</a>: <b>valuable</b> (will they change what they do?), <b>usable</b> (can each persona finish the flow unaided?), <b>feasible</b> (is there a known path? unknowns, not architecture), <b>viable</b> (does it work for the business?). Each: assumption, evidence for and against, verdict (supported, contradicted, open), the test that would settle it. The riskiest assumption is checked explicitly.</li>
+<li><b>Pre-mortem</b>, after <a href="https://hbr.org/2007/09/performing-a-project-premortem">Klein</a>: "It's 90 days after launch and it failed. Why?" Everyone writes a reason before anyone speaks, and the round starts with the most optimistic person; the assistant adds its own after the room; five kept, each with an early warning sign and a prevention step.</li>
+<li><b>Success criteria.</b> 3 to 5, each with metric, baseline, target, and when checked (30, 60, 90 days), consistent with the North Star.</li>
+<li><b>Prioritize the problems</b> by frequency, severity, reach, with the open hypotheses listed.</li>
+<li><b>GTM complete:</b> viability check (legal, privacy, sales, support, marketing, each with an owner role) and the adoption and success table, with targets and kill criteria.</li>
+<li><b>Decision.</b> Pick the prototype version to hand off. Then <b>commit</b> (build it; if the riskiest assumption is still open, commit to build or to test first, with conditions, owners, and dates), <b>pivot</b> (reframe, next use case at 30 days), or <b>park</b> (stop, keep the evidence, say what would reopen it).</li>
+</ol>
+<dl class="facts">
+<dt>Leaves</dt><dd><code>validate/risk-review.md</code>, <code>prioritization.md</code>, <code>decision.md</code>; <code>gtm.md</code> completed.</dd>
+<dt>Checkpoint</dt><dd>"Commit, pivot, or park, and why?"</dd>
+<dt>Principle</dt><dd>Never wait for surveys. What can't be settled today stays an open hypothesis and goes in the brief. A validated decision not to build is a good outcome.</dd>
+<dt>Facilitator moves</dt><dd>A condition needs four things before the room moves on: what is measured, the threshold, who checks it, and by which follow-up, consistent with what was agreed in Working Backwards. A decision given before the review is finished is saved as the team's intent, with what is still open; that is correct.</dd>
+<dt>Example</dt><dd>AnyCompany Air reference run: <i>commit, testing the riskiest assumption and feasibility first</i>, with three conditions, each with an owner, due by the 30-day follow-up (<a href="../../facilitator/reference-runs/anycompany-air/validate/decision.md">decision.md</a>).</dd>
+<dt>Goes wrong</dt><dd>Every risk comes back supported: ask what the satisfied persona loses. The team wants to skip Validate: offer the 20-minute version, four risks and the decision.</dd>
+</dl>
+</section>
+
+<!-- ============================== HANDOFF ============================== -->
+<section class="phase ph5">
+<p class="kicker">Stage 5 · 15:45 · 30 min</p>
+<h2>Handoff</h2>
+<p class="q">What does the build start from?</p>
+<p class="slide">One Markdown brief, written for someone who wasn't in the room: the decision, the evidence, and what is still unproven.</p>
+<dl class="facts">
+<dt>Skill</dt><dd><a href="../../skills/discovery-handoff/SKILL.md"><code>discovery-handoff</code></a></dd>
+<dt>Needs</dt><dd>Every artifact above and <code>validate/decision.md</code>. It never writes a partial brief.</dd>
+</dl>
+<ol class="steps">
+<li><b>Check the required artifacts.</b> Thirteen files (fourteen with a current-product map); anything missing is listed with the skill that makes it.</li>
+<li><b>Write the brief</b>, 15 sections, under 200,000 characters, summaries plus links: engagement reference · decision · problem and evidence · personas · prioritized use cases · PR/FAQ summary · success criteria · GTM · scope · prioritized backlog · prototype screens and flows · current product · constraints · open hypotheses · full artifacts. No architecture.</li>
+<li><b>AI-DLC team knowledge</b> (when the route is AI-DLC): the personas in <code>aidlc/spaces/[space]/knowledge/aidlc-product-agent/</code>. Adds <code>discovery/data/</code> to <code>.gitignore</code>.</li>
+<li><b>Next steps.</b> For commit with AI-DLC 2.10.0+, it prints the start command (<code>/aidlc workshop</code> or <code>/aidlc classic</code>) and does not run it. For pivot or park, what happens at 30 days.</li>
+</ol>
+<dl class="facts">
+<dt>Leaves</dt><dd><code>handoff/discovery-brief.md</code>, <code>handoff/next-steps.md</code></dd>
+<dt>Facilitator move</dt><dd>Before the brief, confirm, change, or label as a proposal everything the assistant drafted on the team's behalf (the reason, interim targets, kill criteria, owners). The brief carries it to engineering as if the team had decided it.</dd>
+<dt>In a team Space</dt><dd>No <code>.gitignore</code>, because there is no repository. Next steps say to download <code>discovery/[project]/</code> and <code>aidlc/</code> from the Space into the build repository, never the data. <code>aidlc/spaces/</code> is AI-DLC's own folder layout, not an Amazon Quick Space.</dd>
+<dt>Checkpoint</dt><dd>"Could an engineer who wasn't here start from this brief?"</dd>
+<dt>Why it matters</dt><dd>When a team continues into <a href="https://github.com/awslabs/aidlc-workflows">AI-DLC</a>, the brief replaces AI-DLC's own Ideation phase, and AI-DLC starts at Inception. The brief is written for every decision, including park.</dd>
+</dl>
+</section>
+
+<!-- ============================== AFTER ============================== -->
+<section class="phase ph0">
+<p class="kicker">16:15 and after</p>
+<h2>Readout and follow-ups</h2>
+<p class="q">Did it work, and what did we learn?</p>
+<p class="slide">The sponsor hears the decision; real users test what the personas only simulated; the numbers are checked at 30 and 60 days.</p>
+<dl class="facts">
+<dt>Readout (45 min)</dt><dd>Each pod shows the decision, the prototype on the Flow view, the success criteria, and the next step with its owner. Under five minutes each. When the sponsor asks "why not do what I believed?", answer with the evidence from Signals, then bring it back to the next step.</dd>
+<dt>7 days</dt><dd>Baseline for the business metric in; brief in the build repository; owners in <code>next-steps.md</code> started.</dd>
+<dt>By 30 days</dt><dd>Real users try the prototype (the personas are synthetic); open hypotheses go to real customers, with <a href="../../skills/discovery-survey/SKILL.md"><code>discovery-survey</code></a> if useful; deferred use cases are re-scored.</dd>
+<dt>30 and 60 days</dt><dd>Adoption and the business metric against the success and kill criteria.</dd>
+<dt>Loop</dt><dd>What the team learns goes back into Signals for the next cycle.</dd>
+</dl>
+</section>
+
+<hr>
+<p class="kicker">Built from the repository at commit ef30e61 · Slides: <a href="slide-outline.md">slide outline</a> · Lessons: <a href="../lessons/0001-the-shape-of-the-day.html">0001 The shape of the day</a> · <a href="../lessons/0002-setup-and-signals.html">0002 Setup and Signals</a> · <a href="../lessons/0003-personas-and-scoring.html">0003 Personas and scoring</a> · <a href="../lessons/0004-press-release-to-riskiest-assumption.html">0004 Press release to riskiest assumption</a> · <a href="../lessons/0005-prototype.html">0005 Prototype</a> · <a href="../lessons/0006-validate.html">0006 Validate</a> · <a href="../lessons/0007-handoff-and-follow-ups.html">0007 Handoff</a> · <a href="../lessons/0008-the-failure-drill.html">0008 Failure drill</a> · <a href="../lessons/0009-team-space.html">0009 Team Space</a> · <a href="../lessons/0010-play-the-day.html">0010 Play the day</a> · <a href="recovery-card.html">Recovery card</a></p>
+
+</main>
+</body>
+</html>

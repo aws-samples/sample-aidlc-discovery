@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary: AI-DLC Discovery</title>
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<main>
+
+<p class="kicker">Reference · AI-DLC Discovery</p>
+<h1>Glossary</h1>
+<p class="subtitle">The method's own words, as the skills use them. Every lesson and slide follows these.</p>
+
+<h2>Structure</h2>
+<dl class="gloss">
+<dt>Phase</dt><dd>One of the five stages: Signals, Working Backwards, Prototype, Validate, Handoff. Setup comes before them.</dd>
+<dt>Step</dt><dd>A numbered unit of work inside a skill. Each has an input, an output, a validation, and what to do on failure.</dd>
+<dt>Skill</dt><dd>One job, packaged as a folder with a <code>SKILL.md</code>. The entry skill, <code>aidlc-discovery</code>, runs eleven job skills; the build bundles them into one installable skill with a module per job.</dd>
+<dt>Checkpoint</dt><dd>The stop at the end of every phase, where the team reviews and decides before anything moves on.</dd>
+<dt>Artifact</dt><dd>A file saved under <code>discovery/[project]/</code>. Later phases read artifacts, not the chat.</dd>
+<dt>Progress board</dt><dd>Two tables (phases, and artifacts in this phase) shown at every checkpoint, plus three lists carried forward: what we know, what we don't know, what we're assuming.</dd>
+<dt>Pod</dt><dd>A sub-team of 4 to 5 that takes one selected use case from scoring onward. Two pods never take the same one.</dd>
+<dt>Unattended run</dt><dd>A run with no checkpoints, for automated tests and demonstrations only (<code>unattended: true</code>).</dd>
+</dl>
+
+<h2>Team Space (Amazon Quick, optional)</h2>
+<dl class="gloss">
+<dt>Storage</dt><dd>Where the workshop is saved: <code>local</code> (a working folder, the default) or <code>space</code> (an Amazon Quick team Space).</dd>
+<dt>Team Space</dt><dd>An Amazon Quick Space holding the same <code>discovery/[project]/</code> files, so everyone it's shared with can follow, open the prototype, and take over. Not to be confused with <code>aidlc/spaces/</code>, which is AI-DLC's own folder layout.</dd>
+<dt>Driver</dt><dd>The one person writing the workshop now, named by role or first name in <code>PROJECT.md</code>. Checked before every write.</dd>
+<dt>Take over</dt><dd>A new driver continues from <code>PROJECT.md</code> in the Space with the take-over prompt; the previous driver stops writing.</dd>
+<dt>Owner · Viewer</dt><dd>Space roles. Owners can write and take over; Viewers read, ask questions, and open the prototype.</dd>
+</dl>
+
+<h2>Evidence</h2>
+<dl class="gloss">
+<dt>Known</dt><dd>Backed by data from Signals: a count, quote, or metric.</dd>
+<dt>Assumed</dt><dd>Believed, not shown. The riskiest assumption is chosen from these.</dd>
+<dt>Needs evidence</dt><dd>Matters to the decision and has to be tested.</dd>
+<dt>Data input</dt><dd><code>production</code> (the default), <code>signal-briefs</code>, or <code>synthetic</code> (prepared before the day). Never data written during the workshop.</dd>
+<dt>Signal Brief</dt><dd>A one-page anonymized summary of one customer problem, written by the team in its own environment.</dd>
+<dt>Team hypotheses</dt><dd>What the team expects the data to show, written down before any analysis.</dd>
+<dt>Signal Analysis Report</dt><dd><code>signal-summary.md</code>: top signals scored on frequency, severity, and reach, with quotes, the "What the team expected" table, and data gaps.</dd>
+<dt>Persona</dt><dd>A synthetic customer drawn from the data, with real quotes and a confidence rating. A hypothesis, not customer evidence. One is always satisfied today.</dd>
+</dl>
+
+<h2>Choosing</h2>
+<dl class="gloss">
+<dt>Use case</dt><dd>A candidate written as a problem, with who, problem, evidence, business metric, and owner.</dd>
+<dt>Gate</dt><dd>Five pass/fail tests before scoring: evidence, outcome, owner, build path, painkiller.</dd>
+<dt>Weighted score</dt><dd>Six 1-to-5 scores (pain, outcome, reach, fit, feasibility, adoption load) times their weights, divided by 100.</dd>
+<dt>Build first · Prototype to learn · Defer · Drop</dt><dd>The scoring decisions. Only one candidate per team or pod is taken forward.</dd>
+<dt>Override</dt><dd>A team change to a drafted score, recorded with its reason.</dd>
+</dl>
+
+<h2>Working Backwards</h2>
+<dl class="gloss">
+<dt>Five questions</dt><dd>Listen, Define, Invent, Refine, Test, asked one at a time.</dd>
+<dt>End customer</dt><dd>The person whose day changes when this ships. Not the team, not the sponsor.</dd>
+<dt>Today statement</dt><dd>"Today, [persona] have to [problem] when [context]. They need a way to [outcome]." The outcome is never a mechanism.</dd>
+<dt>How Might We</dt><dd>One question that opens the solution space: outcome, persona, benefit.</dd>
+<dt>North Star</dt><dd>"Deploy [capability] by [when] to [metrics], in order to [goal]." Its numbers are the day's targets.</dd>
+<dt>PR/FAQ</dt><dd>The press release (headline, subheading, seven paragraphs, 500 to 700 words) plus customer and internal FAQs.</dd>
+<dt>Writing audit</dt><dd>A check run on the PR/FAQ and PRD before the team sees them.</dd>
+<dt>Readiness check</dt><dd>Seven questions on the PR/FAQ; verdict GREEN, AMBER (1–3 gaps), or RED (4+).</dd>
+<dt>Prototype slice</dt><dd>The part of the full journey the prototype will show.</dd>
+<dt>PRD</dt><dd>Requirements ranked P0, P1, P2. P0 fits a one-hour prototype.</dd>
+<dt>Riskiest assumption</dt><dd>The one Assumed claim that, if wrong, ends the idea, with what the prototype must show and how Validate will judge it.</dd>
+<dt>GTM section</dt><dd>Seven parts: first adopters, positioning, business model, viability check, launch plan, adoption and success, risks. Drafted in Working Backwards, completed in Validate.</dd>
+</dl>
+
+<h2>Prototype and Validate</h2>
+<dl class="gloss">
+<dt>Test moment</dt><dd>The screen where the riskiest assumption becomes visible.</dd>
+<dt>Shell</dt><dd>The fixed HTML that gives every prototype its Flow, Mobile, and Desktop views. Only the region between the edit markers changes.</dd>
+<dt>Version</dt><dd><code>v1.html</code>, <code>v2.html</code>… never overwritten; <code>index.html</code> is the current or chosen one.</dd>
+<dt>Persona critique</dt><dd>Each persona walks the prototype in its own voice and gives a day-one adoption score.</dd>
+<dt>Re-walk</dt><dd>Validate's short check that the iteration fixed what the critique found.</dd>
+<dt>Four risks</dt><dd>Valuable, usable, feasible, viable. Each verdict is supported, contradicted, or open.</dd>
+<dt>Pre-mortem</dt><dd>"It's 90 days after launch and it failed. Why?"</dd>
+<dt>Kill criteria</dt><dd>A specific result by a specific date that means the team stops.</dd>
+<dt>Commit · Pivot · Park</dt><dd>The decision. Commit can mean "test first", with conditions before the build.</dd>
+<dt>Open hypothesis</dt><dd>Anything Validate could not settle. It goes into the brief as a question for the build.</dd>
+</dl>
+
+<h2>Handoff</h2>
+<dl class="gloss">
+<dt>Discovery brief</dt><dd>The one Markdown document the build starts from: 15 sections, under 200,000 characters, no architecture.</dd>
+<dt>Route</dt><dd>Own engineering, agents, AI-DLC workshop, AI-DLC classic, or none.</dd>
+<dt>AI-DLC</dt><dd><a href="https://github.com/awslabs/aidlc-workflows">The AI-Driven Development Lifecycle</a>. Discovery's brief replaces its Ideation phase; AI-DLC starts at Inception.</dd>
+<dt>Follow-ups</dt><dd>7 days (baseline, brief in the repository), 30 days (real users, open hypotheses), 30 and 60 days (metrics against targets).</dd>
+</dl>
+
+<nav class="course"><a href="phase-map.html">Phase map</a><a href="../lessons/0001-the-shape-of-the-day.html">Lesson 0001</a></nav>
+</main>
+</body>
+</html>

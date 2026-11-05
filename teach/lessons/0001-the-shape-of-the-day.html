@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0001 · The shape of the day</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+<main>
+
+<p class="kicker">Lesson 0001 · About 12 minutes</p>
+<h1>The shape of the day</h1>
+<p class="subtitle">Five phases, one relay of files, and three rules that hold it together.</p>
+
+<div class="win"><strong>Your win</strong>Draw the whole method from memory: each phase, the question it asks, and the file it hands to the next. That is the first slide of any presentation, and the map a new facilitator needs before any detail.</div>
+
+<h2>Why the method exists</h2>
+<p>Teams tend to build what the loudest voice asks for. Discovery puts the team's beliefs on record, tests them against customer evidence, and ends with a decision: commit, pivot, or park.<span class="sn">The framing used to open <a href="../../facilitator/train-the-trainer.md">train-the-trainer.md</a>, "Why and how".</span> It takes about 6.5 working hours, and the team leaves with one document the build starts from: the <b>Discovery brief</b>.</p>
+<p>The core idea is old. Amazon's Working Backwards starts from the press release, not the technology, so the team builds only what it can explain to a customer.<span class="sn">Werner Vogels, <a href="https://www.allthingsdistributed.com/2006/11/working_backwards.html">"Working Backwards"</a>, 2006.</span> What's new is that an assistant does the drafting and the analysis, so the room can spend its time deciding.</p>
+
+<h2>Five questions, asked in order</h2>
+<p>Each phase answers one question. The order matters: you can't pick a problem before you've heard customers, and you can't test a solution before you've named the assumption that would kill it.</p>
+
+<table>
+<thead><tr><th>Phase</th><th>The question</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td><span class="chip ph1">Signals</span></td><td>What are customers telling us?</td><td>Records the team's beliefs, then ranks the customer problems in the data, with counts and quotes.</td></tr>
+<tr><td><span class="chip ph2">Working Backwards</span></td><td>Which problem first, for whom, and how would we announce it?</td><td>Personas, scoring that picks one problem, then the press release, PRD, and riskiest assumption.</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>What would it look like?</td><td>A clickable prototype aimed at the riskiest assumption, critiqued by the personas, changed once.</td></tr>
+<tr><td><span class="chip ph4">Validate</span></td><td>What could make it fail, and how will we know it worked?</td><td>Four risks, a pre-mortem, success criteria, and the decision.</td></tr>
+<tr><td><span class="chip ph5">Handoff</span></td><td>What does the build start from?</td><td>The Discovery brief and the next steps.</td></tr>
+</tbody>
+</table>
+<p>Setup comes first (product, people, business metric, data). The readout and the 7-, 30-, and 60-day follow-ups come after.<span class="sn">The questions are verbatim from the phase table in <a href="../../README.md">README.md</a>.</span></p>
+
+<h2>The relay: each phase hands over a file</h2>
+<p>The phases don't share memory; they share files. A phase can't start until the file it needs exists. This is what lets a team stop and pick up next week, and what lets you jump into the middle of a run when one stalls.<span class="sn">The entry skill's <i>To start, it needs</i> table, in <a href="../../skills/aidlc-discovery/SKILL.md">aidlc-discovery/SKILL.md</a>.</span></p>
+
+<div class="relay">
+  <div class="stage ph1"><b>Signals</b><span class="out">signal-summary.md</span></div>
+  <div class="stage ph2"><b>Working Backwards</b><span class="out">prd.md + riskiest-assumption.md</span></div>
+  <div class="stage ph3"><b>Prototype</b><span class="out">index.html + persona-critique.md</span></div>
+  <div class="stage ph4"><b>Validate</b><span class="out">decision.md</span></div>
+  <div class="stage ph5"><b>Handoff</b></div>
+</div>
+
+<p>Look at what crosses each arrow. Prototype needs the <i>riskiest assumption</i>, not just the PRD, because a prototype that tests nothing is a demo. Validate needs the <i>persona critique</i>, because it is the main evidence for whether the idea is valuable and usable. Handoff needs the <i>decision</i>, because the brief is written for every outcome, including park.</p>
+
+<h2>Three rules hold it together</h2>
+<ol class="steps">
+<li><b>The assistant drafts, the team decides.</b> Every phase ends at a checkpoint. No score or decision is final until the team confirms it. The facilitator's job is the room: time, energy, and making sure the team does the thinking.</li>
+<li><b>Every claim carries a label.</b> <b>Known</b> (the data shows it), <b>Assumed</b> (believed, not shown), or <b>Needs evidence</b> (it matters, and has to be tested). The labels are how unproven ideas survive the day as honest open questions instead of hidden ones.</li>
+<li><b>No architecture.</b> Discovery decides who, what, and why. How to build it belongs to the build.</li>
+</ol>
+<p>The skill has seven shared rules in all; these three are the ones a room notices.<span class="sn">Full list: <a href="../reference/phase-map.html">phase map</a>, "The rules that run through every stage".</span></p>
+
+<hr>
+
+<h2>Practice</h2>
+
+<details class="recall">
+<summary>Recall first: on paper, write the five phases, the question each asks, and the file each hands forward. Then open this.</summary>
+<p>Signals: <i>What are customers telling us?</i> → <code>signal-summary.md</code><br>
+Working Backwards: <i>Which problem first, for whom, and how would we announce it?</i> → <code>prd.md</code> + <code>riskiest-assumption.md</code><br>
+Prototype: <i>What would it look like?</i> → <code>index.html</code> + <code>persona-critique.md</code><br>
+Validate: <i>What could make it fail, and how will we know it worked?</i> → <code>decision.md</code><br>
+Handoff: <i>What does the build start from?</i> → the Discovery brief</p>
+<p>Whatever you missed is what to say out loud first next time you present.</p>
+</details>
+
+<div class="quiz" data-correct="0">
+  <div class="stem">1. What does the team do before Signals shows any analysis?</div>
+  <div class="opts">
+    <button class="opt">Writes down its own hypotheses</button>
+    <button class="opt">Confirms the six scoring weights</button>
+    <button class="opt">Reads five full customer quotes</button>
+    <button class="opt">Names its single riskiest assumption</button>
+  </div>
+  <div class="why">Beliefs go on record first, because AI analysis is persuasive. With the hypotheses written down, the report can show where the data agrees and where it doesn't. Quotes come at the end of Signals; weights and the riskiest assumption come later.</div>
+</div>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">2. Which files must exist before Prototype can start?</div>
+  <div class="opts">
+    <button class="opt"><code>signal-summary.md</code> and <code>hypotheses.md</code></button>
+    <button class="opt"><code>use-case-scoring.md</code> and <code>gtm.md</code></button>
+    <button class="opt"><code>prd.md</code> and <code>riskiest-assumption.md</code></button>
+    <button class="opt"><code>persona-critique.md</code> and <code>notes.md</code></button>
+  </div>
+  <div class="why">The PRD says what to show; the riskiest assumption says what the prototype must test. The persona critique is something Prototype <i>produces</i>, and Validate needs.</div>
+</div>
+
+<div class="quiz" data-correct="1">
+  <div class="stem">3. A claim in the PRD is believed by the team but not shown in the data. Which label does it carry?</div>
+  <div class="opts">
+    <button class="opt">Known</button>
+    <button class="opt">Assumed</button>
+    <button class="opt">Open</button>
+    <button class="opt">Draft</button>
+  </div>
+  <div class="why">Assumed. "Open" is a verdict on a risk in Validate, and "Draft" is an artifact status on the progress board. The riskiest assumption is chosen from the Assumed claims.</div>
+</div>
+
+<div class="quiz" data-correct="3">
+  <div class="stem">4. Which three outcomes can Validate end with?</div>
+  <div class="opts">
+    <button class="opt">Build first, defer, or drop</button>
+    <button class="opt">Green, amber, or red</button>
+    <button class="opt">Supported, contradicted, or open</button>
+    <button class="opt">Commit, pivot, or park</button>
+  </div>
+  <div class="why">Commit, pivot, or park. The others are real, which is why they're easy to mix up: build first, defer, and drop are scoring decisions; green, amber, and red are the readiness verdict on the PR/FAQ; supported, contradicted, and open are the verdicts on each of the four risks.</div>
+</div>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">5. Who makes the build decision?</div>
+  <div class="opts">
+    <button class="opt">The assistant, from the scores</button>
+    <button class="opt">The facilitator, after the review</button>
+    <button class="opt">The team in the room</button>
+    <button class="opt">The sponsor, at the kickoff</button>
+  </div>
+  <div class="why">The team. The assistant drafts and makes the evidence visible; the facilitator runs the room. The sponsor is asked only if the team can't agree, at the readout.</div>
+</div>
+
+<div class="quiz" data-correct="3">
+  <div class="stem">6. What never goes into the Discovery brief?</div>
+  <div class="opts">
+    <button class="opt">Open hypotheses and assumptions</button>
+    <button class="opt">Prototype screens and flows</button>
+    <button class="opt">Success criteria and targets</button>
+    <button class="opt">Architecture and technology choices</button>
+  </div>
+  <div class="why">No architecture: Discovery decides who, what, and why. Open hypotheses are section 14, prototype screens section 11, success criteria section 7.</div>
+</div>
+
+<p class="quiz-score"></p>
+
+<div class="source"><strong>Primary source</strong>Read <a href="../../facilitator/run-sheet.md">facilitator/run-sheet.md</a> top to bottom (about 10 minutes). It is the day by the clock, and it is what the next lessons go deeper on. Keep the <a href="../reference/phase-map.html">phase map</a> beside it.</div>
+
+<div class="ask"><strong>Ask your teacher</strong>Anything unclear, or a phase you'd explain differently to your audience? Ask in the chat. You can also ask for a quiz on just one phase, or for the phase map turned into a slide outline.</div>
+
+<nav class="course">
+  <span>Reference: <a href="../reference/phase-map.html">Phase map</a> · <a href="../reference/glossary.html">Glossary</a></span>
+  <span>Next: <a href="0002-setup-and-signals.html">0002 Setup and Signals</a></span>
+</nav>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,81 @@
+id,date,channel,segment,rating,text
+REV-0001,2026-05-01,web_review,leisure,3,The calendar view with prices is hard to read on a phone.
+REV-0002,2026-05-07,google_play,leisure,5,Good value for the service when it all goes to plan.
+REV-0003,2026-05-08,web_review,leisure,3,Wi-Fi didn't work the whole flight.
+REV-0004,2026-05-09,app_store,leisure,5,Love the app. Only wish: a 3D seat preview so I can see the legroom.
+REV-0005,2026-05-13,google_play,leisure,2,Would fly more often if the fares were more reasonable.
+REV-0006,2026-05-14,google_play,leisure,4,Paying with my company card fails about half the time and I have to retry.
+REV-0007,2026-05-19,app_store,leisure,1,Five days and my suitcase is still 'being traced'. I have no idea where it is and no way to find out.
+REV-0008,2026-05-25,app_store,leisure,4,"Booking on the website is fine, I'd just like Apple Pay."
+REV-0009,2026-05-28,google_play,corporate,1,"Delays happen, I get it. What I don't get is why I can see alternative flights on the website but can't move myself onto one."
+REV-0010,2026-05-28,app_store,leisure,2,Sandwich was dry and overpriced.
+REV-0011,2026-06-01,app_store,leisure,2,Couldn't apply my voucher during booking; it only works through the call centre.
+REV-0012,2026-06-01,app_store,leisure,1,The check-in kiosk at Amsterdam rejected my passport twice.
+REV-0013,2026-06-04,google_play,frequent_flyer,4,"Comfortable seats, good coffee, on time. Will fly again."
+REV-0014,2026-06-04,web_review,leisure,4,Crew handled a full flight brilliantly. Arrived ten minutes early.
+REV-0015,2026-06-04,google_play,corporate,3,Other airlines show you where your bag is. Here you get a reference number and silence.
+REV-0016,2026-06-04,web_review,corporate,2,The fare looks cheap until you add a bag and a seat.
+REV-0017,2026-06-04,app_store,leisure,4,Too many announcements on a night flight.
+REV-0018,2026-06-06,google_play,leisure,3,Average airline.
+REV-0019,2026-06-06,google_play,corporate,3,The loyalty section of the app is confusing. I never know what my points are worth.
+REV-0020,2026-06-12,web_review,leisure,5,"Lovely flight, the crew helped with my kids without being asked."
+REV-0021,2026-06-21,web_review,frequent_flyer,3,Booked through a partner and got no points. Nobody explains why.
+REV-0022,2026-06-21,google_play,leisure,1,"Missed my connection in Prague because the first leg was late. The app knew. I got a push notification and then nothing: no new flight, no button, just 'call us'."
+REV-0023,2026-06-21,web_review,leisure,2,Prices to Brussels have gone up a lot this year. Low-cost carriers are half the price.
+REV-0024,2026-06-28,google_play,frequent_flyer,3,"I'd like to see the baggage rules before I choose a fare, not after."
+REV-0025,2026-06-29,web_review,leisure,2,"Fine app for booking, nothing special. Could be simpler."
+REV-0026,2026-07-06,web_review,leisure,1,"My bag missed the connection in Rome. Fine, it happens. But I had to call three times to learn it was on the next flight."
+REV-0027,2026-07-11,app_store,leisure,2,Decent airline but too expensive for what you get in economy.
+REV-0028,2026-07-12,google_play,leisure,3,The new design is prettier but the 'continue' button keeps moving around.
+REV-0029,2026-07-13,google_play,frequent_flyer,4,Would love to book multi-city in one go. Today I have to do two separate bookings.
+REV-0030,2026-07-14,google_play,leisure,4,"The seat selection step comes before you see the final price, which feels sneaky."
+REV-0031,2026-07-15,app_store,corporate,4,Best short-haul airline I've used this year when everything runs to plan.
+REV-0032,2026-07-17,app_store,leisure,5,"Clean plane, friendly staff, on time. Exactly what it says."
+REV-0033,2026-07-20,app_store,leisure,2,"Delayed bag, and the online claim form timed out twice. Had to start again each time."
+REV-0034,2026-07-21,app_store,leisure,4,"On time both ways, friendly crew, clean cabin. No complaints."
+REV-0035,2026-07-27,app_store,corporate,1,The lounge in Seville was overcrowded.
+REV-0036,2026-07-28,app_store,frequent_flyer,4,Booking flow is OK. I wish it remembered my passport details.
+REV-0037,2026-07-28,app_store,leisure,5,Seat map is fine. A 3D view would be a nice touch like some other airlines have.
+REV-0038,2026-08-09,google_play,frequent_flyer,3,Legroom is tight on the older planes.
+REV-0039,2026-08-10,google_play,frequent_flyer,2,"I can't use points for seats or bags, only flights. Feels limited."
+REV-0040,2026-08-12,app_store,frequent_flyer,5,"Third trip this year, all on time. Reliable airline."
+REV-0041,2026-08-13,web_review,corporate,4,"No drama, no delays, that's all I want from an airline."
+REV-0042,2026-08-14,google_play,frequent_flyer,1,"Bag didn't arrive in Paris. The app has no tracking, the desk gave me a paper form and a phone number that never answers."
+REV-0043,2026-08-16,app_store,leisure,2,Took me 12 minutes to book a simple return because of all the upsell pages.
+REV-0044,2026-08-17,app_store,corporate,1,The 'manage booking' page shows an error when your flight is cancelled. Of all the moments for that to happen.
+REV-0045,2026-08-19,web_review,corporate,3,"Lost bag on a family holiday, kids' clothes and medicines inside. No updates for three days."
+REV-0046,2026-08-20,app_store,leisure,2,"Good service, but the competition is cheaper on the Seville route."
+REV-0047,2026-08-22,app_store,frequent_flyer,2,Took 19 days for my points to show up after the flight.
+REV-0048,2026-08-23,app_store,corporate,1,"Cancelled flight, and the automatic rebooking put me on a flight 21 days later. Changing it meant calling. Why can't I choose from the options myself?"
+REV-0049,2026-08-23,app_store,leisure,4,Would be cool to see a 3D view of the cabin when choosing a seat.
+REV-0050,2026-08-24,app_store,leisure,2,"Flight delayed 6 hours, I missed the meeting I was flying for. Getting a new flight meant two calls and an email."
+REV-0051,2026-08-25,google_play,leisure,3,"The bag tag has a barcode, so somebody knows where it is. Why can't I?"
+REV-0052,2026-08-26,web_review,leisure,2,The app is fine for booking and check-in. The moment a flight is disrupted it becomes useless and everything goes through the call centre.
+REV-0053,2026-08-27,app_store,leisure,1,Ok.
+REV-0054,2026-08-28,app_store,corporate,1,Couldn't add my special meal online.
+REV-0055,2026-08-31,google_play,leisure,4,A 3D seat map would make choosing extra legroom seats easier to justify.
+REV-0056,2026-08-31,web_review,leisure,5,Check-in in the app was quick and the flight was on time.
+REV-0057,2026-09-01,app_store,leisure,3,Paid 169 euros for a short flight. Hard to justify.
+REV-0058,2026-09-01,app_store,corporate,4,The website looks a bit dated compared to other airlines. Gets the job done though.
+REV-0059,2026-09-03,app_store,leisure,4,Flight to Warsaw left and arrived early. Smooth boarding.
+REV-0060,2026-09-03,web_review,frequent_flyer,5,Seat selection works. It would be fun to see the view from the window seat in 3D.
+REV-0061,2026-09-05,google_play,corporate,2,Flight to Seville cancelled at the gate. The app just said 'please contact us'. 170 minutes on hold to get moved to a flight the next afternoon. The flight itself was fine; the cancellation handling was a disaster.
+REV-0062,2026-09-07,google_play,corporate,4,Boarding was organised by groups and actually worked. On time.
+REV-0063,2026-09-07,app_store,frequent_flyer,2,Hard to see how many points I need for the next status level.
+REV-0064,2026-09-08,google_play,leisure,1,They cancelled my return from Paris by text at 23:00 and the phone line opened at 07:00. By then the next flights were full.
+REV-0065,2026-09-11,google_play,leisure,2,"Good crew, comfortable seats, but when something goes wrong you are on your own. My Dublin flight was cancelled and it took 60 minutes on the phone to sort out."
+REV-0066,2026-09-14,app_store,leisure,2,Damaged suitcase and the claim process wants receipts I don't have for a bag I bought six years ago.
+REV-0067,2026-09-14,google_play,frequent_flyer,2,Points from my last three flights never appeared on my account.
+REV-0068,2026-09-18,app_store,corporate,2,App crashed when I tried to download my boarding pass.
+REV-0069,2026-09-19,google_play,frequent_flyer,2,Our family got split across two flights after a cancellation and we couldn't fix it online. One star for the disruption handling only.
+REV-0070,2026-09-21,app_store,corporate,4,"Easy app, mobile boarding pass worked first time, on time departure."
+REV-0071,2026-09-21,google_play,leisure,4,"Everything worked: app, bag drop, boarding, on time landing in Rome."
+REV-0072,2026-09-21,app_store,leisure,3,"Search is slow when you change dates. Minor thing, but annoying."
+REV-0073,2026-09-23,app_store,corporate,2,"Two hours stuck at Prague airport after a cancellation, and the website still showed my old flight as confirmed."
+REV-0074,2026-09-27,google_play,frequent_flyer,5,I'd like to see photos or a 3D view of the seat before paying extra for it.
+REV-0075,2026-09-29,web_review,corporate,3,Cabin was too cold.
+REV-0076,2026-09-30,web_review,corporate,4,"Family of four, the bags alone cost more than one ticket."
+REV-0077,2026-10-01,web_review,leisure,4,"Quiet cabin, good legroom for economy, on schedule."
+REV-0078,2026-10-04,google_play,leisure,2,"Booking for my elderly mother was confusing, too many options on one page."
+REV-0079,2026-10-05,web_review,leisure,2,Last-minute prices are absurd.
+REV-0080,2026-10-12,app_store,leisure,1,"Fourth time this year a Stockholm flight was moved, and every time the only option is the hotline. I have started booking another airline for that route."

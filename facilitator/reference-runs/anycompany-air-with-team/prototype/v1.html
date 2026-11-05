@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype</title>
+<!--
+  AI-DLC Discovery prototype shell.
+  Copy this file to prototype/v[N].html. Edit ONLY:
+    1. the PROTOTYPE settings in the script block with id "prototype-settings", and
+    2. the screen templates inside the element with id "screens".
+  Keep everything else as it is. The shell provides the Flow, Mobile, and Desktop
+  views, the device frames, navigation, steppers, and the test moment toggle.
+  One self-contained file: no external requests.
+-->
+<style>
+  :root {
+    --bg: #f5f2ed; --surface: #ffffff; --ink: #1d1b18; --muted: #6b665e; --line: #e4ded4;
+    --accent: #2f6f4f; --accent-ink: #ffffff; --danger: #b3261e; --warn: #9a6400;
+    --radius: 14px; --space: 8px; --shadow: 0 10px 30px rgba(29, 27, 24, .12);
+    --font-head: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 var(--font-body); }
+  button { font: inherit; color: inherit; }
+  .topbar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: calc(var(--space) * 2);
+    padding: calc(var(--space) * 1.5) calc(var(--space) * 3); background: var(--surface); border-bottom: 1px solid var(--line); }
+  .topbar h1 { margin: 0; font: 600 17px var(--font-head); }
+  .topbar .meta { color: var(--muted); font-size: 13px; }
+  .tabs { display: flex; gap: 4px; margin-left: auto; background: var(--bg); padding: 4px; border-radius: 999px; }
+  .tabs a { padding: 6px 14px; border-radius: 999px; color: var(--ink); text-decoration: none; font-size: 14px; }
+  .tabs a[aria-current="page"] { background: var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,.12); font-weight: 600; }
+  .toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; }
+  main { padding: calc(var(--space) * 4) calc(var(--space) * 3); }
+  .view { display: none; } .view.active { display: block; }
+  .intro { max-width: 760px; margin: 0 auto calc(var(--space) * 4); text-align: center; }
+  .intro h2 { font: 600 30px/1.2 var(--font-head); margin: 0 0 8px; }
+  .intro p { color: var(--muted); margin: 0; }
+
+  /* Phone frame */
+  .phone { width: 300px; height: 620px; flex: 0 0 auto; background: #111; border-radius: 44px; padding: 12px; box-shadow: var(--shadow); position: relative; }
+  .screen-area { width: 100%; height: 100%; background: var(--surface); border-radius: 34px; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 96px; height: 24px; background: #111; border-radius: 0 0 14px 14px; z-index: 2; }
+  .statusbar { display: flex; justify-content: space-between; padding: 8px 22px 6px; font-size: 12px; font-weight: 600; }
+  .statusbar span:first-child { min-width: 60px; } .statusbar span:last-child { min-width: 60px; text-align: right; }
+  .phone .content { flex: 1; overflow-y: auto; padding: 8px 20px 20px; }
+  .home { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 110px; height: 4px; background: var(--ink); opacity: .35; border-radius: 4px; }
+
+  /* Flow board */
+  .flow { display: flex; gap: 28px; overflow-x: auto; padding: 8px 8px 32px; align-items: flex-start; }
+  .step { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+  .caption { width: 300px; }
+  .caption b { display: block; font: 600 15px var(--font-head); }
+  .caption span { color: var(--muted); font-size: 13px; }
+  .arrow { align-self: center; color: var(--muted); font-size: 26px; }
+  .flow .content { pointer-events: none; }
+
+  /* Mobile view */
+  .stage { display: flex; justify-content: center; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
+  .side { max-width: 320px; }
+  .side h3 { font: 600 20px var(--font-head); margin: 0 0 6px; }
+  .side ol { padding-left: 20px; color: var(--muted); }
+  .side li.current { color: var(--ink); font-weight: 600; }
+
+  /* Browser frame */
+  .browser { max-width: 1100px; margin: 0 auto; background: var(--surface); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--line); }
+  .chrome { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #ece7df; border-bottom: 1px solid var(--line); }
+  .dots span { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 6px; }
+  .dots span:nth-child(1) { background: #ec6a5e; } .dots span:nth-child(2) { background: #f4bf4f; } .dots span:nth-child(3) { background: #61c554; }
+  .url { flex: 1; background: var(--surface); border-radius: 8px; padding: 6px 12px; font-size: 13px; color: var(--muted); }
+  .page { display: grid; grid-template-columns: 220px 1fr; min-height: 560px; }
+  .page nav { border-right: 1px solid var(--line); padding: 20px; }
+  .brand { font: 600 16px var(--font-head); margin-bottom: 16px; }
+  .page nav a { display: block; padding: 8px 10px; border-radius: 8px; color: var(--muted); text-decoration: none; font-size: 14px; }
+  .page nav a.current { background: var(--bg); color: var(--ink); font-weight: 600; }
+  .page .content { padding: 32px 40px; max-width: 760px; }
+
+  /* Building blocks for screens */
+  .s-title { font: 600 24px/1.2 var(--font-head); margin: 12px 0 6px; }
+  .s-sub { color: var(--muted); margin: 0 0 16px; }
+  .card { background: var(--bg); border-radius: var(--radius); padding: 14px 16px; margin: 0 0 10px; }
+  .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; background: var(--bg); color: var(--muted); }
+  .pill.ok { background: #e3efe7; color: var(--accent); } .pill.warn { background: #f7ead3; color: var(--warn); } .pill.bad { background: #f6dedc; color: var(--danger); }
+  .btn { display: block; width: 100%; padding: 14px; border: 0; border-radius: 12px; background: var(--accent); color: var(--accent-ink); font-weight: 600; cursor: pointer; text-align: center; margin-top: 12px; min-height: 44px; }
+  .btn.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .stepper { display: inline-flex; align-items: center; gap: 10px; }
+  .stepper button { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); cursor: pointer; }
+  [data-go] { cursor: pointer; }
+  .muted { color: var(--muted); } .small { font-size: 13px; }
+
+  /* Test moment */
+  .tm-on .test-moment { outline: 3px dashed var(--warn); outline-offset: 4px; border-radius: 8px; }
+  .tm-note { display: none; margin-top: 12px; padding: 10px 12px; border-radius: 10px; background: #f7ead3; color: var(--warn); font-size: 13px; max-width: 300px; }
+  .tm-on .tm-note { display: block; }
+  @media (prefers-reduced-motion: no-preference) { .live > * { animation: fade .18s ease-out; } }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+</style>
+<style id="theme"></style>
+</head>
+<body>
+<header class="topbar">
+  <h1 id="product"></h1><span class="meta" id="meta"></span>
+  <nav class="tabs" aria-label="Views">
+    <a href="#/flow" data-view="flow">Flow</a><a href="#/mobile" data-view="mobile">Mobile</a><a href="#/desktop" data-view="desktop">Desktop</a>
+  </nav>
+  <label class="toggle"><input type="checkbox" id="tm"> Show test moment</label>
+</header>
+<main>
+  <section class="view" id="view-flow">
+    <div class="intro"><h2 id="flow-title"></h2><p id="flow-sub"></p></div>
+    <div class="flow" id="flow"></div>
+  </section>
+  <section class="view" id="view-mobile"><div class="stage">
+    <div class="phone"><div class="screen-area"><div class="notch"></div><div class="statusbar"><span class="clock"></span><span>●●● 5G ▮</span></div><div class="content live" id="mobile"></div><div class="home"></div></div></div>
+    <aside class="side"><h3>The flow</h3><ol id="steps-m"></ol><div class="tm-note"></div></aside>
+  </div></section>
+  <section class="view" id="view-desktop">
+    <div class="browser"><div class="chrome"><span class="dots"><span></span><span></span><span></span></span><span class="url" id="url"></span></div>
+      <div class="page"><nav id="steps-d"></nav><div class="content live" id="desktop"></div></div></div>
+    <div class="tm-note" style="margin:16px auto 0"></div>
+  </section>
+</main>
+
+<!-- ============================== EDIT BELOW ============================== -->
+<script id="prototype-settings">
+const PROTOTYPE = {
+  product: "Choose My Flight · AnyCompany Air",
+  version: "v1",
+  tagline: "Flight cancelled? Disrupted passengers, or someone they trust, choose a new flight and get a boarding pass in under three minutes, with nothing to pay.",
+  url: "anycompany-air.example/manage-booking",
+  clock: "19:52",
+  theme: {
+    "--bg": "#eef2f6", "--surface": "#ffffff", "--ink": "#13233f", "--muted": "#55627a", "--line": "#d9e0ea",
+    "--accent": "#0b6b6b", "--accent-ink": "#ffffff", "--warn": "#8a5200", "--danger": "#a3261e",
+    "--font-head": "\"Avenir Next\", \"Segoe UI\", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif"
+  },
+  testMoment: "Riskiest assumption: does this confirmation answer the doubts that make people call today (is the ticket really issued, was I charged, is everyone together, what do I do now), so the passenger trusts it and does not call to check? Supports it: at least 6 of 8 recently disrupted passengers would not call.",
+  state: {}
+};
+</script>
+<!--
+  Choose My Flight v1. Three paths:
+  Ingrid (mobile): disruption -> keep the 07:20 -> confirm -> rebooked  (or disruption -> options -> confirm -> rebooked)
+  Helena's daughter (desktop): someone-else -> options (desktop: Helena's booking, suggestion two days later replaced) -> confirm -> rebooked -> helena-text
+  Unhappy: options -> seat-gone -> options; options -> none-works
+-->
+<div id="screens" hidden>
+
+  <!-- 1. Disruption message -->
+  <template data-screen id="disruption" data-title="Disruption message" data-caption="The cancellation message offers an action, not just 'contact us' (P0-1)">
+    <p class="small muted" style="margin:4px 0 0">AnyCompany Air · Trips</p>
+    <div class="card" style="background:#f7ead3;margin-top:10px">
+      <span class="pill warn">Cancelled</span>
+      <div style="font-weight:600;margin-top:8px">AY 1187 Hamburg → Milan Linate</div>
+      <div class="small muted">Today 19:40 · Booking K7QM4P · Ingrid Halvorsen</div>
+    </div>
+    <div class="s-title">Your flight is cancelled. Choose your new flight now.</div>
+    <p class="s-sub">We're sorry. You can rebook here in a few minutes, at any hour. There is nothing to pay.</p>
+    <div class="card" data-go="confirm">
+      <span class="pill ok">Our suggestion</span>
+      <div class="row" style="border:0;padding-bottom:0"><b>Tomorrow 07:20 → 08:50</b><span class="small muted">Direct</span></div>
+      <div class="small muted">Seat 4C kept · €0.00</div>
+    </div>
+    <button class="btn" data-go="confirm">Keep the 07:20</button>
+    <button class="btn secondary" data-go="options">See all flights with seats</button>
+    <p class="small muted" style="text-align:center;margin-top:14px"><span data-go="none-works" style="text-decoration:underline">Talk to us instead</span></p>
+  </template>
+
+  <!-- 2. Options -->
+  <template data-screen id="options" data-title="Your options" data-caption="The suggestion is marked; the alternatives show times, seats together, and the cost at a glance (P0-2, P0-3, P0-7)">
+    <p class="small muted" style="margin:4px 0 0"><span data-go="disruption" style="text-decoration:underline">← Back</span></p>
+    <div class="s-title">Flights to Milan with seats</div>
+    <p class="s-sub">Pick one. Keeping our suggestion is fine too.</p>
+    <div class="card" data-go="confirm" style="border:2px solid var(--accent)">
+      <span class="pill ok">Our suggestion</span>
+      <div class="row" style="border:0;padding-bottom:4px"><b>Fri 07:20 → 08:50</b><span class="small">Direct · LIN</span></div>
+      <div class="small muted">1 of 1 traveller · seat 4C · €0.00 to pay</div>
+    </div>
+    <div class="card" data-go="seat-gone">
+      <div class="row" style="border:0;padding-bottom:4px"><b>Fri 06:10 → 09:35</b><span class="small">1 stop · FRA</span></div>
+      <div class="small muted">1 of 1 traveller · 3 seats left · €0.00 to pay</div>
+    </div>
+    <div class="card" data-go="confirm">
+      <div class="row" style="border:0;padding-bottom:4px"><b>Fri 08:05 → 09:35</b><span class="small">Direct · LIN</span></div>
+      <div class="small muted">1 of 1 traveller · seats available · €0.00 to pay</div>
+    </div>
+    <p class="small muted" style="text-align:center;margin-top:12px"><span data-go="none-works" style="text-decoration:underline">None of these works for me</span></p>
+  </template>
+
+  <!-- 2 (desktop). Helena's booking, chosen by her daughter -->
+  <template data-desktop="options">
+    <p class="small muted" style="margin:0">Manage booking · R2XN8D · Helena and Tomasz Kowalski</p>
+    <div class="s-title">Flights from Nice to Warsaw with seats</div>
+    <p class="s-sub">Their 18:30 flight today was cancelled. We moved them to our suggestion below. You can keep it or choose another.</p>
+    <div class="card">
+      <div class="row" style="border:0"><div><span class="pill ok">Our suggestion</span> <b style="margin-left:8px">Sat 31 Oct · 18:30 → 21:15</b> <span class="small muted">Direct</span></div><span class="small muted">2 of 2 together · €0.00</span></div>
+      <div class="small muted">Two days from now. Keep it if it suits them.</div>
+      <button class="btn secondary" style="width:auto;padding:10px 18px" data-go="confirm">Keep the suggestion</button>
+    </div>
+    <div class="card" style="border:2px solid var(--accent)">
+      <div class="row" style="border:0"><div><b>Fri 30 Oct · 11:15 → 14:05</b> <span class="small muted">Direct</span></div><span class="small"><span class="pill ok">2 of 2 together</span> €0.00</span></div>
+      <div class="small muted">Tomorrow, late morning. Seats 14A and 14B.</div>
+      <button class="btn" style="width:auto;padding:10px 18px" data-go="confirm">Choose this flight</button>
+    </div>
+    <div class="card">
+      <div class="row" style="border:0"><div><b>Fri 30 Oct · 07:45 → 13:20</b> <span class="small muted">1 stop · Munich</span></div><span class="small"><span class="pill warn">Seated apart</span> €0.00</span></div>
+      <button class="btn secondary" style="width:auto;padding:10px 18px" data-go="seat-gone">Choose this flight</button>
+    </div>
+    <p class="small muted"><span data-go="none-works" style="text-decoration:underline">None of these works for them</span></p>
+  </template>
+
+  <!-- 3. Check and confirm -->
+  <template data-screen id="confirm" data-title="Check and confirm" data-caption="Old flight next to new: what changes, who moves, and the cost (P0-3, P0-4)">
+    <p class="small muted" style="margin:4px 0 0"><span data-go="options" style="text-decoration:underline">← Other flights</span></p>
+    <div class="s-title">Check your new flight</div>
+    <div class="card">
+      <div class="small muted">Was</div>
+      <div style="text-decoration:line-through" class="muted">Today 19:40 → 21:10 · AY 1187</div>
+      <div class="small muted" style="margin-top:10px">Now</div>
+      <div><b>Fri 07:20 → 08:50 · AY 1181</b></div>
+      <div class="small">Hamburg → Milan Linate · direct</div>
+    </div>
+    <div class="row"><span>Traveller</span><b>Ingrid Halvorsen</b></div>
+    <div class="row"><span>Seat</span><b>4C, aisle</b></div>
+    <div class="row"><span>Bag</span><b>Moves with you</b></div>
+    <div class="row"><span>To pay</span><b>€0.00</b></div>
+    <button class="btn" data-go="rebooked">Confirm this flight</button>
+  </template>
+
+  <template data-desktop="confirm">
+    <p class="small muted" style="margin:0">Manage booking · R2XN8D</p>
+    <div class="s-title">Check the new flight for Helena and Tomasz</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0">
+      <div class="card"><div class="small muted">Was</div><div class="muted" style="text-decoration:line-through">Thu 29 Oct · 18:30 → 21:15 · AY 2264</div><div class="small muted">Cancelled</div></div>
+      <div class="card" style="border:2px solid var(--accent)"><div class="small muted">Now</div><b>Fri 30 Oct · 11:15 → 14:05 · AY 2262</b><div class="small">Nice → Warsaw · direct</div></div>
+    </div>
+    <div class="row"><span>Travellers</span><b>Helena Kowalska, Tomasz Kowalski (together)</b></div>
+    <div class="row"><span>Seats</span><b>14A, 14B</b></div>
+    <div class="row"><span>Bags</span><b>Move with them</b></div>
+    <div class="row"><span>To pay</span><b>€0.00</b></div>
+    <div class="row"><span>Helena is told by</span><b>Text to +48 ••• ••• 218</b></div>
+    <button class="btn" style="width:auto;padding:12px 28px" data-go="rebooked">Confirm this flight</button>
+  </template>
+
+  <!-- 4. Rebooked: TEST MOMENT -->
+  <template data-screen id="rebooked" data-title="You're rebooked" data-caption="TEST MOMENT: does this answer the doubts that make people call? (P0-5)" data-test-moment>
+    <div style="text-align:center;margin-top:10px">
+      <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#0b6b6b"/><path d="M14 25l7 7 13-15" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="s-title" style="text-align:center">You're on the 07:20</div>
+    <div class="card test-moment">
+      <div class="row"><span>New ticket</span><span class="pill ok">Issued</span></div>
+      <div class="row"><span>Charged</span><b>€0.00</b></div>
+      <div class="row"><span>Bag</span><b>Moved to AY 1181</b></div>
+      <div class="row" style="border:0"><span>Confirmation</span><b class="small">Texted to +49 ••• 4417</b></div>
+      <p style="margin:8px 0 0;font-weight:600">You don't need to call us. This booking is final.</p>
+    </div>
+    <div class="card" style="background:#13233f;color:#fff">
+      <div class="small" style="opacity:.8">Boarding pass · Fri 30 Oct</div>
+      <div class="row" style="border-color:rgba(255,255,255,.2)"><b>HAM 07:20</b><span>→</span><b>LIN 08:50</b></div>
+      <div class="small">Gate B14 · boards 06:50 · seat 4C</div>
+      <svg width="100%" height="34" viewBox="0 0 220 34" aria-label="Boarding pass barcode"><g fill="#fff">
+        <rect x="0" y="0" width="3" height="34"/><rect x="6" y="0" width="1" height="34"/><rect x="10" y="0" width="4" height="34"/><rect x="17" y="0" width="2" height="34"/><rect x="22" y="0" width="1" height="34"/><rect x="26" y="0" width="3" height="34"/><rect x="32" y="0" width="1" height="34"/><rect x="36" y="0" width="4" height="34"/><rect x="43" y="0" width="2" height="34"/><rect x="48" y="0" width="1" height="34"/><rect x="52" y="0" width="3" height="34"/><rect x="58" y="0" width="2" height="34"/><rect x="63" y="0" width="4" height="34"/><rect x="70" y="0" width="1" height="34"/><rect x="74" y="0" width="3" height="34"/><rect x="80" y="0" width="2" height="34"/><rect x="85" y="0" width="1" height="34"/><rect x="89" y="0" width="4" height="34"/><rect x="96" y="0" width="2" height="34"/><rect x="101" y="0" width="1" height="34"/><rect x="105" y="0" width="3" height="34"/><rect x="111" y="0" width="1" height="34"/><rect x="115" y="0" width="4" height="34"/><rect x="122" y="0" width="2" height="34"/><rect x="127" y="0" width="3" height="34"/><rect x="133" y="0" width="1" height="34"/><rect x="137" y="0" width="4" height="34"/><rect x="144" y="0" width="2" height="34"/><rect x="149" y="0" width="1" height="34"/><rect x="153" y="0" width="3" height="34"/><rect x="159" y="0" width="2" height="34"/><rect x="164" y="0" width="4" height="34"/><rect x="171" y="0" width="1" height="34"/><rect x="175" y="0" width="3" height="34"/><rect x="181" y="0" width="2" height="34"/><rect x="186" y="0" width="1" height="34"/><rect x="190" y="0" width="4" height="34"/><rect x="197" y="0" width="2" height="34"/><rect x="202" y="0" width="1" height="34"/><rect x="206" y="0" width="3" height="34"/><rect x="212" y="0" width="2" height="34"/><rect x="217" y="0" width="3" height="34"/></g></svg>
+    </div>
+    <button class="btn secondary" data-go="disruption">Add to wallet</button>
+  </template>
+
+  <template data-desktop="rebooked">
+    <div class="s-title">Helena and Tomasz are on the 11:15 tomorrow</div>
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:12px">
+      <div class="card test-moment">
+        <div class="row"><span>New tickets (2)</span><span class="pill ok">Issued</span></div>
+        <div class="row"><span>Charged</span><b>€0.00</b></div>
+        <div class="row"><span>Seats</span><b>14A, 14B, together</b></div>
+        <div class="row"><span>Bags</span><b>Moved to AY 2262</b></div>
+        <div class="row" style="border:0"><span>Helena</span><b>Text sent to +48 ••• ••• 218</b></div>
+        <p style="margin:8px 0 0;font-weight:600">Nobody needs to call us. This booking is final.</p>
+      </div>
+      <div class="card" style="background:#13233f;color:#fff">
+        <div class="small" style="opacity:.8">Fri 30 Oct · AY 2262</div>
+        <div class="row" style="border-color:rgba(255,255,255,.2)"><b>NCE 11:15</b><span>→</span><b>WAW 14:05</b></div>
+        <div class="small">Check-in desk 12 · Terminal 2 · boarding 10:35</div>
+        <div class="small" style="margin-top:8px;opacity:.85">Helena can show the text at the desk.</div>
+      </div>
+    </div>
+    <button class="btn secondary" style="width:auto;padding:10px 18px" data-go="helena-text">See the text Helena receives</button>
+  </template>
+
+  <!-- 5. Rebook for someone else -->
+  <template data-screen id="someone-else" data-title="Rebook for someone else" data-caption="Helena's daughter opens her parents' booking with the reference and surname (P0-6). Best seen in Desktop">
+    <p class="small muted" style="margin:4px 0 0">anycompany-air.example · Manage booking</p>
+    <div class="s-title">Rebook for someone else</div>
+    <p class="s-sub">Is someone's flight cancelled? You can choose their new flight for them.</p>
+    <div class="card"><div class="small muted">Booking reference</div><b>R2XN8D</b></div>
+    <div class="card"><div class="small muted">Their surname</div><b>Kowalska</b></div>
+    <p class="small muted">We text them the new flight. Same details as Manage booking today.</p>
+    <button class="btn" data-go="options">Find their booking</button>
+  </template>
+
+  <template data-desktop="someone-else">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+      <div>
+        <div class="s-title">Rebook for someone else</div>
+        <p class="s-sub">Is a family member's or a traveller's flight cancelled or delayed? Choose their new flight for them. We text them the result.</p>
+        <div class="card"><div class="small muted">Booking reference</div><b>R2XN8D</b></div>
+        <div class="card"><div class="small muted">Their surname</div><b>Kowalska</b></div>
+        <button class="btn" style="width:auto;padding:12px 28px" data-go="options">Find their booking</button>
+      </div>
+      <div class="card" style="background:#f7ead3">
+        <span class="pill warn">Cancelled</span>
+        <div style="font-weight:600;margin-top:8px">AY 2264 Nice → Warsaw</div>
+        <div class="small muted">Today, Thu 29 Oct · 18:30 · 2 travellers</div>
+        <p class="small" style="margin-bottom:0">Helena's daughter, at home in Kraków, after her mother called from Nice airport.</p>
+      </div>
+    </div>
+  </template>
+
+  <!-- 6. Helena's text -->
+  <template data-screen id="helena-text" data-title="The text Helena receives" data-caption="A passenger without the app knows her new flight and where to go (P0-6)">
+    <p class="small muted" style="margin:4px 0 0;text-align:center">Messages · AnyCompany Air</p>
+    <div class="card" style="margin-top:18px;border-radius:18px 18px 18px 4px">
+      AnyCompany Air: Helena, your new flight is AY 2262, Fri 30 Oct, Nice 11:15 → Warsaw 14:05, seats 14A and 14B with Tomasz. Your daughter changed this booking for you. Nothing to pay. Check in at desk 12, Terminal 2, from 08:15. Show this text at the desk if you need help.
+    </div>
+    <p class="small muted" style="text-align:center">Read 20:31</p>
+    <button class="btn secondary" data-go="someone-else">Back to the start of this path</button>
+  </template>
+
+  <!-- 7a. Seat gone while choosing -->
+  <template data-screen id="seat-gone" data-title="Seat gone while choosing" data-caption="Failure state: a flight fills up before confirming, and the passenger is told before paying or confirming anything (NF-3)">
+    <div class="card" style="background:#f6dedc;margin-top:14px">
+      <span class="pill bad">Just filled up</span>
+      <div style="font-weight:600;margin-top:8px">That flight has no seats left together now.</div>
+      <div class="small">Other passengers chose it while you were looking. Nothing has changed on your booking.</div>
+    </div>
+    <div class="s-title">Still available</div>
+    <div class="card" data-go="confirm">
+      <div class="row" style="border:0;padding-bottom:4px"><b>Fri 07:20 → 08:50</b><span class="small">Direct</span></div>
+      <div class="small muted">Our suggestion · €0.00 to pay</div>
+    </div>
+    <button class="btn" data-go="confirm">Choose the 07:20</button>
+    <button class="btn secondary" data-go="options">Back to all flights</button>
+  </template>
+
+  <!-- 7b. None of these works -->
+  <template data-screen id="none-works" data-title="None of these works" data-caption="Nice-to-have (P1-1): a call-back with the booking already loaded, and the refund route">
+    <p class="small muted" style="margin:4px 0 0"><span data-go="options" style="text-decoration:underline">← Back to flights</span></p>
+    <div class="s-title">We'll call you</div>
+    <p class="s-sub">An agent calls you with your booking already open, so you won't need to explain again.</p>
+    <div class="card"><div class="row" style="border:0"><span>Call-back to</span><b>+49 ••• 4417</b></div><div class="small muted">As soon as an agent is free, at any hour</div></div>
+    <button class="btn" data-go="disruption">Request a call-back</button>
+    <button class="btn secondary" data-go="disruption">Get a refund instead</button>
+    <p class="small muted">Refunds follow the current process.</p>
+  </template>
+
+</div>
+<!-- ============================== EDIT ABOVE ============================== -->
+
+<script>
+(function () {
+  const P = PROTOTYPE, $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
+  const state = Object.assign({}, P.state || {});
+  const screens = $$("#screens template[data-screen]").map((t) => ({
+    id: t.id, title: t.dataset.title || t.id, caption: t.dataset.caption || "", test: t.hasAttribute("data-test-moment"), tpl: t,
+    desktop: document.querySelector(`#screens template[data-desktop="${t.id}"]`)
+  }));
+  const byId = Object.fromEntries(screens.map((s) => [s.id, s]));
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const fill = (target, tpl) => { target.replaceChildren(tpl.content.cloneNode(true)); bind(target); };
+  const bind = (root) => root.querySelectorAll("[data-bind]").forEach((b) => (b.textContent = state[b.dataset.bind]));
+
+  document.title = `${P.product}: prototype ${P.version}`;
+  $("#theme").textContent = ":root{" + Object.entries(P.theme || {}).map(([k, v]) => `${k}:${v}`).join(";") + "}";
+  $("#product").textContent = P.product;
+  $("#meta").textContent = `${P.version} · prototype on fictional data`;
+  $("#flow-title").textContent = P.tagline;
+  $("#flow-sub").textContent = `${screens.length} screens · tick "Show test moment" to see what this prototype tests`;
+  $$(".clock").forEach((c) => (c.textContent = P.clock || "9:41"));
+  $$(".tm-note").forEach((n) => (n.textContent = "Test moment: " + P.testMoment));
+
+  function phone(screen) {
+    const p = el("div", "phone"), a = el("div", "screen-area"), bar = el("div", "statusbar"), c = el("div", "content");
+    bar.append(el("span", "", P.clock || "9:41"), el("span", "", "●●● 5G ▮"));
+    a.append(el("div", "notch"), bar, c, el("div", "home")); p.append(a); fill(c, screen.tpl); return p;
+  }
+  const flow = $("#flow");
+  screens.forEach((s, i) => {
+    const step = el("div", "step"), cap = el("div", "caption");
+    cap.append(el("b", "", `${i + 1}. ${s.title}`), el("span", "", s.caption));
+    step.append(phone(s), cap); flow.append(step);
+    if (i < screens.length - 1) { const a = el("div", "arrow", "→"); a.setAttribute("aria-hidden", "true"); flow.append(a); }
+  });
+
+  function steps(current, target, desktop) {
+    const items = screens.map((s) => {
+      const item = desktop ? el("a", s.id === current ? "current" : "", s.title) : el("li", s.id === current ? "current" : "", s.title);
+      if (desktop) { item.href = `#/desktop/${s.id}`; item.dataset.id = s.id; }
+      return item;
+    });
+    if (desktop) items.unshift(el("div", "brand", P.product));
+    target.replaceChildren(...items);
+  }
+  let current = { view: "flow", id: screens[0] && screens[0].id };
+  function setAddress() {
+    // Some viewers (sandboxed frames) block address changes; the prototype works without them.
+    try { history.replaceState(null, "", `#/${current.view}${current.view === "flow" ? "" : "/" + current.id}`); } catch (e) { /* ignore */ }
+  }
+  function render(view, id) {
+    const s = byId[id] || byId[current.id] || screens[0];
+    current = { view, id: s.id };
+    $$(".view").forEach((v) => v.classList.toggle("active", v.id === "view-" + view));
+    $$(".tabs a").forEach((a) => a.setAttribute("aria-current", a.dataset.view === view ? "page" : "false"));
+    if (view === "mobile") { fill($("#mobile"), s.tpl); steps(s.id, $("#steps-m"), false); }
+    if (view === "desktop") {
+      fill($("#desktop"), s.desktop || s.tpl); steps(s.id, $("#steps-d"), true);
+      $("#url").textContent = "https://" + String(P.url || "").replace(/\/?$/, "/") + s.id;
+    }
+    setAddress();
+    window.scrollTo(0, 0);
+  }
+  function fromAddress() {
+    const parts = (location.hash || "").split("/");
+    return { view: ["flow", "mobile", "desktop"].includes(parts[1]) ? parts[1] : "flow", id: parts[2] };
+  }
+  document.addEventListener("click", (e) => {
+    const tab = e.target.closest(".tabs a[data-view]"), nav = e.target.closest("#steps-d a[data-id]");
+    const go = e.target.closest("[data-go]"), inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
+    if (tab) { e.preventDefault(); render(tab.dataset.view, current.id); return; }
+    if (nav) { e.preventDefault(); render("desktop", nav.dataset.id); return; }
+    if (go && current.view !== "flow") { e.preventDefault(); render(current.view, go.dataset.go); return; }
+    if (inc) { state[inc.dataset.inc] = (state[inc.dataset.inc] || 0) + 1; bind(document); }
+    if (dec) { state[dec.dataset.dec] = Math.max(0, (state[dec.dataset.dec] || 0) - 1); bind(document); }
+  });
+  $("#tm").addEventListener("change", (e) => document.body.classList.toggle("tm-on", e.target.checked));
+  window.addEventListener("hashchange", () => { const a = fromAddress(); render(a.view, a.id); });
+  const start = fromAddress();
+  render(start.view, start.id);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+service_name,error_code,message,count,first_seen,last_seen
+reissue-service,FARE_RULE_MISMATCH,Reissue rejected: the new flight's fare rules do not match the original ticket,3985,2026-05-01,2026-10-15
+reissue-service,TICKET_LOCKED,Reissue rejected: the ticket is locked by another change in progress,1092,2026-05-02,2026-10-15
+reissue-service,EMD_NOT_REASSOCIATED,"Extras on the original ticket (seat, bag) were not moved to the new ticket",835,2026-05-03,2026-10-14
+reissue-service,TIMEOUT_GDS,Timed out waiting for the reservations system,514,2026-05-06,2026-10-13
+payments-api,GATEWAY_TIMEOUT,Payment gateway did not answer within 4 seconds,249,2026-08-01,2026-08-30
+payments-api,3DS_CHALLENGE_TIMEOUT,Card authentication challenge expired,472,2026-05-01,2026-10-15
+notifications,PROVIDER_THROTTLED,Push and SMS provider throttled the send rate; messages queued,955,2026-07-01,2026-08-31
+notifications,DEVICE_TOKEN_EXPIRED,Push token no longer valid; email sent instead,1452,2026-05-01,2026-10-15
+trips-api,UPSTREAM_SLOW,Reservations lookup slower than 2 seconds,2972,2026-05-04,2026-10-15

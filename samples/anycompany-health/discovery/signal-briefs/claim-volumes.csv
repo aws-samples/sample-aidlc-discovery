@@ -1,0 +1,7 @@
+month,days_covered,claims_received,decided_without_member_action,pended_waiting_for_member_information,average_days_to_decision,claim_status_calls_per_1000_claims
+2026-05,31,54075,48851,5224,11.6,121.0
+2026-06,30,50270,45391,4879,10.4,115.0
+2026-07,31,50053,45309,4744,11.7,121.4
+2026-08,31,53842,48468,5374,10.6,118.6
+2026-09,30,52773,47459,5314,11.0,119.9
+2026-10,15,25829,23312,2517,10.7,124.9

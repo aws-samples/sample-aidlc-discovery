@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recovery card: AI-DLC Discovery</title>
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<main class="wide">
+
+<p class="kicker">Reference · AI-DLC Discovery · Print and keep beside you</p>
+<h1>Recovery card</h1>
+<p class="subtitle">What goes wrong on the day, by phase, and what to say or do. From <a href="../../facilitator/run-sheet.md">run-sheet.md</a> "When things go wrong" and the Common Failures in each skill.</p>
+
+<table>
+<thead><tr><th style="width:9rem">Phase</th><th>Symptom</th><th>Say or do</th></tr></thead>
+<tbody>
+<tr><td><span class="chip ph0">Install</span></td><td>Not installed, or behaves like an older version</td><td>"List my skills", then the module check. Delete the skill in <b>Customize</b>, <b>Skills</b> (the ⋮ menu), import again with <b>Create</b>, <b>From folder</b>, and start a new chat. Never copy files into the profile by hand.</td></tr>
+<tr><td><span class="chip ph0">Any</span></td><td>Skips steps or jumps to verdicts</td><td>"Stop. Follow the aidlc-discovery skill one step at a time. Load the module for this phase and start at Step 1."</td></tr>
+<tr><td><span class="chip ph0">Any</span></td><td>Chat lost, or skill reinstalled mid-workshop</td><td>New chat with folder access: "Continue the AI-DLC Discovery workshop for [project] from discovery/[project]/PROJECT.md. [What is done.] Start at [the next step]."</td></tr>
+<tr><td><span class="chip ph0">Any</span></td><td>A module path doesn't resolve</td><td>Tell it to retry with the skill's full installed path.</td></tr>
+<tr><td><span class="chip ph0">Space</span></td><td>Someone else takes over facilitation</td><td>In their own Amazon Quick, with the Space attached: "Continue the AI-DLC Discovery workshop for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [role]. Start at [step]." The previous driver stops writing.</td></tr>
+<tr><td><span class="chip ph0">Space</span></td><td>Two people wrote at once</td><td>The last save wins. Ask both what they changed, re-read from the Space, and redo the lost change as the agreed driver.</td></tr>
+<tr><td><span class="chip ph0">Space</span></td><td>Saves fail or land in a local folder</td><td>The Space isn't attached: the <b>+</b> menu, then <b>Spaces</b>; then save again.</td></tr>
+<tr><td><span class="chip ph0">Space</span></td><td>A Viewer tries to drive</td><td>Share the Space with them as Owner, or let an Owner drive.</td></tr>
+<tr><td><span class="chip ph0">Space</span></td><td>Real customer data in the team Space</td><td>Only if nobody who shouldn't see it has access, confirmed and recorded in <code>PROJECT.md</code>. Otherwise keep it local or in a separate restricted Space.</td></tr>
+<tr><td><span class="chip ph0">Setup</span></td><td>Sponsor leaves after kickoff</td><td>Before they go: "Is this the metric you care about?"</td></tr>
+<tr><td><span class="chip ph0">Setup</span></td><td>No baseline for the business metric</td><td>Name who gets it by the 7-day follow-up.</td></tr>
+<tr><td><span class="chip ph1">Signals</span></td><td>Data doesn't match the product</td><td>It must stop and offer real data, Signal Briefs, or a dataset prepared beforehand. Never accept data written on the spot.</td></tr>
+<tr><td><span class="chip ph1">Signals</span></td><td>"Skip the hypotheses, just show the data"</td><td>Hold the line: hypotheses first, or the room can't check itself.</td></tr>
+<tr><td><span class="chip ph1">Signals</span></td><td>Data contains personal information</td><td>Keep it out of saved artifacts; tell the team; suggest masking before the next run.</td></tr>
+<tr><td><span class="chip ph1">Signals</span></td><td>The room accepts everything</td><td>Ask the person whose belief was contradicted to argue their case. "What would make this fail?" before every checkpoint.</td></tr>
+<tr><td><span class="chip ph2">Personas</span></td><td>Two personas are the same person</td><td>Merge them; set-asides go to <code>set-aside-personas.md</code>.</td></tr>
+<tr><td><span class="chip ph2">Scoring</span></td><td>Team brings features</td><td>"What problem does this solve, and for whom?"</td></tr>
+<tr><td><span class="chip ph2">Scoring</span></td><td>Every candidate scores 3 to 4</td><td>Candidates are too broad; make them more specific.</td></tr>
+<tr><td><span class="chip ph2">Scoring</span></td><td>Weight change requested after scoring</td><td>Decline: weights are fixed before the first score. Record the request.</td></tr>
+<tr><td><span class="chip ph2">Scoring</span></td><td>The team overrides everything</td><td>Fine; ask what evidence each rests on, and label Assumed where there is none.</td></tr>
+<tr><td><span class="chip ph2">Scoring</span></td><td>The assistant questions an override</td><td>The person who made it has the last word: "Does that change your view, or do we keep it?"</td></tr>
+<tr><td><span class="chip ph2">Scoring</span></td><td>A favourite fails the gate</td><td>Record the reason. If someone wants it alive, an open hypothesis with a cheap test.</td></tr>
+<tr><td><span class="chip ph2">PR/FAQ</span></td><td>Reads like a vision document</td><td>"Rewrite the press release as exactly seven paragraphs, one job each, 500 to 700 words, and run the writing audit."</td></tr>
+<tr><td><span class="chip ph2">PR/FAQ</span></td><td>Describes technology</td><td>Rewrite the first paragraph from the customer's side.</td></tr>
+<tr><td><span class="chip ph2">PR/FAQ</span></td><td>Accepted without changes</td><td>Read it aloud; stop where someone winces: "How would we say it?"</td></tr>
+<tr><td><span class="chip ph2">Readiness</span></td><td>RED</td><td>Ten minutes on the gaps before the PRD. AMBER: carry gaps with owners; don't chase GREEN.</td></tr>
+<tr><td><span class="chip ph2">Riskiest</span></td><td>Every assumption looks risky</td><td>"Which one, if wrong, means nobody uses it?" Everyone chooses before anyone speaks.</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>One plain page</td><td>"Load modules/discovery-prototype/references/prototype-shell.md and copy that HTML exactly, filling only the edit region." Ask it to quote the <code>EDIT BELOW</code> line first.</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>Mobile and Desktop tabs dead in the session tab</td><td>Rebuild from the current shell, or open the file from the working folder in a browser.</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>Compare page shows empty frames in Amazon Quick</td><td>Open <code>prototype/compare.html</code> from the working folder in a browser.</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>The assistant asks a factual question</td><td>Get the answer from the person who knows, or mark it Needs evidence. A guessed fact becomes a promise in the brief.</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>Looks finished but tests nothing</td><td>Go back to the test moment.</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>Iterating on colours</td><td>"What would the persona trip over?"</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>The assistant changed the agreed plan</td><td>Read each change; ask its owner "Keep it, or change it back?"</td></tr>
+<tr><td><span class="chip ph3">Prototype</span></td><td>A fix promises something unconfirmed</td><td>Say what it depends on and who confirms; if kept, log Needs evidence.</td></tr>
+<tr><td><span class="chip ph4">Validate</span></td><td>Team wants to skip Validate</td><td>Offer the 20-minute version: four risks and the decision.</td></tr>
+<tr><td><span class="chip ph4">Validate</span></td><td>Every risk supported</td><td>Ask what the satisfied persona loses, and what the top pre-mortem reason says.</td></tr>
+<tr><td><span class="chip ph4">Validate</span></td><td>Vanity success criteria</td><td>Tie each to the business metric or adoption, with a number and a date.</td></tr>
+<tr><td><span class="chip ph4">Validate</span></td><td>Commit with the riskiest assumption open</td><td>"Commit to building now, or to testing first?" Record conditions, owners, dates.</td></tr>
+<tr><td><span class="chip ph4">Validate</span></td><td>The team can't agree</td><td>Record each position and its evidence; ask the sponsor at the readout.</td></tr>
+<tr><td><span class="chip ph5">Handoff</span></td><td>A required artifact is missing</td><td>List it with the skill that produces it; never write a partial brief.</td></tr>
+<tr><td><span class="chip ph5">Handoff</span></td><td>The brief carries things the assistant drafted for the team</td><td>Before the brief, confirm, change, or label as a proposal: the reason, interim targets, kill criteria, owners.</td></tr>
+<tr><td><span class="chip ph5">Handoff</span></td><td>Brief is too long</td><td>Summarise each section to essentials and link to artifacts.</td></tr>
+<tr><td><span class="chip ph0">Time</span></td><td>Running out</td><td>Protect Validate and Handoff. "Agree with all" in scoring, skip optional research, one prototype iteration.</td></tr>
+</tbody>
+</table>
+
+<nav class="course"><a href="phase-map.html">Phase map</a><a href="../lessons/0008-the-failure-drill.html">Lesson 0008: the failure drill</a></nav>
+</main>
+</body>
+</html>
