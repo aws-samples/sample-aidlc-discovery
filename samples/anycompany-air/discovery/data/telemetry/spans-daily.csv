@@ -1,0 +1,1345 @@
+date,service_name,span_name,http_route,requests,errors,p50_ms,p95_ms
+2026-05-01,notifications,disruption.alert.send,,1914,3,225,798
+2026-05-01,notifications,disruption.alert.delay_from_event,,1914,0,125000,555000
+2026-05-01,trips-api,GET /trips/{id},/trips/{id},1645,1,60,289
+2026-05-01,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1027,0,129,418
+2026-05-01,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,232,0,337,1025
+2026-05-01,booking-api,GET /offers,/offers,67840,130,252,940
+2026-05-01,payments-api,POST /payments,/payments,2934,4,388,941
+2026-05-01,reissue-service,POST /tickets/reissue,/tickets/reissue,627,29,814,2711
+2026-05-02,notifications,disruption.alert.send,,1529,3,214,833
+2026-05-02,notifications,disruption.alert.delay_from_event,,1529,0,143000,554000
+2026-05-02,trips-api,GET /trips/{id},/trips/{id},1298,1,64,311
+2026-05-02,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,801,0,133,434
+2026-05-02,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,195,0,318,1097
+2026-05-02,booking-api,GET /offers,/offers,76380,140,252,951
+2026-05-02,payments-api,POST /payments,/payments,3282,7,402,875
+2026-05-02,reissue-service,POST /tickets/reissue,/tickets/reissue,736,31,1091,2594
+2026-05-03,notifications,disruption.alert.send,,1341,3,230,771
+2026-05-03,notifications,disruption.alert.delay_from_event,,1341,0,126000,627000
+2026-05-03,trips-api,GET /trips/{id},/trips/{id},1164,1,83,246
+2026-05-03,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,735,0,115,462
+2026-05-03,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,221,0,308,1037
+2026-05-03,booking-api,GET /offers,/offers,52961,75,315,923
+2026-05-03,payments-api,POST /payments,/payments,2386,6,353,836
+2026-05-03,reissue-service,POST /tickets/reissue,/tickets/reissue,657,26,1015,2821
+2026-05-04,notifications,disruption.alert.send,,1410,3,218,755
+2026-05-04,notifications,disruption.alert.delay_from_event,,1410,0,137000,568000
+2026-05-04,trips-api,GET /trips/{id},/trips/{id},1176,1,81,269
+2026-05-04,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,733,0,123,437
+2026-05-04,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,157,0,367,1034
+2026-05-04,booking-api,GET /offers,/offers,46776,68,327,1120
+2026-05-04,payments-api,POST /payments,/payments,2150,5,393,873
+2026-05-04,reissue-service,POST /tickets/reissue,/tickets/reissue,640,30,1073,2435
+2026-05-05,notifications,disruption.alert.send,,1609,1,227,632
+2026-05-05,notifications,disruption.alert.delay_from_event,,1609,0,133000,567000
+2026-05-05,trips-api,GET /trips/{id},/trips/{id},1340,1,72,255
+2026-05-05,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,858,0,147,389
+2026-05-05,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,206,0,302,1063
+2026-05-05,booking-api,GET /offers,/offers,59038,112,296,914
+2026-05-05,payments-api,POST /payments,/payments,2538,7,330,958
+2026-05-05,reissue-service,POST /tickets/reissue,/tickets/reissue,756,33,1028,2727
+2026-05-06,notifications,disruption.alert.send,,1579,2,251,793
+2026-05-06,notifications,disruption.alert.delay_from_event,,1579,0,172000,631000
+2026-05-06,trips-api,GET /trips/{id},/trips/{id},1322,1,84,276
+2026-05-06,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,860,0,146,417
+2026-05-06,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,188,0,379,1153
+2026-05-06,booking-api,GET /offers,/offers,43310,49,278,908
+2026-05-06,payments-api,POST /payments,/payments,1860,5,352,957
+2026-05-06,reissue-service,POST /tickets/reissue,/tickets/reissue,660,28,930,2680
+2026-05-07,notifications,disruption.alert.send,,1658,4,251,891
+2026-05-07,notifications,disruption.alert.delay_from_event,,1658,0,175000,702000
+2026-05-07,trips-api,GET /trips/{id},/trips/{id},1439,0,60,272
+2026-05-07,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,906,0,136,466
+2026-05-07,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,201,0,356,1078
+2026-05-07,booking-api,GET /offers,/offers,60526,111,329,1015
+2026-05-07,payments-api,POST /payments,/payments,2602,5,326,865
+2026-05-07,reissue-service,POST /tickets/reissue,/tickets/reissue,755,35,1028,2471
+2026-05-08,notifications,disruption.alert.send,,1482,2,199,657
+2026-05-08,notifications,disruption.alert.delay_from_event,,1482,0,165000,567000
+2026-05-08,trips-api,GET /trips/{id},/trips/{id},1288,1,64,272
+2026-05-08,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,784,0,133,416
+2026-05-08,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,231,0,364,970
+2026-05-08,booking-api,GET /offers,/offers,55001,70,255,982
+2026-05-08,payments-api,POST /payments,/payments,2341,4,371,963
+2026-05-08,reissue-service,POST /tickets/reissue,/tickets/reissue,784,32,1087,2744
+2026-05-09,notifications,disruption.alert.send,,1849,2,227,751
+2026-05-09,notifications,disruption.alert.delay_from_event,,1849,0,168000,670000
+2026-05-09,trips-api,GET /trips/{id},/trips/{id},1561,1,66,312
+2026-05-09,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,964,0,132,383
+2026-05-09,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,213,0,383,918
+2026-05-09,booking-api,GET /offers,/offers,47313,80,311,1126
+2026-05-09,payments-api,POST /payments,/payments,2075,5,414,849
+2026-05-09,reissue-service,POST /tickets/reissue,/tickets/reissue,598,28,806,2841
+2026-05-10,notifications,disruption.alert.send,,1724,2,260,846
+2026-05-10,notifications,disruption.alert.delay_from_event,,1724,0,178000,602000
+2026-05-10,trips-api,GET /trips/{id},/trips/{id},1426,0,90,281
+2026-05-10,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,897,0,130,426
+2026-05-10,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,229,0,358,1070
+2026-05-10,booking-api,GET /offers,/offers,64009,78,301,994
+2026-05-10,payments-api,POST /payments,/payments,2839,8,324,953
+2026-05-10,reissue-service,POST /tickets/reissue,/tickets/reissue,497,19,857,2351
+2026-05-11,notifications,disruption.alert.send,,1228,1,213,768
+2026-05-11,notifications,disruption.alert.delay_from_event,,1228,0,174000,653000
+2026-05-11,trips-api,GET /trips/{id},/trips/{id},1079,0,67,316
+2026-05-11,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,669,0,128,429
+2026-05-11,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,185,0,398,1056
+2026-05-11,booking-api,GET /offers,/offers,68748,88,320,1054
+2026-05-11,payments-api,POST /payments,/payments,3164,8,334,947
+2026-05-11,reissue-service,POST /tickets/reissue,/tickets/reissue,514,24,996,2892
+2026-05-12,notifications,disruption.alert.send,,1469,3,192,796
+2026-05-12,notifications,disruption.alert.delay_from_event,,1469,0,131000,681000
+2026-05-12,trips-api,GET /trips/{id},/trips/{id},1246,0,78,287
+2026-05-12,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,769,0,128,445
+2026-05-12,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,177,0,303,1147
+2026-05-12,booking-api,GET /offers,/offers,47579,78,307,922
+2026-05-12,payments-api,POST /payments,/payments,2156,4,348,843
+2026-05-12,reissue-service,POST /tickets/reissue,/tickets/reissue,542,24,1050,2837
+2026-05-13,notifications,disruption.alert.send,,1671,3,213,757
+2026-05-13,notifications,disruption.alert.delay_from_event,,1671,0,175000,647000
+2026-05-13,trips-api,GET /trips/{id},/trips/{id},1419,1,65,279
+2026-05-13,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,883,0,142,466
+2026-05-13,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,241,0,388,965
+2026-05-13,booking-api,GET /offers,/offers,49064,97,258,1102
+2026-05-13,payments-api,POST /payments,/payments,2126,3,403,810
+2026-05-13,reissue-service,POST /tickets/reissue,/tickets/reissue,572,25,864,2590
+2026-05-14,notifications,disruption.alert.send,,1751,3,203,789
+2026-05-14,notifications,disruption.alert.delay_from_event,,1751,0,144000,559000
+2026-05-14,trips-api,GET /trips/{id},/trips/{id},1532,1,86,268
+2026-05-14,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,970,0,115,410
+2026-05-14,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,164,0,369,1114
+2026-05-14,booking-api,GET /offers,/offers,65947,126,267,993
+2026-05-14,payments-api,POST /payments,/payments,2948,5,328,910
+2026-05-14,reissue-service,POST /tickets/reissue,/tickets/reissue,631,28,1030,2428
+2026-05-15,notifications,disruption.alert.send,,1881,3,212,872
+2026-05-15,notifications,disruption.alert.delay_from_event,,1881,0,176000,719000
+2026-05-15,trips-api,GET /trips/{id},/trips/{id},1570,1,74,282
+2026-05-15,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,979,0,126,402
+2026-05-15,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,150,0,356,1000
+2026-05-15,booking-api,GET /offers,/offers,66744,115,254,1107
+2026-05-15,payments-api,POST /payments,/payments,2935,8,347,822
+2026-05-15,reissue-service,POST /tickets/reissue,/tickets/reissue,568,22,876,2602
+2026-05-16,notifications,disruption.alert.send,,1374,3,191,762
+2026-05-16,notifications,disruption.alert.delay_from_event,,1374,0,164000,679000
+2026-05-16,trips-api,GET /trips/{id},/trips/{id},1170,1,64,280
+2026-05-16,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,708,0,113,414
+2026-05-16,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,246,0,385,1172
+2026-05-16,booking-api,GET /offers,/offers,61939,83,293,914
+2026-05-16,payments-api,POST /payments,/payments,2748,7,352,936
+2026-05-16,reissue-service,POST /tickets/reissue,/tickets/reissue,532,25,1084,2643
+2026-05-17,notifications,disruption.alert.send,,1446,2,236,609
+2026-05-17,notifications,disruption.alert.delay_from_event,,1446,0,157000,631000
+2026-05-17,trips-api,GET /trips/{id},/trips/{id},1263,0,82,262
+2026-05-17,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,787,0,111,470
+2026-05-17,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,189,0,334,1143
+2026-05-17,booking-api,GET /offers,/offers,56777,95,315,1085
+2026-05-17,payments-api,POST /payments,/payments,2419,5,367,810
+2026-05-17,reissue-service,POST /tickets/reissue,/tickets/reissue,712,30,979,2806
+2026-05-18,notifications,disruption.alert.send,,1688,2,217,812
+2026-05-18,notifications,disruption.alert.delay_from_event,,1688,0,160000,645000
+2026-05-18,trips-api,GET /trips/{id},/trips/{id},1459,1,73,302
+2026-05-18,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,939,0,138,425
+2026-05-18,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,160,0,374,939
+2026-05-18,booking-api,GET /offers,/offers,40862,55,266,1030
+2026-05-18,payments-api,POST /payments,/payments,1857,4,391,866
+2026-05-18,reissue-service,POST /tickets/reissue,/tickets/reissue,688,31,959,2320
+2026-05-19,notifications,disruption.alert.send,,1842,4,231,880
+2026-05-19,notifications,disruption.alert.delay_from_event,,1842,0,179000,597000
+2026-05-19,trips-api,GET /trips/{id},/trips/{id},1586,1,79,317
+2026-05-19,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1018,0,143,455
+2026-05-19,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,228,0,308,981
+2026-05-19,booking-api,GET /offers,/offers,48078,74,273,1025
+2026-05-19,payments-api,POST /payments,/payments,2185,3,390,854
+2026-05-19,reissue-service,POST /tickets/reissue,/tickets/reissue,714,30,840,2510
+2026-05-20,notifications,disruption.alert.send,,1469,3,232,726
+2026-05-20,notifications,disruption.alert.delay_from_event,,1469,0,141000,647000
+2026-05-20,trips-api,GET /trips/{id},/trips/{id},1296,0,79,265
+2026-05-20,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,822,0,139,463
+2026-05-20,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,214,0,395,1093
+2026-05-20,booking-api,GET /offers,/offers,67193,116,308,1127
+2026-05-20,payments-api,POST /payments,/payments,3039,8,386,852
+2026-05-20,reissue-service,POST /tickets/reissue,/tickets/reissue,683,31,1022,2722
+2026-05-21,notifications,disruption.alert.send,,1583,3,243,822
+2026-05-21,notifications,disruption.alert.delay_from_event,,1583,0,152000,687000
+2026-05-21,trips-api,GET /trips/{id},/trips/{id},1372,1,86,269
+2026-05-21,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,872,0,139,446
+2026-05-21,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,154,0,374,1175
+2026-05-21,booking-api,GET /offers,/offers,69438,72,267,1008
+2026-05-21,payments-api,POST /payments,/payments,2962,5,329,857
+2026-05-21,reissue-service,POST /tickets/reissue,/tickets/reissue,530,23,967,2851
+2026-05-22,notifications,disruption.alert.send,,1319,3,196,658
+2026-05-22,notifications,disruption.alert.delay_from_event,,1319,0,171000,688000
+2026-05-22,trips-api,GET /trips/{id},/trips/{id},1124,0,72,268
+2026-05-22,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,681,0,112,445
+2026-05-22,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,150,0,324,1170
+2026-05-22,booking-api,GET /offers,/offers,52950,104,275,1007
+2026-05-22,payments-api,POST /payments,/payments,2449,6,320,801
+2026-05-22,reissue-service,POST /tickets/reissue,/tickets/reissue,599,25,828,2434
+2026-05-23,notifications,disruption.alert.send,,1460,4,227,750
+2026-05-23,notifications,disruption.alert.delay_from_event,,1460,0,147000,709000
+2026-05-23,trips-api,GET /trips/{id},/trips/{id},1272,1,64,315
+2026-05-23,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,802,0,129,395
+2026-05-23,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,224,0,388,982
+2026-05-23,booking-api,GET /offers,/offers,60532,91,273,1073
+2026-05-23,payments-api,POST /payments,/payments,2625,4,379,971
+2026-05-23,reissue-service,POST /tickets/reissue,/tickets/reissue,657,31,992,2506
+2026-05-24,notifications,disruption.alert.send,,1672,4,210,776
+2026-05-24,notifications,disruption.alert.delay_from_event,,1672,0,146000,703000
+2026-05-24,trips-api,GET /trips/{id},/trips/{id},1448,1,86,242
+2026-05-24,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,936,0,145,465
+2026-05-24,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,205,0,304,1000
+2026-05-24,booking-api,GET /offers,/offers,49611,65,309,933
+2026-05-24,payments-api,POST /payments,/payments,2261,5,373,922
+2026-05-24,reissue-service,POST /tickets/reissue,/tickets/reissue,691,33,1069,2810
+2026-05-25,notifications,disruption.alert.send,,1902,5,243,757
+2026-05-25,notifications,disruption.alert.delay_from_event,,1902,0,156000,594000
+2026-05-25,trips-api,GET /trips/{id},/trips/{id},1630,1,77,267
+2026-05-25,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1033,0,138,381
+2026-05-25,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,230,0,325,936
+2026-05-25,booking-api,GET /offers,/offers,56700,88,327,1082
+2026-05-25,payments-api,POST /payments,/payments,2478,5,399,859
+2026-05-25,reissue-service,POST /tickets/reissue,/tickets/reissue,484,19,1068,2368
+2026-05-26,notifications,disruption.alert.send,,1284,3,213,688
+2026-05-26,notifications,disruption.alert.delay_from_event,,1284,0,165000,571000
+2026-05-26,trips-api,GET /trips/{id},/trips/{id},1119,1,65,242
+2026-05-26,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,692,0,114,450
+2026-05-26,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,242,0,337,972
+2026-05-26,booking-api,GET /offers,/offers,50987,91,288,1105
+2026-05-26,payments-api,POST /payments,/payments,2297,4,406,949
+2026-05-26,reissue-service,POST /tickets/reissue,/tickets/reissue,469,19,1005,2447
+2026-05-27,notifications,disruption.alert.send,,1730,4,185,829
+2026-05-27,notifications,disruption.alert.delay_from_event,,1730,0,153000,610000
+2026-05-27,trips-api,GET /trips/{id},/trips/{id},1506,1,85,256
+2026-05-27,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,952,0,120,470
+2026-05-27,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,234,0,315,1173
+2026-05-27,booking-api,GET /offers,/offers,57766,63,263,1000
+2026-05-27,payments-api,POST /payments,/payments,2599,4,402,963
+2026-05-27,reissue-service,POST /tickets/reissue,/tickets/reissue,687,28,866,2581
+2026-05-28,notifications,disruption.alert.send,,1456,4,243,818
+2026-05-28,notifications,disruption.alert.delay_from_event,,1456,0,123000,718000
+2026-05-28,trips-api,GET /trips/{id},/trips/{id},1268,0,88,281
+2026-05-28,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,796,0,125,422
+2026-05-28,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,200,0,366,1075
+2026-05-28,booking-api,GET /offers,/offers,54148,73,264,1039
+2026-05-28,payments-api,POST /payments,/payments,2315,4,322,947
+2026-05-28,reissue-service,POST /tickets/reissue,/tickets/reissue,564,23,805,2659
+2026-05-29,notifications,disruption.alert.send,,1687,2,187,788
+2026-05-29,notifications,disruption.alert.delay_from_event,,1687,0,122000,693000
+2026-05-29,trips-api,GET /trips/{id},/trips/{id},1469,0,72,301
+2026-05-29,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,937,0,131,396
+2026-05-29,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,247,0,348,1170
+2026-05-29,booking-api,GET /offers,/offers,67828,88,276,970
+2026-05-29,payments-api,POST /payments,/payments,3092,7,364,869
+2026-05-29,reissue-service,POST /tickets/reissue,/tickets/reissue,578,23,807,2537
+2026-05-30,notifications,disruption.alert.send,,1540,1,213,832
+2026-05-30,notifications,disruption.alert.delay_from_event,,1540,0,132000,682000
+2026-05-30,trips-api,GET /trips/{id},/trips/{id},1285,1,81,308
+2026-05-30,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,805,0,143,469
+2026-05-30,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,202,0,336,947
+2026-05-30,booking-api,GET /offers,/offers,71998,120,281,1096
+2026-05-30,payments-api,POST /payments,/payments,3283,5,326,867
+2026-05-30,reissue-service,POST /tickets/reissue,/tickets/reissue,521,23,1056,2706
+2026-05-31,notifications,disruption.alert.send,,1715,2,196,840
+2026-05-31,notifications,disruption.alert.delay_from_event,,1715,0,155000,626000
+2026-05-31,trips-api,GET /trips/{id},/trips/{id},1435,1,63,249
+2026-05-31,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,878,0,122,437
+2026-05-31,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,186,0,397,1049
+2026-05-31,booking-api,GET /offers,/offers,68608,95,293,1139
+2026-05-31,payments-api,POST /payments,/payments,2906,5,337,815
+2026-05-31,reissue-service,POST /tickets/reissue,/tickets/reissue,621,26,821,2889
+2026-06-01,notifications,disruption.alert.send,,1480,3,215,702
+2026-06-01,notifications,disruption.alert.delay_from_event,,1480,0,161000,668000
+2026-06-01,trips-api,GET /trips/{id},/trips/{id},1267,1,82,289
+2026-06-01,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,799,0,129,442
+2026-06-01,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,190,0,345,910
+2026-06-01,booking-api,GET /offers,/offers,69174,79,264,1085
+2026-06-01,payments-api,POST /payments,/payments,2924,6,413,956
+2026-06-01,reissue-service,POST /tickets/reissue,/tickets/reissue,489,23,1013,2886
+2026-06-02,notifications,disruption.alert.send,,1605,2,238,634
+2026-06-02,notifications,disruption.alert.delay_from_event,,1605,0,177000,639000
+2026-06-02,trips-api,GET /trips/{id},/trips/{id},1366,0,61,272
+2026-06-02,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,868,0,124,394
+2026-06-02,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,138,0,331,943
+2026-06-02,booking-api,GET /offers,/offers,43193,62,318,1144
+2026-06-02,payments-api,POST /payments,/payments,1821,4,354,814
+2026-06-02,reissue-service,POST /tickets/reissue,/tickets/reissue,452,18,882,2401
+2026-06-03,notifications,disruption.alert.send,,1344,2,236,850
+2026-06-03,notifications,disruption.alert.delay_from_event,,1344,0,136000,622000
+2026-06-03,trips-api,GET /trips/{id},/trips/{id},1120,0,79,243
+2026-06-03,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,715,0,121,450
+2026-06-03,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,174,0,357,1200
+2026-06-03,booking-api,GET /offers,/offers,57411,92,330,1036
+2026-06-03,payments-api,POST /payments,/payments,2643,7,387,786
+2026-06-03,reissue-service,POST /tickets/reissue,/tickets/reissue,519,22,816,2790
+2026-06-04,notifications,disruption.alert.send,,1677,4,258,602
+2026-06-04,notifications,disruption.alert.delay_from_event,,1677,0,136000,556000
+2026-06-04,trips-api,GET /trips/{id},/trips/{id},1431,1,78,247
+2026-06-04,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,883,0,110,446
+2026-06-04,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,186,0,340,1156
+2026-06-04,booking-api,GET /offers,/offers,44838,89,277,1000
+2026-06-04,payments-api,POST /payments,/payments,1962,3,361,845
+2026-06-04,reissue-service,POST /tickets/reissue,/tickets/reissue,537,24,897,2576
+2026-06-05,notifications,disruption.alert.send,,1305,1,238,670
+2026-06-05,notifications,disruption.alert.delay_from_event,,1305,0,146000,613000
+2026-06-05,trips-api,GET /trips/{id},/trips/{id},1123,0,87,245
+2026-06-05,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,712,0,126,403
+2026-06-05,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,180,0,345,955
+2026-06-05,booking-api,GET /offers,/offers,68849,115,275,1067
+2026-06-05,payments-api,POST /payments,/payments,3123,4,381,969
+2026-06-05,reissue-service,POST /tickets/reissue,/tickets/reissue,579,24,1029,2498
+2026-06-06,notifications,disruption.alert.send,,1645,4,188,665
+2026-06-06,notifications,disruption.alert.delay_from_event,,1645,0,121000,551000
+2026-06-06,trips-api,GET /trips/{id},/trips/{id},1411,1,63,281
+2026-06-06,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,885,0,121,422
+2026-06-06,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,208,0,342,1096
+2026-06-06,booking-api,GET /offers,/offers,59873,76,324,942
+2026-06-06,payments-api,POST /payments,/payments,2548,5,404,837
+2026-06-06,reissue-service,POST /tickets/reissue,/tickets/reissue,645,30,987,2373
+2026-06-07,notifications,disruption.alert.send,,1156,2,230,697
+2026-06-07,notifications,disruption.alert.delay_from_event,,1156,0,158000,584000
+2026-06-07,trips-api,GET /trips/{id},/trips/{id},982,0,67,280
+2026-06-07,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,630,0,123,418
+2026-06-07,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,182,0,379,1062
+2026-06-07,booking-api,GET /offers,/offers,61947,113,259,1130
+2026-06-07,payments-api,POST /payments,/payments,2620,7,346,905
+2026-06-07,reissue-service,POST /tickets/reissue,/tickets/reissue,451,20,953,2544
+2026-06-08,notifications,disruption.alert.send,,1186,2,246,799
+2026-06-08,notifications,disruption.alert.delay_from_event,,1186,0,174000,700000
+2026-06-08,trips-api,GET /trips/{id},/trips/{id},1030,0,80,285
+2026-06-08,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,644,0,110,387
+2026-06-08,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,209,0,342,939
+2026-06-08,booking-api,GET /offers,/offers,60340,120,306,1046
+2026-06-08,payments-api,POST /payments,/payments,2657,5,331,787
+2026-06-08,reissue-service,POST /tickets/reissue,/tickets/reissue,662,28,1065,2537
+2026-06-09,notifications,disruption.alert.send,,1625,3,188,859
+2026-06-09,notifications,disruption.alert.delay_from_event,,1625,0,128000,652000
+2026-06-09,trips-api,GET /trips/{id},/trips/{id},1384,1,71,283
+2026-06-09,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,880,0,135,390
+2026-06-09,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,131,0,310,1162
+2026-06-09,booking-api,GET /offers,/offers,51392,80,289,935
+2026-06-09,payments-api,POST /payments,/payments,2380,4,331,811
+2026-06-09,reissue-service,POST /tickets/reissue,/tickets/reissue,512,22,879,2355
+2026-06-10,notifications,disruption.alert.send,,1682,3,224,602
+2026-06-10,notifications,disruption.alert.delay_from_event,,1682,0,123000,687000
+2026-06-10,trips-api,GET /trips/{id},/trips/{id},1405,1,75,262
+2026-06-10,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,866,0,129,459
+2026-06-10,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,187,0,311,947
+2026-06-10,booking-api,GET /offers,/offers,59521,87,309,1006
+2026-06-10,payments-api,POST /payments,/payments,2506,6,352,903
+2026-06-10,reissue-service,POST /tickets/reissue,/tickets/reissue,695,31,1013,2318
+2026-06-11,notifications,disruption.alert.send,,1516,4,258,781
+2026-06-11,notifications,disruption.alert.delay_from_event,,1516,0,128000,549000
+2026-06-11,trips-api,GET /trips/{id},/trips/{id},1305,1,79,317
+2026-06-11,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,798,0,117,463
+2026-06-11,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,183,0,373,1029
+2026-06-11,booking-api,GET /offers,/offers,50278,87,259,934
+2026-06-11,payments-api,POST /payments,/payments,2234,4,417,815
+2026-06-11,reissue-service,POST /tickets/reissue,/tickets/reissue,515,24,841,2680
+2026-06-12,notifications,disruption.alert.send,,1556,4,201,635
+2026-06-12,notifications,disruption.alert.delay_from_event,,1556,0,160000,665000
+2026-06-12,trips-api,GET /trips/{id},/trips/{id},1346,0,88,320
+2026-06-12,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,861,0,139,396
+2026-06-12,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,217,0,309,1125
+2026-06-12,booking-api,GET /offers,/offers,49449,72,295,918
+2026-06-12,payments-api,POST /payments,/payments,2130,3,320,882
+2026-06-12,reissue-service,POST /tickets/reissue,/tickets/reissue,533,22,955,2504
+2026-06-13,notifications,disruption.alert.send,,1274,1,236,648
+2026-06-13,notifications,disruption.alert.delay_from_event,,1274,0,155000,629000
+2026-06-13,trips-api,GET /trips/{id},/trips/{id},1094,0,81,276
+2026-06-13,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,676,0,129,434
+2026-06-13,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,184,0,400,913
+2026-06-13,booking-api,GET /offers,/offers,70995,94,308,981
+2026-06-13,payments-api,POST /payments,/payments,3132,7,409,914
+2026-06-13,reissue-service,POST /tickets/reissue,/tickets/reissue,510,23,1037,2877
+2026-06-14,notifications,disruption.alert.send,,1747,1,211,840
+2026-06-14,notifications,disruption.alert.delay_from_event,,1747,0,178000,660000
+2026-06-14,trips-api,GET /trips/{id},/trips/{id},1504,1,87,316
+2026-06-14,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,931,0,148,409
+2026-06-14,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,204,0,311,913
+2026-06-14,booking-api,GET /offers,/offers,57601,71,251,1098
+2026-06-14,payments-api,POST /payments,/payments,2560,4,354,900
+2026-06-14,reissue-service,POST /tickets/reissue,/tickets/reissue,615,28,1058,2549
+2026-06-15,notifications,disruption.alert.send,,1203,2,203,842
+2026-06-15,notifications,disruption.alert.delay_from_event,,1203,0,144000,648000
+2026-06-15,trips-api,GET /trips/{id},/trips/{id},1046,0,69,287
+2026-06-15,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,661,0,125,458
+2026-06-15,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,182,0,363,1182
+2026-06-15,booking-api,GET /offers,/offers,66760,106,277,937
+2026-06-15,payments-api,POST /payments,/payments,2961,5,378,808
+2026-06-15,reissue-service,POST /tickets/reissue,/tickets/reissue,495,22,1044,2787
+2026-06-16,notifications,disruption.alert.send,,1496,3,218,763
+2026-06-16,notifications,disruption.alert.delay_from_event,,1496,0,171000,621000
+2026-06-16,trips-api,GET /trips/{id},/trips/{id},1301,0,88,300
+2026-06-16,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,800,0,114,461
+2026-06-16,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,204,0,339,1121
+2026-06-16,booking-api,GET /offers,/offers,49190,72,326,1008
+2026-06-16,payments-api,POST /payments,/payments,2227,5,383,894
+2026-06-16,reissue-service,POST /tickets/reissue,/tickets/reissue,602,27,937,2700
+2026-06-17,notifications,disruption.alert.send,,1212,1,219,741
+2026-06-17,notifications,disruption.alert.delay_from_event,,1212,0,153000,709000
+2026-06-17,trips-api,GET /trips/{id},/trips/{id},1042,0,87,309
+2026-06-17,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,669,0,139,418
+2026-06-17,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,131,0,308,1109
+2026-06-17,booking-api,GET /offers,/offers,58870,73,318,987
+2026-06-17,payments-api,POST /payments,/payments,2601,6,383,880
+2026-06-17,reissue-service,POST /tickets/reissue,/tickets/reissue,498,22,1077,2594
+2026-06-18,notifications,disruption.alert.send,,1191,2,186,828
+2026-06-18,notifications,disruption.alert.delay_from_event,,1191,0,122000,646000
+2026-06-18,trips-api,GET /trips/{id},/trips/{id},1014,0,60,290
+2026-06-18,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,624,0,142,437
+2026-06-18,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,213,0,312,967
+2026-06-18,booking-api,GET /offers,/offers,57144,97,289,1120
+2026-06-18,payments-api,POST /payments,/payments,2484,3,391,802
+2026-06-18,reissue-service,POST /tickets/reissue,/tickets/reissue,659,30,1100,2466
+2026-06-19,notifications,disruption.alert.send,,1257,3,259,862
+2026-06-19,notifications,disruption.alert.delay_from_event,,1257,0,165000,587000
+2026-06-19,trips-api,GET /trips/{id},/trips/{id},1084,0,90,253
+2026-06-19,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,673,0,130,463
+2026-06-19,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,209,0,389,1198
+2026-06-19,booking-api,GET /offers,/offers,51683,74,254,1132
+2026-06-19,payments-api,POST /payments,/payments,2324,6,331,851
+2026-06-19,reissue-service,POST /tickets/reissue,/tickets/reissue,584,23,945,2833
+2026-06-20,notifications,disruption.alert.send,,1703,4,216,771
+2026-06-20,notifications,disruption.alert.delay_from_event,,1703,0,148000,713000
+2026-06-20,trips-api,GET /trips/{id},/trips/{id},1487,1,67,295
+2026-06-20,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,937,0,111,410
+2026-06-20,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,218,0,311,1003
+2026-06-20,booking-api,GET /offers,/offers,70360,76,288,1062
+2026-06-20,payments-api,POST /payments,/payments,3206,8,336,841
+2026-06-20,reissue-service,POST /tickets/reissue,/tickets/reissue,559,22,1082,2632
+2026-06-21,notifications,disruption.alert.send,,1414,2,210,879
+2026-06-21,notifications,disruption.alert.delay_from_event,,1414,0,150000,675000
+2026-06-21,trips-api,GET /trips/{id},/trips/{id},1222,0,75,291
+2026-06-21,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,750,0,126,391
+2026-06-21,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,177,0,394,936
+2026-06-21,booking-api,GET /offers,/offers,60616,88,297,1071
+2026-06-21,payments-api,POST /payments,/payments,2673,5,354,802
+2026-06-21,reissue-service,POST /tickets/reissue,/tickets/reissue,694,27,825,2534
+2026-06-22,notifications,disruption.alert.send,,1471,1,236,646
+2026-06-22,notifications,disruption.alert.delay_from_event,,1471,0,172000,557000
+2026-06-22,trips-api,GET /trips/{id},/trips/{id},1248,1,76,263
+2026-06-22,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,817,0,123,427
+2026-06-22,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,215,0,397,931
+2026-06-22,booking-api,GET /offers,/offers,65537,71,310,1025
+2026-06-22,payments-api,POST /payments,/payments,2913,5,366,781
+2026-06-22,reissue-service,POST /tickets/reissue,/tickets/reissue,577,23,1029,2482
+2026-06-23,notifications,disruption.alert.send,,1673,3,233,736
+2026-06-23,notifications,disruption.alert.delay_from_event,,1673,0,165000,670000
+2026-06-23,trips-api,GET /trips/{id},/trips/{id},1445,1,88,294
+2026-06-23,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,931,0,116,469
+2026-06-23,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,211,0,352,929
+2026-06-23,booking-api,GET /offers,/offers,52443,80,287,1022
+2026-06-23,payments-api,POST /payments,/payments,2260,6,382,797
+2026-06-23,reissue-service,POST /tickets/reissue,/tickets/reissue,588,27,952,2602
+2026-06-24,notifications,disruption.alert.send,,1646,2,185,819
+2026-06-24,notifications,disruption.alert.delay_from_event,,1646,0,156000,544000
+2026-06-24,trips-api,GET /trips/{id},/trips/{id},1407,1,75,267
+2026-06-24,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,904,0,110,388
+2026-06-24,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,200,0,382,1017
+2026-06-24,booking-api,GET /offers,/offers,49388,95,275,932
+2026-06-24,payments-api,POST /payments,/payments,2168,4,381,841
+2026-06-24,reissue-service,POST /tickets/reissue,/tickets/reissue,511,22,1048,2704
+2026-06-25,notifications,disruption.alert.send,,1618,2,244,712
+2026-06-25,notifications,disruption.alert.delay_from_event,,1618,0,157000,697000
+2026-06-25,trips-api,GET /trips/{id},/trips/{id},1379,1,67,252
+2026-06-25,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,852,0,136,421
+2026-06-25,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,141,0,315,976
+2026-06-25,booking-api,GET /offers,/offers,55051,107,304,1099
+2026-06-25,payments-api,POST /payments,/payments,2448,5,340,801
+2026-06-25,reissue-service,POST /tickets/reissue,/tickets/reissue,468,20,819,2724
+2026-06-26,notifications,disruption.alert.send,,1850,3,226,837
+2026-06-26,notifications,disruption.alert.delay_from_event,,1850,0,141000,633000
+2026-06-26,trips-api,GET /trips/{id},/trips/{id},1579,1,82,317
+2026-06-26,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1028,0,137,389
+2026-06-26,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,171,0,327,961
+2026-06-26,booking-api,GET /offers,/offers,53750,106,327,1011
+2026-06-26,payments-api,POST /payments,/payments,2291,5,394,973
+2026-06-26,reissue-service,POST /tickets/reissue,/tickets/reissue,437,19,820,2349
+2026-06-27,notifications,disruption.alert.send,,1607,1,232,735
+2026-06-27,notifications,disruption.alert.delay_from_event,,1607,0,121000,719000
+2026-06-27,trips-api,GET /trips/{id},/trips/{id},1363,1,63,241
+2026-06-27,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,842,0,128,416
+2026-06-27,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,179,0,381,912
+2026-06-27,booking-api,GET /offers,/offers,62411,100,262,931
+2026-06-27,payments-api,POST /payments,/payments,2764,5,401,914
+2026-06-27,reissue-service,POST /tickets/reissue,/tickets/reissue,518,22,985,2583
+2026-06-28,notifications,disruption.alert.send,,1888,2,257,630
+2026-06-28,notifications,disruption.alert.delay_from_event,,1888,0,163000,624000
+2026-06-28,trips-api,GET /trips/{id},/trips/{id},1570,1,67,245
+2026-06-28,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,982,0,130,461
+2026-06-28,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,135,0,349,948
+2026-06-28,booking-api,GET /offers,/offers,48400,79,259,1055
+2026-06-28,payments-api,POST /payments,/payments,2084,5,347,805
+2026-06-28,reissue-service,POST /tickets/reissue,/tickets/reissue,445,18,916,2589
+2026-06-29,notifications,disruption.alert.send,,1434,2,243,806
+2026-06-29,notifications,disruption.alert.delay_from_event,,1434,0,153000,587000
+2026-06-29,trips-api,GET /trips/{id},/trips/{id},1205,1,65,286
+2026-06-29,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,740,0,137,384
+2026-06-29,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,196,0,330,929
+2026-06-29,booking-api,GET /offers,/offers,68435,98,260,1083
+2026-06-29,payments-api,POST /payments,/payments,3009,6,367,905
+2026-06-29,reissue-service,POST /tickets/reissue,/tickets/reissue,663,31,1037,2500
+2026-06-30,notifications,disruption.alert.send,,1687,1,199,703
+2026-06-30,notifications,disruption.alert.delay_from_event,,1687,0,178000,566000
+2026-06-30,trips-api,GET /trips/{id},/trips/{id},1443,1,71,306
+2026-06-30,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,895,0,116,466
+2026-06-30,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,184,0,315,1192
+2026-06-30,booking-api,GET /offers,/offers,49968,67,288,1054
+2026-06-30,payments-api,POST /payments,/payments,2128,3,400,922
+2026-06-30,reissue-service,POST /tickets/reissue,/tickets/reissue,705,30,927,2742
+2026-07-01,notifications,disruption.alert.send,,3075,7,208,628
+2026-07-01,notifications,disruption.alert.delay_from_event,,3075,0,540000,2634000
+2026-07-01,trips-api,GET /trips/{id},/trips/{id},2668,2,71,249
+2026-07-01,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1682,0,146,429
+2026-07-01,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,408,1,308,958
+2026-07-01,booking-api,GET /offers,/offers,68222,84,326,1103
+2026-07-01,payments-api,POST /payments,/payments,2887,6,338,797
+2026-07-01,reissue-service,POST /tickets/reissue,/tickets/reissue,929,56,1061,2433
+2026-07-02,notifications,disruption.alert.send,,2578,4,247,638
+2026-07-02,notifications,disruption.alert.delay_from_event,,2578,0,482000,2529000
+2026-07-02,trips-api,GET /trips/{id},/trips/{id},2203,1,80,303
+2026-07-02,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1370,0,139,382
+2026-07-02,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,296,1,306,1142
+2026-07-02,booking-api,GET /offers,/offers,44902,51,270,1149
+2026-07-02,payments-api,POST /payments,/payments,2014,6,347,862
+2026-07-02,reissue-service,POST /tickets/reissue,/tickets/reissue,879,46,1035,2419
+2026-07-03,notifications,disruption.alert.send,,3320,5,192,862
+2026-07-03,notifications,disruption.alert.delay_from_event,,3320,0,578000,2425000
+2026-07-03,trips-api,GET /trips/{id},/trips/{id},2761,2,66,317
+2026-07-03,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1728,0,112,403
+2026-07-03,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,437,1,308,955
+2026-07-03,booking-api,GET /offers,/offers,56195,71,280,988
+2026-07-03,payments-api,POST /payments,/payments,2526,4,346,927
+2026-07-03,reissue-service,POST /tickets/reissue,/tickets/reissue,1283,72,842,2764
+2026-07-04,notifications,disruption.alert.send,,2263,4,212,802
+2026-07-04,notifications,disruption.alert.delay_from_event,,2263,0,532000,2404000
+2026-07-04,trips-api,GET /trips/{id},/trips/{id},1930,1,70,313
+2026-07-04,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1218,0,139,443
+2026-07-04,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,381,1,341,1007
+2026-07-04,booking-api,GET /offers,/offers,68643,107,322,1065
+2026-07-04,payments-api,POST /payments,/payments,2974,8,354,907
+2026-07-04,reissue-service,POST /tickets/reissue,/tickets/reissue,1287,73,824,2409
+2026-07-05,notifications,disruption.alert.send,,3053,3,253,646
+2026-07-05,notifications,disruption.alert.delay_from_event,,3053,0,521000,2575000
+2026-07-05,trips-api,GET /trips/{id},/trips/{id},2603,2,64,242
+2026-07-05,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1662,0,132,406
+2026-07-05,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,406,0,323,1143
+2026-07-05,booking-api,GET /offers,/offers,73756,144,303,1073
+2026-07-05,payments-api,POST /payments,/payments,3342,7,330,792
+2026-07-05,reissue-service,POST /tickets/reissue,/tickets/reissue,1282,67,1007,2869
+2026-07-06,notifications,disruption.alert.send,,3155,3,229,748
+2026-07-06,notifications,disruption.alert.delay_from_event,,3155,0,565000,2482000
+2026-07-06,trips-api,GET /trips/{id},/trips/{id},2736,1,64,259
+2026-07-06,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1701,0,123,405
+2026-07-06,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,427,1,317,1141
+2026-07-06,booking-api,GET /offers,/offers,64624,112,270,977
+2026-07-06,payments-api,POST /payments,/payments,2809,6,377,826
+2026-07-06,reissue-service,POST /tickets/reissue,/tickets/reissue,963,58,921,2865
+2026-07-07,notifications,disruption.alert.send,,2525,4,207,877
+2026-07-07,notifications,disruption.alert.delay_from_event,,2525,0,583000,2282000
+2026-07-07,trips-api,GET /trips/{id},/trips/{id},2169,1,69,313
+2026-07-07,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1378,0,115,390
+2026-07-07,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,455,1,313,1150
+2026-07-07,booking-api,GET /offers,/offers,49460,52,261,1093
+2026-07-07,payments-api,POST /payments,/payments,2298,5,341,918
+2026-07-07,reissue-service,POST /tickets/reissue,/tickets/reissue,914,47,843,2484
+2026-07-08,notifications,disruption.alert.send,,2733,5,257,681
+2026-07-08,notifications,disruption.alert.delay_from_event,,2733,0,487000,2376000
+2026-07-08,trips-api,GET /trips/{id},/trips/{id},2304,1,69,269
+2026-07-08,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1459,0,128,459
+2026-07-08,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,294,1,327,1061
+2026-07-08,booking-api,GET /offers,/offers,64646,120,269,995
+2026-07-08,payments-api,POST /payments,/payments,2830,5,409,868
+2026-07-08,reissue-service,POST /tickets/reissue,/tickets/reissue,1156,63,1097,2678
+2026-07-09,notifications,disruption.alert.send,,2596,4,220,867
+2026-07-09,notifications,disruption.alert.delay_from_event,,2596,0,568000,2515000
+2026-07-09,trips-api,GET /trips/{id},/trips/{id},2200,1,60,306
+2026-07-09,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1359,0,122,447
+2026-07-09,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,362,0,400,1096
+2026-07-09,booking-api,GET /offers,/offers,70424,90,301,1013
+2026-07-09,payments-api,POST /payments,/payments,3080,6,327,820
+2026-07-09,reissue-service,POST /tickets/reissue,/tickets/reissue,1349,70,935,2337
+2026-07-10,notifications,disruption.alert.send,,2697,3,190,725
+2026-07-10,notifications,disruption.alert.delay_from_event,,2697,0,567000,2478000
+2026-07-10,trips-api,GET /trips/{id},/trips/{id},2237,1,73,315
+2026-07-10,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1404,0,135,383
+2026-07-10,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,425,1,323,999
+2026-07-10,booking-api,GET /offers,/offers,57761,70,291,1015
+2026-07-10,payments-api,POST /payments,/payments,2491,5,377,833
+2026-07-10,reissue-service,POST /tickets/reissue,/tickets/reissue,907,52,935,2544
+2026-07-11,notifications,disruption.alert.send,,2152,3,245,709
+2026-07-11,notifications,disruption.alert.delay_from_event,,2152,0,480000,2310000
+2026-07-11,trips-api,GET /trips/{id},/trips/{id},1786,0,71,242
+2026-07-11,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1156,0,148,386
+2026-07-11,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,285,0,328,920
+2026-07-11,booking-api,GET /offers,/offers,76232,95,263,979
+2026-07-11,payments-api,POST /payments,/payments,3262,9,382,874
+2026-07-11,reissue-service,POST /tickets/reissue,/tickets/reissue,1058,56,915,2869
+2026-07-12,notifications,disruption.alert.send,,2124,5,185,855
+2026-07-12,notifications,disruption.alert.delay_from_event,,2124,0,484000,2638000
+2026-07-12,trips-api,GET /trips/{id},/trips/{id},1857,1,79,311
+2026-07-12,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1171,0,148,444
+2026-07-12,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,375,1,337,1116
+2026-07-12,booking-api,GET /offers,/offers,66996,108,321,1058
+2026-07-12,payments-api,POST /payments,/payments,3100,6,379,810
+2026-07-12,reissue-service,POST /tickets/reissue,/tickets/reissue,1348,79,851,2599
+2026-07-13,notifications,disruption.alert.send,,2144,3,244,670
+2026-07-13,notifications,disruption.alert.delay_from_event,,2144,0,524000,2557000
+2026-07-13,trips-api,GET /trips/{id},/trips/{id},1847,1,80,265
+2026-07-13,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1129,0,135,414
+2026-07-13,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,331,0,391,1001
+2026-07-13,booking-api,GET /offers,/offers,57320,105,261,1036
+2026-07-13,payments-api,POST /payments,/payments,2593,6,387,823
+2026-07-13,reissue-service,POST /tickets/reissue,/tickets/reissue,939,55,808,2448
+2026-07-14,notifications,disruption.alert.send,,3407,8,182,885
+2026-07-14,notifications,disruption.alert.delay_from_event,,3407,0,556000,2466000
+2026-07-14,trips-api,GET /trips/{id},/trips/{id},2945,2,80,283
+2026-07-14,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1915,0,150,462
+2026-07-14,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,356,1,312,1023
+2026-07-14,booking-api,GET /offers,/offers,68630,111,296,946
+2026-07-14,payments-api,POST /payments,/payments,2866,5,369,844
+2026-07-14,reissue-service,POST /tickets/reissue,/tickets/reissue,1208,71,985,2486
+2026-07-15,notifications,disruption.alert.send,,2407,4,204,837
+2026-07-15,notifications,disruption.alert.delay_from_event,,2407,0,501000,2562000
+2026-07-15,trips-api,GET /trips/{id},/trips/{id},2096,1,70,253
+2026-07-15,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1302,0,114,413
+2026-07-15,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,348,0,312,946
+2026-07-15,booking-api,GET /offers,/offers,55081,60,288,903
+2026-07-15,payments-api,POST /payments,/payments,2513,7,320,819
+2026-07-15,reissue-service,POST /tickets/reissue,/tickets/reissue,1318,70,816,2496
+2026-07-16,notifications,disruption.alert.send,,2379,2,245,678
+2026-07-16,notifications,disruption.alert.delay_from_event,,2379,0,508000,2506000
+2026-07-16,trips-api,GET /trips/{id},/trips/{id},2015,2,83,304
+2026-07-16,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1303,0,141,462
+2026-07-16,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,382,1,363,1159
+2026-07-16,booking-api,GET /offers,/offers,54614,58,281,1147
+2026-07-16,payments-api,POST /payments,/payments,2302,5,327,819
+2026-07-16,reissue-service,POST /tickets/reissue,/tickets/reissue,902,48,1051,2870
+2026-07-17,notifications,disruption.alert.send,,2561,7,208,833
+2026-07-17,notifications,disruption.alert.delay_from_event,,2561,0,494000,2388000
+2026-07-17,trips-api,GET /trips/{id},/trips/{id},2247,1,85,293
+2026-07-17,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1424,0,125,421
+2026-07-17,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,322,0,355,908
+2026-07-17,booking-api,GET /offers,/offers,68017,107,279,1123
+2026-07-17,payments-api,POST /payments,/payments,2943,4,409,948
+2026-07-17,reissue-service,POST /tickets/reissue,/tickets/reissue,893,46,829,2524
+2026-07-18,notifications,disruption.alert.send,,2219,5,253,758
+2026-07-18,notifications,disruption.alert.delay_from_event,,2219,0,530000,2307000
+2026-07-18,trips-api,GET /trips/{id},/trips/{id},1912,1,89,293
+2026-07-18,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1201,0,115,412
+2026-07-18,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,429,1,400,906
+2026-07-18,booking-api,GET /offers,/offers,67886,69,283,1057
+2026-07-18,payments-api,POST /payments,/payments,3160,4,393,866
+2026-07-18,reissue-service,POST /tickets/reissue,/tickets/reissue,1088,63,939,2506
+2026-07-19,notifications,disruption.alert.send,,2743,4,216,855
+2026-07-19,notifications,disruption.alert.delay_from_event,,2743,0,572000,2578000
+2026-07-19,trips-api,GET /trips/{id},/trips/{id},2332,2,67,268
+2026-07-19,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1471,0,130,423
+2026-07-19,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,337,1,327,1139
+2026-07-19,booking-api,GET /offers,/offers,53422,83,310,947
+2026-07-19,payments-api,POST /payments,/payments,2438,5,376,860
+2026-07-19,reissue-service,POST /tickets/reissue,/tickets/reissue,1158,70,962,2646
+2026-07-20,notifications,disruption.alert.send,,2586,6,214,698
+2026-07-20,notifications,disruption.alert.delay_from_event,,2586,0,507000,2302000
+2026-07-20,trips-api,GET /trips/{id},/trips/{id},2213,2,85,284
+2026-07-20,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1392,0,131,453
+2026-07-20,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,304,0,373,1184
+2026-07-20,booking-api,GET /offers,/offers,59510,112,330,1123
+2026-07-20,payments-api,POST /payments,/payments,2633,5,420,845
+2026-07-20,reissue-service,POST /tickets/reissue,/tickets/reissue,831,49,1006,2315
+2026-07-21,notifications,disruption.alert.send,,3079,5,216,891
+2026-07-21,notifications,disruption.alert.delay_from_event,,3079,0,584000,2346000
+2026-07-21,trips-api,GET /trips/{id},/trips/{id},2648,3,86,275
+2026-07-21,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1671,0,147,470
+2026-07-21,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,468,1,324,1175
+2026-07-21,booking-api,GET /offers,/offers,47673,87,295,1011
+2026-07-21,payments-api,POST /payments,/payments,2149,4,407,837
+2026-07-21,reissue-service,POST /tickets/reissue,/tickets/reissue,1119,67,1095,2365
+2026-07-22,notifications,disruption.alert.send,,2913,2,184,724
+2026-07-22,notifications,disruption.alert.delay_from_event,,2913,0,570000,2498000
+2026-07-22,trips-api,GET /trips/{id},/trips/{id},2558,1,71,265
+2026-07-22,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1620,0,131,459
+2026-07-22,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,284,0,386,1121
+2026-07-22,booking-api,GET /offers,/offers,56011,87,273,1088
+2026-07-22,payments-api,POST /payments,/payments,2444,4,376,963
+2026-07-22,reissue-service,POST /tickets/reissue,/tickets/reissue,1302,71,800,2705
+2026-07-23,notifications,disruption.alert.send,,3229,6,191,756
+2026-07-23,notifications,disruption.alert.delay_from_event,,3229,0,593000,2284000
+2026-07-23,trips-api,GET /trips/{id},/trips/{id},2736,2,77,257
+2026-07-23,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1802,0,125,434
+2026-07-23,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,305,0,327,1070
+2026-07-23,booking-api,GET /offers,/offers,59544,60,290,1013
+2026-07-23,payments-api,POST /payments,/payments,2653,6,409,782
+2026-07-23,reissue-service,POST /tickets/reissue,/tickets/reissue,1255,75,947,2489
+2026-07-24,notifications,disruption.alert.send,,2571,3,219,740
+2026-07-24,notifications,disruption.alert.delay_from_event,,2571,0,523000,2537000
+2026-07-24,trips-api,GET /trips/{id},/trips/{id},2210,1,64,247
+2026-07-24,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1354,0,140,463
+2026-07-24,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,402,0,318,1161
+2026-07-24,booking-api,GET /offers,/offers,79033,108,257,1041
+2026-07-24,payments-api,POST /payments,/payments,3313,5,382,910
+2026-07-24,reissue-service,POST /tickets/reissue,/tickets/reissue,942,56,1048,2664
+2026-07-25,notifications,disruption.alert.send,,2860,7,223,892
+2026-07-25,notifications,disruption.alert.delay_from_event,,2860,0,565000,2549000
+2026-07-25,trips-api,GET /trips/{id},/trips/{id},2477,2,68,308
+2026-07-25,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1552,0,120,436
+2026-07-25,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,328,1,317,958
+2026-07-25,booking-api,GET /offers,/offers,50792,69,321,1133
+2026-07-25,payments-api,POST /payments,/payments,2156,5,401,948
+2026-07-25,reissue-service,POST /tickets/reissue,/tickets/reissue,910,49,988,2534
+2026-07-26,notifications,disruption.alert.send,,3422,5,202,651
+2026-07-26,notifications,disruption.alert.delay_from_event,,3422,0,492000,2328000
+2026-07-26,trips-api,GET /trips/{id},/trips/{id},3021,1,61,309
+2026-07-26,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1920,0,135,417
+2026-07-26,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,374,1,366,1051
+2026-07-26,booking-api,GET /offers,/offers,73065,74,269,1040
+2026-07-26,payments-api,POST /payments,/payments,3185,4,362,936
+2026-07-26,reissue-service,POST /tickets/reissue,/tickets/reissue,1120,65,1016,2537
+2026-07-27,notifications,disruption.alert.send,,3502,4,208,843
+2026-07-27,notifications,disruption.alert.delay_from_event,,3502,0,510000,2356000
+2026-07-27,trips-api,GET /trips/{id},/trips/{id},2951,3,68,310
+2026-07-27,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1851,0,137,447
+2026-07-27,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,389,1,339,948
+2026-07-27,booking-api,GET /offers,/offers,68265,118,273,1011
+2026-07-27,payments-api,POST /payments,/payments,3048,6,361,937
+2026-07-27,reissue-service,POST /tickets/reissue,/tickets/reissue,1004,58,1091,2844
+2026-07-28,notifications,disruption.alert.send,,2631,6,225,895
+2026-07-28,notifications,disruption.alert.delay_from_event,,2631,0,490000,2541000
+2026-07-28,trips-api,GET /trips/{id},/trips/{id},2297,2,68,269
+2026-07-28,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1447,0,121,416
+2026-07-28,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,367,1,344,982
+2026-07-28,booking-api,GET /offers,/offers,58168,74,277,1059
+2026-07-28,payments-api,POST /payments,/payments,2558,7,389,893
+2026-07-28,reissue-service,POST /tickets/reissue,/tickets/reissue,1363,73,874,2720
+2026-07-29,notifications,disruption.alert.send,,3523,8,217,768
+2026-07-29,notifications,disruption.alert.delay_from_event,,3523,0,579000,2540000
+2026-07-29,trips-api,GET /trips/{id},/trips/{id},3026,3,66,296
+2026-07-29,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1930,0,113,419
+2026-07-29,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,327,1,352,1144
+2026-07-29,booking-api,GET /offers,/offers,45758,54,288,944
+2026-07-29,payments-api,POST /payments,/payments,2040,4,396,833
+2026-07-29,reissue-service,POST /tickets/reissue,/tickets/reissue,973,59,889,2729
+2026-07-30,notifications,disruption.alert.send,,3366,4,247,668
+2026-07-30,notifications,disruption.alert.delay_from_event,,3366,0,574000,2506000
+2026-07-30,trips-api,GET /trips/{id},/trips/{id},2988,3,73,249
+2026-07-30,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1904,0,136,458
+2026-07-30,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,468,1,396,1084
+2026-07-30,booking-api,GET /offers,/offers,59265,82,274,945
+2026-07-30,payments-api,POST /payments,/payments,2551,6,390,821
+2026-07-30,reissue-service,POST /tickets/reissue,/tickets/reissue,894,47,964,2412
+2026-07-31,notifications,disruption.alert.send,,2897,7,238,897
+2026-07-31,notifications,disruption.alert.delay_from_event,,2897,0,499000,2636000
+2026-07-31,trips-api,GET /trips/{id},/trips/{id},2506,2,65,261
+2026-07-31,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1561,0,133,435
+2026-07-31,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,291,0,324,1065
+2026-07-31,booking-api,GET /offers,/offers,60185,119,321,902
+2026-07-31,payments-api,POST /payments,/payments,2634,5,377,940
+2026-07-31,reissue-service,POST /tickets/reissue,/tickets/reissue,954,51,839,2751
+2026-08-01,notifications,disruption.alert.send,,2947,6,209,757
+2026-08-01,notifications,disruption.alert.delay_from_event,,2947,0,593000,2615000
+2026-08-01,trips-api,GET /trips/{id},/trips/{id},2484,1,85,278
+2026-08-01,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1578,0,121,412
+2026-08-01,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,284,0,338,999
+2026-08-01,booking-api,GET /offers,/offers,52318,94,276,1090
+2026-08-01,payments-api,POST /payments,/payments,2249,3,396,916
+2026-08-01,reissue-service,POST /tickets/reissue,/tickets/reissue,1267,76,887,2471
+2026-08-02,notifications,disruption.alert.send,,2481,3,240,653
+2026-08-02,notifications,disruption.alert.delay_from_event,,2481,0,566000,2435000
+2026-08-02,trips-api,GET /trips/{id},/trips/{id},2129,1,65,295
+2026-08-02,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1317,0,140,443
+2026-08-02,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,394,1,398,1049
+2026-08-02,booking-api,GET /offers,/offers,70140,86,274,1047
+2026-08-02,payments-api,POST /payments,/payments,3172,50,351,4259
+2026-08-02,reissue-service,POST /tickets/reissue,/tickets/reissue,1168,62,1051,2767
+2026-08-03,notifications,disruption.alert.send,,2417,5,201,752
+2026-08-03,notifications,disruption.alert.delay_from_event,,2417,0,565000,2416000
+2026-08-03,trips-api,GET /trips/{id},/trips/{id},2052,1,62,319
+2026-08-03,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1309,0,125,410
+2026-08-03,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,316,0,360,1123
+2026-08-03,booking-api,GET /offers,/offers,49886,71,280,1016
+2026-08-03,payments-api,POST /payments,/payments,2238,5,322,870
+2026-08-03,reissue-service,POST /tickets/reissue,/tickets/reissue,926,54,1083,2416
+2026-08-04,notifications,disruption.alert.send,,2175,5,201,830
+2026-08-04,notifications,disruption.alert.delay_from_event,,2175,0,559000,2582000
+2026-08-04,trips-api,GET /trips/{id},/trips/{id},1903,1,85,287
+2026-08-04,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1158,0,128,383
+2026-08-04,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,339,1,348,1041
+2026-08-04,booking-api,GET /offers,/offers,59057,72,295,1099
+2026-08-04,payments-api,POST /payments,/payments,2716,5,356,940
+2026-08-04,reissue-service,POST /tickets/reissue,/tickets/reissue,1189,64,906,2376
+2026-08-05,notifications,disruption.alert.send,,3556,4,242,872
+2026-08-05,notifications,disruption.alert.delay_from_event,,3556,0,560000,2562000
+2026-08-05,trips-api,GET /trips/{id},/trips/{id},3116,1,70,271
+2026-08-05,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1922,0,138,444
+2026-08-05,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,412,0,380,1036
+2026-08-05,booking-api,GET /offers,/offers,62475,111,293,1063
+2026-08-05,payments-api,POST /payments,/payments,2856,56,325,5107
+2026-08-05,reissue-service,POST /tickets/reissue,/tickets/reissue,1265,75,1077,2488
+2026-08-06,notifications,disruption.alert.send,,3210,4,202,850
+2026-08-06,notifications,disruption.alert.delay_from_event,,3210,0,487000,2327000
+2026-08-06,trips-api,GET /trips/{id},/trips/{id},2841,1,73,315
+2026-08-06,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1761,0,127,415
+2026-08-06,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,429,1,322,975
+2026-08-06,booking-api,GET /offers,/offers,61646,107,299,1136
+2026-08-06,payments-api,POST /payments,/payments,2822,59,395,4375
+2026-08-06,reissue-service,POST /tickets/reissue,/tickets/reissue,1233,70,945,2592
+2026-08-07,notifications,disruption.alert.send,,2895,7,207,754
+2026-08-07,notifications,disruption.alert.delay_from_event,,2895,0,488000,2329000
+2026-08-07,trips-api,GET /trips/{id},/trips/{id},2450,2,72,302
+2026-08-07,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1566,0,131,386
+2026-08-07,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,430,0,350,1190
+2026-08-07,booking-api,GET /offers,/offers,50561,51,283,944
+2026-08-07,payments-api,POST /payments,/payments,2253,3,418,915
+2026-08-07,reissue-service,POST /tickets/reissue,/tickets/reissue,1212,64,865,2717
+2026-08-08,notifications,disruption.alert.send,,2378,2,232,829
+2026-08-08,notifications,disruption.alert.delay_from_event,,2378,0,480000,2310000
+2026-08-08,trips-api,GET /trips/{id},/trips/{id},2077,1,75,264
+2026-08-08,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1321,0,134,411
+2026-08-08,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,393,0,315,1131
+2026-08-08,booking-api,GET /offers,/offers,66817,102,273,1039
+2026-08-08,payments-api,POST /payments,/payments,2821,50,341,4681
+2026-08-08,reissue-service,POST /tickets/reissue,/tickets/reissue,945,54,1018,2410
+2026-08-09,notifications,disruption.alert.send,,2252,5,215,787
+2026-08-09,notifications,disruption.alert.delay_from_event,,2252,0,492000,2559000
+2026-08-09,trips-api,GET /trips/{id},/trips/{id},1964,1,73,311
+2026-08-09,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1237,0,149,433
+2026-08-09,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,307,0,397,1025
+2026-08-09,booking-api,GET /offers,/offers,64985,72,266,1108
+2026-08-09,payments-api,POST /payments,/payments,2881,47,388,4404
+2026-08-09,reissue-service,POST /tickets/reissue,/tickets/reissue,921,55,965,2762
+2026-08-10,notifications,disruption.alert.send,,3455,6,260,843
+2026-08-10,notifications,disruption.alert.delay_from_event,,3455,0,539000,2290000
+2026-08-10,trips-api,GET /trips/{id},/trips/{id},2995,2,61,316
+2026-08-10,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1872,0,144,436
+2026-08-10,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,419,1,328,1173
+2026-08-10,booking-api,GET /offers,/offers,44222,71,279,1052
+2026-08-10,payments-api,POST /payments,/payments,1866,2,321,914
+2026-08-10,reissue-service,POST /tickets/reissue,/tickets/reissue,980,51,809,2304
+2026-08-11,notifications,disruption.alert.send,,2183,5,230,809
+2026-08-11,notifications,disruption.alert.delay_from_event,,2183,0,571000,2314000
+2026-08-11,trips-api,GET /trips/{id},/trips/{id},1831,2,88,301
+2026-08-11,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1194,0,144,386
+2026-08-11,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,420,0,393,945
+2026-08-11,booking-api,GET /offers,/offers,57966,70,283,1143
+2026-08-11,payments-api,POST /payments,/payments,2472,6,385,924
+2026-08-11,reissue-service,POST /tickets/reissue,/tickets/reissue,881,49,905,2335
+2026-08-12,notifications,disruption.alert.send,,2127,6,223,679
+2026-08-12,notifications,disruption.alert.delay_from_event,,2127,0,557000,2631000
+2026-08-12,trips-api,GET /trips/{id},/trips/{id},1790,2,79,271
+2026-08-12,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1149,0,122,458
+2026-08-12,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,280,0,327,1048
+2026-08-12,booking-api,GET /offers,/offers,47336,80,292,1056
+2026-08-12,payments-api,POST /payments,/payments,2133,4,322,827
+2026-08-12,reissue-service,POST /tickets/reissue,/tickets/reissue,939,55,1042,2434
+2026-08-13,notifications,disruption.alert.send,,3030,3,191,837
+2026-08-13,notifications,disruption.alert.delay_from_event,,3030,0,575000,2498000
+2026-08-13,trips-api,GET /trips/{id},/trips/{id},2637,2,68,278
+2026-08-13,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1654,0,146,410
+2026-08-13,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,333,0,302,902
+2026-08-13,booking-api,GET /offers,/offers,55888,103,327,1135
+2026-08-13,payments-api,POST /payments,/payments,2474,3,406,887
+2026-08-13,reissue-service,POST /tickets/reissue,/tickets/reissue,1014,59,890,2714
+2026-08-14,notifications,disruption.alert.send,,2289,4,180,800
+2026-08-14,notifications,disruption.alert.delay_from_event,,2289,0,582000,2347000
+2026-08-14,trips-api,GET /trips/{id},/trips/{id},1996,1,71,261
+2026-08-14,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1210,0,114,452
+2026-08-14,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,295,1,321,994
+2026-08-14,booking-api,GET /offers,/offers,61054,66,310,912
+2026-08-14,payments-api,POST /payments,/payments,2682,4,330,930
+2026-08-14,reissue-service,POST /tickets/reissue,/tickets/reissue,775,43,965,2475
+2026-08-15,notifications,disruption.alert.send,,3172,3,196,768
+2026-08-15,notifications,disruption.alert.delay_from_event,,3172,0,544000,2514000
+2026-08-15,trips-api,GET /trips/{id},/trips/{id},2841,2,71,292
+2026-08-15,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1785,0,143,408
+2026-08-15,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,334,1,308,1138
+2026-08-15,booking-api,GET /offers,/offers,56616,78,251,960
+2026-08-15,payments-api,POST /payments,/payments,2547,6,328,878
+2026-08-15,reissue-service,POST /tickets/reissue,/tickets/reissue,1288,71,1079,2367
+2026-08-16,notifications,disruption.alert.send,,2314,3,185,743
+2026-08-16,notifications,disruption.alert.delay_from_event,,2314,0,543000,2301000
+2026-08-16,trips-api,GET /trips/{id},/trips/{id},2024,1,60,242
+2026-08-16,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1231,0,142,457
+2026-08-16,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,267,1,359,1081
+2026-08-16,booking-api,GET /offers,/offers,47008,72,276,1048
+2026-08-16,payments-api,POST /payments,/payments,2032,5,391,873
+2026-08-16,reissue-service,POST /tickets/reissue,/tickets/reissue,1229,66,851,2452
+2026-08-17,notifications,disruption.alert.send,,2468,6,191,744
+2026-08-17,notifications,disruption.alert.delay_from_event,,2468,0,482000,2445000
+2026-08-17,trips-api,GET /trips/{id},/trips/{id},2203,1,75,278
+2026-08-17,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1412,0,136,436
+2026-08-17,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,408,1,369,1069
+2026-08-17,booking-api,GET /offers,/offers,46608,90,260,1003
+2026-08-17,payments-api,POST /payments,/payments,2020,5,352,959
+2026-08-17,reissue-service,POST /tickets/reissue,/tickets/reissue,1181,63,809,2641
+2026-08-18,notifications,disruption.alert.send,,2130,4,235,601
+2026-08-18,notifications,disruption.alert.delay_from_event,,2130,0,562000,2599000
+2026-08-18,trips-api,GET /trips/{id},/trips/{id},1814,2,80,314
+2026-08-18,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1165,0,147,402
+2026-08-18,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,260,0,307,1175
+2026-08-18,booking-api,GET /offers,/offers,53612,68,275,1127
+2026-08-18,payments-api,POST /payments,/payments,2312,6,339,820
+2026-08-18,reissue-service,POST /tickets/reissue,/tickets/reissue,878,49,1007,2595
+2026-08-19,notifications,disruption.alert.send,,2315,5,216,747
+2026-08-19,notifications,disruption.alert.delay_from_event,,2315,0,519000,2403000
+2026-08-19,trips-api,GET /trips/{id},/trips/{id},1955,1,79,270
+2026-08-19,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1250,0,135,394
+2026-08-19,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,335,0,376,1069
+2026-08-19,booking-api,GET /offers,/offers,63665,123,311,902
+2026-08-19,payments-api,POST /payments,/payments,2755,50,347,4865
+2026-08-19,reissue-service,POST /tickets/reissue,/tickets/reissue,781,45,1087,2395
+2026-08-20,notifications,disruption.alert.send,,3161,6,202,853
+2026-08-20,notifications,disruption.alert.delay_from_event,,3161,0,481000,2295000
+2026-08-20,trips-api,GET /trips/{id},/trips/{id},2746,2,72,318
+2026-08-20,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1719,0,123,388
+2026-08-20,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,426,1,371,1003
+2026-08-20,booking-api,GET /offers,/offers,49129,92,281,1046
+2026-08-20,payments-api,POST /payments,/payments,2067,4,416,787
+2026-08-20,reissue-service,POST /tickets/reissue,/tickets/reissue,1041,54,1100,2868
+2026-08-21,notifications,disruption.alert.send,,2285,6,196,781
+2026-08-21,notifications,disruption.alert.delay_from_event,,2285,0,572000,2542000
+2026-08-21,trips-api,GET /trips/{id},/trips/{id},1995,1,61,283
+2026-08-21,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1257,0,136,406
+2026-08-21,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,363,0,343,938
+2026-08-21,booking-api,GET /offers,/offers,50782,52,303,1117
+2026-08-21,payments-api,POST /payments,/payments,2298,6,396,785
+2026-08-21,reissue-service,POST /tickets/reissue,/tickets/reissue,1097,64,969,2466
+2026-08-22,notifications,disruption.alert.send,,2367,2,197,698
+2026-08-22,notifications,disruption.alert.delay_from_event,,2367,0,504000,2424000
+2026-08-22,trips-api,GET /trips/{id},/trips/{id},2029,1,86,247
+2026-08-22,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1308,0,138,415
+2026-08-22,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,267,0,331,1070
+2026-08-22,booking-api,GET /offers,/offers,48944,49,285,1071
+2026-08-22,payments-api,POST /payments,/payments,2194,4,330,924
+2026-08-22,reissue-service,POST /tickets/reissue,/tickets/reissue,1195,65,820,2862
+2026-08-23,notifications,disruption.alert.send,,3257,9,217,624
+2026-08-23,notifications,disruption.alert.delay_from_event,,3257,0,568000,2295000
+2026-08-23,trips-api,GET /trips/{id},/trips/{id},2798,2,69,309
+2026-08-23,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1773,0,119,408
+2026-08-23,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,381,1,307,1080
+2026-08-23,booking-api,GET /offers,/offers,45166,89,252,1126
+2026-08-23,payments-api,POST /payments,/payments,1943,3,347,906
+2026-08-23,reissue-service,POST /tickets/reissue,/tickets/reissue,980,53,809,2564
+2026-08-24,notifications,disruption.alert.send,,3138,6,231,677
+2026-08-24,notifications,disruption.alert.delay_from_event,,3138,0,515000,2310000
+2026-08-24,trips-api,GET /trips/{id},/trips/{id},2728,1,60,255
+2026-08-24,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1749,0,149,424
+2026-08-24,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,298,0,329,916
+2026-08-24,booking-api,GET /offers,/offers,54632,91,323,1141
+2026-08-24,payments-api,POST /payments,/payments,2388,4,351,922
+2026-08-24,reissue-service,POST /tickets/reissue,/tickets/reissue,1159,61,1084,2847
+2026-08-25,notifications,disruption.alert.send,,2447,5,243,607
+2026-08-25,notifications,disruption.alert.delay_from_event,,2447,0,590000,2559000
+2026-08-25,trips-api,GET /trips/{id},/trips/{id},2076,1,76,283
+2026-08-25,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1299,0,124,439
+2026-08-25,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,261,0,382,917
+2026-08-25,booking-api,GET /offers,/offers,58545,69,264,918
+2026-08-25,payments-api,POST /payments,/payments,2491,6,393,796
+2026-08-25,reissue-service,POST /tickets/reissue,/tickets/reissue,1189,65,852,2521
+2026-08-26,notifications,disruption.alert.send,,2906,5,210,708
+2026-08-26,notifications,disruption.alert.delay_from_event,,2906,0,516000,2449000
+2026-08-26,trips-api,GET /trips/{id},/trips/{id},2544,1,69,259
+2026-08-26,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1591,0,119,395
+2026-08-26,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,425,1,343,1058
+2026-08-26,booking-api,GET /offers,/offers,46766,52,268,1119
+2026-08-26,payments-api,POST /payments,/payments,1983,3,413,861
+2026-08-26,reissue-service,POST /tickets/reissue,/tickets/reissue,962,52,810,2390
+2026-08-27,notifications,disruption.alert.send,,3497,4,207,633
+2026-08-27,notifications,disruption.alert.delay_from_event,,3497,0,549000,2489000
+2026-08-27,trips-api,GET /trips/{id},/trips/{id},3032,2,77,272
+2026-08-27,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1836,0,118,456
+2026-08-27,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,411,1,397,1085
+2026-08-27,booking-api,GET /offers,/offers,54584,90,258,1143
+2026-08-27,payments-api,POST /payments,/payments,2480,5,420,793
+2026-08-27,reissue-service,POST /tickets/reissue,/tickets/reissue,1061,61,829,2579
+2026-08-28,notifications,disruption.alert.send,,2639,3,212,632
+2026-08-28,notifications,disruption.alert.delay_from_event,,2639,0,558000,2364000
+2026-08-28,trips-api,GET /trips/{id},/trips/{id},2185,1,84,242
+2026-08-28,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1404,0,116,381
+2026-08-28,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,343,0,314,1054
+2026-08-28,booking-api,GET /offers,/offers,61406,100,283,954
+2026-08-28,payments-api,POST /payments,/payments,2754,7,347,903
+2026-08-28,reissue-service,POST /tickets/reissue,/tickets/reissue,1077,65,916,2418
+2026-08-29,notifications,disruption.alert.send,,2917,4,232,848
+2026-08-29,notifications,disruption.alert.delay_from_event,,2917,0,556000,2550000
+2026-08-29,trips-api,GET /trips/{id},/trips/{id},2577,1,83,290
+2026-08-29,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1653,0,112,416
+2026-08-29,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,428,0,325,1051
+2026-08-29,booking-api,GET /offers,/offers,47340,94,298,1078
+2026-08-29,payments-api,POST /payments,/payments,2055,3,400,960
+2026-08-29,reissue-service,POST /tickets/reissue,/tickets/reissue,1008,52,1064,2900
+2026-08-30,notifications,disruption.alert.send,,3018,8,227,732
+2026-08-30,notifications,disruption.alert.delay_from_event,,3018,0,584000,2613000
+2026-08-30,trips-api,GET /trips/{id},/trips/{id},2657,1,78,285
+2026-08-30,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1633,0,117,420
+2026-08-30,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,336,0,331,1118
+2026-08-30,booking-api,GET /offers,/offers,46342,65,329,927
+2026-08-30,payments-api,POST /payments,/payments,1986,4,407,876
+2026-08-30,reissue-service,POST /tickets/reissue,/tickets/reissue,1020,58,893,2851
+2026-08-31,notifications,disruption.alert.send,,2704,4,244,736
+2026-08-31,notifications,disruption.alert.delay_from_event,,2704,0,524000,2425000
+2026-08-31,trips-api,GET /trips/{id},/trips/{id},2354,2,77,316
+2026-08-31,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1530,0,118,423
+2026-08-31,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,351,1,338,988
+2026-08-31,booking-api,GET /offers,/offers,54638,92,257,981
+2026-08-31,payments-api,POST /payments,/payments,2409,4,333,875
+2026-08-31,reissue-service,POST /tickets/reissue,/tickets/reissue,1235,67,1032,2421
+2026-09-01,notifications,disruption.alert.send,,1192,2,216,664
+2026-09-01,notifications,disruption.alert.delay_from_event,,1192,0,176000,705000
+2026-09-01,trips-api,GET /trips/{id},/trips/{id},1011,1,89,276
+2026-09-01,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,642,0,145,443
+2026-09-01,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,200,0,400,955
+2026-09-01,booking-api,GET /offers,/offers,69009,125,263,968
+2026-09-01,payments-api,POST /payments,/payments,3026,6,344,917
+2026-09-01,reissue-service,POST /tickets/reissue,/tickets/reissue,653,26,993,2615
+2026-09-02,notifications,disruption.alert.send,,1753,4,233,670
+2026-09-02,notifications,disruption.alert.delay_from_event,,1753,0,138000,591000
+2026-09-02,trips-api,GET /trips/{id},/trips/{id},1526,0,76,296
+2026-09-02,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,942,0,119,443
+2026-09-02,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,158,0,348,1131
+2026-09-02,booking-api,GET /offers,/offers,71249,111,326,941
+2026-09-02,payments-api,POST /payments,/payments,3039,8,334,960
+2026-09-02,reissue-service,POST /tickets/reissue,/tickets/reissue,612,24,1012,2738
+2026-09-03,notifications,disruption.alert.send,,1347,3,224,771
+2026-09-03,notifications,disruption.alert.delay_from_event,,1347,0,133000,570000
+2026-09-03,trips-api,GET /trips/{id},/trips/{id},1186,1,78,283
+2026-09-03,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,754,0,145,433
+2026-09-03,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,244,0,332,987
+2026-09-03,booking-api,GET /offers,/offers,48320,61,318,1096
+2026-09-03,payments-api,POST /payments,/payments,2053,5,353,975
+2026-09-03,reissue-service,POST /tickets/reissue,/tickets/reissue,719,29,853,2349
+2026-09-04,notifications,disruption.alert.send,,1877,4,251,691
+2026-09-04,notifications,disruption.alert.delay_from_event,,1877,0,143000,666000
+2026-09-04,trips-api,GET /trips/{id},/trips/{id},1662,0,74,252
+2026-09-04,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1027,0,148,413
+2026-09-04,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,230,0,317,1181
+2026-09-04,booking-api,GET /offers,/offers,64113,112,255,1138
+2026-09-04,payments-api,POST /payments,/payments,2856,7,351,883
+2026-09-04,reissue-service,POST /tickets/reissue,/tickets/reissue,659,27,829,2761
+2026-09-05,notifications,disruption.alert.send,,1611,2,204,676
+2026-09-05,notifications,disruption.alert.delay_from_event,,1611,0,126000,664000
+2026-09-05,trips-api,GET /trips/{id},/trips/{id},1380,0,80,281
+2026-09-05,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,841,0,149,457
+2026-09-05,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,168,0,373,1078
+2026-09-05,booking-api,GET /offers,/offers,80374,146,321,1024
+2026-09-05,payments-api,POST /payments,/payments,3508,6,332,864
+2026-09-05,reissue-service,POST /tickets/reissue,/tickets/reissue,610,25,870,2464
+2026-09-06,notifications,disruption.alert.send,,1220,2,257,796
+2026-09-06,notifications,disruption.alert.delay_from_event,,1220,0,126000,701000
+2026-09-06,trips-api,GET /trips/{id},/trips/{id},1071,0,74,285
+2026-09-06,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,672,0,130,386
+2026-09-06,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,177,0,347,933
+2026-09-06,booking-api,GET /offers,/offers,81648,133,256,1000
+2026-09-06,payments-api,POST /payments,/payments,3519,8,381,952
+2026-09-06,reissue-service,POST /tickets/reissue,/tickets/reissue,637,30,803,2836
+2026-09-07,notifications,disruption.alert.send,,1624,3,185,872
+2026-09-07,notifications,disruption.alert.delay_from_event,,1624,0,164000,573000
+2026-09-07,trips-api,GET /trips/{id},/trips/{id},1353,1,89,289
+2026-09-07,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,841,0,123,447
+2026-09-07,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,185,0,300,1019
+2026-09-07,booking-api,GET /offers,/offers,56988,90,280,1065
+2026-09-07,payments-api,POST /payments,/payments,2512,7,375,883
+2026-09-07,reissue-service,POST /tickets/reissue,/tickets/reissue,538,23,1034,2818
+2026-09-08,notifications,disruption.alert.send,,1907,4,226,842
+2026-09-08,notifications,disruption.alert.delay_from_event,,1907,0,120000,629000
+2026-09-08,trips-api,GET /trips/{id},/trips/{id},1630,1,69,310
+2026-09-08,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1044,0,125,394
+2026-09-08,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,237,0,380,956
+2026-09-08,booking-api,GET /offers,/offers,47932,48,321,1051
+2026-09-08,payments-api,POST /payments,/payments,2153,5,338,883
+2026-09-08,reissue-service,POST /tickets/reissue,/tickets/reissue,491,19,969,2758
+2026-09-09,notifications,disruption.alert.send,,1164,2,211,600
+2026-09-09,notifications,disruption.alert.delay_from_event,,1164,0,136000,583000
+2026-09-09,trips-api,GET /trips/{id},/trips/{id},1015,0,76,270
+2026-09-09,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,624,0,138,395
+2026-09-09,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,173,0,317,1028
+2026-09-09,booking-api,GET /offers,/offers,52008,59,287,1093
+2026-09-09,payments-api,POST /payments,/payments,2364,3,367,862
+2026-09-09,reissue-service,POST /tickets/reissue,/tickets/reissue,693,28,996,2368
+2026-09-10,notifications,disruption.alert.send,,1555,2,210,645
+2026-09-10,notifications,disruption.alert.delay_from_event,,1555,0,134000,680000
+2026-09-10,trips-api,GET /trips/{id},/trips/{id},1371,1,69,303
+2026-09-10,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,853,0,132,417
+2026-09-10,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,238,0,305,1091
+2026-09-10,booking-api,GET /offers,/offers,57676,103,271,924
+2026-09-10,payments-api,POST /payments,/payments,2474,6,355,869
+2026-09-10,reissue-service,POST /tickets/reissue,/tickets/reissue,537,23,964,2776
+2026-09-11,notifications,disruption.alert.send,,1273,1,181,821
+2026-09-11,notifications,disruption.alert.delay_from_event,,1273,0,138000,710000
+2026-09-11,trips-api,GET /trips/{id},/trips/{id},1082,0,76,314
+2026-09-11,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,694,0,136,398
+2026-09-11,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,222,0,333,1014
+2026-09-11,booking-api,GET /offers,/offers,68792,100,264,1132
+2026-09-11,payments-api,POST /payments,/payments,2951,5,420,949
+2026-09-11,reissue-service,POST /tickets/reissue,/tickets/reissue,716,29,811,2540
+2026-09-12,notifications,disruption.alert.send,,1187,2,199,682
+2026-09-12,notifications,disruption.alert.delay_from_event,,1187,0,171000,597000
+2026-09-12,trips-api,GET /trips/{id},/trips/{id},1017,1,81,250
+2026-09-12,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,662,0,110,468
+2026-09-12,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,257,0,334,1196
+2026-09-12,booking-api,GET /offers,/offers,64910,109,318,973
+2026-09-12,payments-api,POST /payments,/payments,2937,5,395,947
+2026-09-12,reissue-service,POST /tickets/reissue,/tickets/reissue,779,36,1026,2346
+2026-09-13,notifications,disruption.alert.send,,1702,3,209,768
+2026-09-13,notifications,disruption.alert.delay_from_event,,1702,0,155000,713000
+2026-09-13,trips-api,GET /trips/{id},/trips/{id},1501,1,77,296
+2026-09-13,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,946,0,131,440
+2026-09-13,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,200,0,398,1025
+2026-09-13,booking-api,GET /offers,/offers,61684,76,325,1069
+2026-09-13,payments-api,POST /payments,/payments,2596,4,324,917
+2026-09-13,reissue-service,POST /tickets/reissue,/tickets/reissue,744,33,875,2587
+2026-09-14,notifications,disruption.alert.send,,1611,2,205,850
+2026-09-14,notifications,disruption.alert.delay_from_event,,1611,0,169000,693000
+2026-09-14,trips-api,GET /trips/{id},/trips/{id},1401,0,62,274
+2026-09-14,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,877,0,150,414
+2026-09-14,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,211,0,317,1064
+2026-09-14,booking-api,GET /offers,/offers,48892,89,294,1069
+2026-09-14,payments-api,POST /payments,/payments,2165,4,389,802
+2026-09-14,reissue-service,POST /tickets/reissue,/tickets/reissue,647,29,813,2825
+2026-09-15,notifications,disruption.alert.send,,1885,4,255,849
+2026-09-15,notifications,disruption.alert.delay_from_event,,1885,0,138000,593000
+2026-09-15,trips-api,GET /trips/{id},/trips/{id},1662,1,83,262
+2026-09-15,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1056,0,129,439
+2026-09-15,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,250,0,300,969
+2026-09-15,booking-api,GET /offers,/offers,71998,125,283,1006
+2026-09-15,payments-api,POST /payments,/payments,3207,6,370,828
+2026-09-15,reissue-service,POST /tickets/reissue,/tickets/reissue,537,24,873,2703
+2026-09-16,notifications,disruption.alert.send,,1836,4,236,900
+2026-09-16,notifications,disruption.alert.delay_from_event,,1836,0,123000,593000
+2026-09-16,trips-api,GET /trips/{id},/trips/{id},1614,1,78,251
+2026-09-16,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,1035,0,150,427
+2026-09-16,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,255,0,369,982
+2026-09-16,booking-api,GET /offers,/offers,56019,64,303,997
+2026-09-16,payments-api,POST /payments,/payments,2492,5,326,792
+2026-09-16,reissue-service,POST /tickets/reissue,/tickets/reissue,489,21,1012,2694
+2026-09-17,notifications,disruption.alert.send,,1549,3,231,681
+2026-09-17,notifications,disruption.alert.delay_from_event,,1549,0,159000,719000
+2026-09-17,trips-api,GET /trips/{id},/trips/{id},1319,1,72,282
+2026-09-17,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,831,0,131,432
+2026-09-17,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,164,0,314,1161
+2026-09-17,booking-api,GET /offers,/offers,48390,49,266,968
+2026-09-17,payments-api,POST /payments,/payments,2160,4,349,964
+2026-09-17,reissue-service,POST /tickets/reissue,/tickets/reissue,747,34,1007,2826
+2026-09-18,notifications,disruption.alert.send,,1772,5,215,787
+2026-09-18,notifications,disruption.alert.delay_from_event,,1772,0,162000,634000
+2026-09-18,trips-api,GET /trips/{id},/trips/{id},1539,1,89,291
+2026-09-18,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,954,0,122,449
+2026-09-18,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,164,0,364,931
+2026-09-18,booking-api,GET /offers,/offers,51054,59,319,1088
+2026-09-18,payments-api,POST /payments,/payments,2279,4,375,824
+2026-09-18,reissue-service,POST /tickets/reissue,/tickets/reissue,517,23,1081,2483
+2026-09-19,notifications,disruption.alert.send,,1772,5,186,890
+2026-09-19,notifications,disruption.alert.delay_from_event,,1772,0,144000,716000
+2026-09-19,trips-api,GET /trips/{id},/trips/{id},1518,1,63,298
+2026-09-19,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,943,0,146,393
+2026-09-19,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,194,0,368,1156
+2026-09-19,booking-api,GET /offers,/offers,64944,95,269,1147
+2026-09-19,payments-api,POST /payments,/payments,3031,8,364,961
+2026-09-19,reissue-service,POST /tickets/reissue,/tickets/reissue,460,18,854,2302
+2026-09-20,notifications,disruption.alert.send,,1804,2,193,865
+2026-09-20,notifications,disruption.alert.delay_from_event,,1804,0,136000,589000
+2026-09-20,trips-api,GET /trips/{id},/trips/{id},1571,1,73,279
+2026-09-20,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,974,0,142,462
+2026-09-20,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,175,0,377,974
+2026-09-20,booking-api,GET /offers,/offers,75812,109,268,1012
+2026-09-20,payments-api,POST /payments,/payments,3554,5,376,829
+2026-09-20,reissue-service,POST /tickets/reissue,/tickets/reissue,657,28,911,2842
+2026-09-21,notifications,disruption.alert.send,,1798,4,247,859
+2026-09-21,notifications,disruption.alert.delay_from_event,,1798,0,148000,681000
+2026-09-21,trips-api,GET /trips/{id},/trips/{id},1487,1,61,271
+2026-09-21,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,943,0,113,411
+2026-09-21,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,156,0,390,1112
+2026-09-21,booking-api,GET /offers,/offers,63320,73,277,1124
+2026-09-21,payments-api,POST /payments,/payments,2846,5,337,882
+2026-09-21,reissue-service,POST /tickets/reissue,/tickets/reissue,521,24,1053,2302
+2026-09-22,notifications,disruption.alert.send,,1362,3,218,622
+2026-09-22,notifications,disruption.alert.delay_from_event,,1362,0,160000,627000
+2026-09-22,trips-api,GET /trips/{id},/trips/{id},1189,1,72,286
+2026-09-22,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,747,0,115,407
+2026-09-22,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,179,0,300,1166
+2026-09-22,booking-api,GET /offers,/offers,46972,57,311,1124
+2026-09-22,payments-api,POST /payments,/payments,2045,6,329,860
+2026-09-22,reissue-service,POST /tickets/reissue,/tickets/reissue,651,31,1035,2470
+2026-09-23,notifications,disruption.alert.send,,1471,1,197,871
+2026-09-23,notifications,disruption.alert.delay_from_event,,1471,0,122000,591000
+2026-09-23,trips-api,GET /trips/{id},/trips/{id},1283,1,83,281
+2026-09-23,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,814,0,143,385
+2026-09-23,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,250,0,332,954
+2026-09-23,booking-api,GET /offers,/offers,57995,75,263,1094
+2026-09-23,payments-api,POST /payments,/payments,2658,5,390,930
+2026-09-23,reissue-service,POST /tickets/reissue,/tickets/reissue,517,21,830,2435
+2026-09-24,notifications,disruption.alert.send,,1640,3,257,750
+2026-09-24,notifications,disruption.alert.delay_from_event,,1640,0,160000,559000
+2026-09-24,trips-api,GET /trips/{id},/trips/{id},1482,1,71,276
+2026-09-24,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,914,0,129,456
+2026-09-24,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,180,0,358,984
+2026-09-24,booking-api,GET /offers,/offers,65198,127,321,1036
+2026-09-24,payments-api,POST /payments,/payments,2695,5,410,780
+2026-09-24,reissue-service,POST /tickets/reissue,/tickets/reissue,588,27,874,2787
+2026-09-25,notifications,disruption.alert.send,,1605,1,196,678
+2026-09-25,notifications,disruption.alert.delay_from_event,,1605,0,144000,645000
+2026-09-25,trips-api,GET /trips/{id},/trips/{id},1383,0,86,241
+2026-09-25,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,889,0,115,432
+2026-09-25,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,168,0,385,1030
+2026-09-25,booking-api,GET /offers,/offers,68475,123,329,914
+2026-09-25,payments-api,POST /payments,/payments,3043,6,411,938
+2026-09-25,reissue-service,POST /tickets/reissue,/tickets/reissue,640,27,863,2376
+2026-09-26,notifications,disruption.alert.send,,1511,3,209,764
+2026-09-26,notifications,disruption.alert.delay_from_event,,1511,0,126000,699000
+2026-09-26,trips-api,GET /trips/{id},/trips/{id},1318,1,88,300
+2026-09-26,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,842,0,133,444
+2026-09-26,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,205,0,312,1197
+2026-09-26,booking-api,GET /offers,/offers,66222,122,330,1078
+2026-09-26,payments-api,POST /payments,/payments,2958,5,388,941
+2026-09-26,reissue-service,POST /tickets/reissue,/tickets/reissue,626,26,807,2434
+2026-09-27,notifications,disruption.alert.send,,1784,2,199,783
+2026-09-27,notifications,disruption.alert.delay_from_event,,1784,0,135000,640000
+2026-09-27,trips-api,GET /trips/{id},/trips/{id},1483,0,75,320
+2026-09-27,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,924,0,150,454
+2026-09-27,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,206,0,345,1121
+2026-09-27,booking-api,GET /offers,/offers,77606,102,312,1031
+2026-09-27,payments-api,POST /payments,/payments,3352,7,386,970
+2026-09-27,reissue-service,POST /tickets/reissue,/tickets/reissue,544,25,826,2659
+2026-09-28,notifications,disruption.alert.send,,1298,3,258,622
+2026-09-28,notifications,disruption.alert.delay_from_event,,1298,0,135000,567000
+2026-09-28,trips-api,GET /trips/{id},/trips/{id},1103,0,75,266
+2026-09-28,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,674,0,112,425
+2026-09-28,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,170,0,398,1179
+2026-09-28,booking-api,GET /offers,/offers,73068,97,266,1093
+2026-09-28,payments-api,POST /payments,/payments,3135,7,358,918
+2026-09-28,reissue-service,POST /tickets/reissue,/tickets/reissue,713,32,930,2383
+2026-09-29,notifications,disruption.alert.send,,1319,1,186,816
+2026-09-29,notifications,disruption.alert.delay_from_event,,1319,0,140000,551000
+2026-09-29,trips-api,GET /trips/{id},/trips/{id},1127,1,70,289
+2026-09-29,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,706,0,145,458
+2026-09-29,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,164,0,338,1193
+2026-09-29,booking-api,GET /offers,/offers,61513,87,265,921
+2026-09-29,payments-api,POST /payments,/payments,2767,7,409,899
+2026-09-29,reissue-service,POST /tickets/reissue,/tickets/reissue,626,25,839,2378
+2026-09-30,notifications,disruption.alert.send,,1768,1,252,742
+2026-09-30,notifications,disruption.alert.delay_from_event,,1768,0,159000,653000
+2026-09-30,trips-api,GET /trips/{id},/trips/{id},1465,1,79,268
+2026-09-30,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,926,0,127,387
+2026-09-30,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,206,0,398,903
+2026-09-30,booking-api,GET /offers,/offers,52792,74,280,1011
+2026-09-30,payments-api,POST /payments,/payments,2245,3,333,966
+2026-09-30,reissue-service,POST /tickets/reissue,/tickets/reissue,572,24,941,2723
+2026-10-01,notifications,disruption.alert.send,,1595,4,218,741
+2026-10-01,notifications,disruption.alert.delay_from_event,,1595,0,140000,706000
+2026-10-01,trips-api,GET /trips/{id},/trips/{id},1337,0,75,244
+2026-10-01,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,823,0,123,465
+2026-10-01,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,201,0,396,1167
+2026-10-01,booking-api,GET /offers,/offers,58028,89,294,1139
+2026-10-01,payments-api,POST /payments,/payments,2557,4,327,932
+2026-10-01,reissue-service,POST /tickets/reissue,/tickets/reissue,452,20,1091,2508
+2026-10-02,notifications,disruption.alert.send,,1300,3,222,602
+2026-10-02,notifications,disruption.alert.delay_from_event,,1300,0,124000,602000
+2026-10-02,trips-api,GET /trips/{id},/trips/{id},1114,1,83,264
+2026-10-02,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,710,0,122,461
+2026-10-02,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,184,0,302,1186
+2026-10-02,booking-api,GET /offers,/offers,70139,104,285,1133
+2026-10-02,payments-api,POST /payments,/payments,3105,4,336,976
+2026-10-02,reissue-service,POST /tickets/reissue,/tickets/reissue,466,20,802,2720
+2026-10-03,notifications,disruption.alert.send,,1699,3,248,725
+2026-10-03,notifications,disruption.alert.delay_from_event,,1699,0,124000,570000
+2026-10-03,trips-api,GET /trips/{id},/trips/{id},1476,0,79,292
+2026-10-03,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,915,0,148,422
+2026-10-03,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,150,0,398,1157
+2026-10-03,booking-api,GET /offers,/offers,65198,89,265,905
+2026-10-03,payments-api,POST /payments,/payments,3000,5,325,920
+2026-10-03,reissue-service,POST /tickets/reissue,/tickets/reissue,472,21,1049,2412
+2026-10-04,notifications,disruption.alert.send,,1539,1,203,820
+2026-10-04,notifications,disruption.alert.delay_from_event,,1539,0,175000,629000
+2026-10-04,trips-api,GET /trips/{id},/trips/{id},1268,0,73,248
+2026-10-04,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,823,0,138,408
+2026-10-04,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,195,0,369,1196
+2026-10-04,booking-api,GET /offers,/offers,77712,105,313,1017
+2026-10-04,payments-api,POST /payments,/payments,3572,9,415,969
+2026-10-04,reissue-service,POST /tickets/reissue,/tickets/reissue,678,29,877,2636
+2026-10-05,notifications,disruption.alert.send,,1243,1,241,866
+2026-10-05,notifications,disruption.alert.delay_from_event,,1243,0,123000,593000
+2026-10-05,trips-api,GET /trips/{id},/trips/{id},1076,0,65,242
+2026-10-05,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,684,0,138,387
+2026-10-05,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,129,0,386,1086
+2026-10-05,booking-api,GET /offers,/offers,54604,96,303,906
+2026-10-05,payments-api,POST /payments,/payments,2299,4,320,793
+2026-10-05,reissue-service,POST /tickets/reissue,/tickets/reissue,610,27,1041,2366
+2026-10-06,notifications,disruption.alert.send,,1622,3,180,646
+2026-10-06,notifications,disruption.alert.delay_from_event,,1622,0,166000,616000
+2026-10-06,trips-api,GET /trips/{id},/trips/{id},1398,0,60,291
+2026-10-06,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,897,0,117,438
+2026-10-06,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,150,0,362,963
+2026-10-06,booking-api,GET /offers,/offers,65638,94,288,1028
+2026-10-06,payments-api,POST /payments,/payments,2874,7,411,932
+2026-10-06,reissue-service,POST /tickets/reissue,/tickets/reissue,437,19,874,2643
+2026-10-07,notifications,disruption.alert.send,,1151,2,236,650
+2026-10-07,notifications,disruption.alert.delay_from_event,,1151,0,148000,655000
+2026-10-07,trips-api,GET /trips/{id},/trips/{id},984,0,81,281
+2026-10-07,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,614,0,115,438
+2026-10-07,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,190,0,386,1065
+2026-10-07,booking-api,GET /offers,/offers,54990,87,325,1051
+2026-10-07,payments-api,POST /payments,/payments,2531,5,335,836
+2026-10-07,reissue-service,POST /tickets/reissue,/tickets/reissue,681,29,915,2445
+2026-10-08,notifications,disruption.alert.send,,1331,3,212,759
+2026-10-08,notifications,disruption.alert.delay_from_event,,1331,0,164000,619000
+2026-10-08,trips-api,GET /trips/{id},/trips/{id},1145,1,87,275
+2026-10-08,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,696,0,136,433
+2026-10-08,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,134,0,356,1105
+2026-10-08,booking-api,GET /offers,/offers,66334,128,251,1121
+2026-10-08,payments-api,POST /payments,/payments,2916,6,382,973
+2026-10-08,reissue-service,POST /tickets/reissue,/tickets/reissue,688,31,993,2783
+2026-10-09,notifications,disruption.alert.send,,1555,1,218,799
+2026-10-09,notifications,disruption.alert.delay_from_event,,1555,0,126000,645000
+2026-10-09,trips-api,GET /trips/{id},/trips/{id},1342,0,74,262
+2026-10-09,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,838,0,123,448
+2026-10-09,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,133,0,382,1129
+2026-10-09,booking-api,GET /offers,/offers,74985,94,324,1051
+2026-10-09,payments-api,POST /payments,/payments,3264,9,407,899
+2026-10-09,reissue-service,POST /tickets/reissue,/tickets/reissue,564,26,811,2712
+2026-10-10,notifications,disruption.alert.send,,1676,4,252,885
+2026-10-10,notifications,disruption.alert.delay_from_event,,1676,0,162000,598000
+2026-10-10,trips-api,GET /trips/{id},/trips/{id},1463,1,78,298
+2026-10-10,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,926,0,122,445
+2026-10-10,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,150,0,364,1004
+2026-10-10,booking-api,GET /offers,/offers,66396,76,321,1146
+2026-10-10,payments-api,POST /payments,/payments,2781,7,366,785
+2026-10-10,reissue-service,POST /tickets/reissue,/tickets/reissue,446,18,906,2598
+2026-10-11,notifications,disruption.alert.send,,1307,3,189,633
+2026-10-11,notifications,disruption.alert.delay_from_event,,1307,0,178000,702000
+2026-10-11,trips-api,GET /trips/{id},/trips/{id},1133,0,73,289
+2026-10-11,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,716,0,114,409
+2026-10-11,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,162,0,350,1132
+2026-10-11,booking-api,GET /offers,/offers,48750,70,311,977
+2026-10-11,payments-api,POST /payments,/payments,2147,6,405,814
+2026-10-11,reissue-service,POST /tickets/reissue,/tickets/reissue,439,20,1037,2745
+2026-10-12,notifications,disruption.alert.send,,1602,1,194,664
+2026-10-12,notifications,disruption.alert.delay_from_event,,1602,0,172000,682000
+2026-10-12,trips-api,GET /trips/{id},/trips/{id},1385,1,61,244
+2026-10-12,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,882,0,123,382
+2026-10-12,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,137,0,375,1089
+2026-10-12,booking-api,GET /offers,/offers,59080,59,324,917
+2026-10-12,payments-api,POST /payments,/payments,2545,4,392,962
+2026-10-12,reissue-service,POST /tickets/reissue,/tickets/reissue,671,27,1066,2383
+2026-10-13,notifications,disruption.alert.send,,1192,2,233,786
+2026-10-13,notifications,disruption.alert.delay_from_event,,1192,0,141000,684000
+2026-10-13,trips-api,GET /trips/{id},/trips/{id},998,0,63,312
+2026-10-13,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,646,0,133,385
+2026-10-13,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,147,0,373,1058
+2026-10-13,booking-api,GET /offers,/offers,51616,73,320,1044
+2026-10-13,payments-api,POST /payments,/payments,2297,4,367,858
+2026-10-13,reissue-service,POST /tickets/reissue,/tickets/reissue,618,26,903,2875
+2026-10-14,notifications,disruption.alert.send,,1639,3,209,863
+2026-10-14,notifications,disruption.alert.delay_from_event,,1639,0,142000,698000
+2026-10-14,trips-api,GET /trips/{id},/trips/{id},1436,1,78,291
+2026-10-14,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,930,0,144,455
+2026-10-14,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,164,0,346,1038
+2026-10-14,booking-api,GET /offers,/offers,50444,65,320,1058
+2026-10-14,payments-api,POST /payments,/payments,2203,4,338,866
+2026-10-14,reissue-service,POST /tickets/reissue,/tickets/reissue,533,21,805,2517
+2026-10-15,notifications,disruption.alert.send,,1220,2,196,696
+2026-10-15,notifications,disruption.alert.delay_from_event,,1220,0,129000,665000
+2026-10-15,trips-api,GET /trips/{id},/trips/{id},1051,0,90,285
+2026-10-15,trips-api,GET /trips/{id}/alternatives,/trips/{id}/alternatives,638,0,146,418
+2026-10-15,trips-api,POST /trips/{id}/keep-suggestion,/trips/{id}/keep-suggestion,169,0,383,1018
+2026-10-15,booking-api,GET /offers,/offers,51340,101,287,963
+2026-10-15,payments-api,POST /payments,/payments,2275,5,357,812
+2026-10-15,reissue-service,POST /tickets/reissue,/tickets/reissue,462,21,925,2394

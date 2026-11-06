@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0002 · Setup and Signals</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+<main>
+
+<p class="kicker">Lesson 0002 · About 15 minutes</p>
+<h1>Setup and Signals</h1>
+<p class="subtitle">Agree what you're moving, put the team's beliefs on record, then let the data answer back.</p>
+
+<div class="win"><strong>Your win</strong>Explain why the hypotheses come before the analysis, and run the Signals checkpoint well: recognise a good report, hold the line when someone wants to skip ahead, and handle a senior person whose belief the data contradicts.</div>
+
+<h2>Setup: one number everything is scored against</h2>
+<p>The kickoff (09:00, 30 minutes) confirms four things, in this order: the product and who uses it; who is in the room, and whether they split into pods; <b>the business metric and its current value</b>; and how the data comes in. It writes them to <code>PROJECT.md</code>.<span class="sn"><a href="../../skills/aidlc-discovery/SKILL.md">aidlc-discovery/SKILL.md</a>, Step 1.</span></p>
+<p>The metric matters most. In scoring, a candidate's business outcome is judged against <i>this</i> metric, not one the candidate picks for itself. So have the product owner confirm it out loud, and don't confirm the setup yourself: ask "Is anything here wrong or missing?"<span class="sn"><a href="../../facilitator/run-sheet.md">run-sheet.md</a>, 09:00 Kickoff.</span> If there is no baseline yet, name who gets it by the 7-day follow-up.</p>
+<p>There are three data inputs: <b>production</b> (the default), <b>Signal Briefs</b> (when the data can't be loaded into a tool), or a <b>synthetic</b> dataset prepared <i>before</i> the day. The assistant never writes data during the workshop. Data written after the team has spoken can only echo what the team just said.</p>
+
+<h2>Signals, step 1: beliefs before evidence</h2>
+<p>Before showing anything, the skill asks five questions, one at a time:<span class="sn"><a href="../../skills/discovery-signals/references/team-hypotheses.md">team-hypotheses.md</a></span></p>
+<ol class="steps">
+<li>What is the biggest problem your customers have with the product today?</li>
+<li>Who has it most?</li>
+<li>Why do you think so? What have you seen or heard?</li>
+<li>What else would you expect the feedback to show?</li>
+<li>What would surprise you?</li>
+</ol>
+<p>Each answer becomes one line the data could prove wrong: <i>"We expect [segment] to [problem], because [what the team has seen]."</i> The file is never edited after the analysis runs.</p>
+<p><b>Why first?</b> AI analysis is persuasive. Once the team has seen a confident report, it will remember having believed it all along. With the beliefs written down first, the report can show where the data agrees and where it doesn't, and the team learns something either way.<span class="sn"><a href="../../skills/discovery-signals/SKILL.md">discovery-signals/SKILL.md</a>, Step 1.</span></p>
+<p>The person who most needs this is also the one most likely to answer first: the most senior person in the room. Ask the quietest person first.</p>
+
+<h2>Steps 2 to 5: inventory, analysis, report</h2>
+<p>The skill reports what it found <i>before</i> analysing it: sources, counts, period, and gaps, such as a channel with no records. Before the room confirms the inventory, ask the person closest to each gap whether that data exists. A gap named now becomes an open question in the brief; a gap found at the readout costs you credibility.</p>
+<p>Then it analyses each record (sentiment, category, urgency, root cause, persona signal, quote), aggregates with Python, and writes the <b>Signal Analysis Report</b>. Each top signal is scored on frequency, severity, and reach, out of 30, with counts, quotes, and a root-cause hypothesis. Last comes a short list of 5 to 10 testable hypotheses.</p>
+
+<h3>Signal over frequency</h3>
+<p>The most-mentioned topic isn't always the one that matters most. Severity and reach count as much as volume. The AnyCompany Air sample is built to test this:<span class="sn"><a href="../../facilitator/anycompany-air.md">anycompany-air.md</a> (facilitator notes, spoilers) and the reference run's <a href="../../facilitator/reference-runs/anycompany-air/signals/signal-summary.md">signal-summary.md</a>.</span></p>
+<table>
+<thead><tr><th>What a quick look shows</th><th>What the report shows</th></tr></thead>
+<tbody>
+<tr><td>"Delayed baggage" is the largest single call reason (13 calls).</td><td>Disruption is split across six call reasons: 42 of 110 calls, and 62% of call-centre handle time.</td></tr>
+<tr><td>The booking flow gets plenty of complaints.</td><td>They're mild, and web conversion beats the industry benchmark every month.</td></tr>
+<tr><td>People ask for a 3D seat map.</td><td>Every request comes from a happy customer. Nobody would notice if it never shipped.</td></tr>
+</tbody>
+</table>
+
+<h3>The table that makes it land</h3>
+<p>The report's "What the team expected" section puts each belief next to the data. Three rows from the Air reference run:</p>
+<table>
+<thead><tr><th>Team hypothesis</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>The booking flow is dated, and booking is where we make money (head of digital)</td><td>Contradicted as the priority</td></tr>
+<tr><td>Summer queues are a staffing problem (customer service operations lead)</td><td>Contradicted: queues follow disruption volume</td></tr>
+<tr><td>Disrupted passengers can't choose a new flight and must call (candidate use case 1)</td><td>Supported strongly</td></tr>
+</tbody>
+</table>
+<p>Every claim in the report carries a label. A count is <b>Known</b>. A root cause is usually <b>Assumed</b>: it explains <i>why</i>, and the data shows only <i>what</i>.</p>
+
+<h2>Step 6: the checkpoint</h2>
+<blockquote>"Here are the top signals and their evidence. What do you challenge before we decide what to work on?"</blockquote>
+<p>The skill walks the top three signals and shows <b>five full customer quotes</b>, not just theme names. Then it asks what contradicts the top signals and which segments are under-represented. Your moves, from the run-sheet:</p>
+<ul class="tight">
+<li><b>Contradicted beliefs:</b> read what the person got right first, then the part that disagrees.</li>
+<li><b>Counter-evidence:</b> before the challenge, ask "Where does it work well?" A team that hears only problems gets defensive. A team that hears "you're good at this, and failing at this one moment" gets focused.</li>
+<li><b>Get one real challenge,</b> ideally from the person whose belief the data contradicts. Change the report where the challenge finds a real gap; record it where it doesn't.</li>
+<li><b>Close the phase:</b> credit the challengers by name ("Your challenge changed the report"), then ask the product owner "Are we agreed this is the problem we work on?" and wait for a yes.</li>
+</ul>
+<p><b>When it goes wrong:</b> if the assistant skips the hypotheses or jumps to verdicts, say "Stop. Follow the aidlc-discovery skill one step at a time. Load the module for this phase and start at Step 1."<span class="sn"><a href="../../facilitator/run-sheet.md">run-sheet.md</a>, "When things go wrong".</span></p>
+
+<hr>
+
+<h2>Practice</h2>
+
+<details class="recall">
+<summary>Recall first: write the five questions the skill asks before any analysis. Then open this.</summary>
+<p>1. The biggest problem customers have today. 2. Who has it most. 3. Why you think so. 4. What else you'd expect the feedback to show. 5. What would surprise you.</p>
+<p>Question 5 is the one people forget, and it's the most useful at the readout. In the Air run: "That price is not the main complaint."</p>
+</details>
+
+<div class="quiz" data-correct="1">
+  <div class="stem">1. Why does the product owner confirm the business metric out loud at kickoff?</div>
+  <div class="opts">
+    <button class="opt">The brief needs it in section one</button>
+    <button class="opt">Every use case is scored against it</button>
+    <button class="opt">The sponsor signs off the budget then</button>
+    <button class="opt">The assistant cannot find it in data</button>
+  </div>
+  <div class="why">Business outcome is a quarter of every weighted score, and it's judged against the metric agreed at setup. A candidate that moves only its own metric scores low on outcome. Section one of the brief is the engagement reference, not the metric.</div>
+</div>
+
+<div class="quiz" data-correct="3">
+  <div class="stem">2. The head of digital says: "Skip the hypotheses and just show us what the data says." What do you do?</div>
+  <div class="opts">
+    <button class="opt">Show the report, then ask afterwards</button>
+    <button class="opt">Let the assistant draft them instead</button>
+    <button class="opt">Skip them, since the data decides</button>
+    <button class="opt">Hold the line: hypotheses come first</button>
+  </div>
+  <div class="why">Once the room has seen the report, it can no longer check itself against it. This is the first failure in the train-the-trainer drill. Hypotheses drafted by the assistant would defeat the point too: they have to be the team's own words, written down as given.</div>
+</div>
+
+<div class="quiz" data-correct="0">
+  <div class="stem">3. The data turns out to be about a different product, and the assistant offers to generate a dataset. Why refuse?</div>
+  <div class="opts">
+    <button class="opt">It can only echo the team's beliefs</button>
+    <button class="opt">Generated data takes too long to make</button>
+    <button class="opt">Synthetic data is never allowed at all</button>
+    <button class="opt">It would break the evidence label rules</button>
+  </div>
+  <div class="why">Data written after the team's hypotheses can only reflect what the team just said. A synthetic dataset <i>is</i> allowed if it was prepared before the workshop. The three ways forward: real data, Signal Briefs, or a dataset prepared beforehand.</div>
+</div>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">4. In AnyCompany Air, "Delayed baggage" is the largest single call reason. Why isn't it the top signal?</div>
+  <div class="opts">
+    <button class="opt">Bags are not the digital team's job</button>
+    <button class="opt">The baggage records are mostly positive</button>
+    <button class="opt">Disruption calls are split across six reasons</button>
+    <button class="opt">Call data is weighted below review data</button>
+  </div>
+  <div class="why">Disruption is spread across Cancellation, Rebooking, Missed connection, Refund, Vouchers, and Schedule change: 42 of 110 calls, and 62% of handle time. Bags are a real problem, and second in the report.</div>
+</div>
+
+<div class="quiz" data-correct="1">
+  <div class="stem">5. The data contradicts the head of digital's belief. What do you read aloud first?</div>
+  <div class="opts">
+    <button class="opt">The counts that contradict their belief</button>
+    <button class="opt">The part their belief got right</button>
+    <button class="opt">The verdict row from the table</button>
+    <button class="opt">What the other roles believed instead</button>
+  </div>
+  <div class="why">Start with what they got right. In Air, the booking friction is real, just minor. Someone who keeps face stays in the conversation, and can then challenge the report in good faith.</div>
+</div>
+
+<div class="quiz" data-correct="0">
+  <div class="stem">6. The report says: "Root cause: the app shows the disruption but offers no action on it." Which label fits?</div>
+  <div class="opts">
+    <button class="opt">Assumed</button>
+    <button class="opt">Known</button>
+    <button class="opt">Needs evidence</button>
+    <button class="opt">Supported</button>
+  </div>
+  <div class="why">Assumed. The data shows what happens (counts, quotes, failure points, all Known); a root cause is a belief about why. "Supported" is a verdict, not an evidence label.</div>
+</div>
+
+<div class="quiz" data-correct="3">
+  <div class="stem">7. Which of these must happen before Signals can close?</div>
+  <div class="opts">
+    <button class="opt">The sponsor approves the top signal</button>
+    <button class="opt">Every team hypothesis is marked supported</button>
+    <button class="opt">The personas are drafted and confirmed</button>
+    <button class="opt">The team reads five full quotes</button>
+  </div>
+  <div class="why">Step 6 validates that the team has read at least five customer quotes in full, so it hears customers in their own words. Personas come next, in Working Backwards. Contradicted hypotheses are a good result, not a blocker.</div>
+</div>
+
+<p class="quiz-score"></p>
+
+<div class="source"><strong>Primary source</strong>Open the Air reference run's <a href="../../facilitator/reference-runs/anycompany-air/signals/team-hypotheses.md">team-hypotheses.md</a> and <a href="../../facilitator/reference-runs/anycompany-air/signals/signal-summary.md">signal-summary.md</a> side by side, and read the "What the team expected" table. It's the strongest single slide in the morning.</div>
+
+<div class="ask"><strong>Ask your teacher</strong>Want to rehearse the checkpoint? Ask me to play the head of digital, or the operations lead who says "What in the data says it isn't staffing?", and practise your reply.</div>
+
+<nav class="course">
+  <span>Previous: <a href="0001-the-shape-of-the-day.html">0001 The shape of the day</a></span>
+  <span>Reference: <a href="../reference/phase-map.html">Phase map</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../reference/slide-outline.md">Slide outline</a></span>
+  <span>Next: <a href="0003-personas-and-scoring.html">0003 Personas and scoring</a></span>
+</nav>
+
+</main>
+</body>
+</html>

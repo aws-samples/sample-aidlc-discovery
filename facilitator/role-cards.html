@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AnyCompany Air: role cards</title>
+<style>
+  @page { size: A4; margin: 10mm; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; color: #16191f; }
+  .note { padding: 8px 4px 12px; font-size: 13px; color: #545b64; }
+  .sheet { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 88mm; gap: 0; }
+  .card { border: 1px dashed #879196; padding: 7mm 8mm; display: flex; flex-direction: column; gap: 3mm; }
+  .tag { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #687078; }
+  h2 { margin: 0; font-size: 20px; }
+  .belief { font-size: 14px; line-height: 1.4; margin: 0; }
+  .label { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: #687078; margin: 2mm 0 0; }
+  .say { font-size: 13px; line-height: 1.4; margin: 0; padding-left: 3mm; border-left: 3px solid #ff9900; }
+  .play { font-size: 12px; line-height: 1.4; margin: 0; color: #232f3e; }
+  @media print { .note { display: none; } }
+</style>
+</head>
+<body>
+<p class="note">In person: print on A4 or Letter, one sheet per pair, and cut along the dashed lines. Remote: keep this page open in a second window while you play the team. Play the person, not the answer. The four core roles are always played; the UX designer and the commercial director are optional, for teams of six or more. Used with <code>train-the-trainer.md</code> and <code>dry-run-air.md</code>.</p>
+<div class="sheet">
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · core role</div>
+    <h2>Head of digital (product owner)</h2>
+    <p class="belief">The booking flow is the priority. The website looks dated next to the competition, and booking is where the money is.</p>
+    <p class="label">Your hypothesis, when asked</p>
+    <p class="say">"The booking flow. Our website looks dated next to the competition, and booking is where we make money."</p>
+    <p class="label">How to play</p>
+    <p class="play">At scoring, override: "Raise customer pain for the booking flow redesign to 4. Our reviews mention it all the time." You own the product, so the data contradicting you stings.</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · core role</div>
+    <h2>Engineering lead</h2>
+    <p class="belief">Nothing big is wrong; the app's ratings are good and your dashboards are green, apart from payment timeouts in August. You own the connection to the reservations system.</p>
+    <p class="label">Your hypothesis, when asked</p>
+    <p class="say">"Nothing big. The app's ratings are good, and our dashboards are green apart from payment timeouts in August. I'd be careful with anything that changes bookings after they're made."</p>
+    <p class="label">How to play</p>
+    <p class="play">At Signals, challenge: "Our biggest incident this summer was the payment timeouts. Why isn't that higher?" Ask "what does it take to change a booking?" at every feasibility score. Feasibility is your call, not the assistant's.</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · optional role</div>
+    <h2>UX designer</h2>
+    <p class="belief">You saw a 3D cabin view in a competitor's app. It would make seat upgrades easier to sell.</p>
+    <p class="label">Your hypothesis, when asked</p>
+    <p class="say">"Seat upgrades are hard to sell because people can't see the seat. A 3D seat map would help."</p>
+    <p class="label">How to play</p>
+    <p class="play">Defend the 3D seat map until the gate drops it. At the prototype, ask whether it works one-handed on a phone at the gate.</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · core role</div>
+    <h2>Customer service operations lead</h2>
+    <p class="belief">You run the call centre and see the queues. The answer is more agents in the summer.</p>
+    <p class="label">Your hypothesis, when asked</p>
+    <p class="say">"Summer queues. We need more agents from June to September."</p>
+    <p class="label">How to play</p>
+    <p class="play">At Signals, challenge: "I still think this is a staffing problem. What in the data says otherwise?" At Validate, offer a failure reason: "Passengers still call, because they don't trust the app."</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · core role</div>
+    <h2>Head of corporate accounts</h2>
+    <p class="belief">Corporate travellers are a third of revenue, and travel managers complain to you every week.</p>
+    <p class="label">Your hypothesis, when asked</p>
+    <p class="say">"Corporate travellers are unhappy, and they're a third of revenue. Listen to them first."</p>
+    <p class="label">How to play</p>
+    <p class="play">Ask what the data says about corporate travellers specifically, not passengers in general. Offer travel managers as design partners at Validate.</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · optional role</div>
+    <h2>Commercial director</h2>
+    <p class="belief">Customers mainly complain about price. You join the kickoff and the readout only.</p>
+    <p class="label">Your hypothesis, when asked</p>
+    <p class="say">"Price. Customers complain about fares."</p>
+    <p class="label">How to play</p>
+    <p class="play">At the readout, ask: "Why not lower fares instead?" and "What does this cost, and when do we know it works?" The facilitator's answer should be the decision, the success criteria, and the next step.</p>
+  </div>
+
+</div>
+</body>
+</html>

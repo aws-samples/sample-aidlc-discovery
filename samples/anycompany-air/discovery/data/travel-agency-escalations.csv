@@ -1,0 +1,31 @@
+id,date,channel,segment,text
+AGY-0001,2026-05-14,travel_agency,leisure,Agency 90 requests training for two new agents on the portal.
+AGY-0002,2026-05-15,travel_agency,leisure,Agency 88 suggested a cleaner booking page for their less technical customers who book directly.
+AGY-0003,2026-05-26,travel_agency,leisure,Agency 33 asks for fare rules to show before selecting a fare in the portal.
+AGY-0004,2026-05-30,travel_agency,frequent_flyer,Agency 19: invoice format changed and our accounting software rejects it.
+AGY-0005,2026-05-31,travel_agency,leisure,Agency 97: price-sensitive leisure customers are moving to low-cost carriers on short routes.
+AGY-0006,2026-06-03,travel_agency,frequent_flyer,Agency 55 asks whether bag tracing references can be shared with agents. Customers call us first.
+AGY-0007,2026-06-10,travel_agency,leisure,"Agency 59: portal times out on long sessions, agents lose half-finished bookings."
+AGY-0008,2026-06-12,travel_agency,frequent_flyer,Agency 58 notes very few complaints on flights that operate as planned.
+AGY-0009,2026-06-13,travel_agency,corporate,Agency 70 asks whether infants can be added in the portal.
+AGY-0010,2026-06-13,travel_agency,corporate,Agency 81 asks for a way to add loyalty numbers after booking in the portal.
+AGY-0011,2026-06-14,travel_agency,leisure,Agency 44: our out-of-hours team spent the night on hold to rebook travellers after the Oslo cancellations. We will charge clients a disruption fee from next season.
+AGY-0012,2026-06-26,travel_agency,leisure,Agency 79: the agency portal booking is slow but it works. Not urgent.
+AGY-0013,2026-07-01,travel_agency,frequent_flyer,Agency 69: the portal let us see the new automatic flight but not change it. Every change after a disruption is a phone call for us too.
+AGY-0014,2026-07-01,travel_agency,leisure,Agency 78: tour operator partner is reconsidering AnyCompany Air for Barcelona packages because disruption handling costs them staff time every week.
+AGY-0015,2026-07-07,travel_agency,frequent_flyer,Agency 21: corporate client threatened to move their account to us exclusively for another airline after travellers were stranded in Brussels.
+AGY-0016,2026-07-15,travel_agency,frequent_flyer,Agency 72 asks for more competitive group fares for school trips.
+AGY-0017,2026-07-19,travel_agency,leisure,Agency 47 would like group bookings above nine passengers in the portal. Today it's by email.
+AGY-0018,2026-07-20,travel_agency,frequent_flyer,Agency 39 asks for a disruption feed and the ability to rebook in the portal. Today they learn about cancellations from their own customers.
+AGY-0019,2026-07-25,travel_agency,leisure,Agency 23 escalation: group of 46 travellers on the cancelled Oslo flight. We could not rebook them through the agency portal and the airline desk line had a 45-minute wait.
+AGY-0020,2026-08-15,travel_agency,corporate,"Agency 62: after the Munich delays our agents rebooked 31 passengers by phone, one at a time. The portal shows the disruption but has no rebooking action."
+AGY-0021,2026-08-18,travel_agency,frequent_flyer,Agency 57: the automatic rebooking moved a wedding party of 20 onto a flight 6 days later. Fixing it took most of a working day.
+AGY-0022,2026-08-20,travel_agency,leisure,Agency 70 reports customers are choosing other airlines for Stockholm after two summers of cancellations handled by phone only.
+AGY-0023,2026-08-27,travel_agency,leisure,Agency 47: commission statements don't match bookings made through the new web flow.
+AGY-0024,2026-09-20,travel_agency,corporate,Agency 53: customers complain points are missing when booked through the agency. The number isn't passed through the portal.
+AGY-0025,2026-09-22,travel_agency,leisure,"Agency 75 escalation: school group of 21 stranded overnight in Munich, rebooking only possible through the call centre, which closed at 22:00."
+AGY-0026,2026-09-26,travel_agency,leisure,Agency 24: customers rate AnyCompany Air highly on punctuality on the Rome route.
+AGY-0027,2026-09-26,travel_agency,leisure,Agency 49 asks for updated commission terms for next year.
+AGY-0028,2026-10-03,travel_agency,leisure,"Agency 34: tour group of 18 with four delayed bags in Prague. We cannot see bag status, so we pass calls to the airline."
+AGY-0029,2026-10-05,travel_agency,corporate,Agency 97: request for brochure material for the winter season.
+AGY-0030,2026-10-11,travel_agency,leisure,Agency 36 asks for the new baggage policy in writing.

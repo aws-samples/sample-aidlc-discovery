@@ -8,18 +8,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
-### Planned
+---
 
-- **First-class source ingestion (formal extraction mode)** — a rule-governed alternative to the prompt-based [pre-loading pattern](README.md#pre-loading-context-from-files-or-mcp). Will include:
-  - Explicit `Source Ingestion` stage before depth selection in each role
-  - `pre-filled-analysis.md` intermediate artefact with coverage report (covered / partially covered / not covered / contradictions)
-  - Inline `**Source**:` attribution on every answer in `*-answers-history.md`
-  - Pre-ingestion secret scanning to keep credentials out of `audit.md`
-  - Automatic contradiction detection across multiple sources
-  - Section-level bulk approval UX
-- Multi-user identity and session locking so two people can work on the same `Product-Definition/` folder without trampling each other's state.
-- Optional re-open of approved sections post-gate without manual state editing.
-- End-to-end validation of the install flow in Kiro, Cursor, Cline, Amazon Q Developer, Antigravity, and Copilot — move each from "experimental" to "validated" in [install.md](install.md).
+## [3.0.0] — 2026-11-05
+
+v3 replaces the interview workflow with a full Discovery workshop for Amazon Quick Desktop. A team brings its customer feedback and, in about a day, leaves with a decision on what to build first, a clickable prototype, and a Discovery brief that a build, including AI-DLC, starts from.
+
+### Added
+
+- Five phases (Signals, Working Backwards, Prototype, Validate, Handoff), run by one entry skill, `aidlc-discovery`, that calls eleven job skills. Each job also works on its own.
+- `scripts/build.py`, which bundles the skills into one installable Amazon Quick skill with a module per job. The release asset is that bundle.
+- Optional team Space support, so several people can follow a workshop and take it over.
+- Two synthetic samples (AnyCompany Air, with telemetry, and AnyCompany Health), facilitator material, reference runs, and a facilitator course.
+- Unit tests for the skills, the bundle, and the samples, and an end-to-end test harness.
+
+### Removed
+
+- **Breaking:** the Kiro and Claude Code bundles, the Node build (`build.js`), and the v1 rule set. The skill now targets Amazon Quick Desktop only. Earlier releases remain available on the releases page.
 
 ---
 

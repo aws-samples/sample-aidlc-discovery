@@ -1,0 +1,8 @@
+category,escalations,share
+claim_delay_or_status_for_client_employees,498,0.402
+provider_directory_error_or_surprise_bill,206,0.166
+plan_administration_and_enrollment,186,0.15
+telehealth_request_from_employer,116,0.094
+mobile_app_request_from_employer,100,0.081
+billing_and_invoices,96,0.077
+other,38,0.031

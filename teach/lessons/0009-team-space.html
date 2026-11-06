@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0009 · Running in a team Space</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+<main>
+
+<p class="kicker">Lesson 0009 · About 10 minutes · Amazon Quick only</p>
+<h1>Running in a team Space</h1>
+<p class="subtitle">Same method, same files. Everyone follows from their own Amazon Quick, and one person drives.</p>
+
+<div class="win"><strong>Your win</strong>Set up a workshop in a team Space before the day, keep the customer data where it belongs, and hand facilitation over mid-workshop without anyone's work being overwritten.</div>
+
+<h2>What it changes, and what it doesn't</h2>
+<p>By default a workshop lives in one working folder on one laptop, and the room watches a shared screen. In a team Space, the same <code>discovery/[project]/</code> files live in an Amazon Quick Space. Everyone it's shared with attaches it in their own Amazon Quick and can read every artifact, ask questions about it ("what did the persona critique find?"), open the prototype, and take over facilitation.<span class="sn"><a href="../../skills/discovery-team-space/SKILL.md">discovery-team-space/SKILL.md</a>; design and verification notes in <a href="../../docs/team-space.md">docs/team-space.md</a>.</span></p>
+<p><b>Nothing in the method changes</b>: not the phases, the checkpoints, the files, or their paths. Only where the files are read from and written to. It's optional, and a local folder remains the default.</p>
+
+<h2>Before the day</h2>
+<ol class="steps">
+<li>The team creates and names the Space (<b>Spaces</b>, then <b>Create space</b>). The assistant never invents one.</li>
+<li>It shares the Space as <b>Owners</b> with everyone who may follow or take over. Viewers can read, ask, and open the prototype, but shouldn't drive.</li>
+<li>Each person attaches it to their chat: the <b>+</b> menu, then <b>Spaces</b>.</li>
+<li>For a sample run, copy the sample into the Space first (the copy prompt in <a href="../../facilitator/dry-run-air.md">dry-run-air.md</a>, step 0). Sample data is fictional, so it can go in.</li>
+</ol>
+<p>The start prompt names it: "…Save the workshop in the [Space name] space. Data: [input], in [folder]." The skill test-writes <code>PROJECT.md</code>, reads it back word for word, and adds two lines: <b>Storage</b> and <b>Driver</b>. Tell the room Amazon Quick may ask them to approve each save. Everyone else follows along in their own chat, reading, not writing.<span class="sn"><a href="../../facilitator/run-sheet.md">run-sheet.md</a>, Before the day and 09:00 Kickoff.</span></p>
+
+<h2>One driver at a time</h2>
+<p>Saving a file to a Space replaces it. Two people writing the same workshop would overwrite each other, so before <i>every</i> write the skill:</p>
+<ol class="steps">
+<li>reads <code>PROJECT.md</code> from the Space, and if the driver is someone else, stops: "[Driver] is driving this workshop since [time]. Take over?";</li>
+<li>checks the text for personal data (real names, emails, phone numbers, account identifiers) and removes it;</li>
+<li>saves to the same path. Prototype versions stay safe because each one is a new <code>vN.html</code>.</li>
+</ol>
+<p><b>Taking over</b> is one prompt, in the new driver's own Amazon Quick:</p>
+<blockquote>"Continue the AI-DLC Discovery workshop for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [role]. Start at [step]."</blockquote>
+<p>It shows who was driving and since when, asks the previous driver to stop writing, updates the driver line, and shows the progress board. If two people wrote at once anyway, the last save wins: ask both what they changed, re-read from the Space, and redo the lost change. Name the driver by role or first name, never an email.</p>
+<p>In train-the-trainer, each team gets its own Space, and the second facilitator takes over from their own chat at the halfway point instead of driving by voice.<span class="sn"><a href="../../facilitator/train-the-trainer.md">train-the-trainer.md</a>, Teams and 00:45.</span></p>
+
+<h2>The data stays out (usually)</h2>
+<p>Everything in a Space can be read and queried by everyone it's shared with. So:</p>
+<ul class="tight">
+<li><b>Sample data</b> is fictional and can go in the team Space.</li>
+<li><b>Real customer data</b> goes in only if the Space is shared with nobody who shouldn't see it. The skill asks the team to confirm before Signals and records the answer in <code>PROJECT.md</code>.</li>
+<li>Otherwise the data stays in the driver's local <code>discovery/data/</code>, or in a separate restricted Space named in the start prompt. Only artifacts go in the team Space, and those already carry anonymized quotes only.</li>
+</ul>
+
+<h2>Pods, prototype, handoff</h2>
+<dl class="facts">
+<dt>Pods</dt><dd>Each pod is its own project in the same Space, <code>discovery/[project]-[pod]/</code>, with its own driver, created after scoring. The shared Signals and scoring artifacts are copied into each pod's project. Pods never write to each other's files, and the facilitator sees all of them.</dd>
+<dt>Prototype</dt><dd>Every version is saved to the Space and opens in the session tab from there, so anyone can click through it in their own Amazon Quick. Opened from the Space in a browser, it downloads instead. <code>compare.html</code> shows empty frames in Amazon Quick, Space or not: open it from a working folder in a browser.</dd>
+<dt>Handoff</dt><dd>No <code>.gitignore</code>, because there's no repository. <code>next-steps.md</code> says to download <code>discovery/[project]/</code> and <code>aidlc/</code> from the Space into the build repository, never the data. <code>aidlc/spaces/[space]/knowledge/…</code> is AI-DLC's own folder layout and has nothing to do with Amazon Quick Spaces: it is saved in the team Space like any other artifact.</dd>
+</dl>
+<p><b>Still to verify</b>, per the design doc: how soon a second person's Amazon Quick sees the driver's last write, and whether a Viewer can write at all. Until then, re-read before continuing after a recent save, and share the Space as Owners with anyone who might drive.</p>
+
+<hr>
+
+<h2>Practice</h2>
+
+<details class="recall">
+<summary>Recall first: the take-over prompt, from memory. Then open this.</summary>
+<p>"Continue the AI-DLC Discovery workshop for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [role]. Start at [step]."</p>
+<p>It's the lost-chat recovery prompt from lesson 0008, plus two things: the Space, and who is taking over.</p>
+</details>
+
+<div class="quiz" data-correct="0">
+  <div class="stem">1. What changes in the method when a workshop runs in a team Space?</div>
+  <div class="opts">
+    <button class="opt">Only where the files are read and written</button>
+    <button class="opt">The phases run in parallel, one per person</button>
+    <button class="opt">Checkpoints move into the Space as comment threads</button>
+    <button class="opt">Each artifact gets a new path per driver</button>
+  </div>
+  <div class="why">The phases, checkpoints, files, and paths stay the same. The Space only changes where they live, and adds one rule: one driver at a time.</div>
+</div>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">2. Why is there only one driver at a time?</div>
+  <div class="opts">
+    <button class="opt">Amazon Quick allows one chat per Space only</button>
+    <button class="opt">The method requires a single facilitator all day</button>
+    <button class="opt">Saving a file to a Space replaces it</button>
+    <button class="opt">Viewers cannot see changes until the driver stops</button>
+  </div>
+  <div class="why">Two writers would overwrite each other's work. Many people can attach the Space and read at once; only the writing is single-file.</div>
+</div>
+
+<div class="quiz" data-correct="3">
+  <div class="stem">3. What does the skill do before every write to the Space?</div>
+  <div class="opts">
+    <button class="opt">Asks each Owner to approve the change</button>
+    <button class="opt">Saves a local backup copy of the file</button>
+    <button class="opt">Locks the Space against all other readers</button>
+    <button class="opt">Reads PROJECT.md and checks who is driving</button>
+  </div>
+  <div class="why">If the driver is someone else, it stops and asks before writing. It also checks the text for personal data. Amazon Quick may ask the driver to approve each save, but that's the tool, not the other Owners.</div>
+</div>
+
+<div class="quiz" data-correct="1">
+  <div class="stem">4. How do pods work in a team Space?</div>
+  <div class="opts">
+    <button class="opt">One shared project, with pods taking turns writing</button>
+    <button class="opt">One project per pod, each with a driver</button>
+    <button class="opt">One Space per pod, shared within the pod</button>
+    <button class="opt">Pods write to one file, merged at readout</button>
+  </div>
+  <div class="why"><code>discovery/[project]-[pod]/</code> in the same Space, created after scoring, with the shared Signals and scoring artifacts copied in. Pods never write to each other's files; the facilitator sees them all.</div>
+</div>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">5. At Handoff, what is <code>aidlc/spaces/[space]/knowledge/</code>?</div>
+  <div class="opts">
+    <button class="opt">A second Amazon Quick Space for AI-DLC</button>
+    <button class="opt">The team Space's settings folder, left untouched</button>
+    <button class="opt">AI-DLC's folder layout, saved like any artifact</button>
+    <button class="opt">A link AI-DLC reads straight from Quick</button>
+  </div>
+  <div class="why">The two "spaces" share a word and nothing else. AI-DLC's team knowledge is a folder path; in Space mode it is saved in the team Space like any other file, then downloaded into the build repository.</div>
+</div>
+
+<div class="quiz" data-correct="0">
+  <div class="stem">6. Someone is shared on the Space as a Viewer. What can they do?</div>
+  <div class="opts">
+    <button class="opt">Read, ask questions, and open the prototype</button>
+    <button class="opt">Drive once the Owner stops writing</button>
+    <button class="opt">See only the brief, after Handoff ends</button>
+    <button class="opt">Nothing until an Owner invites them in</button>
+  </div>
+  <div class="why">Viewers follow; Owners can drive and take over. If a Viewer needs to drive, an Owner shares the Space with them as Owner.</div>
+</div>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">7. From lesson 0002: Signals finds no data, in the Space or the folder. What does it offer?</div>
+  <div class="opts">
+    <button class="opt">A synthetic dataset that it generates right now</button>
+    <button class="opt">To skip Signals and start with the personas</button>
+    <button class="opt">Real data, Signal Briefs, or a prepared dataset</button>
+    <button class="opt">To scrape public reviews of the product online</button>
+  </div>
+  <div class="why">It never writes data on the day, Space or not. Data written after the team's hypotheses can only echo them.</div>
+</div>
+
+<p class="quiz-score"></p>
+
+<div class="source"><strong>Primary source</strong>Read <a href="../../skills/discovery-team-space/SKILL.md">discovery-team-space/SKILL.md</a>, then rehearse a take-over with a colleague: one of you drives Kickoff and Signals on the Air sample in a shared Space, and the other takes over for Working Backwards. It's also the open check in the design doc.</div>
+
+<div class="ask"><strong>Ask your teacher</strong>Want to rehearse it? Ask me to play the assistant when a second facilitator writes while someone else is driving, and practise the recovery.</div>
+
+<nav class="course">
+  <span>Previous: <a href="0008-the-failure-drill.html">0008 The failure drill</a></span>
+  <span>Reference: <a href="../reference/phase-map.html">Phase map</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../reference/recovery-card.html">Recovery card</a></span>
+  <span>Next: <a href="0010-play-the-day.html">0010 Play the day</a></span>
+</nav>
+
+</main>
+</body>
+</html>

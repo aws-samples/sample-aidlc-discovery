@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0003 · Personas and scoring</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/quiz.js" defer></script>
+<script src="../assets/scorer.js" defer></script>
+</head>
+<body>
+<main>
+
+<p class="kicker">Lesson 0003 · About 18 minutes</p>
+<h1>Personas and scoring</h1>
+<p class="subtitle">Working Backwards, first half: put faces on the signals, then choose one problem in a way the team owns.</p>
+
+<div class="win"><strong>Your win</strong>Run a scoring session: apply the gate, work out a weighted score and its decision by hand, and keep each score owned by the person who should own it. This is the most contested 75 minutes of the day.</div>
+
+<h2>Personas come first, because everything after refers to them</h2>
+<p>Scoring, the PR/FAQ, the prototype, and the critique all talk about specific people, so <code>discovery-personas</code> runs before scoring.<span class="sn"><a href="../../skills/discovery-personas/SKILL.md">discovery-personas/SKILL.md</a>, Step 1.</span> It finds behavioural segments in the feedback and writes three or more personas. Every quote is real, and each persona has a confidence rating and an evidence count.</p>
+<ul class="tight">
+<li><b>One is satisfied today,</b> so the team sees what it could break. In Air that's Hanne, a happy on-time flyer, built from 48 positive records, High confidence.<span class="sn"><a href="../../facilitator/reference-runs/anycompany-air/working-backwards/personas/hanne.md">personas/hanne.md</a></span></li>
+<li><b>Confidence is capped</b> at Medium for a synthetic dataset, and for Signal Briefs unless three or more briefs describe the same segment.</li>
+<li><b>Names, ages, and backgrounds vary,</b> and are never paired with roles by stereotype.</li>
+<li><b>They are hypotheses, not customers.</b> A persona's reaction is something to test with real users later.</li>
+</ul>
+<p>Your move: ask the people closest to customers, "Have you met this person?" Change or drop any persona the room doesn't recognise. Every persona costs time in the critique, so ask whether any two overlap. Overlaps go to <code>set-aside-personas.md</code>, never into <code>personas/</code>.</p>
+
+<h2>Scoring: problems, not features</h2>
+<p>The team brings 3 to 5 candidates, each written as a problem with five fields: <b>who</b> has it, the <b>problem</b>, the <b>evidence</b>, the <b>business metric</b> it moves, and the <b>owner</b> in the room. If someone brings a feature ("a 3D seat map"), ask what problem it solves, and for whom.<span class="sn"><a href="../../skills/discovery-use-case-scoring/SKILL.md">discovery-use-case-scoring/SKILL.md</a></span></p>
+
+<h3>1. Weights, fixed before the first score</h3>
+<p>Pain 25 · Outcome 25 · Reach 15 · Fit 10 · Feasibility 15 · Adoption load 10. The sponsor may move a weight by up to 10 points, but only now. Tell the room why: "Once we see scores, nobody can move a weight to help their favourite."</p>
+
+<h3>2. The gate</h3>
+<p>First merge duplicates: a candidate that is a symptom of another's problem, or one solution to it, joins that candidate. Then drop any candidate that fails one of five tests:</p>
+<ol class="steps">
+<li><b>Evidence:</b> Signals shows customer evidence for the problem.</li>
+<li><b>Outcome:</b> it links to a business metric the customer cares about.</li>
+<li><b>Owner:</b> someone in the room owns the build.</li>
+<li><b>Build path:</b> there is a path to a build.</li>
+<li><b>Painkiller:</b> customers would notice if it never shipped.</li>
+</ol>
+<p>Failing the gate is a drop, never a deferral. In Air, the 3D seat map fails on painkiller: every record comes from a happy customer saying "not a complaint" or "nice touch". It stays alive only as an open hypothesis with a cheap test: try seat photos on the existing map and watch paid seat selection.<span class="sn">Reference run, <a href="../../facilitator/reference-runs/anycompany-air/working-backwards/use-case-scoring.md">use-case-scoring.md</a>, Gate.</span> When a stakeholder's favourite fails, that's the gate doing its job: the reason becomes visible.</p>
+
+<h3>3. Six scores, each with its evidence</h3>
+<table>
+<thead><tr><th>Dimension</th><th>Wt</th><th>1</th><th>5</th></tr></thead>
+<tbody>
+<tr><td>Customer pain</td><td>25</td><td>Rare, nice to have</td><td>Frequent, blocking; customers pay for workarounds or leave</td></tr>
+<tr><td>Business outcome</td><td>25</td><td>No measurable link to <i>the agreed</i> metric</td><td>Direct movement within 90 days</td></tr>
+<tr><td>Reach</td><td>15</td><td>A small niche</td><td>Most users, or the highest-value segment</td></tr>
+<tr><td>Strategic fit or threat</td><td>10</td><td>Off strategy</td><td>Core, or "do nothing" is costing customers now</td></tr>
+<tr><td>Feasibility</td><td>15</td><td>New data, platform, skills</td><td>Builds on what exists</td></tr>
+<tr><td>Adoption load</td><td>10</td><td>Heavy change for users</td><td>Fits how users already work</td></tr>
+</tbody>
+</table>
+<p>Outcome is the dimension that surprises rooms. It is scored against the metric agreed at setup, not the one a candidate names for itself. In Air the metric is the self-service rebooking rate. Bag tracking has real pain (4) but moves baggage calls, so it scores 1 on outcome. Strategic fit and feasibility are drafted, then marked for the team to confirm, because the data rarely shows them.</p>
+
+<h3>4. Weighted score, confidence, decision</h3>
+<p><b>Weighted score</b> = Σ(score × weight) ÷ 100, from 1.0 to 5.0. <b>Confidence:</b> High is three or more independent signals including one quantitative source; Medium is two, or one strong quantitative source; Low is a single source, or the team's assumption.</p>
+<table>
+<thead><tr><th>Weighted</th><th>Confidence</th><th>Decision</th></tr></thead>
+<tbody>
+<tr><td>3.5 or more</td><td>High</td><td><b>Build first</b></td></tr>
+<tr><td>3.5 or more</td><td>Medium or Low</td><td><b>Prototype to learn</b>: a high-value idea is never scored out for low confidence</td></tr>
+<tr><td>2.5 to 3.4</td><td>Any</td><td><b>Defer</b>: revisit at 30 days with new evidence</td></tr>
+<tr><td>Below 2.5</td><td>Any</td><td><b>Drop</b>, and record why</td></tr>
+</tbody>
+</table>
+<p><b>One decision per team.</b> Only the highest-scoring qualifier goes forward. Any other that qualifies becomes "defer, next in line", so the day has one focus. With pods, each pod takes one, and two pods never take the same one.</p>
+
+<h2>Running the room</h2>
+<ul class="tight">
+<li><b>Feasibility belongs to the engineering lead.</b> Don't let a drafted 3 stand by silence: "What would make this a 2, and what would make it a 4?" The answer is the build's biggest unknown.</li>
+<li><b>Ask the owner first.</b> "It's your candidate. Anything the scores miss?" An owner who agrees out loud to defer their own idea is a stronger result than a silent defer.</li>
+<li><b>After an override,</b> show the new weighted score and say whether the decision changed. Often it doesn't, and the person has still been heard. In the Air run with a team, the head of digital raised the booking flow's pain to 4: the score moved from 2.50 to 3.00 and stayed Defer.<span class="sn"><a href="../../facilitator/reference-runs/anycompany-air-with-team/working-backwards/use-case-scoring.md">anycompany-air-with-team/…/use-case-scoring.md</a></span> Record every override with its reason, and label it Assumed when no evidence backs it.</li>
+<li><b>"Agree with all"</b> when the room agrees with a candidate's drafts. Spend the time on the scores people disagree with.</li>
+<li><b>If every candidate lands between 3 and 4,</b> the candidates are probably too broad. Ask the team to make them more specific.</li>
+</ul>
+<p>Checkpoint: every score confirmed or overridden, with reasons, and one use case selected per pod. Then, at lunch: "Draft the PR/FAQ while we're away."<span class="sn"><a href="../../facilitator/run-sheet.md">run-sheet.md</a>, 10:45 and 12:00.</span></p>
+
+<p class="noprint"><i>For facilitators comparing runs:</i> the Air answer key expects rebooking around 4.45 and the booking flow around 2.50; the unattended reference run scored 4.60 and 2.20, and the run with a team drafted the booking flow at 2.50. The decisions match where it matters: rebooking is build first, the seat map is dropped at the gate, and bag tracking is next in line. Expect some spread in individual scores and judge the run on the decisions.<span class="sn"><a href="../../facilitator/anycompany-air.md">anycompany-air.md</a>, section 4 (spoilers).</span></p>
+
+<hr>
+
+<h2>Practice</h2>
+
+<details class="recall">
+<summary>Recall first: write the gate's five tests, and the six dimensions with their weights. Then open this.</summary>
+<p><b>Gate:</b> evidence, outcome, owner, build path, painkiller (after merging duplicates).</p>
+<p><b>Dimensions:</b> pain 25, outcome 25, reach 15, fit 10, feasibility 15, adoption load 10. The two 25s are the customer and the business; together they're half the score.</p>
+</details>
+
+<h3>Score it yourself</h3>
+<p>Work out each weighted score on paper, choose the decision, then check.</p>
+<div class="scorer" data-name="Air #1: Disrupted passengers can't rebook themselves" data-scores="5,5,5,5,3,4" data-confidence="High"></div>
+<div class="scorer" data-name="Air #3: Passengers can't see where a delayed bag is" data-scores="4,1,2,3,3,5" data-confidence="High"></div>
+<div class="scorer" data-name="Made up: Disrupted passengers can't claim a hotel voucher in the app" data-scores="4,4,3,3,4,3" data-confidence="Low"></div>
+<p>Notice the third one. It scores well, but the evidence is thin, so it's <i>prototype to learn</i>, not drop. If it came second to Air #1, it would be "defer, next in line".</p>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">1. Why does the skill generate personas before scoring?</div>
+  <div class="opts">
+    <button class="opt">The gate needs a persona per candidate</button>
+    <button class="opt">They replace the signals in the scoring</button>
+    <button class="opt">Scoring and the PR/FAQ refer to them</button>
+    <button class="opt">The sponsor approves them before the weights</button>
+  </div>
+  <div class="why">Scoring, the PR/FAQ, the prototype, and the critique all refer to the personas, so they come first. The gate tests the problem, not personas, and the signals stay the evidence.</div>
+</div>
+
+<div class="quiz" data-correct="0">
+  <div class="stem">2. Why is one persona always a customer who is satisfied today?</div>
+  <div class="opts">
+    <button class="opt">It shows what the team could break</button>
+    <button class="opt">It balances the critique with some praise</button>
+    <button class="opt">It raises the confidence of the others</button>
+    <button class="opt">It acts as a control group sample</button>
+  </div>
+  <div class="why">A change aimed at unhappy customers can hurt happy ones. In Validate, "what does the satisfied persona lose?" is the question to ask when every risk comes back supported.</div>
+</div>
+
+<div class="quiz" data-correct="3">
+  <div class="stem">3. Every 3D seat map record comes from a happy customer who'd "like it as a nice touch". What happens to the candidate?</div>
+  <div class="opts">
+    <button class="opt">It is deferred until day thirty</button>
+    <button class="opt">It scores low on customer pain</button>
+    <button class="opt">It merges into the booking flow</button>
+    <button class="opt">It fails the gate on painkiller</button>
+  </div>
+  <div class="why">Customers wouldn't notice if it never shipped, so it's dropped at the gate before scoring. Failing the gate is never a deferral; to keep it alive, record it as an open hypothesis with a cheap test.</div>
+</div>
+
+<div class="quiz" data-correct="1">
+  <div class="stem">4. Bag tracking has real pain, yet it scores 1 on business outcome. Why?</div>
+  <div class="opts">
+    <button class="opt">Its evidence comes from a single channel only</button>
+    <button class="opt">It moves baggage calls, not the agreed metric</button>
+    <button class="opt">The engineering lead has not confirmed feasibility yet</button>
+    <button class="opt">The team cannot measure baggage calls at all</button>
+  </div>
+  <div class="why">Outcome is scored against the metric agreed at setup, the self-service rebooking rate, not the metric a candidate brings for itself. Bag evidence is in all six sources, and feasibility is a separate dimension.</div>
+</div>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">5. A team without pods has two candidates above 3.5, both with High confidence. What happens?</div>
+  <div class="opts">
+    <button class="opt">Both are taken forward as build first</button>
+    <button class="opt">The room splits into pods for both</button>
+    <button class="opt">The higher one goes; the other defers</button>
+    <button class="opt">The sponsor picks one at the readout</button>
+  </div>
+  <div class="why">One decision per team: the highest weighted score goes forward, and the other becomes "defer, next in line". Pods are agreed at setup, not invented mid-scoring.</div>
+</div>
+
+<div class="quiz" data-correct="3">
+  <div class="stem">6. From lesson 0001: which file must exist before Working Backwards can start?</div>
+  <div class="opts">
+    <button class="opt"><code>team-hypotheses.md</code></button>
+    <button class="opt"><code>PROJECT.md</code></button>
+    <button class="opt"><code>hypotheses.md</code></button>
+    <button class="opt"><code>signal-summary.md</code></button>
+  </div>
+  <div class="why">The Signal Analysis Report. Scoring draws its candidates and evidence from it, and personas are built from it and the data behind it.</div>
+</div>
+
+<div class="quiz" data-correct="1">
+  <div class="stem">7. The engineering lead says nothing about a drafted feasibility score of 3. What do you ask?</div>
+  <div class="opts">
+    <button class="opt">Can we all just agree with the drafted 3?</button>
+    <button class="opt">What would make this a 2, or a 4?</button>
+    <button class="opt">Which architecture would you choose to build this one?</button>
+    <button class="opt">Should the sponsor decide this feasibility score for us?</button>
+  </div>
+  <div class="why">Asking for the 2 and the 4 brings out the build's biggest unknown without turning Discovery into architecture. A score that stands by silence isn't owned.</div>
+</div>
+
+<p class="quiz-score"></p>
+
+<div class="source"><strong>Primary source</strong>Read the Air reference run's <a href="../../facilitator/reference-runs/anycompany-air/working-backwards/use-case-scoring.md">use-case-scoring.md</a>, especially "Evidence per score". Every number has its evidence, and the drafts the team must confirm are marked. That's what good looks like on the screen.</div>
+
+<div class="ask"><strong>Ask your teacher</strong>Want to practise an override? Ask me to play the head of digital pushing the booking flow's pain score to 4, and practise showing the new weighted score and whether the decision changes.</div>
+
+<nav class="course">
+  <span>Previous: <a href="0002-setup-and-signals.html">0002 Setup and Signals</a></span>
+  <span>Reference: <a href="../reference/phase-map.html">Phase map</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../reference/slide-outline.md">Slide outline</a></span>
+  <span>Next: <a href="0004-press-release-to-riskiest-assumption.html">0004 From press release to riskiest assumption</a></span>
+</nav>
+
+</main>
+</body>
+</html>

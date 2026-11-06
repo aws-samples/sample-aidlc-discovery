@@ -1,0 +1,31 @@
+id,date,channel,segment,account_tier,text
+ACC-0001,2026-05-03,account_manager,corporate,gold,"Customer 0634 raised delayed bags for their equipment cases on the Vienna route. Not a renewal issue, but they asked whether we offer tracking."
+ACC-0002,2026-05-04,account_manager,corporate,silver,"Customer 0670's travel manager saw a 3D seat map at a trade fair and asked if we plan one. Curiosity, not a requirement."
+ACC-0003,2026-05-21,account_manager,corporate,gold,Customer 0795 would like the corporate fare to show automatically when travellers book directly. Low priority for them.
+ACC-0004,2026-05-24,account_manager,corporate,silver,"Customer 0634 asked for a better corporate discount at renewal. Standard negotiation, they accepted the current terms."
+ACC-0005,2026-06-05,account_manager,corporate,silver,"Customer 0980 asked whether we will support booking through their new travel platform. Integration question, not a booking design one."
+ACC-0006,2026-06-08,account_manager,corporate,gold,Customer 0819 (legal services) mentioned two travellers who arrived without luggage for a client event. They asked how to escalate bag cases faster.
+ACC-0007,2026-06-12,account_manager,corporate,silver,"Customer 0467 asked for a single monthly invoice across all travellers. Finance request, passed to billing."
+ACC-0008,2026-06-22,account_manager,corporate,silver,"Quarterly review with Customer 0490. Price and network are fine, and they like the lounges. The one complaint is disruption: travellers stranded at Hamburg with no way to change flights. Flagged the account as at risk."
+ACC-0009,2026-06-29,account_manager,corporate,gold,Customer 0607: travel manager praised the crew on the Hamburg route. No issues reported this quarter.
+ACC-0010,2026-06-29,account_manager,corporate,silver,"Visit to Customer 0972 (public sector). Their travellers have stopped calling us and book the next flight with any airline at their own cost, then claim it back. They call it 'the AnyCompany tax'."
+ACC-0011,2026-07-01,account_manager,corporate,gold,"Customer 0768 (logistics) mentioned a competitor's booking flow looks more modern, but said their travellers book through the travel management company anyway."
+ACC-0012,2026-07-06,account_manager,corporate,silver,"Customer 0228 renewal is on track commercially, but their duty-of-care team wants to know where travellers are during disruptions and how fast they get rebooked. We can't give them either today."
+ACC-0013,2026-07-09,account_manager,corporate,silver,Customer 0278 (pharma) asked whether we can give their travel desk a tool to rebook disrupted travellers in bulk. Today their agents call our corporate line one traveller at a time.
+ACC-0014,2026-07-10,account_manager,corporate,bronze,Leadership asked me to check with Customer 0485 whether a booking redesign would help retention. Their answer: 'Booking is fine. Fix what happens when flights get cancelled.'
+ACC-0015,2026-07-11,account_manager,corporate,bronze,"QBR with Customer 0735 (banking, about 2100 travellers). Travel manager raised four cancellations on the Milan route last quarter where travellers could not rebook themselves and waited on hold. She said plainly that the renewal in Q1 depends on how we handle disruption."
+ACC-0016,2026-07-21,account_manager,corporate,silver,Customer 0451 wants a report of points earned by their travellers. Not available today.
+ACC-0017,2026-07-29,account_manager,corporate,bronze,Renewal call with Customer 0462 (software). Their CFO missed a board meeting after a Lisbon cancellation and spent an hour on the phone. They are trialling a competitor on two routes. The ask is simple: let travellers rebook themselves in the app.
+ACC-0018,2026-08-04,account_manager,corporate,gold,"Customer 0257 (pharma, about 3000 travellers) sent their disruption report: 61 disrupted trips in the summer, average time to rebook over two hours. They want self-service rebooking and real-time updates to their travel management company."
+ACC-0019,2026-08-16,account_manager,corporate,silver,Customer 0746 renewal agreed. Network and on-time performance are why they stay.
+ACC-0020,2026-08-17,account_manager,corporate,silver,Customer 0746 raised that our app tells travellers to call during disruptions while the corporate line is overloaded. They asked for a written plan before their tender in February.
+ACC-0021,2026-08-24,account_manager,corporate,gold,"Pitched the idea of a redesigned booking flow to Customer 0847. They were polite, but their questions were all about disruptions."
+ACC-0022,2026-08-28,account_manager,corporate,gold,Customer 0116 (media) is happy with punctuality on their main routes this year and with the lounge access.
+ACC-0023,2026-08-29,account_manager,corporate,silver,"Customer 0231: travel manager said the booking experience is 'fine, nobody complains', but disruption is 'the reason we get calls from the CEO's office'."
+ACC-0024,2026-09-08,account_manager,corporate,silver,"Customer 0547 asked about the roadmap for the booking flow. Nice to have, not a factor in the renewal."
+ACC-0025,2026-09-24,account_manager,corporate,bronze,"Customer 0876 asked about a 3D seat view for executives choosing business class seats. Mentioned once, not raised again."
+ACC-0026,2026-10-02,account_manager,corporate,bronze,"Customer 0595: price came up, but the travel manager said disruption costs them more than the fare difference."
+ACC-0027,2026-10-03,account_manager,corporate,silver,Customer 0338 (retail) is benchmarking fares on the Paris route against a competitor as part of their tender.
+ACC-0028,2026-10-05,account_manager,corporate,gold,"Customer 0528 asked whether travellers can earn points on corporate fares. They can, travellers just don't add their number."
+ACC-0029,2026-10-11,account_manager,corporate,silver,Customer 0683 (banking) asked for receipts to show the cost centre field automatically after booking.
+ACC-0030,2026-10-12,account_manager,corporate,gold,Customer 0826 said the booking pages are slow on hotel Wi-Fi. Mentioned it in passing.

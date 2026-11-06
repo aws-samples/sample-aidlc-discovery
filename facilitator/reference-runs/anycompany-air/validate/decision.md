@@ -1,0 +1,11 @@
+# Decision: self-service rebooking for disrupted passengers (Choose your flight)
+**Decision:** commit, testing the riskiest assumption first
+**Reason:** It is the top problem in every source and segment, it is the business metric itself, and the telemetry shows passengers already reach the alternatives and stop only because they cannot choose. The prototype held up in the persona critique and the re-walk. But the riskiest assumption is supported only by synthetic personas, and feasibility depends on the reissue service, so the build starts once real passengers and a reissue spike confirm both.
+**Evidence:** supported: valuable (116 of 400 records; 41% Contact us; NPS +4 vs −58), usable for the personas (v2 re-walk), viable (free to passengers; four corporate renewals tied to it) / contradicted: none; team hypotheses that pointed elsewhere (booking redesign, more agents, price, 3D seat map) were contradicted or not settled by the data / open: the riskiest assumption with real users; feasibility (reissue 5.0% errors, extras moving, agency tickets, call-back capacity, seats-left freshness); cost per call and AI cost.
+**Conditions before the build:**
+1. At least 7 of 10 recently disrupted passengers confirm a new flight in v2 without tapping Contact us, including at least one who rarely uses the app. Who checks: UX designer, with the head of digital. By: the 30-day follow-up.
+2. A replay of one month of offered alternatives through ticket reissue shows at least 99% can be confirmed with seats and bags moved, or names the cases that must go to the call-back fallback. Who checks: engineering lead. By: the 30-day follow-up.
+3. Call-back capacity for a peak July day is sized, with a cost per call. Who checks: customer service operations lead. By: the 7-day follow-up (cost per call), the 30-day follow-up (capacity).
+**Next:** run the real-user test and the reissue spike; prepare the alert fix (scoring #6, next in line) for summer 2027; brief the three design partners. The build starts from `handoff/discovery-brief.md` once the conditions are met.
+**Prototype handed off:** v2
+**Decided by:** head of digital, engineering lead, UX designer, customer service operations lead, head of corporate accounts (unattended default, recorded in `PROJECT.md`), 2026-10-30

@@ -1,0 +1,81 @@
+id,date,channel,segment,flight_outcome,score,text
+NPS-0001,2026-05-02,nps,leisure,cancelled,2,"Cancelled, rebooked to a terrible time, and the only way to fix it was the phone."
+NPS-0002,2026-05-04,nps,frequent_flyer,delayed,0,Being stuck on hold while the good flights filled up.
+NPS-0003,2026-05-09,nps,leisure,on_time,10,Everything went smoothly.
+NPS-0004,2026-05-09,nps,leisure,on_time,3,My bag was lost for 20 days with no updates.
+NPS-0005,2026-05-14,nps,frequent_flyer,on_time,5,"Booking was OK, could be simpler."
+NPS-0006,2026-05-18,nps,leisure,on_time,3,Bag came 5 days late and nobody told me it was coming.
+NPS-0007,2026-05-18,nps,leisure,delayed,6,"Fine, but overpriced."
+NPS-0008,2026-05-24,nps,leisure,on_time,10,Lounge was great and the flight was on time.
+NPS-0009,2026-05-26,nps,frequent_flyer,on_time,6,Too expensive compared to other airlines.
+NPS-0010,2026-05-28,nps,leisure,on_time,10,"Smooth, simple, on time."
+NPS-0011,2026-05-30,nps,leisure,delayed,6,Booking page was confusing for adding bags.
+NPS-0012,2026-05-30,nps,leisure,on_time,6,Fares keep going up.
+NPS-0013,2026-05-31,nps,leisure,on_time,6,Too many upsell screens when booking.
+NPS-0014,2026-06-04,nps,frequent_flyer,delayed,10,All good. Would like a better seat preview.
+NPS-0015,2026-06-04,nps,leisure,on_time,7,Average.
+NPS-0016,2026-06-07,nps,corporate,on_time,9,"Friendly service, no delays."
+NPS-0017,2026-06-08,nps,leisure,on_time,9,Clean plane and on time.
+NPS-0018,2026-06-08,nps,corporate,delayed,1,Rebooked automatically onto a flight that didn't work for us and changing it was a nightmare.
+NPS-0019,2026-06-13,nps,leisure,on_time,10,Easy check-in and on time.
+NPS-0020,2026-06-15,nps,leisure,cancelled,3,Spent the evening on hold instead of with my family.
+NPS-0021,2026-06-17,nps,frequent_flyer,cancelled,3,"Flight moved twice, no way to choose another option online."
+NPS-0022,2026-06-19,nps,leisure,delayed,3,I had to sort out my own hotel after the cancellation.
+NPS-0023,2026-06-22,nps,corporate,on_time,7,The app logged me out.
+NPS-0024,2026-06-25,nps,frequent_flyer,on_time,4,Missing points again.
+NPS-0025,2026-06-27,nps,leisure,on_time,7,Expensive for short flights.
+NPS-0026,2026-06-27,nps,frequent_flyer,cancelled,2,Flight was cancelled and I had to call to rebook. 160 minutes waiting.
+NPS-0027,2026-06-29,nps,corporate,on_time,5,Booking took longer than it should with all the extras.
+NPS-0028,2026-07-04,nps,leisure,on_time,9,"Would recommend for business trips, always punctual."
+NPS-0029,2026-07-05,nps,frequent_flyer,on_time,7,Loyalty programme is confusing.
+NPS-0030,2026-07-07,nps,leisure,on_time,10,Easy from booking to landing.
+NPS-0031,2026-07-07,nps,frequent_flyer,on_time,7,Status benefits aren't clear.
+NPS-0032,2026-07-08,nps,corporate,cancelled,1,No information during a 2-hour delay.
+NPS-0033,2026-07-10,nps,leisure,cancelled,4,The flight was cancelled and the app was no help at all.
+NPS-0034,2026-07-11,nps,frequent_flyer,on_time,9,Hassle-free trip.
+NPS-0035,2026-07-11,nps,corporate,on_time,10,The crew were excellent.
+NPS-0036,2026-07-12,nps,corporate,cancelled,4,Rebooking took longer than the flight.
+NPS-0037,2026-07-15,nps,leisure,delayed,2,Nobody at the desk and nothing in the app after the cancellation.
+NPS-0038,2026-07-17,nps,frequent_flyer,cancelled,3,The crew were lovely. The cancellation process was not.
+NPS-0039,2026-07-18,nps,corporate,on_time,10,"Great crew, early arrival."
+NPS-0040,2026-07-20,nps,frequent_flyer,on_time,9,Smooth trip from start to finish.
+NPS-0041,2026-07-22,nps,corporate,delayed,1,I waited 8 hours with no clear information and no way to rebook.
+NPS-0042,2026-07-24,nps,leisure,on_time,7,Would like to book multi-city online.
+NPS-0043,2026-07-25,nps,frequent_flyer,delayed,6,Price is the only reason I'd go elsewhere.
+NPS-0044,2026-07-27,nps,corporate,on_time,6,Cabin was cold.
+NPS-0045,2026-07-28,nps,frequent_flyer,on_time,9,Food could be better.
+NPS-0046,2026-07-28,nps,leisure,on_time,9,Reliable as always.
+NPS-0047,2026-07-28,nps,frequent_flyer,cancelled,4,Three calls to fix one cancellation.
+NPS-0048,2026-08-01,nps,frequent_flyer,on_time,2,Bag didn't arrive and the claim process is a mess.
+NPS-0049,2026-08-01,nps,frequent_flyer,delayed,1,I could see empty seats on a later flight and couldn't get on it.
+NPS-0050,2026-08-01,nps,leisure,on_time,5,Suitcase damaged and the claim is still open.
+NPS-0051,2026-08-02,nps,frequent_flyer,delayed,1,Nothing in the app when the flight was disrupted. Just a message to call.
+NPS-0052,2026-08-04,nps,leisure,delayed,0,I had no control over my new flight.
+NPS-0053,2026-08-06,nps,frequent_flyer,on_time,9,"Quick boarding, arrived early."
+NPS-0054,2026-08-16,nps,frequent_flyer,delayed,3,The lost luggage desk was closed when we landed.
+NPS-0055,2026-08-17,nps,leisure,on_time,10,"On time, quiet cabin, good seat."
+NPS-0056,2026-08-19,nps,frequent_flyer,on_time,2,Had to call three times to find my luggage.
+NPS-0057,2026-08-25,nps,frequent_flyer,on_time,9,"All on schedule, no stress."
+NPS-0058,2026-08-25,nps,frequent_flyer,cancelled,0,Would have given 8 if the rebooking had worked in the app.
+NPS-0059,2026-08-30,nps,frequent_flyer,cancelled,0,"Cancelled late at night, phone line closed, we slept at the airport."
+NPS-0060,2026-08-31,nps,leisure,on_time,10,Kind crew who helped with my mother's wheelchair.
+NPS-0061,2026-09-01,nps,leisure,on_time,9,Comfortable and punctual.
+NPS-0062,2026-09-01,nps,frequent_flyer,cancelled,2,Missed my connection in Seville and nobody helped until I found a desk.
+NPS-0063,2026-09-01,nps,frequent_flyer,on_time,9,On time and friendly crew.
+NPS-0064,2026-09-08,nps,frequent_flyer,on_time,6,Lost my status without a warning.
+NPS-0065,2026-09-08,nps,leisure,on_time,9,Punctual and comfortable.
+NPS-0066,2026-09-09,nps,corporate,on_time,10,Nice crew and good coffee.
+NPS-0067,2026-09-10,nps,leisure,on_time,6,Bag fees are too high.
+NPS-0068,2026-09-11,nps,corporate,on_time,9,No problems at all.
+NPS-0069,2026-09-12,nps,leisure,on_time,6,Website feels old but works.
+NPS-0070,2026-09-16,nps,leisure,on_time,9,Great flight. A 3D seat map would make it perfect.
+NPS-0071,2026-09-19,nps,leisure,on_time,6,Legroom is tight.
+NPS-0072,2026-10-01,nps,leisure,on_time,4,Price went up while I was booking.
+NPS-0073,2026-10-01,nps,leisure,delayed,4,The delay wasn't the problem. Not being able to change my flight myself was.
+NPS-0074,2026-10-02,nps,leisure,delayed,1,The airline didn't care once the flight was cancelled.
+NPS-0075,2026-10-03,nps,frequent_flyer,on_time,10,"Good flight, will book again."
+NPS-0076,2026-10-03,nps,frequent_flyer,on_time,5,Points take too long to appear.
+NPS-0077,2026-10-04,nps,leisure,on_time,4,No way to track my delayed suitcase.
+NPS-0078,2026-10-05,nps,leisure,on_time,5,"Good flight, high price."
+NPS-0079,2026-10-11,nps,leisure,on_time,10,Bags arrived fast and the flight was on time.
+NPS-0080,2026-10-14,nps,corporate,on_time,10,"Flight was exactly as expected, on time."

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>0004 · From press release to riskiest assumption</title>
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+<main>
+
+<p class="kicker">Lesson 0004 · About 20 minutes</p>
+<h1>From press release to riskiest assumption</h1>
+<p class="subtitle">Working Backwards, second half: announce it before you build it, then name the one thing that would end it.</p>
+
+<div class="win"><strong>Your win</strong>Read a Working Backwards draft the way a facilitator must at 13:00: spot a mechanism hiding in the Today statement, check that each press-release paragraph does one job, call the readiness verdict, and run the riskiest-assumption vote without anchoring the room.</div>
+
+<h2>Why the press release comes first</h2>
+<p>If the team can't explain the customer benefit clearly enough to announce it, it shouldn't build it. That's Amazon's Working Backwards: write the press release and FAQ before the product, so the team builds only what customers need.<span class="sn">Werner Vogels, <a href="https://www.allthingsdistributed.com/2006/11/working_backwards.html">"Working Backwards"</a>, 2006. The seven-paragraph structure and writing audit are adapted from the AI-Driven Working Backwards delivery kit (README, Acknowledgements).</span> Over lunch, the assistant writes a straw man (<code>draft</code> mode), so the room comes back to something to challenge rather than a blank page.</p>
+<p>The phase runs seven steps, all for the one selected use case:<span class="sn"><a href="../../skills/discovery-working-backwards/SKILL.md">discovery-working-backwards/SKILL.md</a>, then <a href="../../skills/discovery-gtm/SKILL.md">discovery-gtm</a> in <code>draft</code> mode.</span> the five questions → feature description → PR/FAQ → readiness check → PRD → riskiest assumption → GTM draft.</p>
+
+<h2>The five questions, and three sentences</h2>
+<p><b>Listen</b> (who, insights, pain) · <b>Define</b> (the problem) · <b>Invent</b> (solutions, capabilities, differentiator) · <b>Refine</b> · <b>Test</b>. One at a time, in the team's words. Define applies the framing rules:<span class="sn"><a href="../../skills/discovery-working-backwards/references/framing-rules.md">framing-rules.md</a></span></p>
+<ul class="tight">
+<li><b>Name the end customer:</b> "If this ships perfectly, who has a better day tomorrow?" Not the team, not the sponsor.</li>
+<li><b>Root causes say why, not what.</b> "Rebooking calls take 38 minutes" is a symptom. "The app shows the disruption but offers no action" is a cause.</li>
+<li><b>Split the impact</b> into the customer's loss and the business's loss. If every bullet is about the business, the customer is missing.</li>
+</ul>
+<p>Define ends in three sentences. Listen for these first when the room returns. From the Air reference run:<span class="sn"><a href="../../facilitator/reference-runs/anycompany-air/working-backwards/working-backwards.md">working-backwards.md</a></span></p>
+<dl class="facts">
+<dt>Today statement</dt><dd>"Today, disrupted passengers have to call or queue at a desk to change their flight… They need a way to <b>choose a new flight that works for them and know it is confirmed</b>, within minutes, from wherever they are."</dd>
+<dt>How Might We</dt><dd>"How might we let disrupted passengers choose a new flight… and know it is confirmed, within minutes, so that they get on their way without waiting on hold?"</dd>
+<dt>North Star</dt><dd>"Deploy <b>a way for disrupted passengers to choose and confirm their own new flight</b>… by June 2027… to raise the self-service rebooking rate from 12% to 40%…"</dd>
+</dl>
+<p>The test for each: "need a way to" names an <i>outcome</i>. Words like <i>AI-powered, real-time, dashboard, platform, automatically</i> are mechanisms. Ask "what does that give the customer?" The North Star names a <i>capability</i>, not a product: "Rebook in the app" belongs in the press release. Its numbers become the day's targets, reused by the PRD and the success criteria.</p>
+
+<h2>The PR/FAQ: seven paragraphs, one job each</h2>
+<p>A bold headline, a one-sentence subheading, then exactly seven paragraphs in 500 to 700 words, with no headings inside:<span class="sn"><a href="../../skills/discovery-working-backwards/references/prfaq-generation.md">prfaq-generation.md</a></span></p>
+<table>
+<thead><tr><th>#</th><th>Its only job</th><th>Air, opening words</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><b>Summary:</b> where, a future date, what, for whom. Assume the reader stops here.</td><td>"EUROPE, 1 June 2027. Passengers whose… flight is cancelled… can now choose…"</td></tr>
+<tr><td>2</td><td><b>Problem:</b> the situation today and its cost. No solution, no product name.</td><td>"Until now, a cancelled flight meant a phone call or a desk queue…"</td></tr>
+<tr><td>3</td><td><b>Solution:</b> how it helps, in plain language.</td><td>"Rebook in the app lets passengers act on what they already see."</td></tr>
+<tr><td>4</td><td><b>Leader quote:</b> why it matters, two or three sentences.</td><td>"A cancelled flight is the moment our customers need us most…"</td></tr>
+<tr><td>5</td><td><b>Customer experience:</b> one journey per key persona, trigger to outcome.</td><td>"When Tomasz… sees his evening flight home cancelled at the gate…"</td></tr>
+<tr><td>6</td><td><b>Testimonial</b> in the persona's voice, marked synthetic.</td><td>"I was on the 14:40 before the gate agent finished the announcement."</td></tr>
+<tr><td>7</td><td><b>Call to action:</b> where to start.</td><td>"…available to all… passengers… from 1 June 2027."</td></tr>
+</tbody>
+</table>
+<p>Then 5 to 7 customer FAQs and 5 to 7 internal FAQs. Every FAQ claim carries a label. The press release labels <i>only</i> Assumed and Needs evidence, lightly, never "[Known]".<span class="sn"><a href="../../facilitator/reference-runs/anycompany-air/working-backwards/prfaq.md">Air prfaq.md</a></span> Before the team sees it, a writing audit checks fifteen rules: among them, the customer is the subject, no superlatives, no em dashes, numbers keep the scope of their evidence, and one set of targets.<span class="sn"><a href="../../skills/discovery-working-backwards/references/writing-audit.md">writing-audit.md</a></span></p>
+<p><b>Your move:</b> read it aloud, slowly. Stop wherever someone winces and ask "How would we say it?" Rewriting one sentence together makes it the team's document. If it reads like a vision document (headings, over 700 words, paragraphs doing two jobs), ask for seven paragraphs, one job each, and the writing audit.</p>
+
+<h2>Readiness check: GREEN, AMBER, RED</h2>
+<p>Before any prototype, seven questions check that the PR/FAQ says enough to build something that proves a point: persona · pain today · <b>prototype experience</b> (the full journey, then the slice the prototype will show, the most common gap) · vision · views and signals · data · prototype metric.<span class="sn"><a href="../../skills/discovery-working-backwards/references/readiness-check.md">readiness-check.md</a></span></p>
+<p><b>GREEN:</b> all answered. <b>AMBER:</b> 1 to 3 gaps, so go ahead and carry them as open hypotheses. <b>RED:</b> 4 or more, so spend ten minutes on the PR/FAQ first, because a prototype built on a vague PR/FAQ tests nothing. Air came out AMBER, with three gaps: the share of simple cases, ticket-reissue feasibility, and passenger-rights wording. <b>AMBER is a good result; don't chase GREEN.</b> Close what the room can answer in two minutes, and give the rest an owner. In the Air run with a team, closing gaps in the room moved the verdict from AMBER to GREEN.<span class="sn"><a href="../../facilitator/reference-runs/anycompany-air-with-team/working-backwards/prfaq.md">anycompany-air-with-team/…/prfaq.md</a></span></p>
+
+<h2>PRD, then the riskiest assumption</h2>
+<p>The PRD ranks requirements P0, P1, P2. P0 must be small enough to prototype in an hour. If the feature uses AI, it adds a checklist: guardrails, evaluations, privacy, cost to serve. It contains no architecture.<span class="sn"><a href="../../skills/discovery-working-backwards/references/prd-generation.md">prd-generation.md</a></span></p>
+<p>Then list every Assumed and Needs evidence claim, and ask: <b>which one, if wrong, would end the idea?</b> Air had five candidates. The team chose:<span class="sn"><a href="../../facilitator/reference-runs/anycompany-air/working-backwards/riskiest-assumption.md">riskiest-assumption.md</a></span></p>
+<blockquote>"When the app shows a disrupted passenger… the alternatives with seats, most will choose one, confirm it, and trust the confirmation enough not to call or queue."</blockquote>
+<p>If passengers still call to check, the call centre carries the same load plus confused callers. The other candidates matter, but "can a self-service change issue the ticket every time?" is for the engineering lead, and "are 40% of cases simple?" is settled by sampling calls. Neither needs a prototype.</p>
+<p>This is the most anchored decision of the day, so:</p>
+<ul class="tight">
+<li><b>Everyone chooses before anyone speaks:</b> on paper shown at once, or typed in the chat together. Then ask the outliers why.</li>
+<li><b>Set the pass mark now,</b> before anyone sees a result: "What result would make us stop?" A threshold chosen after the test bends to fit it.</li>
+<li><b>Put a name and date</b> on every open question that blocks the build.</li>
+</ul>
+
+<h2>GTM draft: ten minutes</h2>
+<p>First adopters (a segment, and two or three design partners named by role), a positioning line, and business model and launch plan as hypotheses. The positioning line comes from the press release and must name the honest alternative, including doing nothing:<span class="sn"><a href="../../facilitator/reference-runs/anycompany-air/working-backwards/gtm.md">Air gtm.md</a>, part 2.</span></p>
+<blockquote>"For passengers whose… flight is cancelled or delayed… Rebook in the app is a self-service rebooking option… Unlike waiting on the phone or at a desk (or buying a ticket on another airline), it lets the passenger act on the alternatives the moment they appear, before the seats are gone."</blockquote>
+<p>The other parts (the viability check, adoption and success) are left for Validate.</p>
+<p><b>Checkpoint:</b> "Here is what you chose, why, and what the prototype must prove. Ready to prototype?"</p>
+
+<hr>
+
+<h2>Practice</h2>
+
+<details class="recall">
+<summary>Recall first: write the seven press-release paragraphs, each with its one job. Then open this.</summary>
+<p>1 Summary (assume the reader stops here) · 2 Problem (no solution, no product name) · 3 Solution (plain language) · 4 Leader quote · 5 Customer experience (one journey per persona) · 6 Testimonial (persona's voice, marked synthetic) · 7 Call to action.</p>
+<p>A press release that fails usually merges 2 and 3, or turns 5 into a feature list.</p>
+</details>
+
+<div class="quiz" data-correct="3">
+  <div class="stem">1. Which ending is acceptable for "They need a way to…" in a Today statement?</div>
+  <div class="opts">
+    <button class="opt">get real-time AI rebooking alerts on a dashboard</button>
+    <button class="opt">use a platform that automatically rebooks all their flights</button>
+    <button class="opt">see a self-service rebooking screen inside the mobile app</button>
+    <button class="opt">choose a new flight and know it is confirmed</button>
+  </div>
+  <div class="why">It names an outcome. The others describe mechanisms (real-time, AI, dashboard, platform, automatically, a screen). Ask "what does that give the customer?" and write that instead.</div>
+</div>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">2. Which of these is a root cause, not a symptom?</div>
+  <div class="opts">
+    <button class="opt">Rebooking calls take 38 minutes on average today</button>
+    <button class="opt">Passengers wait on hold for nearly three hours</button>
+    <button class="opt">The app shows disruptions but offers no action</button>
+    <button class="opt">Disrupted passengers give an NPS of minus sixty</button>
+  </div>
+  <div class="why">A root cause explains why, as a structural condition. The other three describe what happens: they're symptoms or impacts, and belong under evidence.</div>
+</div>
+
+<div class="quiz" data-correct="1">
+  <div class="stem">3. "Until now, a cancelled flight meant a phone call or a desk queue for almost nine in ten disrupted passengers." Which paragraph is this?</div>
+  <div class="opts">
+    <button class="opt">Paragraph 1, the summary</button>
+    <button class="opt">Paragraph 2, the problem</button>
+    <button class="opt">Paragraph 3, the solution</button>
+    <button class="opt">Paragraph 5, the experience</button>
+  </div>
+  <div class="why">The problem: the situation today and what it costs, with no solution and no product name. "Until now" is the classic opening.</div>
+</div>
+
+<div class="quiz" data-correct="0">
+  <div class="stem">4. The press release has nine paragraphs, 850 words, and a heading for each feature. What has happened?</div>
+  <div class="opts">
+    <button class="opt">FAQ material has crept into the release</button>
+    <button class="opt">The testimonial was not marked as synthetic</button>
+    <button class="opt">The readiness verdict should have been red</button>
+    <button class="opt">The leader quote is missing its title</button>
+  </div>
+  <div class="why">More than 700 words usually means FAQ material has crept in. It now reads like a vision document. Recovery: "Rewrite the press release as exactly seven paragraphs, one job each, 500 to 700 words, and run the writing audit."</div>
+</div>
+
+<div class="quiz" data-correct="2">
+  <div class="stem">5. The readiness check finds two gaps. What is the verdict, and what next?</div>
+  <div class="opts">
+    <button class="opt">Red: rewrite the PR/FAQ before prototyping</button>
+    <button class="opt">Green: go straight to the PRD</button>
+    <button class="opt">Amber: carry both gaps as hypotheses</button>
+    <button class="opt">Amber: stop until both gaps close</button>
+  </div>
+  <div class="why">One to three gaps is AMBER: go ahead, carrying the gaps as open hypotheses with owners. Close any the room can answer in two minutes. RED starts at four.</div>
+</div>
+
+<div class="quiz" data-correct="3">
+  <div class="stem">6. Why wasn't "a self-service change can issue the ticket every time" chosen as Air's riskiest assumption?</div>
+  <div class="opts">
+    <button class="opt">It was already labelled Known in the PRD</button>
+    <button class="opt">It would not end the idea if wrong</button>
+    <button class="opt">The personas could not react to it then</button>
+    <button class="opt">It is feasibility, settled by engineering, not prototypes</button>
+  </div>
+  <div class="why">The riskiest assumption is what the prototype tests. Ticket reissue is a feasibility question for the engineering lead; it became one of the decision's conditions before the build instead.</div>
+</div>
+
+<div class="quiz" data-correct="1">
+  <div class="stem">7. How does the room choose the riskiest assumption?</div>
+  <div class="opts">
+    <button class="opt">The product owner picks it</button>
+    <button class="opt">Everyone chooses before anyone speaks</button>
+    <button class="opt">The assistant ranks the candidates</button>
+    <button class="opt">The room debates until agreement</button>
+  </div>
+  <div class="why">It's the most anchored decision of the day. Everyone commits on paper or in the chat at the same moment, then the outliers explain. Then set the pass mark, before any result exists.</div>
+</div>
+
+<div class="quiz" data-correct="1">
+  <div class="stem">8. From lesson 0003: a candidate scores 3.8 with Low confidence. What's the decision?</div>
+  <div class="opts">
+    <button class="opt">Build first</button>
+    <button class="opt">Prototype to learn</button>
+    <button class="opt">Defer</button>
+    <button class="opt">Drop</button>
+  </div>
+  <div class="why">3.5 or more with Medium or Low confidence is prototype to learn. A high-value idea is never scored out for low confidence; its weak scores become open hypotheses.</div>
+</div>
+
+<p class="quiz-score"></p>
+
+<div class="source"><strong>Primary source</strong>Read the Air <a href="../../facilitator/reference-runs/anycompany-air/working-backwards/prfaq.md">prfaq.md</a> out loud, start to finish, then its readiness check. Time yourself: that's what the room does at 13:00.</div>
+
+<div class="ask"><strong>Ask your teacher</strong>Paste a Today statement or a press-release paragraph from a real run and ask me to check it against the framing rules and the writing audit. Or ask me to play a room that accepts the draft without changes, and practise drawing out a rewrite.</div>
+
+<nav class="course">
+  <span>Previous: <a href="0003-personas-and-scoring.html">0003 Personas and scoring</a></span>
+  <span>Reference: <a href="../reference/phase-map.html">Phase map</a> · <a href="../reference/glossary.html">Glossary</a> · <a href="../reference/slide-outline.md">Slide outline</a></span>
+  <span>Next: <a href="0005-prototype.html">0005 Prototype</a></span>
+</nav>
+
+</main>
+</body>
+</html>

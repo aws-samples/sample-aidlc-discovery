@@ -1,12 +1,11 @@
-name: Release v2
+name: Release v3
 
-# Builds the bundles and publishes per-platform assets. Triggered by v2.*.* tags only,
-# so it never collides with the v1 release workflow on main. Published as a PRE-RELEASE,
-# which keeps `releases/latest` pointing at the stable v1 line.
+# Builds the Amazon Quick skill bundle and publishes it as the latest release.
+# Triggered by v3.*.* tags only; earlier lines keep their own workflows on their branches.
 on:
   push:
     tags:
-      - 'v2.*.*'
+      - 'v3.*.*'
 
 jobs:
   build-and-release:
@@ -16,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: '20'
+          python-version: '3.12'
 
       - name: Resolve version from tag
         id: version
@@ -27,35 +26,42 @@ jobs:
           echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
           echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
 
+      - name: Verify the tag matches plugin.json and every skill
+        run: |
+          V="${{ steps.version.outputs.version }}"
+          P=$(python3 -c 'import json; print(json.load(open("plugin.json"))["version"])')
+          [ "$P" = "$V" ] || { echo "::error::plugin.json is ${P}, tag is ${V}."; exit 1; }
+          BAD=$(grep -L "^version: \"${V}\"$" skills/*/SKILL.md || true)
+          [ -z "$BAD" ] || { echo "::error::Skills not at ${V}: ${BAD}"; exit 1; }
+
       - name: Verify CHANGELOG has an entry for this tag
         run: |
           V="${{ steps.version.outputs.version }}"
           grep -q "^## \[${V}\]" CHANGELOG.md || { echo "::error::CHANGELOG.md has no [${V}] section."; exit 1; }
 
-      - name: Build all targets
-        run: node build.js
+      - name: Run tests
+        run: python3 -m unittest discover tests -v
 
-      - name: Package per-platform assets
+      - name: Build the skill bundle
+        run: python3 scripts/build.py
+
+      - name: Package the bundle
         run: |
           V="${{ steps.version.outputs.version }}"
-          (cd dist/kiro          && zip -qr "../../aidlc-discovery-kiro-v${V}.zip"   .kiro)
-          (cd dist/claude        && zip -qr "../../aidlc-discovery-claude-v${V}.zip" .claude)
-          (cd dist/amazon-quick/skills && zip -qr "../../../aidlc-discovery-quick-v${V}.zip" aidlc-discovery)
+          (cd dist && zip -qr "../aidlc-discovery-v${V}.zip" aidlc-discovery)
 
       - name: Extract release notes
         run: |
           V="${{ steps.version.outputs.version }}"
           awk "/^## \\[${V}\\]/{f=1;print;next}/^## \\[/{f=0}f" CHANGELOG.md > release-notes.md
-          [ -s release-notes.md ] || echo "Pre-release ${V}." > release-notes.md
+          [ -s release-notes.md ] || echo "Release ${V}." > release-notes.md
 
-      - name: Create GitHub pre-release
+      - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.tag }}
           name: aidlc-discovery ${{ steps.version.outputs.tag }}
           body_path: release-notes.md
-          prerelease: true
-          files: |
-            aidlc-discovery-kiro-v*.zip
-            aidlc-discovery-claude-v*.zip
-            aidlc-discovery-quick-v*.zip
+          prerelease: false
+          make_latest: true
+          files: aidlc-discovery-v*.zip

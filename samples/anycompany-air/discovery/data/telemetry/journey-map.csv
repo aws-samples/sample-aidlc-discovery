@@ -1,0 +1,12 @@
+journey,step,order,source,rum_view,backend_route,description
+disruption_rebooking,alert_opened,1,rum,push:disruption-alert,,Opens the disruption alert in the app or the email link on the web
+disruption_rebooking,trip_viewed,2,rum+trace,/trips/{id},GET /trips/{id},Sees the disrupted trip
+disruption_rebooking,alternatives_viewed,3,rum+trace,/trips/{id}/alternatives,GET /trips/{id}/alternatives,"Sees the other flights, without a way to choose one"
+disruption_rebooking,suggestion_kept,4,rum+trace,/trips/{id}/keep,POST /trips/{id}/keep-suggestion,Keeps the flight the airline chose: today's only self-service action
+disruption_rebooking,contact_us_tapped,4,rum,/help/contact,,Taps Contact us; the call that follows is not in the app's telemetry
+booking,search,1,rum+trace,/search,GET /search,Searches for flights
+booking,results,2,rum+trace,/results,GET /offers,Sees the results
+booking,fare_selected,3,rum,/fares,,Chooses a fare
+booking,extras,4,rum+trace,/extras,GET /ancillaries,"Sees seats, bags, and other extras"
+booking,payment,5,rum+trace,/payment,POST /payments,Pays
+booking,confirmed,6,rum,/confirmation,,Sees the booking confirmation
