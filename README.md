@@ -4,6 +4,8 @@ Agent skills that run a product discovery workshop in [Amazon Quick](https://aws
 
 Discovery is the part of the AI-Driven Development Lifecycle (AI-DLC) that decides what to build and for whom. When a team continues into AI-DLC, the brief takes the place of AI-DLC's own Ideation phase, and AI-DLC starts at Inception.
 
+**Workshop:** to learn the method hands-on, follow the [AI-DLC Discovery workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/cd263623-2478-48f8-b5bf-f7cd56d731f6/en-US) in AWS Workshop Studio.
+
 ## What this sample demonstrates
 
 - **A product method packaged as agent skills.** Five phases (Signals, Working Backwards, Prototype, Validate, Handoff), run by one entry skill that calls eleven job skills. Each job also works on its own.
