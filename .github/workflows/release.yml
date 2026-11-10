@@ -1,6 +1,6 @@
 name: Release v3
 
-# Builds the Amazon Quick skill bundle and publishes it as the latest release.
+# Builds the AWS Quick skill bundle and publishes it as the latest release.
 # Triggered by v3.*.* tags only; earlier lines keep their own workflows on their branches.
 on:
   push:

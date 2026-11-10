@@ -3,7 +3,7 @@ Decision: **commit, test the riskiest assumption first** (2026-10-29; to confirm
 
 ## Start the build
 Do not start the full build until the conditions below pass. When they do:
-1. Copy or commit the `discovery/` and `aidlc/` folders into the repository where the team will build. (Amazon Quick does not run AI-DLC.)
+1. Copy or commit the `discovery/` and `aidlc/` folders into the repository where the team will build. (AWS Quick does not run AI-DLC.)
 2. In that repository, run:
    ```text
    aidlc config --harness <claude | kiro | kiro-ide | codex | cursor | opencode | copilot>

@@ -4,7 +4,7 @@ A rehearsal for a facilitator who has never run a Discovery workshop. You play b
 
 **Before you start**
 - Install the skill (see `run-sheet.md`, "Before the day") and start a new chat.
-- Copy `samples/anycompany-air/` to a scratch folder and give Amazon Quick access to it. Keep the repository copy clean.
+- Copy `samples/anycompany-air/` to a scratch folder and give AWS Quick access to it. Keep the repository copy clean.
 - Read the scenario page, `README.md` in that folder. Do not read `facilitator/anycompany-air.md` yet: it holds the answers.
 - After each phase, compare your files with the matching folder in `facilitator/reference-runs/anycompany-air-with-team/`, made with this guide's answers.
 
@@ -20,13 +20,13 @@ A rehearsal for a facilitator who has never run a Discovery workshop. You play b
 
 Do this before the kickoff, so the start prompt can name it.
 
-**Recommended: everything in a Space.** The scenario page, the data, and the workshop all live in Amazon Quick: any of your chats can open them, you can share the Space with a colleague to rehearse a take-over, and it is all still there after the run. The sample data is fictional, so it can go in a Space; with a real team's data, see "Where the workshop is saved" in `run-sheet.md`.
-1. In Amazon Quick Desktop, open **Spaces**, then **Create space**, and name it yourself, for example `AnyCompany Air Discovery`.
+**Recommended: everything in a Space.** The scenario page, the data, and the workshop all live in AWS Quick: any of your chats can open them, you can share the Space with a colleague to rehearse a take-over, and it is all still there after the run. The sample data is fictional, so it can go in a Space; with a real team's data, see "Where the workshop is saved" in `run-sheet.md`.
+1. In AWS Quick Desktop, open **Spaces**, then **Create space**, and name it yourself, for example `AnyCompany Air Discovery`.
 2. Copy the sample into it. In a chat, attach the Space (the **+** menu, then **Spaces**) and your scratch folder (the **+** menu, then **Local folders**), and paste:
    ```
    Copy README.md and everything in discovery/data/, including the telemetry/ folder, from my dry-run-air folder to the AnyCompany Air Discovery space, keeping the same paths (README.md at the top, the data under discovery/data/). Then list the files in the space with their full paths and sizes.
    ```
-   Check that it lists 15 files, about 300 KB in total: README.md, 10 files in discovery/data/, and 4 in discovery/data/telemetry/. Approve the saves when Amazon Quick asks.
+   Check that it lists 15 files, about 300 KB in total: README.md, 10 files in discovery/data/, and 4 in discovery/data/telemetry/. Approve the saves when AWS Quick asks.
 3. Wait a minute for the Space to index the files, then start a **new chat** and attach **only the Space**.
 
 **Or only the folder.** Skip the Space; the data and the workshop stay in the scratch folder.
@@ -49,7 +49,7 @@ Use the name of your scratch folder if it differs. If a Space is attached and yo
 
 **Answer as the team:** the product (the website and app), the six roles (one team, no pods; the commercial director joins the kickoff and readout), the business metric (self-service rebooking rate for disrupted passengers, 12%), and the five candidate use cases from the scenario page.
 
-**Watch for:** a draft of the setup filled in from the scenario page, for you to confirm or correct in one step, a `PROJECT.md` file, and a note that sample data makes this a demonstration. With a Space: it confirms the Space's name, reads the scenario page from the Space, says Amazon Quick may ask you to approve each save (approve them), and `PROJECT.md` lands in the Space with a **Storage** line and a **Driver** line. In Signals, the data inventory should still show 400 text records from six sources: that is how you know it read every record in the Space.
+**Watch for:** a draft of the setup filled in from the scenario page, for you to confirm or correct in one step, a `PROJECT.md` file, and a note that sample data makes this a demonstration. With a Space: it confirms the Space's name, reads the scenario page from the Space, says AWS Quick may ask you to approve each save (approve them), and `PROJECT.md` lands in the Space with a **Storage** line and a **Driver** line. In Signals, the data inventory should still show 400 text records from six sources: that is how you know it read every record in the Space.
 
 **Answer:** when it asks whether the scope is right and how the room works, choose **Confirmed: one group** (or type it).
 
@@ -439,7 +439,7 @@ Write the brief.
 
 ## 6. Handoff and readout (10 min)
 
-**Watch for:** `handoff/discovery-brief.md` with 15 sections, the decision as section 2 in the team's words, the AI quality target in section 7 and the AI feature block in section 9, the conditions with who checks them and by when, and links that open. `handoff/next-steps.md` with the AI-DLC command to run in the build repository (Amazon Quick does not run AI-DLC; with a Space, it says to download the `discovery/anycompany-air/` and `aidlc/` folders from the Space into that repository, never the data), the conditions, and owners for the 7, 30, 60, and 90-day follow-ups, including the items still labelled Assumed and who sets them. It ends with a **roadmap for the product owner: Now, Next, Later**. Now: self-service rebooking and its conditions. Next: the deferred candidates, each with the evidence that would move it up and who gets it (for example bag tracking, with repeat calls per bag case). Later: the rest, with why, including the 3D seat map and its open hypothesis. Problems and metrics ordered by conditions, no delivery dates.
+**Watch for:** `handoff/discovery-brief.md` with 15 sections, the decision as section 2 in the team's words, the AI quality target in section 7 and the AI feature block in section 9, the conditions with who checks them and by when, and links that open. `handoff/next-steps.md` with the AI-DLC command to run in the build repository (AWS Quick does not run AI-DLC; with a Space, it says to download the `discovery/anycompany-air/` and `aidlc/` folders from the Space into that repository, never the data), the conditions, and owners for the 7, 30, 60, and 90-day follow-ups, including the items still labelled Assumed and who sets them. It ends with a **roadmap for the product owner: Now, Next, Later**. Now: self-service rebooking and its conditions. Next: the deferred candidates, each with the evidence that would move it up and who gets it (for example bag tracking, with repeat calls per bag case). Later: the rest, with why, including the 3D seat map and its open hypothesis. Problems and metrics ordered by conditions, no delivery dates.
 
 **Facilitator practice:** hand the roadmap to the product owner by name. It is theirs to keep current at each follow-up, not the facilitator's.
 
@@ -451,7 +451,7 @@ Write the brief.
 
 ## Rehearse a take-over (with a Space)
 
-If you saved the workshop in a Space, rehearse what happens when someone else takes over. Share the Space with a colleague as **Owner**; they attach it to a new chat in their own Amazon Quick (the **+** menu, then **Spaces**).
+If you saved the workshop in a Space, rehearse what happens when someone else takes over. Share the Space with a colleague as **Owner**; they attach it to a new chat in their own AWS Quick (the **+** menu, then **Spaces**).
 
 **Watch for:** it confirms the Space attached to the chat, writes `PROJECT.md` there with a Storage line and a Driver line, and saves every artifact at the usual `discovery/anycompany-air/` paths in the Space. After Signals, your colleague takes over in their own chat:
 ```

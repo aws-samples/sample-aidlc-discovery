@@ -11,7 +11,7 @@ For leaders or participants, keep slides 1–5, one slide per stage (the first s
 ## Opening
 
 ### 1. In one day, a team goes from customer feedback to a decision and a brief the build starts from
-- Five phases, about 6.5 working hours, run in Amazon Quick Desktop
+- Five phases, about 6.5 working hours, run in AWS Quick Desktop
 - The assistant drafts; the team decides
 - The team leaves with a decision, a clickable prototype, and the Discovery brief
 
@@ -62,12 +62,12 @@ For leaders or participants, keep slides 1–5, one slide per stage (the first s
 **Say:** Don't confirm the setup yourself. Ask, "Is anything here wrong or missing?"
 
 ### 6b. In a team Space, everyone follows and one person drives
-- Save the workshop in an Amazon Quick team Space: everyone attaches it, reads, asks questions, and opens the prototype
+- Save the workshop in an AWS Quick team Space: everyone attaches it, reads, asks questions, and opens the prototype
 - One driver at a time; anyone can take over with one prompt
 - Customer data stays out unless the Space is restricted to people allowed to see it
 
 **Show:** [`docs/team-space.md`](../../docs/team-space.md), the folder tree.
-**Say:** Nothing in the method changes; only where the files live. Optional, and Amazon Quick only.
+**Say:** Nothing in the method changes; only where the files live. Optional, and AWS Quick only.
 
 ### 7. Signals: beliefs go on record before the data speaks
 - Five questions, one at a time, before any analysis
@@ -147,7 +147,7 @@ For leaders or participants, keep slides 1–5, one slide per stage (the first s
 - The team picks which findings to fix; v1 is never overwritten
 - A fix that promises something unconfirmed is logged as Needs evidence
 
-**Show:** [`versions.md`](../../facilitator/reference-runs/anycompany-air/prototype/versions.md) and `compare.html` (open it in a browser; in Amazon Quick its frames show empty): v2 added the ticket number and "You don't need to call us"; the agency notice is logged Needs evidence.
+**Show:** [`versions.md`](../../facilitator/reference-runs/anycompany-air/prototype/versions.md) and `compare.html` (open it in a browser; in AWS Quick its frames show empty): v2 added the ticket number and "You don't need to call us"; the agency notice is logged Needs evidence.
 **Say:** "Looks good" at the first click-through is normal. The critique does the work.
 
 ---

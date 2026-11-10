@@ -1,4 +1,4 @@
-"""Bundle the separate skills under skills/ into one installable Amazon Quick skill.
+"""Bundle the separate skills under skills/ into one installable AWS Quick skill.
 
 The repository keeps one folder per skill, so each job is easy to edit and test.
 Installed, they become a single skill, `aidlc-discovery`: the entry skill's
@@ -31,7 +31,7 @@ MODULES = {
     "discovery-handoff": ("Handoff", "write the Discovery brief and next steps"),
     "discovery-signal-brief": ("Before Discovery", "write anonymized Signal Briefs"),
     "discovery-survey": ("After Discovery", "survey real users on open hypotheses"),
-    "discovery-team-space": ("Any phase, Amazon Quick only", "save Discovery artefacts in a team Space so several people can follow and take over"),
+    "discovery-team-space": ("Any phase, AWS Quick only", "save Discovery artefacts in a team Space so several people can follow and take over"),
 }
 
 

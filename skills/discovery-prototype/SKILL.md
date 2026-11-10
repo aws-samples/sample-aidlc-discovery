@@ -95,7 +95,7 @@ In `versions.md`, add one row per version: what changed, why (the critique findi
 Once there are two versions or more, write `prototype/compare.html` from `references/prototype-compare.md`, changing only its `COMPARE` list between the markers: one entry per version with its file and the change from `versions.md`, and `chosen` once Validate picks one. It shows the versions side by side on the Flow, Mobile, or Desktop view.
 
 ### Optional: In-codebase prototype
-When the working folder is the product's own repository and the harness can run code, the team can ask for a disposable prototype in the real product: follow `references/codebase-prototype.md`. It is never offered in Amazon Quick, and never started without the team asking.
+When the working folder is the product's own repository and the harness can run code, the team can ask for a disposable prototype in the real product: follow `references/codebase-prototype.md`. It is never offered in AWS Quick, and never started without the team asking.
 
 ## Output
 

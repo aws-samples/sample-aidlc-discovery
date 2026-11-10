@@ -90,7 +90,7 @@ Write `handoff/next-steps.md`, so what happens next does not live only in the ch
   /aidlc workshop Read ./discovery/{{project}}/handoff/discovery-brief.md and build what it describes, [product or feature name]
   ```
 
-  Use `/aidlc classic` when the team continues on its own. Amazon Quick does not run AI-DLC: tell the team to commit the `discovery/` folder to the repository where it will build, and run the command there.
+  Use `/aidlc classic` when the team continues on its own. AWS Quick does not run AI-DLC: tell the team to commit the `discovery/` folder to the repository where it will build, and run the command there.
 - **Commit with the team's own engineering or agents**: point to the brief as the build's starting document.
 - **Pivot or park**: what happens at the 30-day follow-up, from the decision file.
 

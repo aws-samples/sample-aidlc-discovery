@@ -34,9 +34,8 @@ Checks:
 
 Each run writes `.e2e/<timestamp>/` with every workspace, transcript, and cost, plus `report.md`. Calls are billed to the AWS account the Claude Code CLI uses, and `--budget-usd` caps every call.
 
-These runs test the method and the artifacts. They run in Claude Code, not Amazon Quick, so check a release in Amazon Quick by hand as well: import it, start Discovery on a sample, and build a prototype.
+These runs test the method and the artifacts. They run in Claude Code, not AWS Quick, so check a release in AWS Quick by hand as well: import it, start Discovery on a sample, and build a prototype.
 
 ## Team Space mode
 
-The automated tests run in Claude Code, which has no Amazon Quick Spaces, so they cover the local folder only. Test team Space mode by hand in Amazon Quick Desktop with two people, following "Optional: run it in a team Space" in `facilitator/dry-run-air.md`: the Space confirmed, `PROJECT.md` with the Storage and Driver lines, artifacts at the usual paths in the Space, the take-over, the stop when the other person tries to write, and no customer data in the Space.
-
+The automated tests run in Claude Code, which has no AWS Quick Spaces, so they cover the local folder only. Test team Space mode by hand in AWS Quick Desktop with two people, following "Optional: run it in a team Space" in `facilitator/dry-run-air.md`: the Space confirmed, `PROJECT.md` with the Storage and Driver lines, artifacts at the usual paths in the Space, the take-over, the stop when the other person tries to write, and no customer data in the Space.

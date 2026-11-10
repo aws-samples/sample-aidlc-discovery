@@ -14,7 +14,7 @@ scripts/samples/<slug>.py   the generator that writes discovery/
 facilitator/<slug>.md       spoilers: the designed truths and what good looks like
 ```
 
-The sample folder is the working folder a team gives Amazon Quick access to, so it holds no scripts and no answers: the assistant can read everything in it. Generators live under `scripts/samples/`, and facilitator notes under `facilitator/`.
+The sample folder is the working folder a team gives AWS Quick access to, so it holds no scripts and no answers: the assistant can read everything in it. Generators live under `scripts/samples/`, and facilitator notes under `facilitator/`.
 
 ## The scenario page (`README.md`)
 

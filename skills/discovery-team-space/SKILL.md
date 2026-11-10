@@ -2,7 +2,7 @@
 name: discovery-team-space
 display_name: "AI-DLC Discovery: Team Space"
 icon: "👥"
-description: "Saves AI-DLC Discovery in an Amazon Quick team Space instead of a local folder, so several people can follow, open, and take over the same Discovery from their own Amazon Quick Desktop. Amazon Quick only, and optional: without a Space, Discovery runs from a local folder as usual. Use when the team wants to share Discovery in a Space, take over from another driver, or run pods in one Space."
+description: "Saves AI-DLC Discovery in an AWS Quick team Space instead of a local folder, so several people can follow, open, and take over the same Discovery from their own AWS Quick Desktop. AWS Quick only, and optional: without a Space, Discovery runs from a local folder as usual. Use when the team wants to share Discovery in a Space, take over from another driver, or run pods in one Space."
 trigger: "team-space shared-discovery take-over"
 patterns:
   - pattern: '(?i)\b(?:team|shared)\s+space\b'
@@ -11,7 +11,7 @@ patterns:
     confidence: 0.85
 inputs:
   - name: space
-    description: "The Amazon Quick Space Discovery is saved in. The team creates and names it; use the Space attached to the chat."
+    description: "The AWS Quick Space Discovery is saved in. The team creates and names it; use the Space attached to the chat."
     type: string
     required: false
   - name: project
@@ -31,11 +31,11 @@ license: MIT-0
 
 ## Overview
 
-By default Discovery lives in one working folder on one laptop. With this skill it lives in an Amazon Quick **team Space** instead: the same `discovery/{{project}}/` files, saved in the Space, so everyone the Space is shared with can attach it in their own Amazon Quick Desktop, read every artifact, ask questions about it, open the prototype, and take over.
+By default Discovery lives in one working folder on one laptop. With this skill it lives in an AWS Quick **team Space** instead: the same `discovery/{{project}}/` files, saved in the Space, so everyone the Space is shared with can attach it in their own AWS Quick Desktop, read every artifact, ask questions about it, open the prototype, and take over.
 
-It works for one person too: Discovery then lives in Amazon Quick, and any of your chats can open it. It is a feature of Amazon Quick, not of the method. Nothing in the phases, the checkpoints, or the files changes. It only changes where the files are read from and written to, and it adds one rule: **one driver at a time**, because saving a file to a Space replaces it.
+It works for one person too: Discovery then lives in AWS Quick, and any of your chats can open it. It is a feature of AWS Quick, not of the method. Nothing in the phases, the checkpoints, or the files changes. It only changes where the files are read from and written to, and it adds one rule: **one driver at a time**, because saving a file to a Space replaces it.
 
-What Amazon Quick does, as relied on here: with a Space attached to the chat (the chat's **+** menu, then **Spaces**), a file can be saved into the Space at a folder path, saving it again replaces it with the same document, it can be read back word for word at once, and an HTML file saved there opens in the session tab. Search over the Space catches up a moment after a write; exact reads do not wait.
+What AWS Quick does, as relied on here: with a Space attached to the chat (the chat's **+** menu, then **Spaces**), a file can be saved into the Space at a folder path, saving it again replaces it with the same document, it can be read back word for word at once, and an HTML file saved there opens in the session tab. Search over the Space catches up a moment after a write; exact reads do not wait.
 
 ## Workflow
 
@@ -47,8 +47,8 @@ What Amazon Quick does, as relied on here: with a Space attached to the chat (th
 - **Validate**: The team confirmed the Space, and a test write of `PROJECT.md` reads back word for word
 - **On failure**: Ask the team to attach the Space to this chat (the **+** menu, then **Spaces**) and to check it is an Owner of it; otherwise offer to continue in a local folder
 
-1. **Find the team's Space.** The team creates the Space and chooses its name; do not invent one. If one Space is attached to this chat, use it and confirm its name with the team. If several are attached, ask which one. If none is, ask the team to create one (in Amazon Quick, **Spaces**, then **Create space**), share it with the people who will follow Discovery, and attach it to this chat with the **+** menu, then **Spaces**. Stop until it is attached. Use its name as `{{space}}` from here on.
-2. Tell the team that Amazon Quick may ask them to approve each save to the Space, and to approve it. Then write `PROJECT.md` to `discovery/{{project}}/` in the Space, with these lines under the scope, and read it back:
+1. **Find the team's Space.** The team creates the Space and chooses its name; do not invent one. If one Space is attached to this chat, use it and confirm its name with the team. If several are attached, ask which one. If none is, ask the team to create one (in AWS Quick, **Spaces**, then **Create space**), share it with the people who will follow Discovery, and attach it to this chat with the **+** menu, then **Spaces**. Stop until it is attached. Use its name as `{{space}}` from here on.
+2. Tell the team that AWS Quick may ask them to approve each save to the Space, and to approve it. Then write `PROJECT.md` to `discovery/{{project}}/` in the Space, with these lines under the scope, and read it back:
 
    ```markdown
    | Storage | Team Space: {{space}} | Confirmed |
@@ -84,7 +84,7 @@ The progress board's Location column shows Space paths, for example `Space {{spa
 - **Validate**: The team confirmed the take-over
 - **On failure**: If `PROJECT.md` is not in the Space, list the Space's `discovery/` folders and ask which project
 
-Someone else's Amazon Quick picks Discovery up with: "Continue AI-DLC Discovery for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [driver]. Start at [step]."
+Someone else's AWS Quick picks Discovery up with: "Continue AI-DLC Discovery for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [driver]. Start at [step]."
 
 Read `PROJECT.md` and the files the next step needs from the Space. Show who was driving and since when, and ask the previous driver to stop writing. Update the driver line, show the progress board, and continue at the step the team names. If the last write was moments ago, read it again before continuing, in case it was still being saved.
 
@@ -104,8 +104,8 @@ With pods, each pod is its own project in the Space, `discovery/{{project}}-[pod
 - **Validate**: The prototype opens in the session tab from its Space copy
 - **On failure**: If it does not open, save a local copy and open that
 
-- **Prototype.** Save every version to the Space, then open it in the session tab from the Space copy. Tell the team that anyone can open it the same way in their own Amazon Quick; opened from the Space in a browser, it downloads instead of showing. `compare.html` has the same limit as in a local folder: its frames cannot load the version files in the session tab.
-- **Handoff.** Write the brief and next steps to the Space as usual. There is no repository in a Space, so do not write `.gitignore`. The AI-DLC team knowledge file, `aidlc/spaces/[space]/knowledge/...`, is AI-DLC's own folder layout and has nothing to do with Amazon Quick Spaces: save it in the team Space at that path like any other artifact. In `next-steps.md`, say how to start the build: download the `discovery/{{project}}/` and `aidlc/` folders from the Space into the repository where the team will build, never the data.
+- **Prototype.** Save every version to the Space, then open it in the session tab from the Space copy. Tell the team that anyone can open it the same way in their own AWS Quick; opened from the Space in a browser, it downloads instead of showing. `compare.html` has the same limit as in a local folder: its frames cannot load the version files in the session tab.
+- **Handoff.** Write the brief and next steps to the Space as usual. There is no repository in a Space, so do not write `.gitignore`. The AI-DLC team knowledge file, `aidlc/spaces/[space]/knowledge/...`, is AI-DLC's own folder layout and has nothing to do with AWS Quick Spaces: save it in the team Space at that path like any other artifact. In `next-steps.md`, say how to start the build: download the `discovery/{{project}}/` and `aidlc/` folders from the Space into the repository where the team will build, never the data.
 
 ## Output
 
@@ -129,7 +129,7 @@ And in `PROJECT.md`, the Storage and Driver lines.
 ### Don't
 - Write while someone else is driving.
 - Copy data files into the team Space to make Signals easier.
-- Treat `aidlc/spaces/` as an Amazon Quick Space.
+- Treat `aidlc/spaces/` as an AWS Quick Space.
 
 ### Common Failures
 - **Two people wrote at once.** The last save wins. Ask both what they changed, re-read the file from the Space, and redo the lost change as the agreed driver.

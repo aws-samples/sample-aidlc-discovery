@@ -8,7 +8,7 @@ The messages to post in the call's chat, in order, ready to copy. Times follow "
 Tomorrow's AI-DLC Discovery train the trainer: pre-work, about 20 minutes. Please do it today, so we spend the session practising, not installing.
 
 1. Unzip the pack I sent you: the facilitator pack if you facilitate, the trainee pack otherwise.
-2. In Amazon Quick Desktop: Customize > Skills > Create > From folder, and choose the aidlc-discovery folder from the pack.
+2. In AWS Quick Desktop: Customize > Skills > Create > From folder, and choose the aidlc-discovery folder from the pack.
 3. Start a new chat and type: List my skills. Reply to this message with a screenshot. You should see AI-DLC Discovery Workshop.
 4. Open the anycompany-air folder from the pack and read its README.md, the scenario page. Read nothing else; the answers are hidden in the data.
 5. Open role-cards.html from the pack and find your card.
@@ -27,7 +27,7 @@ Welcome. Today you learn to facilitate an AI-DLC Discovery workshop by running o
 
 ```
 Breakout rules:
-- One team per breakout. The first facilitator shares Amazon Quick and follows dry-run-air.md (in the pack, facilitator folder).
+- One team per breakout. The first facilitator shares AWS Quick and follows dry-run-air.md (in the pack, facilitator folder).
 - Everyone else plays their role card, in their own words. Push back when your character would.
 - At 00:45 the second facilitator takes over the room. The first keeps sharing Quick and types what the second asks for.
 - Post one line in this chat when your team finishes a phase, for example: "Team 2: Signals done, ops lead challenged."
