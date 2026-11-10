@@ -12,7 +12,7 @@ the required Prototype artifact; this one is optional evidence.
 - The PRD exists and its P0 features touch user-facing screens or flows.
 - The team asks for it. Never start it by default.
 
-Skip it for greenfield products, for Amazon Quick (no repository), and when the
+Skip it for greenfield products, for AWS Quick (no repository), and when the
 team cannot run the product locally.
 
 ## Rules

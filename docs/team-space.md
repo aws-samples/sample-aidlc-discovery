@@ -1,12 +1,12 @@
 # Design: a team Space for collaborative Discovery
 
-Status: built as the optional `discovery-team-space` skill (Amazon Quick only). Checks 1 and 2 below are still to run with a second person.
+Status: built as the optional `discovery-team-space` skill (AWS Quick only). Checks 1 and 2 below are still to run with a second person.
 
 ## Problem
 
-Today one Amazon Quick Desktop runs Discovery and every artifact lives in that laptop's working folder. The rest of the team watches a shared screen. Nobody else can open the PR/FAQ, click through the prototype on their own phone view, ask a question about the signals, or take over without moving the folder. Pods each need their own laptop and folder, and their work never meets.
+Today one AWS Quick Desktop runs Discovery and every artifact lives in that laptop's working folder. The rest of the team watches a shared screen. Nobody else can open the PR/FAQ, click through the prototype on their own phone view, ask a question about the signals, or take over without moving the folder. Pods each need their own laptop and folder, and their work never meets.
 
-## What Amazon Quick can do
+## What AWS Quick can do
 
 Verified in Quick Desktop on 29 October 2026, with a Space attached to the chat (the chat's **+** menu, then **Spaces**):
 

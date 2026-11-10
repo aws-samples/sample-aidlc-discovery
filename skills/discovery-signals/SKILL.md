@@ -19,7 +19,7 @@ inputs:
     type: string
     default: production
   - name: data_location
-    description: "Where the data is: an Amazon Quick Space name, or a folder relative to the working folder. Usually discovery/data/ for production or synthetic data, and discovery/signal-briefs/ for Signal Briefs."
+    description: "Where the data is: an AWS Quick Space name, or a folder relative to the working folder. Usually discovery/data/ for production or synthetic data, and discovery/signal-briefs/ for Signal Briefs."
     type: string
     default: discovery/data/
 tools: [file_rag_search, file_read, file_read_pdf, file_read_docx, run_python, file_write]
@@ -99,7 +99,7 @@ Follow `references/hypothesis-generation.md`. Include the team's own hypotheses 
 Walk the team through the top three signals. Show five full customer quotes, not just theme names, so the team hears customers in their own words. Then ask what contradicts the top signals, and which segments or channels the data under-represents. Change the report where the team finds a real gap, and record the challenge where it does not.
 
 ### Optional: Current-product map
-When the working folder is the product's own repository, and the harness can read code, follow `references/current-product-map.md` to write `signals/current-product-map.md`. It is usually pre-work. It never blocks Discovery, and in Amazon Quick it is skipped.
+When the working folder is the product's own repository, and the harness can read code, follow `references/current-product-map.md` to write `signals/current-product-map.md`. It is usually pre-work. It never blocks Discovery, and in AWS Quick it is skipped.
 
 ### Optional: Research deep dive
 When the team wants to go deeper on one question, follow `references/research-analysis.md`.

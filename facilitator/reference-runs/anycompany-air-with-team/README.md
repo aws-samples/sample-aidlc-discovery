@@ -2,7 +2,7 @@
 
 **Facilitators only. Spoilers.**
 
-One complete Discovery run on the Air sample, facilitated by hand in Amazon Quick Desktop on 29 October 2026 by following `../../dry-run-air.md`, with the team's answers pasted from it. Unlike the unattended run (`../anycompany-air/`), every checkpoint here has a team decision in it: challenges, an override, changes to the prototype plan, and a decision review. It passes every automated check (`TESTING.md`).
+One complete Discovery run on the Air sample, facilitated by hand in AWS Quick Desktop on 29 October 2026 by following `../../dry-run-air.md`, with the team's answers pasted from it. Unlike the unattended run (`../anycompany-air/`), every checkpoint here has a team decision in it: challenges, an override, changes to the prototype plan, and a decision review. It passes every automated check (`TESTING.md`).
 
 **Made before the telemetry and skill 3.0.0.** This run has no Say and do table, no telemetry evidence, no roadmap in `next-steps.md`, no candidates from Signals, no separate buyer and end-user personas, no AI feature block, and no AI quality target; a run today has all of them.
 
@@ -16,4 +16,4 @@ What it shows that the unattended run cannot:
 - **A decision that refused to be rushed.** [validate/decision.md](validate/decision.md): the decision was given early, saved as intent, and recorded only after the pre-mortem, with three ordered conditions, each with an owner and a follow-up.
 - **The handoff.** [handoff/discovery-brief.md](handoff/discovery-brief.md) and [handoff/next-steps.md](handoff/next-steps.md), with the AI-DLC command and the owners of every open item.
 
-Open `prototype/compare.html` in a browser, not in Amazon Quick's session tab, where its frames stay empty.
+Open `prototype/compare.html` in a browser, not in AWS Quick's session tab, where its frames stay empty.

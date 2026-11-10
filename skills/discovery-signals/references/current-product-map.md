@@ -13,7 +13,7 @@ technical debt stay with AI-DLC Reverse Engineering, which runs at Inception.
 - Run it as pre-work before Discovery starts, with the engineering lead, in
   about an hour. It can also run at the start of Signals.
 
-Skip it when there is no related codebase (greenfield) or in Amazon Quick. A
+Skip it when there is no related codebase (greenfield) or in AWS Quick. A
 missing map never blocks Discovery or the Handoff.
 
 ## Rules

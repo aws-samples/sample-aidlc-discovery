@@ -68,10 +68,10 @@
 
 <!-- ============================== TEAM SPACE ============================== -->
 <section class="phase ph0">
-<p class="kicker">Any stage · optional · Amazon Quick only</p>
+<p class="kicker">Any stage · optional · AWS Quick only</p>
 <h2>Team Space</h2>
 <p class="q">Where is the workshop saved, and who writes to it?</p>
-<p class="slide">Save the workshop in a team Space, and everyone can follow it, open the prototype, and take over from their own Amazon Quick. One driver at a time.</p>
+<p class="slide">Save the workshop in a team Space, and everyone can follow it, open the prototype, and take over from their own AWS Quick. One driver at a time.</p>
 <dl class="facts">
 <dt>Skill</dt><dd><a href="../../skills/discovery-team-space/SKILL.md"><code>discovery-team-space</code></a>. On when <code>storage: space</code> is set in the config, or when the team asks at kickoff ("save the workshop in our team Space"). With a Space attached and <code>storage</code> empty, it asks once: "Save the workshop in the [space] Space, or in this folder?" Design: <a href="../../docs/team-space.md">docs/team-space.md</a>.</dd>
 <dt>Before the day</dt><dd>The team creates and names the Space, shares it as <b>Owners</b> with everyone who may follow or take over, and each person attaches it to their chat (the <b>+</b> menu, then <b>Spaces</b>). The skill test-writes <code>PROJECT.md</code>, reads it back, and adds Storage and Driver lines.</dd>
@@ -94,7 +94,7 @@
 <dl class="facts">
 <dt>Skill</dt><dd><a href="../../skills/aidlc-discovery/SKILL.md"><code>aidlc-discovery</code></a>, Step 1.</dd>
 <dt>Confirms, in order</dt><dd>The product and who uses it; who is in the room and whether they split into pods; the business metric with its current value; the data input (<code>production</code>, <code>signal-briefs</code>, <code>synthetic</code>) and where it is; the engagement reference (never a CRM or account identifier).</dd>
-<dt>Where it's saved</dt><dd>A local working folder, or a team Space (recommended in Amazon Quick; see above). The start prompt names it: "Start an AI-DLC Discovery workshop. Project: [name]. Engagement reference: [reference or Self-serve]. Save the workshop in the [Space name] space. Data: [input], in [folder]." Leave out the Space sentence for a local folder.</dd>
+<dt>Where it's saved</dt><dd>A local working folder, or a team Space (recommended in AWS Quick; see above). The start prompt names it: "Start an AI-DLC Discovery workshop. Project: [name]. Engagement reference: [reference or Self-serve]. Save the workshop in the [Space name] space. Data: [input], in [folder]." Leave out the Space sentence for a local folder.</dd>
 <dt>Leaves</dt><dd><code>discovery/[project]/PROJECT.md</code>: scope, choices, phase status (and, with a Space, Storage and Driver).</dd>
 <dt>Good looks like</dt><dd>It drafts the setup from what it can find and asks the room to confirm. The product owner confirms the business metric aloud, because everything is scored against it.</dd>
 <dt>Facilitator move</dt><dd>Don't confirm the setup yourself; ask the product owner "Is anything here wrong or missing?" If the sponsor leaves after kickoff, ask them now whether this is the metric they care about.</dd>
@@ -213,7 +213,7 @@
 <dt>Leaves</dt><dd><code>prototype/v1.html</code>, <code>v2.html</code>…, <code>index.html</code> (current), <code>versions.md</code>, <code>compare.html</code>, <code>persona-critique.md</code>, <code>notes.md</code></dd>
 <dt>Checkpoint</dt><dd>"Here is what your personas said and what we changed. Ready to try to break it?"</dd>
 <dt>Facilitator moves</dt><dd>When the assistant changes the agreed plan, read each change and ask its owner "Keep it, or change it back?" Mark claims on screen nobody has confirmed as Needs evidence. "Looks good" at the first click-through is fine; the critique finds the problems. When the assistant asks a factual question (what time does the line close?), get the answer from the person who knows, or mark it Needs evidence. Fix first what touches the riskiest assumption, then what is cheap; if a finding changes what the assumption means, update it now.</dd>
-<dt>Goes wrong</dt><dd>One plain page: it didn't build from the shell. Looks finished but tests nothing: go back to the test moment. The team iterates on colours: ask what the persona would trip over. The compare page shows empty frames in Amazon Quick: open <code>compare.html</code> from the working folder in a browser.</dd>
+<dt>Goes wrong</dt><dd>One plain page: it didn't build from the shell. Looks finished but tests nothing: go back to the test moment. The team iterates on colours: ask what the persona would trip over. The compare page shows empty frames in AWS Quick: open <code>compare.html</code> from the working folder in a browser.</dd>
 </dl>
 </section>
 
@@ -265,7 +265,7 @@
 <dl class="facts">
 <dt>Leaves</dt><dd><code>handoff/discovery-brief.md</code>, <code>handoff/next-steps.md</code></dd>
 <dt>Facilitator move</dt><dd>Before the brief, confirm, change, or label as a proposal everything the assistant drafted on the team's behalf (the reason, interim targets, kill criteria, owners). The brief carries it to engineering as if the team had decided it.</dd>
-<dt>In a team Space</dt><dd>No <code>.gitignore</code>, because there is no repository. Next steps say to download <code>discovery/[project]/</code> and <code>aidlc/</code> from the Space into the build repository, never the data. <code>aidlc/spaces/</code> is AI-DLC's own folder layout, not an Amazon Quick Space.</dd>
+<dt>In a team Space</dt><dd>No <code>.gitignore</code>, because there is no repository. Next steps say to download <code>discovery/[project]/</code> and <code>aidlc/</code> from the Space into the build repository, never the data. <code>aidlc/spaces/</code> is AI-DLC's own folder layout, not an AWS Quick Space.</dd>
 <dt>Checkpoint</dt><dd>"Could an engineer who wasn't here start from this brief?"</dd>
 <dt>Why it matters</dt><dd>When a team continues into <a href="https://github.com/awslabs/aidlc-workflows">AI-DLC</a>, the brief replaces AI-DLC's own Ideation phase, and AI-DLC starts at Inception. The brief is written for every decision, including park.</dd>
 </dl>

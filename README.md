@@ -1,6 +1,6 @@
-# AI-DLC Discovery skills for Amazon Quick
+# AI-DLC Discovery skills for AWS Quick
 
-Agent skills that run product discovery in [Amazon Quick](https://aws.amazon.com/quick/) Desktop. A product engineering team brings its customer feedback and leaves with a decision on what to build first, a clickable prototype, and a **Discovery brief**: one document the build starts from, whether the team builds it itself, with agents, or with [AI-DLC](https://github.com/awslabs/aidlc-workflows).
+Agent skills that run product discovery in [AWS Quick](https://aws.amazon.com/quick/) Desktop. A product engineering team brings its customer feedback and leaves with a decision on what to build first, a clickable prototype, and a **Discovery brief**: one document the build starts from, whether the team builds it itself, with agents, or with [AI-DLC](https://github.com/awslabs/aidlc-workflows).
 
 Discovery is the part of the AI-Driven Development Lifecycle (AI-DLC) that decides what to build and for whom. When a team continues into AI-DLC, the brief takes the place of AI-DLC's own Ideation phase, and AI-DLC starts at Inception.
 
@@ -42,12 +42,12 @@ A team can run the phases in one sitting or across several sessions; every artif
 | `discovery-signal-brief` | Before Discovery | Optional. The team writes anonymized Signal Briefs from its own data |
 | `discovery-survey` | After Discovery | Optional. Surveys that test the open hypotheses with real users, and a results dashboard |
 
-In this repository each skill is its own folder under [`skills/`](skills/), with a `SKILL.md` and, where needed, `references/` that hold the detailed prompts, so each job is easy to read, change, and test. For installation, [`scripts/build.py`](scripts/build.py) bundles them into **one** skill, `aidlc-discovery`, with a module per job that loads only when its step runs. You install, update, and remove one item. The skills follow the [Agent Skills](https://agentskills.io/) format and Amazon Quick's skill conventions.
+In this repository each skill is its own folder under [`skills/`](skills/), with a `SKILL.md` and, where needed, `references/` that hold the detailed prompts, so each job is easy to read, change, and test. For installation, [`scripts/build.py`](scripts/build.py) bundles them into **one** skill, `aidlc-discovery`, with a module per job that loads only when its step runs. You install, update, and remove one item. The skills follow the [Agent Skills](https://agentskills.io/) format and AWS Quick's skill conventions.
 
 ## Prerequisites
 
-- **Amazon Quick Desktop** on macOS or Windows, signed in to any Amazon Quick plan. Skills and plugins run only in the Desktop app.
-- A folder on your computer that Amazon Quick can access. Discovery saves everything there.
+- **AWS Quick Desktop** on macOS or Windows, signed in to any AWS Quick plan. Skills and plugins run only in the Desktop app.
+- A folder on your computer that AWS Quick can access. Discovery saves everything there.
 
 ## Install
 
@@ -58,18 +58,18 @@ In this repository each skill is its own folder under [`skills/`](skills/), with
    ```
 
    This writes `dist/aidlc-discovery/`: the plugin manifest and one skill, `aidlc-discovery`, with its modules.
-2. In Amazon Quick Desktop, open **Customize**, then **Skills**, choose **Create**, then **From folder**. Select the unzipped `aidlc-discovery` folder, or `dist/aidlc-discovery` if you built it.
+2. In AWS Quick Desktop, open **Customize**, then **Skills**, choose **Create**, then **From folder**. Select the unzipped `aidlc-discovery` folder, or `dist/aidlc-discovery` if you built it.
 3. In a new chat, ask `List my skills`. You should see one skill, **AI-DLC Discovery**.
 
-**How Amazon Quick stores the skill.** Importing from a folder uploads a snapshot of the skill to Amazon Quick's own storage. Amazon Quick reads that snapshot, not the folder on your computer, so you can move or delete the folder after importing, and changing files in it has no effect until you import again.
+**How AWS Quick stores the skill.** Importing from a folder uploads a snapshot of the skill to AWS Quick's own storage. AWS Quick reads that snapshot, not the folder on your computer, so you can move or delete the folder after importing, and changing files in it has no effect until you import again.
 
 **To update:** delete **AI-DLC Discovery** in **Customize**, **Skills** (the ⋮ menu on its row); build again (or download and unzip the new release); import the new `aidlc-discovery` folder; and start a new chat. Check the version in `List my skills`.
 
-Copying the skill folder by hand into the Amazon Quick profile folder is not a supported install: Amazon Quick may not pick up later changes to it. Import from a folder.
+Copying the skill folder by hand into the AWS Quick profile folder is not a supported install: AWS Quick may not pick up later changes to it. Import from a folder.
 
-**Saving Discovery in a Space (recommended in Amazon Quick).** Save Discovery in a Space instead of a local folder, and everyone the Space is shared with can follow it, open the prototype, and take over from their own Amazon Quick Desktop. The team creates and names the Space, attaches it to the chat, and says "save Discovery in our team Space" at setup. One person drives at a time, and the customer data stays out of the Space. See `skills/discovery-team-space/SKILL.md` and [docs/team-space.md](docs/team-space.md). Without a Space, nothing changes.
+**Saving Discovery in a Space (recommended in AWS Quick).** Save Discovery in a Space instead of a local folder, and everyone the Space is shared with can follow it, open the prototype, and take over from their own AWS Quick Desktop. The team creates and names the Space, attaches it to the chat, and says "save Discovery in our team Space" at setup. One person drives at a time, and the customer data stays out of the Space. See `skills/discovery-team-space/SKILL.md` and [docs/team-space.md](docs/team-space.md). Without a Space, nothing changes.
 
-**Viewing prototypes.** Prototypes open in Amazon Quick's session tab, and as plain files in any browser. If a view does not switch in the session tab, open the file from your working folder (`discovery/[project]/prototype/`).
+**Viewing prototypes.** Prototypes open in AWS Quick's session tab, and as plain files in any browser. If a view does not switch in the session tab, open the file from your working folder (`discovery/[project]/prototype/`).
 
 ## What Discovery covers
 
@@ -88,7 +88,7 @@ Two samples are ready to run. AnyCompany Air is the default: start there if you 
 
 Each sample's `README.md` is the scenario page: the company, who is on the team and what they believe, the business metric with its baseline, the candidate use cases the team brings, and the prompt that starts Discovery. To run one:
 
-1. In Amazon Quick Desktop, open **Settings**, then **My computer**, then **Local folders**, and add the sample's folder, for example `samples/anycompany-air`.
+1. In AWS Quick Desktop, open **Settings**, then **My computer**, then **Local folders**, and add the sample's folder, for example `samples/anycompany-air`.
 2. Start Discovery with the prompt on the sample's page, and answer the setup questions as that team.
 
 The skill asks for the team's own hypotheses before it shows any analysis, and stops for review at the end of every phase. With sample data it says the run is a demonstration: the flow is real, but the brief is not evidence for a build.
@@ -99,7 +99,7 @@ The skill asks for the team's own hypotheses before it shows any analysis, and s
 
 Choose how the data comes in at setup:
 
-- **Production data** (the default). Feedback the team can load into its own Amazon Quick: exports in `discovery/data/` in the working folder, or a Space with connectors to the team's sources. JSON, CSV, Excel, PDF, DOCX, and plain text work.
+- **Production data** (the default). Feedback the team can load into its own AWS Quick: exports in `discovery/data/` in the working folder, or a Space with connectors to the team's sources. JSON, CSV, Excel, PDF, DOCX, and plain text work.
 - **Signal Briefs.** When the data cannot be loaded into a tool for Discovery, the team runs `discovery-signal-brief` in its own environment to write one anonymized page per customer problem, and brings only the briefs.
 - **Synthetic dataset.** When neither is possible yet, prepare a dataset beforehand, and plan a follow-up on real data.
 
@@ -139,19 +139,19 @@ aidlc config --harness <claude | kiro | kiro-ide | codex | cursor | opencode | c
 /aidlc workshop Read ./discovery/[project]/handoff/discovery-brief.md and build what it describes, [product or feature name]
 ```
 
-Use `/aidlc classic` when the team continues on its own instead of in an AI-DLC workshop. AI-DLC reads the brief as its single input and generates the requirements, user stories, and design from it. Amazon Quick does not run AI-DLC itself, so the skills print the command and stop.
+Use `/aidlc classic` when the team continues on its own instead of in an AI-DLC workshop. AI-DLC reads the brief as its single input and generates the requirements, user stories, and design from it. AWS Quick does not run AI-DLC itself, so the skills print the command and stop.
 
 ## Things to know
 
 - **Personas are synthetic.** They are drawn from the data, but they are not customers. Validate never waits for surveys; the real-user test of the prototype, and the open hypotheses, belong in the follow-up. `discovery-survey` helps with that.
 - **The prototype is a single HTML file** with no backend, meant to start a conversation. Surveys are generated as HTML previews and as questions to paste into a form tool, because the assistant cannot host a form.
-- **Amazon Quick changes often.** Menu names in these instructions may differ slightly in your version.
-- **The skills are tool-agnostic in format,** but Amazon Quick Desktop is the tool they are written and tested for. The in-codebase prototype and the current-product map need a tool that can read and run code, and are skipped in Amazon Quick.
+- **AWS Quick changes often.** Menu names in these instructions may differ slightly in your version.
+- **The skills are tool-agnostic in format,** but AWS Quick Desktop is the tool they are written and tested for. The in-codebase prototype and the current-product map need a tool that can read and run code, and are skipped in AWS Quick.
 
 ## Repository layout
 
 ```text
-plugin.json, mcps.json, tasks.json   plugin manifest for Amazon Quick Desktop
+plugin.json, mcps.json, tasks.json   plugin manifest for AWS Quick Desktop
 skills/                              the twelve skills, one folder each (the source)
 scripts/build.py                     bundles skills/ into one installable skill in dist/
 samples/                             two runnable business cases, and how they are built

@@ -21,11 +21,11 @@ The guide uses AnyCompany Air, the default sample.
 Share the packs privately, not in a public place. `train-the-trainer-chat.md` has the pre-work message and every message to post during the 2-hour session.
 
 **Trainees, before they arrive** (send this the day before):
-- Install the skill in Amazon Quick Desktop with **Create**, **From folder**, start a new chat, and run `List my skills`. Bring a screenshot of the result. Everyone installs, not only the facilitators: anyone may need to take over, and the homework needs it.
-- Copy `samples/anycompany-air/` to a scratch folder Amazon Quick can access.
+- Install the skill in AWS Quick Desktop with **Create**, **From folder**, start a new chat, and run `List my skills`. Bring a screenshot of the result. Everyone installs, not only the facilitators: anyone may need to take over, and the homework needs it.
+- Copy `samples/anycompany-air/` to a scratch folder AWS Quick can access.
 - Read the scenario page, `README.md` in that folder. Nothing else.
 - Tell trainees which team they are in, who facilitates each half, and which role card they play.
-- **One Space per team (recommended).** The first facilitator of each team creates a Space and names it (for example "Team 2 AnyCompany Air"), copies the AnyCompany Air sample into it (the copy prompt in `dry-run-air.md`, step 0), and shares it with the team as **Owners**. Everyone attaches it to a new chat before the session. Then every trainee follows the run in their own Amazon Quick, not only on a shared screen, and the second facilitator takes over from their own chat.
+- **One Space per team (recommended).** The first facilitator of each team creates a Space and names it (for example "Team 2 AnyCompany Air"), copies the AnyCompany Air sample into it (the copy prompt in `dry-run-air.md`, step 0), and shares it with the team as **Owners**. Everyone attaches it to a new chat before the session. Then every trainee follows the run in their own AWS Quick, not only on a shared screen, and the second facilitator takes over from their own chat.
 
 Installs are the most common failure. Every minute spent fixing one in the session comes out of practice time.
 
@@ -34,7 +34,7 @@ Installs are the most common failure. Every minute spent fixing one in the sessi
 - **Optional roles**, for teams of 6 or more: UX designer, commercial director. In a smaller team, the facilitator of the other half plays them, or someone holds two cards.
 - **Observer**, for a seventh person: watches the facilitator against the "Facilitator practice" tips in `run-sheet.md` and reports two things at the debrief.
 
-**Room:** one laptop per team, with Amazon Quick Desktop signed in, on a screen everyone can see. A screen for the trainer. Print `role-cards.html` (open it in a browser, then print), one sheet per team, and cut along the lines.
+**Room:** one laptop per team, with AWS Quick Desktop signed in, on a screen everyone can see. A screen for the trainer. Print `role-cards.html` (open it in a browser, then print), one sheet per team, and cut along the lines.
 
 ## Agenda (in person, 3.5 hours)
 
@@ -90,7 +90,7 @@ The printable version is `role-cards.html`. Play the person, not the answer: say
 
 ## If a run stalls
 
-Amazon Quick can be slow, or a team's run can go wrong in a way that would take the rest of the session to fix. Don't let a team sit and wait. Move them to the matching folder of `reference-runs/anycompany-air/` for the rest of that phase, and have them debrief from those files. They can rejoin their own run at the next phase or in their solo dry run.
+AWS Quick can be slow, or a team's run can go wrong in a way that would take the rest of the session to fix. Don't let a team sit and wait. Move them to the matching folder of `reference-runs/anycompany-air/` for the rest of that phase, and have them debrief from those files. They can rejoin their own run at the next phase or in their solo dry run.
 
 ## Running it remotely
 
@@ -108,7 +108,7 @@ The same agenda works on a video call with breakout rooms. What changes is how y
 - Prepare a shared progress list (a document or a chat thread) where each team posts one line when it finishes a phase: "Team 3: Signals done, ops lead challenged."
 
 **In the call.**
-- **Screen share inside the breakout.** The facilitator shares Amazon Quick. Role players keep their cameras on and answer out loud, in role; the facilitator types or pastes their answers. At the halfway point, the first facilitator keeps sharing and the second takes over the room and drives by voice. That avoids moving the working folder in the middle of the session.
+- **Screen share inside the breakout.** The facilitator shares AWS Quick. Role players keep their cameras on and answer out loud, in role; the facilitator types or pastes their answers. At the halfway point, the first facilitator keeps sharing and the second takes over the room and drives by voice. That avoids moving the working folder in the middle of the session.
 - **Debrief in the chat, not in the main room.** Moving everyone out of breakouts and back costs 3 to 5 minutes each time. Post the debrief questions in the chat at each phase, and teams answer in a thread. Bring everyone back only three times: the break, the readouts, and the failure drill.
 - **Visit the breakouts** in rotation, and spend longest with teams whose progress line is missing.
 - **Keep the clock in the chat.** Post "10 minutes left in Signals" warnings. A remote room drifts faster than a physical one.

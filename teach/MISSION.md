@@ -15,6 +15,6 @@ Train new facilitators to run the AI-DLC Discovery workshop, and build presentat
 - Lessons are short, with a quiz for retrieval. Reference sheets must print well.
 
 ## Out of scope
-- Installing or debugging Amazon Quick.
+- Installing or debugging AWS Quick.
 - Changing the skills themselves.
 - The AI-DLC build lifecycle after Handoff.

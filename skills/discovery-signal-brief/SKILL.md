@@ -25,7 +25,7 @@ license: MIT-0
 
 ## Overview
 
-A Signal Brief lets a team bring its customer evidence to Discovery without bringing the data. The team runs this skill in its own Amazon Quick, on its own data, a few days before Discovery starts. For each customer problem, it writes one page: the theme, the job the customer is trying to do, anonymized evidence with volumes, impact, confidence, the segment, and a suggested next step. Only the briefs come to Discovery.
+A Signal Brief lets a team bring its customer evidence to Discovery without bringing the data. The team runs this skill in its own AWS Quick, on its own data, a few days before Discovery starts. For each customer problem, it writes one page: the theme, the job the customer is trying to do, anonymized evidence with volumes, impact, confidence, the segment, and a suggested next step. Only the briefs come to Discovery.
 
 ## Workflow
 

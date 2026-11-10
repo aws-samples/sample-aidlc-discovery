@@ -23,7 +23,7 @@
 <ol class="steps">
 <li><b>Check the required artifacts.</b> Thirteen files, from <code>team-hypotheses.md</code> to <code>decision.md</code>, plus a current-product map when there's a codebase. Anything missing is listed with the skill that produces it. <b>It never writes a partial brief.</b></li>
 <li><b>Write the brief:</b> exactly 15 sections, in order, under 200,000 characters, summarising and linking rather than copying.</li>
-<li><b>AI-DLC team knowledge and data protection.</b> When the route is AI-DLC, every persona is written in full to <code>aidlc/spaces/[space]/knowledge/aidlc-product-agent/discovery-personas.md</code>, so AI-DLC's product agent loads them. With a local folder, <code>discovery/data/</code> goes into <code>.gitignore</code>. In a team Space there is no repository, so no <code>.gitignore</code>: next steps say to download <code>discovery/[project]/</code> and <code>aidlc/</code> from the Space into the build repository, never the data. (<code>aidlc/spaces/</code> is AI-DLC's own folder layout, not an Amazon Quick Space.)</li>
+<li><b>AI-DLC team knowledge and data protection.</b> When the route is AI-DLC, every persona is written in full to <code>aidlc/spaces/[space]/knowledge/aidlc-product-agent/discovery-personas.md</code>, so AI-DLC's product agent loads them. With a local folder, <code>discovery/data/</code> goes into <code>.gitignore</code>. In a team Space there is no repository, so no <code>.gitignore</code>: next steps say to download <code>discovery/[project]/</code> and <code>aidlc/</code> from the Space into the build repository, never the data. (<code>aidlc/spaces/</code> is AI-DLC's own folder layout, not an AWS Quick Space.)</li>
 <li><b>Next steps.</b> <code>handoff/next-steps.md</code> says what happens by decision, lists any conditions before the build, and the follow-ups, so what happens next doesn't live only in the chat.</li>
 </ol>
 
@@ -124,7 +124,7 @@
     <button class="opt">Prints the start command and stops there</button>
     <button class="opt">Runs AI-DLC Ideation on the brief first</button>
   </div>
-  <div class="why">It prints the command and never starts AI-DLC: the build is a separate session in the build repository, often days later. Amazon Quick doesn't run AI-DLC, and the brief replaces Ideation rather than feeding it.</div>
+  <div class="why">It prints the command and never starts AI-DLC: the build is a separate session in the build repository, often days later. AWS Quick doesn't run AI-DLC, and the brief replaces Ideation rather than feeding it.</div>
 </div>
 
 <div class="quiz" data-correct="0">

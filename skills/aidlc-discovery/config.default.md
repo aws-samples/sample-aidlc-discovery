@@ -6,7 +6,7 @@
 # How the customer data comes in: production | signal-briefs | synthetic
 data_input: "production"
 
-# Where it is: a folder relative to the working folder, or an Amazon Quick Space name.
+# Where it is: a folder relative to the working folder, or an AWS Quick Space name.
 # Recommended folder: "discovery/data/", which Handoff keeps out of git.
 data_location: "discovery/data/"
 ```
@@ -14,7 +14,7 @@ data_location: "discovery/data/"
 ## Output Settings
 
 ```yaml
-# Where Discovery is saved: local (the working folder) | space (an Amazon Quick team Space, see discovery-team-space)
+# Where Discovery is saved: local (the working folder) | space (an AWS Quick team Space, see discovery-team-space)
 storage: "local"
 
 # With storage: space, the team Space. The team creates and names it; empty: use the Space attached to the chat

@@ -36,7 +36,7 @@ Design the prototype as a product team would show it to its sponsor:
 - **Accessible:** text contrast of at least 4.5:1, tap targets of at least 44 pixels, visible focus, and readable at 100% zoom.
 - **Calm motion only:** short fades or slides between screens, respecting `prefers-reduced-motion`.
 
-In Amazon Quick, also follow the bundled `html_design` skill's design principles where they apply.
+In AWS Quick, also follow the bundled `html_design` skill's design principles where they apply.
 
 ## Technical rules
 

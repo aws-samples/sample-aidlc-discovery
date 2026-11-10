@@ -59,9 +59,9 @@ About 300 KB in total, fine for a local folder or a Space.
 ## Later steps
 
 - **Step 3, the telemetry brief job:** writes the queries a team runs in its own environment to produce the four tables: CloudWatch Logs Insights and RUM, Datadog queries, and Athena over OpenTelemetry exports in S3, with identifiers removed at the source.
-- **Step 4, live access:** the CloudWatch and Datadog MCP servers, for a weekly Quick Flow in continuous discovery, after checking MCP works in Amazon Quick.
+- **Step 4, live access:** the CloudWatch and Datadog MCP servers, for a weekly Quick Flow in continuous discovery, after checking MCP works in AWS Quick.
 
 ## Open questions
 
-1. Resolved: Signals in Amazon Quick handles CSVs of this size (confirmed 2026-10-30).
+1. Resolved: Signals in AWS Quick handles CSVs of this size (confirmed 2026-10-30).
 2. Resolved: one sample is enough; the Supply sample was removed (2026-10-30).

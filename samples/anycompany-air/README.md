@@ -89,8 +89,8 @@ Customers appear only as a segment or a code such as "Customer 0412". Staff appe
 
 ## How to run it
 
-1. Give Amazon Quick access to this folder (`samples/anycompany-air`).
-   Optional, recommended: create a Space in Amazon Quick and name it yourself (**Spaces**, then **Create space**), attach it and this folder to a chat (the **+** menu), and ask Quick to copy `README.md` and the `discovery/` data folder into the Space, keeping the same paths. Then work from a new chat with only the Space attached: the scenario, the data, and the Discovery artifacts all live in the Space, and you can share it with your team. The data is fictional, so it can go in a Space.
+1. Give AWS Quick access to this folder (`samples/anycompany-air`).
+   Optional, recommended: create a Space in AWS Quick and name it yourself (**Spaces**, then **Create space**), attach it and this folder to a chat (the **+** menu), and ask Quick to copy `README.md` and the `discovery/` data folder into the Space, keeping the same paths. Then work from a new chat with only the Space attached: the scenario, the data, and the Discovery artifacts all live in the Space, and you can share it with your team. The data is fictional, so it can go in a Space.
 2. Start Discovery:
 
    ```text
