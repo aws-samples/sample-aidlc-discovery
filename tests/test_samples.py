@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SAMPLES = ["anycompany-air", "anycompany-health"]
 README_SECTIONS = [
-    "The company and its product", "Customers and segments", "Who is in the room",
+    "The company and its product", "Customers and segments", "The team",
     "The business metric", "Candidate use cases the team brings", "The data", "How to run it",
 ]
 EXPECTATION_KEYS = ["top_signal", "loud_request", "distractor_fails_gate", "build_first_or_learn", "data_input"]

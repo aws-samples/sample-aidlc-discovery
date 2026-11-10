@@ -58,9 +58,9 @@ def prepare(workspace: Path, skill: Path, slug: str, project: str, data_input: s
     subprocess.run(["git", "init", "-q"], cwd=workspace, check=True)
     location = "discovery/signal-briefs/" if data_input == "signal-briefs" else "discovery/data/"
     (workspace / "config.md").write_text(
-        "# AI-DLC Discovery Workshop Configuration (end-to-end test)\n\n```yaml\n"
+        "# AI-DLC Discovery Configuration (end-to-end test)\n\n```yaml\n"
         f'data_input: "{data_input}"\ndata_location: "{location}"\n'
-        f'project: "{project}"\nengagement_reference: "E2E-{project}"\nunattended: {"true" if unattended else "false"}\n'
+        f'project: "{project}"\nunattended: {"true" if unattended else "false"}\n'
         "default_days: 0  # 0 means the whole period in the data\n```\n", encoding="utf-8")
 
 
@@ -108,7 +108,7 @@ def run_leg(leg: str, short: str, out: Path, skill: Path, args: argparse.Namespa
         save(folder, "transcript", r)
         cost += r.get("total_cost_usd", 0) or 0
         cache[short] = ws
-        return checks.check_workshop(ws, project, f"E2E-{project}") + checks.check_outcome(ws, project, exp), cost
+        return checks.check_workshop(ws, project) + checks.check_outcome(ws, project, exp), cost
 
     if leg == "mismatch":
         prepare(ws, skill, slug, project, data_input, unattended=True)
@@ -149,7 +149,7 @@ def run_leg(leg: str, short: str, out: Path, skill: Path, args: argparse.Namespa
             cost += r.get("total_cost_usd", 0) or 0
             turns.append({"facilitator": r.get("result", "")})
         (folder / "conversation.json").write_text(json.dumps(turns, indent=2), encoding="utf-8")
-        found = checks.check_workshop(ws, project, f"E2E-{project}") + checks.check_outcome(ws, project, exp) + checks.check_team(ws, project, exp)
+        found = checks.check_workshop(ws, project) + checks.check_outcome(ws, project, exp) + checks.check_team(ws, project, exp)
         found.append(checks.Check("T00", f"Finished within {args.max_turns} team turns", (ws / "discovery" / project / "handoff" / "next-steps.md").is_file(),
                                   f"{len(turns) - 1} turns"))
         return found, cost

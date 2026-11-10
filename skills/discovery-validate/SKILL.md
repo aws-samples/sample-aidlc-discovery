@@ -31,7 +31,7 @@ license: MIT-0
 
 ## Overview
 
-Validate answers: what could make this fail, and how will we know it worked? The team spends about 45 minutes trying to prove the idea will fail, using only what is in the room: the data, the personas, and the prototype. It does not wait for surveys. Anything it cannot confirm or refute stays an open hypothesis and goes into the brief; real users test the prototype in the follow-up. It ends with the team's decision: commit, pivot, or park.
+Validate answers: what could make this fail, and how will we know it worked? The team spends about 45 minutes trying to prove the idea will fail, using only what it already has: the data, the personas, and the prototype. It does not wait for surveys. Anything it cannot confirm or refute stays an open hypothesis and goes into the brief; real users test the prototype in the follow-up. It ends with the team's decision: commit, pivot, or park.
 
 ## Workflow
 

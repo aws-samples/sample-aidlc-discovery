@@ -19,12 +19,12 @@ python3 tests/e2e/run_e2e.py --sample all --legs workshop,team --budget-usd 20
 
 | Leg | What it tests |
 |-----|---------------|
-| `workshop` | The whole workshop, unattended, ending with the Discovery brief |
+| `workshop` | A full Discovery run, unattended, ending with the Discovery brief |
 | `mismatch` | Data about a different product: no analysis, and no invented data |
 | `missing-prd` | Handoff without the PRD refuses to write a brief (reuses the workshop leg's results) |
 | `team` | A second model plays the scenario's team turn by turn, so the checkpoints, overrides, iteration, and test-first decision are tested |
 
-Measured cost per sample: the workshop, mismatch, and missing-PRD legs together about $3.50 to $4.60 (AnyCompany Air and Health); the team leg about $110 (measured on a former sample, 36 turns, each resuming the whole session). Run the team leg before a release, not on every change.
+Measured cost per sample: the `workshop`, `mismatch`, and `missing-prd` legs together about $3.50 to $4.60 (AnyCompany Air and Health); the team leg about $110 (measured on a former sample, 36 turns, each resuming the whole session). Run the team leg before a release, not on every change.
 
 Checks:
 
@@ -34,7 +34,7 @@ Checks:
 
 Each run writes `.e2e/<timestamp>/` with every workspace, transcript, and cost, plus `report.md`. Calls are billed to the AWS account the Claude Code CLI uses, and `--budget-usd` caps every call.
 
-These runs test the method and the artifacts. They run in Claude Code, not Amazon Quick, so check a release in Amazon Quick by hand as well: import it, start a workshop on a sample, and build a prototype.
+These runs test the method and the artifacts. They run in Claude Code, not Amazon Quick, so check a release in Amazon Quick by hand as well: import it, start Discovery on a sample, and build a prototype.
 
 ## Team Space mode
 

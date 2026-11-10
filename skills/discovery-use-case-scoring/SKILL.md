@@ -38,18 +38,18 @@ Scoring decides which problem the rest of the day goes to. The team brings 3 to 
 - **Validate**: Every candidate has the five fields below, and no two solve the same problem
 - **On failure**: If the team brings features, ask what problem each one solves and for whom
 
-Each candidate is a problem with five fields: who has it, the problem, the evidence from Signals, the business metric it moves, and the person in the room who would own the build. If the team brought none, draft 3 to 5 from the top signals and ask the team to confirm or edit them. Merge candidates that solve the same problem.
+Each candidate is a problem with five fields: who has it, the problem, the evidence from Signals, the business metric it moves, and the person on the team who would own the build. If the team brought none, draft 3 to 5 from the top signals and ask the team to confirm or edit them. Merge candidates that solve the same problem.
 
 **Then add candidates from Signals.** When the team brought its own candidates, add two or three drawn from Signals themes that none of them covers, including telemetry-only signals. Write each as a problem with its evidence, and mark it "From Signals". The team keeps or drops each one, which takes about a minute: kept ones go through the gate and are scored like the rest; dropped ones are recorded with the reason and not scored. If every theme is covered, say so and add none.
 
 ### Step 2: Weights
 - **Mode**: `agentic`
 - **Input**: The default weights below
-- **Output**: The weights for this engagement
+- **Output**: The weights for this Discovery
 - **Validate**: The weights add up to 100, and no weight moved by more than 10 points
 - **On failure**: Use the defaults
 
-Ask once whether the sponsor shifted any weight at kickoff. Fix the weights before scoring starts, so they cannot be tuned to favor a candidate afterwards.
+Ask once whether the sponsor shifted any weight at setup. Fix the weights before scoring starts, so they cannot be tuned to favor a candidate afterwards.
 
 ### Step 3: Gate
 - **Mode**: `agentic`
@@ -64,7 +64,7 @@ Then **drop** any candidate that fails one of these, and record which. Failing t
 
 1. **Evidence.** Signals shows no customer evidence for the problem.
 2. **Outcome.** It has no link to a business metric the customer cares about.
-3. **Owner.** Nobody in the room owns the build.
+3. **Owner.** Nobody on the team owns the build.
 4. **Build path.** It has no path to a build.
 5. **Painkiller.** Customers would not notice if it never shipped.
 

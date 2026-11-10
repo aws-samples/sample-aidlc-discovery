@@ -2,7 +2,7 @@
 name: discovery-survey
 display_name: "AI-DLC Discovery: Survey"
 icon: "📋"
-description: "Follow-up surveys for AI-DLC Discovery: turns the open hypotheses from Validate into a short survey for real users, as an HTML form and as questions ready to paste into Microsoft Forms or Google Forms, then builds a results dashboard from the responses and updates each hypothesis's verdict. Use after a Discovery workshop to test open hypotheses or the prototype with real users."
+description: "Follow-up surveys for AI-DLC Discovery: turns the open hypotheses from Validate into a short survey for real users, as an HTML form and as questions ready to paste into Microsoft Forms or Google Forms, then builds a results dashboard from the responses and updates each hypothesis's verdict. Use after Discovery to test open hypotheses or the prototype with real users."
 trigger: "survey dashboard responses"
 patterns:
   - pattern: '(?i)\b(?:create|build|draft)\b.{0,15}?\bsurvey\b'
@@ -27,7 +27,7 @@ license: MIT-0
 
 ## Overview
 
-Validate leaves some hypotheses open on purpose: they need real users, not synthetic personas. This skill is for the follow-up. It turns the open hypotheses into a short survey the team sends to real users, then reads the responses back and says which hypotheses they support or contradict. Nothing in the workshop waits for it.
+Validate leaves some hypotheses open on purpose: they need real users, not synthetic personas. This skill is for the follow-up. It turns the open hypotheses into a short survey the team sends to real users, then reads the responses back and says which hypotheses they support or contradict. Nothing in Discovery waits for it.
 
 ## Workflow
 

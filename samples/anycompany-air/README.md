@@ -1,6 +1,6 @@
 # AnyCompany Air
 
-A fictional sample for an AI-DLC Discovery workshop. AnyCompany Air, its customers, and every record here are made up.
+A fictional sample for AI-DLC Discovery. AnyCompany Air, its customers, and every record here are made up.
 
 ## The company and its product
 
@@ -12,7 +12,7 @@ AnyCompany Air is a mid-size European airline with about 300 flights a day on sh
 - **Frequent flyers**, about 25%. Members of the loyalty programme who fly every month, mostly on the app.
 - **Corporate accounts**, about 15% of passengers and a third of revenue. Around 40 companies on annual contracts, managed by the corporate account team, with travellers who book through their company's travel agency or directly.
 
-## Who is in the room
+## The team
 
 - **Head of digital (product owner).** Believes the booking flow is the priority. "Our website looks dated next to the competition, and booking is where we make money."
 - **Engineering lead, digital platform.** Owns the app and website and their connection to the reservations system. Cautious about anything that changes bookings after they are made.
@@ -90,19 +90,19 @@ Customers appear only as a segment or a code such as "Customer 0412". Staff appe
 ## How to run it
 
 1. Give Amazon Quick access to this folder (`samples/anycompany-air`).
-   Optional, recommended: create a Space in Amazon Quick and name it yourself (**Spaces**, then **Create space**), attach it and this folder to a chat (the **+** menu), and ask Quick to copy `README.md` and the `discovery/` data folder into the Space, keeping the same paths. Then work from a new chat with only the Space attached: the scenario, the data, and the workshop all live in the Space, and you can share it with your team. The data is fictional, so it can go in a Space.
-2. Start the workshop:
+   Optional, recommended: create a Space in Amazon Quick and name it yourself (**Spaces**, then **Create space**), attach it and this folder to a chat (the **+** menu), and ask Quick to copy `README.md` and the `discovery/` data folder into the Space, keeping the same paths. Then work from a new chat with only the Space attached: the scenario, the data, and the Discovery artifacts all live in the Space, and you can share it with your team. The data is fictional, so it can go in a Space.
+2. Start Discovery:
 
    ```text
-   Start an AI-DLC Discovery workshop. Project: anycompany-air. Engagement reference: Self-serve. Data: production, in discovery/data/ in my anycompany-air folder.
+   Start AI-DLC Discovery. Project: anycompany-air. Data: production, in discovery/data/ in my anycompany-air folder.
    ```
 
-   With everything in a Space, name it for the workshop and the data:
+   With everything in a Space, name it for Discovery and the data:
 
    ```text
-   Start an AI-DLC Discovery workshop. Project: anycompany-air. Engagement reference: Self-serve. Save the workshop in the [your Space] space. Data: production, in discovery/data/ in the [your Space] space.
+   Start AI-DLC Discovery. Project: anycompany-air. Save Discovery in the [your Space] space. Data: production, in discovery/data/ in the [your Space] space.
    ```
 
 3. Play the team: answer the setup questions with the roles and beliefs above, and write your hypotheses before you see any analysis.
 
-Facilitators: the designed answers are in [facilitator/anycompany-air.md](../../facilitator/anycompany-air.md). Read it after the run, not before.
+The designed answers are in [facilitator/anycompany-air.md](../../facilitator/anycompany-air.md). Read it after the run, not before.

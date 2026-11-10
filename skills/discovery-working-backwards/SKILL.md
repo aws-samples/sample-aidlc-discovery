@@ -21,7 +21,7 @@ inputs:
     type: string
     required: true
   - name: mode
-    description: "dialog (the team answers the five questions) or draft (write a straw-man PR/FAQ for the team to challenge, for example over lunch)."
+    description: "dialog (the team answers the five questions) or draft (write a straw-man PR/FAQ for the team to challenge, for example during a break)."
     type: string
     default: dialog
 tools: [file_read, file_write]

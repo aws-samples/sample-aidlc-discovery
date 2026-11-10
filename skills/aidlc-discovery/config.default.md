@@ -1,4 +1,4 @@
-# AI-DLC Discovery Workshop Configuration
+# AI-DLC Discovery Configuration
 
 ## Data Sources
 
@@ -14,7 +14,7 @@ data_location: "discovery/data/"
 ## Output Settings
 
 ```yaml
-# Where the workshop is saved: local (the working folder) | space (an Amazon Quick team Space, see discovery-team-space)
+# Where Discovery is saved: local (the working folder) | space (an Amazon Quick team Space, see discovery-team-space)
 storage: "local"
 
 # With storage: space, the team Space. The team creates and names it; empty: use the Space attached to the chat
@@ -32,9 +32,6 @@ doc_format: "markdown"  # markdown | docx
 ```yaml
 # Project folder name under output_folder (empty: ask)
 project: ""
-
-# Engagement reference for the Discovery brief, if a facilitator gave you one (empty: ask; "Self-serve" when running on your own)
-engagement_reference: ""
 
 # true: run all phases without checkpoints or questions (automated tests only)
 unattended: false
