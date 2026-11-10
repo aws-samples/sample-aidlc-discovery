@@ -111,7 +111,7 @@ At the end of the dialog you create this document:
 ```markdown
 # Working Backwards: [Product/Feature Name]
 **Created:** [Date]
-**Workshop:** [Customer]
+**Customer:** [Customer]
 
 ## 1. LISTEN — Who is the customer?
 

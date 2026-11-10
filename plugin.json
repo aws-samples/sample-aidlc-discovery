@@ -4,7 +4,7 @@
   "id": "aidlc-discovery",
   "version": "3.0.0",
   "format_version": "0.1",
-  "description": "AI-DLC Discovery: run a Discovery workshop in five phases, from customer feedback to a Discovery brief, with one skill per job.",
+  "description": "AI-DLC Discovery: run Discovery in five phases, from customer feedback to a Discovery brief, with one skill per job.",
   "license": "MIT-0",
-  "keywords": ["aidlc", "discovery", "discovery workshop", "customer signals", "working backwards", "prfaq", "prototype"]
+  "keywords": ["aidlc", "discovery", "product discovery", "customer signals", "working backwards", "prfaq", "prototype"]
 }

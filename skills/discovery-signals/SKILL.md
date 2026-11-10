@@ -2,7 +2,7 @@
 name: discovery-signals
 display_name: "AI-DLC Discovery: Signals"
 icon: "📡"
-description: "Signals phase of AI-DLC Discovery: turns customer feedback, Signal Briefs, or a synthetic dataset into a Signal Analysis Report and testable hypotheses, after the team writes down what it expects to find. Use when the user wants to analyze customer feedback or VoC data, combine Signal Briefs, find the top customer problems with evidence, or start the Signals phase of a Discovery workshop."
+description: "Signals phase of AI-DLC Discovery: turns customer feedback, Signal Briefs, or a synthetic dataset into a Signal Analysis Report and testable hypotheses, after the team writes down what it expects to find. Use when the user wants to analyze customer feedback or VoC data, combine Signal Briefs, find the top customer problems with evidence, or start the Signals phase of Discovery."
 trigger: "signals voc feedback signal-analysis"
 patterns:
   - pattern: '(?i)\b(?:analy[sz]e|review)\b.{0,20}?\b(?:customer feedback|voc|signals|signal briefs|reviews|support tickets)\b'
@@ -52,7 +52,7 @@ Ask the team what it expects the data to show: the top problems, who has them, a
 - **Validate**: The team confirms the inventory matches what it meant to bring
 - **On failure**: Ask for the location again, or for the files to be added to the folder
 
-Search the data instead of reading every file into context. Never generate customer data yourself, not even as a synthetic dataset: data written in the session, after the team's hypotheses, can only echo what the team expects. If the data is missing, or is about a different product, stop and offer three options: bring real data, write Signal Briefs with **discovery-signal-brief**, or use a synthetic dataset prepared before the workshop. Report what you found before analyzing it: how many records or briefs, from which sources, over which period, and anything that looks missing, such as a channel with no records. If the data contains names, emails, or account identifiers, say so and keep them out of every saved artifact. If it includes telemetry, list its tables, the journeys in the journey map, the period, and whether real user monitoring (RUM) is included: without RUM, the steps on the screen are not visible.
+Search the data instead of reading every file into context. Never generate customer data yourself, not even as a synthetic dataset: data written in the session, after the team's hypotheses, can only echo what the team expects. If the data is missing, or is about a different product, stop and offer three options: bring real data, write Signal Briefs with **discovery-signal-brief**, or use a synthetic dataset prepared beforehand. Report what you found before analyzing it: how many records or briefs, from which sources, over which period, and anything that looks missing, such as a channel with no records. If the data contains names, emails, or account identifiers, say so and keep them out of every saved artifact. If it includes telemetry, list its tables, the journeys in the journey map, the period, and whether real user monitoring (RUM) is included: without RUM, the steps on the screen are not visible.
 
 ### Step 3: Analyze
 - **Mode**: `agentic`
@@ -99,7 +99,7 @@ Follow `references/hypothesis-generation.md`. Include the team's own hypotheses 
 Walk the team through the top three signals. Show five full customer quotes, not just theme names, so the team hears customers in their own words. Then ask what contradicts the top signals, and which segments or channels the data under-represents. Change the report where the team finds a real gap, and record the challenge where it does not.
 
 ### Optional: Current-product map
-When the working folder is the product's own repository, and the harness can read code, follow `references/current-product-map.md` to write `signals/current-product-map.md`. It is usually pre-work. It never blocks the workshop, and in Amazon Quick it is skipped.
+When the working folder is the product's own repository, and the harness can read code, follow `references/current-product-map.md` to write `signals/current-product-map.md`. It is usually pre-work. It never blocks Discovery, and in Amazon Quick it is skipped.
 
 ### Optional: Research deep dive
 When the team wants to go deeper on one question, follow `references/research-analysis.md`.

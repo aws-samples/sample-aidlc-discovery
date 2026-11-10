@@ -4,7 +4,7 @@ Use these in the first two Working Backwards questions, Listen and Define, so th
 
 ## The end customer
 
-Before framing, name the **end customer**: the person whose day changes when this ships. Not the team in the room, not the people who build it, not the sponsor. Ask: "If this ships perfectly, who has a better day tomorrow?" If the signals point to more than one, name the primary one and say who else is affected.
+Before framing, name the **end customer**: the person whose day changes when this ships. Not the team doing Discovery, not the people who build it, not the sponsor. Ask: "If this ships perfectly, who has a better day tomorrow?" If the signals point to more than one, name the primary one and say who else is affected.
 
 ## Root causes: why, not what
 
@@ -37,4 +37,4 @@ One question, broad enough for several solutions, narrow enough to act on.
 - The capability is a description, not a product name: "a way to repeat an order in under two minutes", not "Your usual". Product names belong in the PR/FAQ.
 - The metrics are specific numbers tied to the business metric agreed at setup.
 - The goal describes a positive end state, not the removal of a problem.
-- These numbers are the workshop's targets. The PR/FAQ, the PRD, and the success criteria in Validate reuse them, or say why one differs.
+- These numbers are the Discovery targets. The PR/FAQ, the PRD, and the success criteria in Validate reuse them, or say why one differs.

@@ -1,11 +1,11 @@
 ---
 name: aidlc-discovery
-display_name: "AI-DLC Discovery Workshop"
+display_name: "AI-DLC Discovery"
 icon: "🚀"
-description: "Runs an AI-DLC Discovery workshop end to end in five phases (Signals, Working Backwards, Prototype, Validate, Handoff), from customer feedback to a Discovery brief the team builds from. Use when the user wants to start or continue a Discovery workshop, decide what to build from customer feedback, or asks where they are in the workshop. Calls one Discovery skill per job and stops at each checkpoint for the team."
-trigger: "aidlc discovery workshop"
+description: "Runs AI-DLC Discovery end to end in five phases (Signals, Working Backwards, Prototype, Validate, Handoff), from customer feedback to a Discovery brief the team builds from. Use when the user wants to start or continue Discovery, decide what to build from customer feedback, or asks where they are in Discovery. Calls one Discovery skill per job and stops at each checkpoint for the team."
+trigger: "aidlc discovery"
 patterns:
-  - pattern: '(?i)\b(?:start|run|begin|continue|resume)\b.{0,30}?\b(?:discovery )?workshop\b'
+  - pattern: '(?i)\b(?:start|run|begin|continue|resume)\b.{0,30}?\bdiscovery\b'
     confidence: 0.90
   - pattern: '(?i)\baidlc[- ]discovery\b|\bai-dlc discovery\b'
     confidence: 0.90
@@ -13,13 +13,9 @@ patterns:
     confidence: 0.75
 inputs:
   - name: project
-    description: "Short folder name for this engagement under discovery/, such as the product name."
+    description: "Short folder name for this Discovery under discovery/, such as the product name."
     type: string
     required: true
-  - name: engagement_reference
-    description: "A reference for this engagement, if a facilitator gave you one, or Self-serve. Never a customer account, CRM, or sales identifier."
-    type: string
-    default: Self-serve
   - name: data_input
     description: "production, signal-briefs, or synthetic."
     type: string
@@ -30,29 +26,29 @@ version: "3.0.0"
 license: MIT-0
 ---
 
-# AI-DLC Discovery Workshop
+# AI-DLC Discovery
 
 ## Overview
 
-This skill runs a Discovery workshop: one conversation that takes a product engineering team from its customer feedback to a Discovery brief, in five phases. It keeps the order, the checkpoints, and the shared rules; each job is done by its own Discovery skill. The team does the thinking and owns every decision. The skill drafts, cites evidence, and stops so the team can review.
+This skill runs AI-DLC Discovery: one conversation that takes a product engineering team from its customer feedback to a Discovery brief, in five phases. It keeps the order, the checkpoints, and the shared rules; each job is done by its own Discovery skill. The team does the thinking and owns every decision. The skill drafts, cites evidence, and stops so the team can review.
 
 Discovery ends with a decision on what to build and why. Building, running, and operating the product come after, with the team's own engineers, AI-DLC, or AAP, and the Discovery brief is what they start from.
 
 ## Workflow
 
-### Step 1: Set up the workshop
+### Step 1: Set up Discovery
 - **Mode**: `agentic`
 - **Tool**: `file_write`
-- **Input**: The user's request; `{{project}}`, `{{engagement_reference}}`, `{{data_input}}`
+- **Input**: The user's request; `{{project}}`, `{{data_input}}`
 - **Output**: `discovery/{{project}}/PROJECT.md` with the scope and choices
-- **Validate**: The team confirms the product, the people in the room, the business metric with its baseline, and the data input
+- **Validate**: The team confirms the product, the people on the team, the business metric with its baseline, and the data input
 - **On failure**: Ask for what is missing, one question at a time
 
-Confirm, in this order: the product and who uses it; who is in the room and whether they split into pods; the business metric the work should move, with its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Ask for the engagement reference: the reference a facilitator gave the team, or "Self-serve". Never write a customer account, CRM, or sales identifier. If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared before the workshop.
+Confirm, in this order: the product and who uses it; who is on the team and whether it splits into pods; the business metric the work should move, with its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never write a customer account, CRM, or sales identifier. If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
 
 Read `config.md` in the working folder if it exists, otherwise `config.default.md` in this skill's folder, for defaults.
 
-**Where the workshop is saved.** In the working folder, or, in Amazon Quick, in a Space, so the workshop stays in Amazon Quick and the people it is shared with can follow and take over from their own Amazon Quick. Use a Space when `storage` in the config is `space`, when the team asks for one (for example "save the workshop in our team Space"), or when a Space is attached to this chat and `storage` is empty: then ask once, "Save the workshop in the [space] Space, or in this folder?" The data stays where it is either way. In unattended runs, never ask: an empty `storage` means the working folder. With a Space, use **discovery-team-space** for the setup and follow it for every read and write from then on. Without one, nothing changes.
+**Where Discovery is saved.** In the working folder, or, in Amazon Quick, in a Space, so the work stays in Amazon Quick and the people it is shared with can follow and take over from their own Amazon Quick. Use a Space when `storage` in the config is `space`, when the team asks for one (for example "save Discovery in our team Space"), or when a Space is attached to this chat and `storage` is empty: then ask once, "Save Discovery in the [space] Space, or in this folder?" The data stays where it is either way. In unattended runs, never ask: an empty `storage` means the working folder. With a Space, use **discovery-team-space** for the setup and follow it for every read and write from then on. Without one, nothing changes.
 
 Tell the team the five phases, roughly how long each takes, and that it will be asked to review at every checkpoint. If the user asks to jump to a phase, check that phase's inputs exist first (see the table in Output).
 
@@ -76,7 +72,7 @@ In this order:
 
 1. **discovery-personas**: three or more personas, including one satisfied customer.
 2. **discovery-use-case-scoring**: 3 to 5 candidate use cases through the gate, scores, confidence, and decision. Checkpoint: the team confirms every score and selects the use case to take forward. With pods, each pod takes one selected use case from here on.
-3. If the room breaks for lunch now, offer to draft the PR/FAQ for each selected use case meanwhile, so the team returns to a draft to challenge.
+3. If the team takes a break now, offer to draft the PR/FAQ for each selected use case meanwhile, so the team returns to a draft to challenge.
 4. **discovery-working-backwards**: the five Working Backwards questions, the PR/FAQ, the readiness check, the PRD, and the riskiest assumption.
 5. **discovery-gtm**: first adopters, positioning, and the hypotheses for business model and launch.
 
@@ -121,7 +117,7 @@ These apply in every phase, so the job skills can assume them.
 4. **No architecture.** Discovery decides who, what, and why. Technology choices belong to the build.
 5. **Files, not chat.** Save every artifact under `discovery/{{project}}/` as soon as it exists, so the team keeps it and later steps can read it. With a team Space, that path is in the Space (see **discovery-team-space**).
 6. **One step at a time.** Say which phase and step the team is in, and what comes next.
-7. **Customer's interest only.** No artifact mentions the facilitator's company's commercial interest, vendor competition, or anyone's internal strategy. The documents describe the customer's problem and the customer's outcome.
+7. **Customer's interest only.** No artifact mentions a vendor's commercial interest, vendor competition, or anyone's internal strategy. The documents describe the customer's problem and the customer's outcome.
 8. **Show progress.** At every checkpoint, and whenever the team asks where it is, show the progress board below, then the question for the team. Keep `PROJECT.md`'s phase status in step with it.
 
 ## Progress board
@@ -129,7 +125,7 @@ These apply in every phase, so the job skills can assume them.
 Two short tables. Status values: ✅ Complete, ▶️ In progress, ⏳ Not started, ⏸️ Deferred for phases; ✅ Saved, 📝 Draft, ❌ Missing for artifacts.
 
 ```markdown
-**Workshop progress**
+**Discovery progress**
 
 | # | Phase | Status | Key artifact |
 |---|-------|--------|--------------|
@@ -161,7 +157,7 @@ They feed the open hypotheses in the brief.
 
 ## Unattended runs
 
-When `config.md` sets `unattended: true`, run every phase without stopping: use the configured project, engagement reference, and data input; take the defaults the job skills give; record each choice in `PROJECT.md` under `## Unattended choices`; and end with the Handoff. Never ask a question in this mode. It exists for automated tests and demonstrations, not for workshops with a team.
+When `config.md` sets `unattended: true`, run every phase without stopping: use the configured project and data input; take the defaults the job skills give; record each choice in `PROJECT.md` under `## Unattended choices`; and end with the Handoff. Never ask a question in this mode. It exists for automated tests and demonstrations, not for work with a team.
 
 ## Output
 

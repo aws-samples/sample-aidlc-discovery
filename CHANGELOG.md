@@ -12,13 +12,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [3.0.0] — 2026-11-05
 
-v3 replaces the interview workflow with a full Discovery workshop for Amazon Quick Desktop. A team brings its customer feedback and, in about a day, leaves with a decision on what to build first, a clickable prototype, and a Discovery brief that a build, including AI-DLC, starts from.
+v3 replaces the interview workflow with a full Discovery process for Amazon Quick Desktop. A team brings its customer feedback and leaves with a decision on what to build first, a clickable prototype, and a Discovery brief that a build, including AI-DLC, starts from.
 
 ### Added
 
 - Five phases (Signals, Working Backwards, Prototype, Validate, Handoff), run by one entry skill, `aidlc-discovery`, that calls eleven job skills. Each job also works on its own.
 - `scripts/build.py`, which bundles the skills into one installable Amazon Quick skill with a module per job. The release asset is that bundle.
-- Optional team Space support, so several people can follow a workshop and take it over.
+- Optional team Space support, so several people can follow Discovery and take it over.
 - Two synthetic samples (AnyCompany Air, with telemetry, and AnyCompany Health), facilitator material, reference runs, and a facilitator course.
 - Unit tests for the skills, the bundle, and the samples, and an end-to-end test harness.
 

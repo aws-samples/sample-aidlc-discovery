@@ -23,4 +23,4 @@ Run on the PR/FAQ and the PRD before showing them to the team, and after every r
 14. **Light labels in the press release.** No "[Known]" there; Assumed and Needs evidence once each, where they apply.
 
 ## Content that never belongs in the team's documents
-15. **No commercial interest of the facilitator's company,** no competitor positioning of vendors, and no internal strategy of anyone outside the team. The documents describe the customer's problem and the customer's outcome.
+15. **No commercial interest of a vendor,** no competitor positioning of vendors, and no internal strategy of anyone outside the team. The documents describe the customer's problem and the customer's outcome.

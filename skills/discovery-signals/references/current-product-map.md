@@ -10,11 +10,11 @@ technical debt stay with AI-DLC Reverse Engineering, which runs at Inception.
 ## When to Use
 
 - The working folder is, or contains, the product's own repository.
-- Run it as pre-work before the engagement day, with the engineering lead, in
+- Run it as pre-work before Discovery starts, with the engineering lead, in
   about an hour. It can also run at the start of Signals.
 
 Skip it when there is no related codebase (greenfield) or in Amazon Quick. A
-missing map never blocks the workshop or the Handoff.
+missing map never blocks Discovery or the Handoff.
 
 ## Rules
 

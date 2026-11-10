@@ -2,7 +2,7 @@
 name: discovery-handoff
 display_name: "AI-DLC Discovery: Handoff"
 icon: "📦"
-description: "Handoff phase of AI-DLC Discovery: checks every required artifact exists, then writes the Discovery brief, the single document the team builds from, into the team's repository, with the personas for AI-DLC and the command that starts AI-DLC Inception from the brief. Use when the user wants the Discovery brief, to hand off to engineering, AAP, or AI-DLC, or to finish a Discovery workshop."
+description: "Handoff phase of AI-DLC Discovery: checks every required artifact exists, then writes the Discovery brief, the single document the team builds from, into the team's repository, with the personas for AI-DLC and the command that starts AI-DLC Inception from the brief. Use when the user wants the Discovery brief, to hand off to engineering, AAP, or AI-DLC, or to finish Discovery."
 trigger: "brief handoff discovery-brief"
 patterns:
   - pattern: '(?i)\bdiscovery brief\b'
@@ -12,10 +12,6 @@ patterns:
 inputs:
   - name: project
     description: "Project folder name under discovery/."
-    type: string
-    required: true
-  - name: engagement_reference
-    description: "A reference for this engagement, if a facilitator gave you one, or Self-serve. Never a customer account, CRM, or sales identifier."
     type: string
     required: true
 tools: [file_read, file_write]
@@ -61,7 +57,7 @@ Supported AI-DLC: 2.10.0 or later (`awslabs/aidlc-workflows`). The brief relies 
 ### Step 2: Write the brief
 - **Mode**: `agentic`
 - **Tool**: `file_write`
-- **Input**: Every artifact above, and `{{engagement_reference}}`
+- **Input**: Every artifact above
 - **Output**: `discovery/{{project}}/handoff/discovery-brief.md`
 - **Validate**: Exactly the 15 sections below, in order; under 200,000 characters; every link resolves
 - **On failure**: If the brief is too long, summarize harder and link to the artifacts
@@ -91,7 +87,7 @@ Write `handoff/next-steps.md`, so what happens next does not live only in the ch
 
   ```text
   aidlc config --harness <claude | kiro | kiro-ide | codex | cursor | opencode | copilot>
-  /aidlc workshop Read ./discovery/{{project}}/handoff/discovery-brief.md and build what it describes, [product or feature name] (engagement {{engagement_reference}})
+  /aidlc workshop Read ./discovery/{{project}}/handoff/discovery-brief.md and build what it describes, [product or feature name]
   ```
 
   Use `/aidlc classic` when the team continues on its own. Amazon Quick does not run AI-DLC: tell the team to commit the `discovery/` folder to the repository where it will build, and run the command there.
@@ -100,7 +96,7 @@ Write `handoff/next-steps.md`, so what happens next does not live only in the ch
 
 It also lists any conditions before the build from the decision, and the follow-ups: the real-user test of the prototype and the open hypotheses to take to real customers by day 30.
 
-It ends with a **roadmap for the product owner: Now, Next, Later**, from what the workshop already produced, never new ideas:
+It ends with a **roadmap for the product owner: Now, Next, Later**, from what Discovery already produced, never new ideas:
 
 - **Now:** the use case taken forward, its conditions in order, and the success criteria.
 - **Next:** the deferred candidates from `use-case-scoring.md`, each with the evidence that would move it up, who gets that evidence, and by which follow-up.
@@ -122,7 +118,7 @@ Decision: [commit | pivot | park]
 1. Copy or commit the `discovery/` and `aidlc/` folders into the repository where the team will build.
 2. In that repository, run:
    aidlc config --harness <claude | kiro | kiro-ide | codex | cursor | opencode | copilot>
-   /aidlc workshop Read ./discovery/[project]/handoff/discovery-brief.md and build what it describes, [name] (engagement [reference])
+   /aidlc workshop Read ./discovery/[project]/handoff/discovery-brief.md and build what it describes, [name]
 (or, for pivot and park, what happens at the 30-day follow-up instead)
 
 ## Conditions before the build
@@ -135,8 +131,8 @@ Decision: [commit | pivot | park]
 ```markdown
 # Discovery brief: [product or feature name]
 
-## 1. Engagement reference
-Engagement reference: [reference, or "Self-serve"] | Date: [YYYY-MM-DD] | Route: [own engineering | agents | AI-DLC workshop | AI-DLC classic | none] | Data: [production | Signal Briefs | synthetic]
+## 1. Context
+Date: [YYYY-MM-DD] | Route: [own engineering | agents | AI-DLC workshop | AI-DLC classic | none] | Data: [production | Signal Briefs | synthetic]
 
 ## 2. Decision
 Commit, pivot, or park, the reason, any conditions that must be true before the build starts, and what happens next.
@@ -204,7 +200,7 @@ Relative links to every artifact under discovery/[project]/.
 ### Do
 - Write the brief for every decision; a parked idea's evidence is worth keeping.
 - Link to artifacts instead of copying them.
-- Read the brief as the engineer who was not in the room.
+- Read the brief as an engineer who took no part in Discovery.
 
 ### Don't
 - Write architecture, technology choices, or code into the brief.
@@ -217,6 +213,5 @@ Relative links to every artifact under discovery/[project]/.
 - **Persona names differ between the brief and the team knowledge.** Use the name exactly as the persona file's first line.
 
 ### When to Ask the User
-- The engagement reference, if it was not given at setup.
 - The route, if the decision is commit and the route is not clear.
 - Anything in the brief the team wants to change before the readout.

@@ -79,7 +79,7 @@ def read(path: Path) -> str:
     return path.read_text(encoding="utf-8") if path.is_file() else ""
 
 
-def check_workshop(workspace: Path, project: str, reference: str) -> list[Check]:
+def check_workshop(workspace: Path, project: str) -> list[Check]:
     d = workspace / "discovery" / project
     checks: list[Check] = []
 
@@ -100,7 +100,8 @@ def check_workshop(workspace: Path, project: str, reference: str) -> list[Check]
     checks.append(Check("D03", f"Brief has the {len(expected)} sections in order", found == expected,
                         "" if found == expected else f"found {found}"))
     checks.append(Check("D04", f"Brief is under {BRIEF_LIMIT:,} characters", 0 < len(brief) < BRIEF_LIMIT, f"{len(brief):,}"))
-    checks.append(Check("D05", "Brief carries the engagement reference", reference.lower() in section(brief, "Engagement reference").lower()))
+    context = section(brief, "Context")
+    checks.append(Check("D05", "Brief context gives the date, route, and data", all(f"{k}:" in context for k in ("Date", "Route", "Data"))))
 
     texts = {p: read(p) for p in d.rglob("*") if p.suffix in (".md", ".html")}
     emails = sorted({e for t in texts.values() for e in re.findall(r"[\w.+-]+@[\w-]+\.[a-z]{2,}", t)

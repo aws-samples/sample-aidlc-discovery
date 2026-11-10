@@ -1,12 +1,12 @@
 # Sample conventions
 
-Every sample is a realistic, fictional business case that a team can run a full Discovery workshop on. The samples share one structure, so a facilitator who knows one knows them all.
+Every sample is a realistic, fictional business case that a team can run a full Discovery on. The samples share one structure, so someone who knows one knows them all.
 
 ## Layout
 
 ```text
 samples/<slug>/
-├── README.md               the scenario page participants read
+├── README.md               the scenario page the team reads
 └── discovery/
     ├── data/               exports, for production-data samples
     └── signal-briefs/      briefs and aggregates, for the Signal Brief sample
@@ -20,11 +20,11 @@ The sample folder is the working folder a team gives Amazon Quick access to, so 
 
 1. **The company and its product**, in two or three sentences.
 2. **Customers and segments**, with rough sizes.
-3. **Who is in the room**: four to six roles, each with what they believe before the workshop. At least one belief must be the loud request the data does not support.
+3. **The team**: four to six roles, each with what they believe before Discovery. At least one belief must be the loud request the data does not support.
 4. **The business metric** the team wants to move, with its current baseline and the period it covers.
 5. **Candidate use cases** the team brings, 3 to 5, each written as a problem with five fields: who has it, the problem, the evidence the team thinks it has, the business metric it moves, and the owner.
 6. **The data**: one line per file with its source, record count, and period.
-7. **How to run it**: the folder to grant, the data input, and the prompt to start the workshop.
+7. **How to run it**: the folder to grant, the data input, and the prompt to start Discovery.
 
 Never reveal the designed truths on this page.
 

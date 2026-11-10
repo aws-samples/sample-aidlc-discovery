@@ -2,24 +2,24 @@
 name: discovery-team-space
 display_name: "AI-DLC Discovery: Team Space"
 icon: "👥"
-description: "Saves an AI-DLC Discovery workshop in an Amazon Quick team Space instead of a local folder, so several people can follow, open, and take over the same workshop from their own Amazon Quick Desktop. Amazon Quick only, and optional: without a Space the workshop runs from a local folder as usual. Use when the team wants to share the workshop in a Space, take over from another facilitator, or run pods in one Space."
-trigger: "team-space shared-workshop take-over"
+description: "Saves AI-DLC Discovery in an Amazon Quick team Space instead of a local folder, so several people can follow, open, and take over the same Discovery from their own Amazon Quick Desktop. Amazon Quick only, and optional: without a Space, Discovery runs from a local folder as usual. Use when the team wants to share Discovery in a Space, take over from another driver, or run pods in one Space."
+trigger: "team-space shared-discovery take-over"
 patterns:
   - pattern: '(?i)\b(?:team|shared)\s+space\b'
     confidence: 0.85
-  - pattern: '(?i)\btak(?:e|ing)\s+over\b.{0,40}\bworkshop\b'
+  - pattern: '(?i)\btak(?:e|ing)\s+over\b.{0,40}\bdiscovery\b'
     confidence: 0.85
 inputs:
   - name: space
-    description: "The Amazon Quick Space the workshop is saved in. The team creates and names it; use the Space attached to the chat."
+    description: "The Amazon Quick Space Discovery is saved in. The team creates and names it; use the Space attached to the chat."
     type: string
     required: false
   - name: project
-    description: "The workshop's project folder under discovery/."
+    description: "The project folder under discovery/."
     type: string
     required: true
   - name: driver
-    description: "Who is writing the workshop now: a role or a first name, never an email or an alias."
+    description: "Who is writing the files now: a role or a first name, never an email or an alias."
     type: string
     required: true
 tools: [file_read, file_write, file_rag_search]
@@ -31,9 +31,9 @@ license: MIT-0
 
 ## Overview
 
-By default a Discovery workshop lives in one working folder on one laptop. With this skill it lives in an Amazon Quick **team Space** instead: the same `discovery/{{project}}/` files, saved in the Space, so everyone the Space is shared with can attach it in their own Amazon Quick Desktop, read every artifact, ask questions about it, open the prototype, and take over facilitation.
+By default Discovery lives in one working folder on one laptop. With this skill it lives in an Amazon Quick **team Space** instead: the same `discovery/{{project}}/` files, saved in the Space, so everyone the Space is shared with can attach it in their own Amazon Quick Desktop, read every artifact, ask questions about it, open the prototype, and take over.
 
-It works for one person too: the workshop then lives in Amazon Quick, and any of your chats can open it. It is a feature of Amazon Quick, not of the method. Nothing in the phases, the checkpoints, or the files changes. It only changes where the files are read from and written to, and it adds one rule: **one driver at a time**, because saving a file to a Space replaces it.
+It works for one person too: Discovery then lives in Amazon Quick, and any of your chats can open it. It is a feature of Amazon Quick, not of the method. Nothing in the phases, the checkpoints, or the files changes. It only changes where the files are read from and written to, and it adds one rule: **one driver at a time**, because saving a file to a Space replaces it.
 
 What Amazon Quick does, as relied on here: with a Space attached to the chat (the chat's **+** menu, then **Spaces**), a file can be saved into the Space at a folder path, saving it again replaces it with the same document, it can be read back word for word at once, and an HTML file saved there opens in the session tab. Search over the Space catches up a moment after a write; exact reads do not wait.
 
@@ -47,7 +47,7 @@ What Amazon Quick does, as relied on here: with a Space attached to the chat (th
 - **Validate**: The team confirmed the Space, and a test write of `PROJECT.md` reads back word for word
 - **On failure**: Ask the team to attach the Space to this chat (the **+** menu, then **Spaces**) and to check it is an Owner of it; otherwise offer to continue in a local folder
 
-1. **Find the team's Space.** The team creates the Space and chooses its name; do not invent one. If one Space is attached to this chat, use it and confirm its name with the team. If several are attached, ask which one. If none is, ask the team to create one (in Amazon Quick, **Spaces**, then **Create space**), share it with the people who will follow the workshop, and attach it to this chat with the **+** menu, then **Spaces**. Stop until it is attached. Use its name as `{{space}}` from here on.
+1. **Find the team's Space.** The team creates the Space and chooses its name; do not invent one. If one Space is attached to this chat, use it and confirm its name with the team. If several are attached, ask which one. If none is, ask the team to create one (in Amazon Quick, **Spaces**, then **Create space**), share it with the people who will follow Discovery, and attach it to this chat with the **+** menu, then **Spaces**. Stop until it is attached. Use its name as `{{space}}` from here on.
 2. Tell the team that Amazon Quick may ask them to approve each save to the Space, and to approve it. Then write `PROJECT.md` to `discovery/{{project}}/` in the Space, with these lines under the scope, and read it back:
 
    ```markdown
@@ -66,11 +66,11 @@ What Amazon Quick does, as relied on here: with a Space attached to the chat (th
 - **Validate**: The driver in `PROJECT.md` is this chat's driver before every write
 - **On failure**: Stop and ask before writing
 
-Every path in the workshop, `discovery/{{project}}/...`, is a path in the Space. Read inputs from the Space, not from a local copy, so you always see the last version someone saved.
+Every Discovery path, `discovery/{{project}}/...`, is a path in the Space. Read inputs from the Space, not from a local copy, so you always see the last version someone saved.
 
 Before every write:
 
-1. Read `PROJECT.md` from the Space. If the driver is not `{{driver}}`, stop: "[Driver] is driving this workshop since [time]. Take over?" Write only after the team says yes, and update the driver line first (Step 3).
+1. Read `PROJECT.md` from the Space. If the driver is not `{{driver}}`, stop: "[Driver] has been driving since [time]. Take over?" Write only after the team says yes, and update the driver line first (Step 3).
 2. Check the text for personal data (names of real people, emails, phone numbers, account or CRM identifiers). Quotes carry personas and segments only. If you find any, remove it before saving and say what you removed.
 3. Save the file to its path in the Space. Saving again replaces it: keep the rule that prototype versions are never overwritten by always writing a new `vN.html`.
 
@@ -79,12 +79,12 @@ The progress board's Location column shows Space paths, for example `Space {{spa
 ### Step 3: Take over or continue
 - **Mode**: `agentic`
 - **Tool**: `file_read`, `file_write`
-- **Input**: A request to continue the workshop from the Space, with the new driver
-- **Output**: The driver line updated, and the workshop resumed at the next step
+- **Input**: A request to continue Discovery from the Space, with the new driver
+- **Output**: The driver line updated, and Discovery resumed at the next step
 - **Validate**: The team confirmed the take-over
 - **On failure**: If `PROJECT.md` is not in the Space, list the Space's `discovery/` folders and ask which project
 
-Someone else's Amazon Quick picks the workshop up with: "Continue the AI-DLC Discovery workshop for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [driver]. Start at [step]."
+Someone else's Amazon Quick picks Discovery up with: "Continue AI-DLC Discovery for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [driver]. Start at [step]."
 
 Read `PROJECT.md` and the files the next step needs from the Space. Show who was driving and since when, and ask the previous driver to stop writing. Update the driver line, show the progress board, and continue at the step the team names. If the last write was moments ago, read it again before continuing, in case it was still being saved.
 
@@ -95,7 +95,7 @@ Read `PROJECT.md` and the files the next step needs from the Space. Show who was
 - **Validate**: Each pod has its own project and driver
 - **On failure**: None
 
-With pods, each pod is its own project in the Space, `discovery/{{project}}-[pod]/`, with its own `PROJECT.md` and driver, created after scoring when each pod takes its use case. Copy the shared Signals and Working Backwards scoring artifacts into each pod's project, so each one is complete. Pods never write to each other's files. The facilitator can attach the Space and see every pod.
+With pods, each pod is its own project in the Space, `discovery/{{project}}-[pod]/`, with its own `PROJECT.md` and driver, created after scoring when each pod takes its use case. Copy the shared Signals and Working Backwards scoring artifacts into each pod's project, so each one is complete. Pods never write to each other's files. Anyone the Space is shared with can see every pod.
 
 ### Step 5: Prototype and Handoff in a Space
 - **Mode**: `agentic`
@@ -113,7 +113,7 @@ In the team Space:
 
 ```text
 discovery/
-└── {{project}}/              every workshop artifact, at the usual paths
+└── {{project}}/              every Discovery artifact, at the usual paths
 aidlc/                        AI-DLC team knowledge, when the route is AI-DLC
 ```
 

@@ -2,7 +2,7 @@
 name: discovery-signal-brief
 display_name: "AI-DLC Discovery: Signal Brief"
 icon: "📝"
-description: "Writes Signal Briefs for an AI-DLC Discovery workshop: one-page, anonymized summaries of one customer problem each, created by the team from its own data inside its own environment, so raw data never leaves it. Use before a Discovery workshop when the team cannot bring raw customer data, or when asked to write, check, or anonymize a Signal Brief."
+description: "Writes Signal Briefs for AI-DLC Discovery: one-page, anonymized summaries of one customer problem each, created by the team from its own data inside its own environment, so raw data never leaves it. Use before Discovery when the team cannot bring raw customer data, or when asked to write, check, or anonymize a Signal Brief."
 trigger: "signal-brief anonymize"
 patterns:
   - pattern: '(?i)\bsignal briefs?\b'
@@ -25,7 +25,7 @@ license: MIT-0
 
 ## Overview
 
-A Signal Brief lets a team bring its customer evidence to a Discovery workshop without bringing the data. The team runs this skill in its own Amazon Quick, on its own data, a few days before the workshop. For each customer problem, it writes one page: the theme, the job the customer is trying to do, anonymized evidence with volumes, impact, confidence, the segment, and a suggested next step. Only the briefs come to the workshop.
+A Signal Brief lets a team bring its customer evidence to Discovery without bringing the data. The team runs this skill in its own Amazon Quick, on its own data, a few days before Discovery starts. For each customer problem, it writes one page: the theme, the job the customer is trying to do, anonymized evidence with volumes, impact, confidence, the segment, and a suggested next step. Only the briefs come to Discovery.
 
 ## Workflow
 

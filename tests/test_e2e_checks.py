@@ -11,7 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent / "e2e"))
 import checks  # noqa: E402  # pyright: ignore[reportMissingImports]
 
-PROJECT, REFERENCE = "supply", "E2E-supply"
+PROJECT = "supply"
 EXPECT = {"top_signal": "reorder | repeat order", "loud_request": "price", "distractor_fails_gate": "recipe inspiration",
           "build_first_or_learn": "reorder my usual with a delivery slot", "data_input": "production"}
 
@@ -47,7 +47,7 @@ def build(root: Path) -> Path:
     (proto / "index.html").write_text(shell, encoding="utf-8")
     (proto / "versions.md").write_text("| v1 | first |\n| v2 | iteration |\n", encoding="utf-8")
     links = "\n".join(f"- [x](../{p.relative_to(d)})" for p in [d / "working-backwards" / "prd.md", proto / "v1.html"])
-    body = {"Engagement reference": f"Engagement reference: {REFERENCE}", "Full artifacts": links}
+    body = {"Context": "Date: 2026-01-01 | Route: AI-DLC classic | Data: synthetic", "Full artifacts": links}
     brief = "# Discovery brief\n\n" + "".join(f"## {i}. {t}\n{body.get(t, 'Content.')}\n\n"
                                                for i, t in enumerate(checks.brief_sections(), 1))
     (d / "handoff").mkdir(parents=True, exist_ok=True)
@@ -67,7 +67,7 @@ class ChecksTests(unittest.TestCase):
         self.tmp.cleanup()
 
     def failed(self) -> set[str]:
-        found = checks.check_workshop(self.ws, PROJECT, REFERENCE) + checks.check_outcome(self.ws, PROJECT, EXPECT) \
+        found = checks.check_workshop(self.ws, PROJECT) + checks.check_outcome(self.ws, PROJECT, EXPECT) \
             + checks.check_team(self.ws, PROJECT, EXPECT)
         return {c.id for c in found if not c.passed}
 

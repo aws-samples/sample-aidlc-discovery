@@ -29,9 +29,9 @@ MODULES = {
     "discovery-prototype": ("Prototype", "build and iterate a clickable prototype"),
     "discovery-validate": ("Validate", "run the four risks, a pre-mortem, success criteria, and the decision"),
     "discovery-handoff": ("Handoff", "write the Discovery brief and next steps"),
-    "discovery-signal-brief": ("Before the workshop", "write anonymized Signal Briefs"),
-    "discovery-survey": ("After the workshop", "survey real users on open hypotheses"),
-    "discovery-team-space": ("Any phase, Amazon Quick only", "save the workshop in a team Space so several people can follow and take over"),
+    "discovery-signal-brief": ("Before Discovery", "write anonymized Signal Briefs"),
+    "discovery-survey": ("After Discovery", "survey real users on open hypotheses"),
+    "discovery-team-space": ("Any phase, Amazon Quick only", "save Discovery artefacts in a team Space so several people can follow and take over"),
 }
 
 
@@ -94,7 +94,7 @@ def inputs_as_markdown(frontmatter: str) -> str:
         rows.append(current)
     if not rows:
         return ""
-    lines = ["**Inputs.** Take each from the workshop's context, or ask:", ""]
+    lines = ["**Inputs.** Take each from the context so far, or ask:", ""]
     for r in rows:
         extra = f" Default: `{r['default']}`." if "default" in r else ""
         lines.append(f"- `{{{{{r['name']}}}}}`: {r.get('description', '')}{extra}")
@@ -157,9 +157,9 @@ def build(out: Path) -> Path:
 
     purposes = "; ".join(p for _, p in MODULES.values())
     description = (
-        "Runs an AI-DLC Discovery workshop end to end in five phases (Signals, Working Backwards, Prototype, "
+        "Runs AI-DLC Discovery end to end in five phases (Signals, Working Backwards, Prototype, "
         "Validate, Handoff), from customer feedback to a Discovery brief the team builds from. Use it to start or "
-        f"continue a Discovery workshop, or for one job on its own: {purposes}."
+        f"continue Discovery, or for one job on its own: {purposes}."
     )
     # Keep the entry's frontmatter, minus the keys rebuilt from all skills.
     kept, skipping = [], False
