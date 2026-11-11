@@ -35,14 +35,14 @@ Signals answers "what are customers telling us?" It turns the team's customer fe
 
 ## Workflow
 
-### Step 1: The team's expectations
+### Step 1: The team's expectations (optional)
 - **Mode**: `agentic`
 - **Input**: The team, before it sees any analysis
-- **Output**: `discovery/{{project}}/signals/team-expectations.md`
-- **Validate**: At least three expectations, each a sentence the data could prove wrong
-- **On failure**: If the team cannot name any, ask which customer problem it would bet on today and why
+- **Output**: `discovery/{{project}}/signals/team-expectations.md`, with the team's expectations or a line saying it had none
+- **Validate**: The file exists before the analysis; any expectations are written as the team gave them
+- **On failure**: None; no expectations is a valid answer
 
-Ask the team what it expects the data to show: the top problems, who has them, and why. Write each answer down as given, without improving it. This matters because AI analysis is persuasive. With the team's beliefs recorded first, the report can show where the data agrees and where it does not, and the team learns something either way. Follow `references/team-expectations.md`.
+Ask once, in a single question, whether the team already expects the data to show something. If it does, write each expectation down as given, without improving it, so the report can show where the data agrees and where it does not. If it has none, or says skip, write the file with "No expectations recorded before the analysis." and go straight to Step 2 in the same message. Do not explain why expectations matter, ask again, or set a minimum. Follow `references/team-expectations.md`.
 
 ### Step 2: Find and check the data
 - **Mode**: `agentic`
@@ -52,7 +52,7 @@ Ask the team what it expects the data to show: the top problems, who has them, a
 - **Validate**: The team confirms the inventory matches what it meant to bring
 - **On failure**: Ask for the location again, or for the files to be added to the folder
 
-Search the data instead of reading every file into context. Never generate customer data yourself, not even as a synthetic dataset: data written in the session, after the team's expectations, can only echo what the team expects. If the data is missing, or is about a different product, stop and offer three options: bring real data, write Signal Briefs with **discovery-signal-brief**, or use a synthetic dataset prepared beforehand. Report what you found before analyzing it: how many records or briefs, from which sources, over which period, and anything that looks missing, such as a channel with no records. If the data contains names, emails, or account identifiers, say so and keep them out of every saved artifact. If it includes telemetry, list its tables, the journeys in the journey map, the period, and whether real user monitoring (RUM) is included: without RUM, the steps on the screen are not visible.
+Search the data instead of reading every file into context. Never generate customer data yourself, not even as a synthetic dataset: data written in the session, after the team's expectations, can only echo what the team expects. If the data is missing, or is about a different product, stop and offer three options: bring real data, write Signal Briefs with **discovery-signal-brief**, or use a synthetic dataset prepared beforehand. Report what you found before analyzing it: how many records or briefs, from which sources, over which period, and anything that looks missing, such as a channel with no records. Production data should arrive prepared by the team on its own machine with the data preparation script (`tools/prepare-data/` in the [aidlc-discovery repository](https://github.com/aws-samples/sample-aidlc-discovery/tree/main/tools/prepare-data)): placeholders such as `[PERSON_1]` or `[REFERENCE]` show that it was. If production records still contain names, emails, phone numbers, or account identifiers, stop before analyzing them: name the files and the kinds of data, without quoting any value, and ask the team to run the script and replace the files. If the folder holds a `schema.md` and no records, the team kept its records on its own machine; take the schema-only path in Step 3. The fake rows in `schema.md` exist only to write code against: never count or quote them. If it includes telemetry, list its tables, the journeys in the journey map, the period, and whether real user monitoring (RUM) is included: without RUM, the steps on the screen are not visible.
 
 ### Step 3: Analyze
 - **Mode**: `agentic`
@@ -65,6 +65,7 @@ Search the data instead of reading every file into context. Never generate custo
 Choose the path for `{{data_input}}`:
 
 - **production** or **synthetic**: analyze each record with `references/voc-analysis.md` (sentiment, category, urgency, root cause, persona signal, quote), then aggregate with Python. For research documents and competitor material in the same location, use `references/market-and-competitive.md`.
+- **Schema only** (production data the team kept on its own machine): write the analysis as one Python script against `schema.md` and its fake rows. It counts records per category, channel, segment, and month, and per theme by keyword in the text, and it prints only counts, shares, and averages, with any group under 5 records shown as `<5`. Give the script to the team to run, and analyze the output they paste back. Ask the team for five scrubbed quotes for the report. Keyword themes are coarser than reading each record, so label root causes Assumed.
 - **signal-briefs**: follow `references/signal-brief-mode.md`. Merge briefs that describe the same problem, check each brief's evidence against the others, and keep each brief's volumes as its evidence.
 
 **Telemetry**, with any data input: if the data includes telemetry (a `telemetry/` folder, or RUM, trace, metric, or log exports), also follow `references/telemetry-analysis.md`. It reads the journey map first, measures each journey step and service, and writes the Say and do table. Telemetry is read next to the feedback, never instead of it.
@@ -74,7 +75,7 @@ Save per-item results only under `discovery/data/`, never under the project fold
 ### Step 4: Write the Signal Analysis Report
 - **Mode**: `agentic`
 - **Tool**: `file_write`
-- **Input**: The findings from Step 3 and the team's expectations from Step 1
+- **Input**: The findings from Step 3 and the team's expectations from Step 1, if any
 - **Output**: `discovery/{{project}}/signals/signal-summary.md`
 - **Validate**: The report has every section in the Output below, and every claim carries an evidence label
 - **On failure**: If the evidence for a theme is thin, keep the theme and label it Assumed
@@ -89,14 +90,18 @@ Save per-item results only under `discovery/data/`, never under the project fold
 
 Follow `references/hypothesis-generation.md`. Turn each team expectation from Step 1 that the data did not settle into a hypothesis, and say which expectation it came from.
 
+When the team gave expectations, two lists exist from here on, and teams confuse them. **Team expectations** (`E1`, `E2`, ...) are what the team believed before the data; each gets a verdict. **Testable hypotheses** (`H1`, `H2`, ...) are the open questions the data leaves; each gets a test plan. Each file opens with a one-line "What this is" note, and in the chat always give the ID with its sentence ("E3, 'we have reduced errors'"), never a bare number.
+
 ### Step 6: Review with the team
 - **Mode**: `agentic`
 - **Input**: The report and the hypotheses
 - **Output**: The team's challenges, and any changes made to the report
-- **Validate**: The team has read at least five customer quotes in full
+- **Validate**: The team has read at least five customer quotes in full, or the report says the data holds none
 - **On failure**: None; this step is the team's
 
-Walk the team through the top three signals. Show five full customer quotes, not just theme names, so the team hears customers in their own words. Then ask what contradicts the top signals, and which segments or channels the data under-represents. Change the report where the team finds a real gap, and record the challenge where it does not.
+Walk the team through the top three signals, one or two lines each, and link to the report for the rest. Show five full customer quotes, not just theme names, so the team hears customers in their own words. Then ask, in one round, what contradicts the top signals, which segments or channels the data under-represents, and whether the business metric still looks right. Change the report where the team finds a real gap, and record the challenge where it does not. Ask this round once; if the team moves on, record "no challenges".
+
+**When the data has no customer words** (counts, tickets, or metrics without free text), say so in the inventory, not at the review. Ask the team, in the same round as the inventory, for three to five things customers have said to them, anonymized, and label them as reported by the team. If there are none, the report's Customer voices section says so, and every root cause stays Assumed.
 
 ### Optional: Current-product map
 When the working folder is the product's own repository, and the harness can read code, follow `references/current-product-map.md` to write `signals/current-product-map.md`. It is usually pre-work. It never blocks Discovery, and in AWS Quick it is skipped.
@@ -127,7 +132,8 @@ Two or three sentences: the problem that matters most and the evidence for it.
 | Theme | What customers say | What the systems show | Both, Feedback only, or Telemetry only |
 
 ## What the team expected
-| Team expectation | What the data shows | Supported, contradicted, or not settled |
+| Team expectation (E1: the team's sentence) | What the data shows | Supported, contradicted, or not settled |
+(When the team recorded no expectations: one line saying so, and no table.)
 
 ## Customer voices
 Five full, anonymized quotes that show the problem in the customer's words.
@@ -141,7 +147,7 @@ Every claim carries an evidence label: **Known** (a count, quote, or metric from
 ## Lessons Learned
 
 ### Do
-- Record the team's expectations before showing any analysis.
+- Ask for the team's expectations once, before showing any analysis, and accept none.
 - Quote customers verbatim, anonymized, and give counts with every theme.
 - Say when all the evidence comes from one channel.
 - Weigh signal over frequency: a topic mentioned often is not always the one that matters most. One clear statement of what customers or the team need can outweigh many mentions of a detail. Severity and reach count as much as volume.
@@ -152,10 +158,12 @@ Every claim carries an evidence label: **Known** (a count, quote, or metric from
 - Drop a theme for thin evidence; label it Assumed instead.
 
 ### Common Failures
-- **The data has personal information.** Keep it out of saved artifacts and tell the team; suggest masking before the next run.
+- **The data has personal information.** Stop before analyzing it, keep it out of saved artifacts, and ask the team to run the data preparation script on its own machine and replace the files.
 - **Briefs overlap.** Merge them and keep both briefs' evidence.
 - **The data does not match the product.** Stop and offer the three options in Step 2. Do not write a dataset to fill the gap.
 - **A file cannot be read.** List it under data gaps and continue.
+- **The team mixes up the two hypothesis lists.** Answer with both IDs and sentences side by side, in two lines.
+- **The data has no free text.** See Step 6: ask for team-reported quotes at the inventory, and keep root causes Assumed.
 
 ### When to Ask the User
 - The data location is unclear, or the inventory does not match what the team expected.

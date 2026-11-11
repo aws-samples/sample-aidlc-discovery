@@ -6,3 +6,6 @@ __pycache__/
 dist/
 .e2e/
 .e2e-*.log
+
+# Playwright MCP session files
+.playwright-mcp/

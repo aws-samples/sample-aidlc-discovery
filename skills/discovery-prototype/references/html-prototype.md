@@ -97,11 +97,11 @@ Follow the structure in this reference: a top bar with Flow, Mobile, and Desktop
 
 | Check | Must |
 |-------|:----:|
-| One self-contained file, no external requests | ✅ |
-| Flow, Mobile, and Desktop views all work, and open from `#/flow`, `#/mobile`, `#/desktop` | ✅ |
-| Every P0 requirement appears on a screen | ✅ |
-| Every screen is reachable by clicking, and back works | ✅ |
-| The test moment is reachable in two taps from the start | ✅ |
-| Realistic content, no placeholder text | ✅ |
-| One accent color, consistent type and spacing | ✅ |
-| Contrast and tap-target sizes meet the accessibility rules | ✅ |
+| One self-contained file, no external requests | Yes |
+| Flow, Mobile, and Desktop views all work, and open from `#/flow`, `#/mobile`, `#/desktop` | Yes |
+| Every P0 requirement appears on a screen | Yes |
+| Every screen is reachable by clicking, and back works | Yes |
+| The test moment is reachable in two taps from the start | Yes |
+| Realistic content, no placeholder text | Yes |
+| One accent color, consistent type and spacing | Yes |
+| Contrast and tap-target sizes meet the accessibility rules | Yes |

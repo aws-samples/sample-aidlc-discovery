@@ -1,4 +1,4 @@
-# Survey Generator—Skill
+# Survey generator
 
 ## Purpose
 

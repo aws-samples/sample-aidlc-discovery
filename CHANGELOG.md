@@ -8,9 +8,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- **Questions in rounds.** Every question to the team uses one format: a numbered question, a recommended answer worded so "yes" accepts it, and only the questions that are ready now. The assistant looks up facts in the data itself instead of asking the team, and with sub-agents it does so without blocking the round.
+- **Plain-writing rules** (`skills/aidlc-discovery/references/plain-writing.md`), applied to every reply and artifact. They keep the method's own names, the round format, and the evidence labels.
+- **Data preparation tool** (`tools/prepare-data/`): a short Python script around Microsoft Presidio that removes personal data from exports offline, on the team's machine, with a report to review before sharing. It drops people columns such as requester, assignee, or owner, removes logins from the text, shortens dates to the month in any common format, and builds `schema.md` from the scrubbed values only. `--synthetic N` writes invented rows in the shape of the scrubbed data, for rehearsals.
+- A `prepare-data` workflow that runs the Presidio tests only when the tool or its tests change, or on demand. The main test workflow stays fast.
+- `scripts/build.py` also writes the release zip to `dist/`, and points the bundled README's links at the repository.
+
 ### Changed
 
-- **Breaking:** Signals Step 1 now records "team expectations" rather than "team hypotheses", so the team's beliefs before the analysis are no longer confused with the testable hypotheses Step 5 writes from the data. The artifact is renamed from `signals/team-hypotheses.md` to `signals/team-expectations.md`, and Handoff requires the new name. Facilitator material, the course, and the reference runs use the new term.
+- **Breaking:** Signals Step 1 now records "team expectations" rather than "team hypotheses", so the team's beliefs before the analysis are no longer confused with the testable hypotheses Step 5 writes from the data. The artifact is renamed from `signals/team-hypotheses.md` to `signals/team-expectations.md`, and Handoff requires the new name. Facilitator material uses the new term.
+- Team expectations are optional: the assistant asks once, accepts none, and records "No expectations recorded before the analysis." Expectations are numbered E1, E2, and testable hypotheses H1, H2.
+- Setup asks which direction of the business metric is good, and scoring judges business outcome in that direction. A correction that affects a confirmed step makes re-running that step the recommended next answer.
+- Signals asks for team-reported quotes at the inventory when the data has no free text, asks for challenges once, and stops on personal data only in production records.
+- Working Backwards asks one question per round, each part with a recommended answer. Handoff confirms the build route before writing anything.
+- Shorter chat: artifacts are summarized in at most five lines with a link, the progress board appears at the end of each phase, and an answered question is never asked again.
+- No emojis in the question format, the progress board, or the templates; no em dashes in the templates.
+
+### Removed
+
+- **Breaking:** the facilitator reference runs (`facilitator/reference-runs/`) and the facilitator course (`teach/`). Trainers demo from their own dry run instead.
 
 ---
 

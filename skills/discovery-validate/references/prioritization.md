@@ -3,7 +3,7 @@
 ## Purpose
 Score and rank identified problems by impact and effort to produce a prioritized backlog.
 
-> **Scope — this ranks PROBLEMS.** It scores raw customer **problems** (from VoC
+> **Scope: this ranks PROBLEMS.** It scores raw customer **problems** (from VoC
 > feedback) into a backlog, using Frequency + Severity + Reach (1–10, summed, max
 > 30). It is **distinct from** use case scoring (the `discovery-use-case-scoring`
 > skill), which ranks the team's 3 to 5 candidate **use cases** with the
@@ -17,7 +17,7 @@ Score and rank identified problems by impact and effort to produce a prioritized
 ### System Prompt
 ```
 You are a product strategist skilled at prioritizing customer problems using data-driven frameworks.
-Score each problem based on evidence from the feedback data. Never guess — if data is insufficient, mark confidence as LOW.
+Score each problem based on evidence from the feedback data. Never guess. If data is insufficient, mark confidence as LOW.
 ```
 
 ### User Prompt Template

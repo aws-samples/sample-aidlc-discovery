@@ -6,7 +6,6 @@ A rehearsal for a facilitator who has never run a Discovery workshop. You play b
 - Install the skill (see `run-sheet.md`, "Before the day") and start a new chat.
 - Copy `samples/anycompany-air/` to a scratch folder and give AWS Quick access to it. Keep the repository copy clean.
 - Read the scenario page, `README.md` in that folder. Do not read `facilitator/anycompany-air.md` yet: it holds the answers.
-- After each phase, compare your files with the matching folder in `facilitator/reference-runs/anycompany-air-with-team/`, made with this guide's answers.
 
 **How to play the team.** Six people, each with a belief from the scenario page. Answer as they would, not as you think the answer is. The printable cards are in `role-cards.html`.
 - Head of digital (product owner): the booking flow looks dated, and booking is where we make money.
@@ -69,37 +68,37 @@ The phase status moves with the progress board during the day. The team's decisi
 
 ## 2. Signals (25 min)
 
-**Say out loud:** "Before we see anything, each of you tells me what you expect the data to show."
+**Say out loud:** "Before we see anything, does anyone already expect the data to show something?"
 
-**It asks five questions, one at a time.** Answer each one as the room: several voices on the same question is normal. Paste one block per question.
+**It asks once whether the room has any expectations, and says skip is fine.** This room has plenty: paste the five blocks below together as one answer. Several voices on the same point is normal. (To rehearse a room with none, answer "skip": it must write the file with a "no expectations" line and go straight to the data, without a lecture or a second ask.)
 
-Question 1, the biggest problem customers have with the website and app:
+The biggest problem customers have with the website and app:
 ```
 Head of digital: the booking flow. Our website looks dated next to the competition, and booking is where we make money.
 Commercial director: price. Customers complain about fares.
 UX designer: choosing a seat. People can't see what they're paying for, so upgrades don't sell. A 3D seat map would help.
 ```
 
-Question 2, who has it most:
+Who has it most:
 ```
 Head of digital: leisure travellers booking on the website.
 Head of corporate accounts: corporate travellers. They're a third of revenue and their travel managers complain to me every week.
 ```
 
-Question 3, why you think so:
+Why you think so:
 ```
 Head of digital: reviews mention the booking flow, and the competition's sites look better.
 Customer service operations lead: every summer the call queues explode. We need more agents from June to September.
 Head of corporate accounts: travel managers tell me in every account review.
 ```
 
-Question 4, what else the feedback will show:
+What else the feedback will show:
 ```
 Engineering lead: nothing big. The app's ratings for booking and check-in are good, and our dashboards are green apart from payment timeouts in August. I'd be careful with anything that changes bookings after they're made.
 Customer service operations lead: lost and delayed bags. That's the biggest call reason.
 ```
 
-Question 5, what would surprise you:
+What would surprise you:
 ```
 Head of digital: if booking turned out not to matter.
 Engineering lead: if customers wanted to change their own bookings in the app.
@@ -107,9 +106,9 @@ Engineering lead: if customers wanted to change their own bookings in the app.
 
 These are written so that the data can contradict some of them: that is the point. Don't steer towards the answer.
 
-**Facilitator practice:** read each question aloud and wait before anyone answers. In a real room, the most senior person tends to answer first and everyone else then agrees with them. Ask the quietest person first.
+**Facilitator practice:** read the question aloud and wait before anyone answers. In a real room, the most senior person tends to answer first and everyone else then agrees with them. Ask the quietest person first.
 
-**Watch for:** no analysis before your expectations are saved in `signals/team-expectations.md`, each written as "We expect ... because ...", with a "What would surprise us" list. It says it will not change that file again.
+**Watch for:** no analysis before your expectations are saved in `signals/team-expectations.md`, each written as "We expect ... because ..." with a E number, in the room's words. It says it will not change that file again.
 
 **Then the data inventory, before any analysis:** 400 text records from six sources plus four data tables, 1 May to 15 October, no personal data (customers appear only as codes, kept out of the quotes), and the gaps it can see, for example no feedback from passengers who rebooked at an airport desk.
 
@@ -461,6 +460,5 @@ It should show who was driving, update the driver, and continue. If you then try
 
 ## After the run
 
-1. Compare your files with `facilitator/reference-runs/anycompany-air-with-team/`, a run made with the same team answers as this guide, and `facilitator/reference-runs/anycompany-air/`, an unattended run.
-2. Now read `facilitator/anycompany-air.md`. Did your run find the designed problem? Did the 3D seat map fail the gate? Which traps did you or the assistant fall into?
-3. Write down the three moments you'd handle differently with a real team.
+1. Now read `facilitator/anycompany-air.md`. Did your run find the designed problem? Did the 3D seat map fail the gate? Which traps did you or the assistant fall into?
+2. Write down the three moments you'd handle differently with a real team.

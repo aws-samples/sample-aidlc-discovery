@@ -1,12 +1,12 @@
 # The five Working Backwards questions
 
-A structured dialog with the team, one question at a time, for the selected use case. It ends with a Working Backwards document that grounds the PR/FAQ. The team answers; you suggest from the signals and personas, and structure what the team says.
+A structured dialog with the team, one question per round, for the selected use case. It ends with a Working Backwards document that grounds the PR/FAQ. The team answers; you suggest from the signals and personas, and structure what the team says.
 
 ## The 5 Working Backwards Questions
 
-You ask these questions ONE AT A TIME in dialog:
+Ask one question per round. Each bullet under a question is one question in that round, with a recommended answer drafted from the Signal Analysis Report and the personas (see "Asking the team" in the entry skill). The quoted text shows what each round covers, not the wording to paste.
 
-### Question 1: LISTEN — Who is the customer and what insights do we have?
+### Question 1. LISTEN: Who is the customer and what insights do we have?
 
 ```
 "Let's start with the customer.
@@ -24,7 +24,7 @@ You ask these questions ONE AT A TIME in dialog:
 
 ---
 
-### Question 2: DEFINE — What is the customer problem / the opportunity?
+### Question 2. DEFINE: What is the customer problem / the opportunity?
 
 ```
 "Based on the insights: What is the core problem?
@@ -43,7 +43,7 @@ You ask these questions ONE AT A TIME in dialog:
 
 ---
 
-### Question 3: INVENT — What solutions address the customer need?
+### Question 3. INVENT: What solutions address the customer need?
 
 ```
 "Now it gets creative. What solutions could address the problem?
@@ -62,7 +62,7 @@ You ask these questions ONE AT A TIME in dialog:
 
 ---
 
-### Question 4: REFINE — What does the end-to-end customer experience look like?
+### Question 4. REFINE: What does the end-to-end customer experience look like?
 
 ```
 "How would the customer experience the solution?
@@ -79,7 +79,7 @@ You ask these questions ONE AT A TIME in dialog:
 
 ---
 
-### Question 5: TEST & ITERATE — How do we measure customer success?
+### Question 5. TEST & ITERATE: How do we measure customer success?
 
 ```
 "Finally: How do we validate and measure?
@@ -98,11 +98,12 @@ You ask these questions ONE AT A TIME in dialog:
 
 ## Dialog Guidance
 
-1. **One question at a time** — Not all 5 at once
-2. **Wait for answer** — User provides input, you help them structure it
-3. **Make suggestions** — Based on Signal Summary and Hypotheses
-4. **Summarize** — After each answer: brief summary + "Continue to the next question?"
-5. **Consolidate at the end** — All 5 answers into the WB Document
+1. **One question per round.** Not all five at once: each builds on the one before.
+2. **Recommend every part.** Draft the answer from the signals and personas, worded so "yes" accepts it.
+3. **Facts are yours.** Look up counts, field values, or causes in the data before the round; ask the team only for what the data cannot show.
+4. **Summarize briefly.** After each answer, at most three lines, then the next round. Do not ask "Continue?"
+5. **Flag what does not add up.** If a target cannot be reached with the chosen scope, say so in one line as a question in the next round.
+6. **Consolidate at the end.** All five answers into the WB Document.
 
 ## Output: Working Backwards Document
 
@@ -113,7 +114,7 @@ At the end of the dialog you create this document:
 **Created:** [Date]
 **Customer:** [Customer]
 
-## 1. LISTEN — Who is the customer?
+## 1. LISTEN: Who is the customer?
 
 ### Primary Customers
 - [Customer 1]
@@ -124,12 +125,12 @@ At the end of the dialog you create this document:
 2. ...
 
 ### Pain Points
-- [Pain Point 1] — Severity: High
-- [Pain Point 2] — ...
+- [Pain Point 1] (severity: high)
+- [Pain Point 2] (severity: ...)
 
 ---
 
-## 2. DEFINE — The Customer Problem
+## 2. DEFINE: The Customer Problem
 
 ### Core Problem
 [Clear problem definition in 1-2 sentences]
@@ -158,14 +159,14 @@ Deploy [capability] by [when] to [metric 1] and [metric 2], in order to [ultimat
 
 ---
 
-## 3. INVENT — Solution Approaches
+## 3. INVENT: Solution Approaches
 
 ### Solution: "[Name]"
 [Description in 2-3 sentences]
 
 ### Core Capabilities
-1. [Capability 1] — [Description]
-2. [Capability 2] — ...
+1. [Capability 1]: [Description]
+2. [Capability 2]: ...
 3. ...
 
 ### Differentiation
@@ -173,7 +174,7 @@ Deploy [capability] by [when] to [metric 1] and [metric 2], in order to [ultimat
 
 ---
 
-## 4. REFINE — Customer Experience
+## 4. REFINE: Customer Experience
 
 ### Customer Journey
 1. [Step 1: ...]
@@ -188,7 +189,7 @@ Deploy [capability] by [when] to [metric 1] and [metric 2], in order to [ultimat
 
 ---
 
-## 5. TEST & ITERATE — Measuring Success
+## 5. TEST & ITERATE: Measuring Success
 
 ### Success Metrics
 | Metric | Target | Timeframe |

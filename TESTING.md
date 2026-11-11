@@ -8,6 +8,15 @@ python3 -m unittest discover tests
 
 They check the skills, the bundle that `scripts/build.py` produces, the samples and their generators, and the end-to-end checks themselves on a synthetic workspace. CI runs them on every push.
 
+## Data preparation tests (Presidio, when the tool changes)
+
+The tests for `tools/prepare-data/` that need Microsoft Presidio and its 400 MB spaCy model are skipped above. The `prepare-data` workflow runs them only when the tool or its tests change, or when started by hand. To run them locally:
+
+```bash
+pip install -r tools/prepare-data/requirements.txt && python -m spacy download en_core_web_lg
+python3 -m unittest tests.test_prepare_data -v
+```
+
 ## End-to-end runs (model calls, on demand)
 
 `tests/e2e/run_e2e.py` runs the bundled skill in Claude Code, headless, in a fresh copy of a sample's working folder, then checks the results with `tests/e2e/checks.py`.

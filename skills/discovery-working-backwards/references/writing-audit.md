@@ -1,6 +1,6 @@
 # Writing audit
 
-Run on the PR/FAQ and the PRD before showing them to the team, and after every rewrite. Fix what fails, then tell the team in one line what you checked and what you changed.
+Run on the PR/FAQ and the PRD before showing them to the team, and after every rewrite. Fix what fails, then tell the team in one line what you checked and what you changed. The entry skill's plain-writing rules apply as well.
 
 ## Voice
 1. **The customer is the subject.** "Chefs can now confirm…", not "[Company] launches…" or "The platform enables…".
@@ -11,7 +11,7 @@ Run on the PR/FAQ and the PRD before showing them to the team, and after every r
 ## Words
 5. **No superlatives or buzzwords:** revolutionary, game-changing, seamless, easy, simple, cutting-edge, world-class, best-in-class.
 6. **No unproven firsts:** "first", "first-ever", or "first of its kind" only with evidence.
-7. **No em dashes.** Use commas, colons, or a new sentence.
+7. **No em dashes.** Use a comma or a new sentence; a colon only before a list or after a label.
 8. **Specific numbers** instead of adjectives, each with its evidence label.
 
 ## Structure

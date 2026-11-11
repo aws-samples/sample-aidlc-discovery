@@ -1,0 +1,37 @@
+name: prepare-data
+
+# The data preparation tool's full tests need Presidio and a 400 MB spaCy model,
+# so they run only when the tool or its tests change, or on demand. The tests
+# that need no model also run in the main tests workflow.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "tools/prepare-data/**"
+      - "tests/test_prepare_data.py"
+      - ".github/workflows/prepare-data.yml"
+  pull_request:
+    paths:
+      - "tools/prepare-data/**"
+      - "tests/test_prepare_data.py"
+      - ".github/workflows/prepare-data.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  presidio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tools/prepare-data/requirements.txt
+      - name: Install Presidio and the spaCy model
+        run: |
+          pip install -r tools/prepare-data/requirements.txt
+          python -m spacy download en_core_web_lg
+      - run: python3 -m unittest tests.test_prepare_data -v

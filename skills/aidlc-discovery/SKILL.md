@@ -42,9 +42,9 @@ Discovery ends with a decision on what to build and why. Building, running, and 
 - **Input**: The user's request; `{{project}}`, `{{data_input}}`
 - **Output**: `discovery/{{project}}/PROJECT.md` with the scope and choices
 - **Validate**: The team confirms the product, the people on the team, the business metric with its baseline, and the data input
-- **On failure**: Ask for what is missing, one question at a time
+- **On failure**: Ask for what is missing in the next round
 
-Confirm, in this order: the product and who uses it; who is on the team and whether it splits into pods; the business metric the work should move, with its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never write a customer account, CRM, or sales identifier. If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
+Draft the setup from what you can find first (the request, the folder or Space, `config.md`, the data files), then confirm it in one or two rounds (see Shared rules): the product and who uses it; who is on the team, whether it splits into pods, and who drives; the business metric the work should move, **which direction is good** (higher or lower), and its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never assume the direction of the metric: scoring depends on it. If the request contains a term you cannot place (an engagement reference, a code name), ask what it is in the first round, never twice. Never write a customer account, CRM, or sales identifier. If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
 
 Read `config.md` in the working folder if it exists, otherwise `config.default.md` in this skill's folder, for defaults.
 
@@ -55,7 +55,7 @@ Tell the team the five phases, roughly how long each takes, and that it will be 
 ### Step 2: Signals
 - **Mode**: `agentic`
 - **Input**: The data from Step 1
-- **Output**: The team's expectations, the Signal Analysis Report, and testable hypotheses
+- **Output**: The team's expectations (if it has any), the Signal Analysis Report, and testable hypotheses
 - **Validate**: The team has challenged the report and read customer quotes in full
 - **On failure**: If no data is found, go back to Step 1
 
@@ -118,29 +118,56 @@ These apply in every phase, so the job skills can assume them.
 5. **Files, not chat.** Save every artifact under `discovery/{{project}}/` as soon as it exists, so the team keeps it and later steps can read it. With a team Space, that path is in the Space (see **discovery-team-space**).
 6. **One step at a time.** Say which phase and step the team is in, and what comes next.
 7. **Customer's interest only.** No artifact mentions a vendor's commercial interest, vendor competition, or anyone's internal strategy. The documents describe the customer's problem and the customer's outcome.
-8. **Show progress.** At every checkpoint, and whenever the team asks where it is, show the progress board below, then the question for the team. Keep `PROJECT.md`'s phase status in step with it.
+8. **Show progress.** At the end of each phase, and whenever the team asks where it is, show the progress board below, then the next round. Within a phase, one line is enough: "Working Backwards, step 3 of 5: PR/FAQ." Keep `PROJECT.md`'s phase status in step with it.
+9. **Ask in rounds.** Every question to the team uses the format in "Asking the team" below.
+10. **Keep the chat short.** The files hold the detail; the chat holds what the team needs to decide now. Summarize an artifact in at most five lines and link to it, except the press release, which the team reads in full. Acknowledge an answer in one line, not by restating it. Never repeat a question the team has already answered or skipped; carry it as an open item instead.
+11. **Corrections flow downstream.** When the team corrects something an earlier confirmed step relied on (the metric or its direction, a data file, a score), say in one line what it changes, and make re-running that step the recommended answer in the next round. Do not continue on the old basis.
+12. **Plain writing.** Before you send any reply or save any artifact, check it against `references/plain-writing.md` and fix what fails. It keeps the method's own names, the round format, and the evidence labels, and it allows no emojis.
+
+## Asking the team
+
+Ask in rounds. A round holds every question that is ready to be asked now, each in this format:
+
+```markdown
+**Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
+
+**Recommendation:** <your recommended answer>
+
+---
+
+**Q2** - **<question title>**: <question body>
+
+**Recommendation:** <your recommended answer>
+```
+
+- **Word each question so "yes" accepts the recommended answer.** The team can answer a whole round with "yes", or with "yes, except Q2: ...".
+- **Recompute the frontier after each answer.** Settled decisions unblock the questions that depended on them. A question whose answer depends on another question still open in this round belongs to a later round, not this one.
+- **Finding facts is your job, never the team's.** If a question needs a fact from the data, the files, or the Space, look it up before asking. When the harness can run sub-agents, dispatch one with a fresh context for each lookup and ask the rest of the round meanwhile; only the questions that depend on the lookup wait. Never ask the team for something you could read yourself.
+- **The decisions are the team's.** Put each one to the team and wait. A recommendation is a draft, never a decision.
+- **No recommendation where it would bias the team.** For the team's expectations before Signals, never suggest what to believe; the only recommendation is that skipping is fine.
+- When the harness shows answer buttons (for example decision cards), make the recommended answer the first option. The chat text still uses the format above.
 
 ## Progress board
 
-Two short tables. Status values: ✅ Complete, ▶️ In progress, ⏳ Not started, ⏸️ Deferred for phases; ✅ Saved, 📝 Draft, ❌ Missing for artifacts.
+Two short tables, with no emojis. Status values: Complete, In progress, Not started, Deferred for phases; Saved, Draft, Missing for artifacts.
 
 ```markdown
 **Discovery progress**
 
 | # | Phase | Status | Key artifact |
 |---|-------|--------|--------------|
-| 1 | Signals | ✅ Complete | Signal Analysis Report: top signal "..." |
-| 2 | Working Backwards | ▶️ In progress | Use case scoring: #1 "..." build first |
-| 3 | Prototype | ⏳ Not started | |
-| 4 | Validate | ⏳ Not started | |
-| 5 | Handoff | ⏳ Not started | |
+| 1 | Signals | Complete | Signal Analysis Report: top signal "..." |
+| 2 | Working Backwards | In progress | Use case scoring: #1 "..." build first |
+| 3 | Prototype | Not started | |
+| 4 | Validate | Not started | |
+| 5 | Handoff | Not started | |
 
 **Artifacts in this phase**
 
 | Artifact | Status | Location |
 |----------|--------|----------|
-| Use case scoring | ✅ Saved | `discovery/[project]/working-backwards/use-case-scoring.md` |
-| PR/FAQ | 📝 Draft | `discovery/[project]/working-backwards/prfaq.md` |
+| Use case scoring | Saved | `discovery/[project]/working-backwards/use-case-scoring.md` |
+| PR/FAQ | Draft | `discovery/[project]/working-backwards/prfaq.md` |
 ```
 
 The key artifact line says what was decided, not only that a file exists.
@@ -186,11 +213,14 @@ discovery/
 ## Lessons Learned
 
 ### Do
-- Record the team's expectations before Signals shows anything.
+- Ask once for the team's expectations before Signals shows anything; none is a valid answer.
 - Name the skill each step uses, so the team can rerun one job on its own later.
 - Keep checkpoints short: what was produced, what the team needs to decide, what comes next.
+- Ask every independent question in the same round.
 
 ### Don't
+- Ask the team one question per message when the questions do not depend on each other.
+- Ask the team for a fact that is in the data or the files.
 - Repeat a job skill's instructions here; call the skill.
 - Move on from scoring until the team has confirmed the scores.
 - Start AI-DLC; Handoff prints the command and the team runs it later.

@@ -1,4 +1,4 @@
-# Results Dashboard — Skill
+# Results dashboard
 
 ## Purpose
 
@@ -8,7 +8,7 @@ Generate an interactive dashboard as HTML artifact with Chart.js (MIT-licensed).
 
 ## Input
 
-CSV file with survey responses. Flexible format — the agent automatically recognizes:
+CSV file with survey responses. Flexible format: the agent automatically recognizes:
 - Google Forms Export
 - Microsoft Forms Export
 - Typeform Export
@@ -26,11 +26,11 @@ Chart.js half-doughnut gauge: NPS Score (-100 to +100)
 ### 2. Star Rating Distribution
 ```
 Chart.js horizontal bar:
-⭐⭐⭐⭐⭐  ████████ 45%
-⭐⭐⭐⭐     ███████  35%
-⭐⭐⭐        ███     15%
-⭐⭐           █       3%
-⭐              █       2%
+5 stars  ████████  45%
+4 stars  ███████   35%
+3 stars  ███       15%
+2 stars  █          3%
+1 star   █          2%
 ```
 
 ### 3. Likert Scale Stacked Bar
@@ -52,9 +52,9 @@ Chart.js stacked bar (per statement):
 Styled HTML table (Chart.js core has no heatmap):
 | Hypothesis | Metric | Target | Result | Status |
 |------------|--------|--------|--------|--------|
-| H1         | NPS    | >30    | 35     | ✅ Validated |
-| H2         | Agree% | >60%   | 45%    | ❌ Refuted |
-| H3         | Rating | >4.0   | 4.2    | ✅ Validated |
+| H1         | NPS    | >30    | 35     | Validated |
+| H2         | Agree% | >60%   | 45%    | Refuted |
+| H3         | Rating | >4.0   | 4.2    | Validated |
 ```
 
 ### 6. Prioritization Scatter (Impact vs. Effort)
@@ -111,7 +111,7 @@ Create a Results Dashboard for this survey data:
 Create an HTML Dashboard with:
 1. Summary Cards (Responses, Avg Rating, NPS)
 2. Visualization per question type (NPS Gauge, Star Bars, Likert Stacked)
-3. Hypothesis Validation Table (with ✅/❌ status)
+3. Hypothesis Validation Table (status in words: Validated, Refuted)
 4. Key Insights (3-5 bullet points)
 5. Recommended Next Steps
 
@@ -122,12 +122,12 @@ Output: One HTML file with inline Chart.js.
 
 ## Output
 
-- `discovery/[name]/validate/dashboard.html` — Interactive Dashboard
+- `discovery/[name]/validate/dashboard.html`: Interactive Dashboard
 - Open the file for a live preview (Quick: `open_in_session_tab`; Kiro/Claude Code: open it in the editor or browser)
 
 ## Technical Details
 
-- **Chart.js CDN:** `https://cdn.jsdelivr.net/npm/chart.js` (allowed in HTML artifacts; MIT license — chosen over Highcharts, which requires a paid license for commercial use)
+- **Chart.js CDN:** `https://cdn.jsdelivr.net/npm/chart.js` (allowed in HTML artifacts; MIT license, chosen over Highcharts, which requires a paid license for commercial use)
 - **Layout:** CSS Grid, max 2-3 charts per row
 - **Responsive:** Mobile-friendly
 - **Interactive:** Hover tooltips, click-to-filter where possible

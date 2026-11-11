@@ -4,7 +4,7 @@ Save each persona as its own file, `discovery/[project]/working-backwards/person
 
 ```markdown
 # [Name]
-**Tagline:** [The Descriptive Label — one sentence]
+**Tagline:** [The descriptive label, in one sentence]
 **Confidence:** HIGH | MEDIUM | LOW
 
 ## Identity
@@ -39,8 +39,8 @@ Save each persona as its own file, `discovery/[project]/working-backwards/person
 - **Influencers:** [Who influences their decisions]
 
 ## Quotes
-> "[Exact quote from feedback]" — [Source]
-> "[Another quote]" — [Source]
+> "[Exact quote from feedback]" ([Source])
+> "[Another quote]" ([Source])
 
 ## Scenario
 **[Title]**

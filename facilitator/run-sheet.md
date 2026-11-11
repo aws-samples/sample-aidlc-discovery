@@ -8,7 +8,7 @@ One day, one product engineering team, five phases. Keep this page open beside y
 - In AWS Quick Desktop: **Customize**, **Skills**, **Create**, **From folder**, then pick `dist/aidlc-discovery` (built with `python3 scripts/build.py`).
 - Import stores a snapshot. Editing the folder afterwards changes nothing. To update: remove the plugin, import again, start a new chat.
 - Check the install in a new chat: `List my skills` shows one skill, AI-DLC Discovery Workshop.
-- Run the 30-second module check: "Use the aidlc-discovery skill. Load modules/discovery-signals.md with file_read and tell me what Step 1 says." It must answer: the team's expectations, before any analysis. If it cannot find the file, reinstall.
+- Run the 30-second module check: "Use the aidlc-discovery skill. Load modules/discovery-signals.md with file_read and tell me what Step 1 says." It must answer: the team's expectations, optional, asked once before any analysis. If it cannot find the file, reinstall.
 
 **Rehearse once.** Run a sample end to end (see `dry-run-air.md`). New facilitators can also take the half-day session in `train-the-trainer.md`. You will meet every checkpoint before the team does.
 
@@ -28,14 +28,14 @@ One day, one product engineering team, five phases. Keep this page open beside y
 - **Say:** "Today we decide what to build next, from evidence, and we leave with a brief the build starts from. The assistant drafts; you decide. It stops after every phase, and nothing moves on until you say so."
 - **Ask the assistant:** "Start an AI-DLC Discovery workshop. Project: [name]. Engagement reference: [reference or Self-serve]. Save the workshop in the [Space name] space. Data: [input], in [folder]." Leave out the Space sentence to save in the working folder.
 - **With a Space attached,** it asks once whether to save the workshop in the Space or the folder. Say the Space, and tell the room AWS Quick may ask to approve each save. Everyone else attaches the Space now and follows along in their own chat, reading, not writing.
-- **Good looks like:** it drafts the setup from what it can find (a scenario page, the folder, `config.md`) and asks the room to confirm, or asks one question at a time when there is nothing to draft from. Then it writes `PROJECT.md`. Read the draft aloud and have the product owner confirm the business metric: everything is scored against it.
+- **Good looks like:** it drafts the setup from what it can find (a scenario page, the folder, `config.md`) and asks the room to confirm, or asks in one or two rounds of numbered questions, each with a recommended answer, when there is nothing to draft from. Then it writes `PROJECT.md`. Read the draft aloud and have the product owner confirm the business metric and which direction is good: everything is scored against it.
 - **Facilitator practice:** don't confirm the setup yourself. Ask the product owner, "Is anything here wrong or missing?" If the sponsor leaves after the kickoff, ask them now whether the metric is the one they care about.
 
 ### 09:30 Signals (60 min)
 - **Goal:** the team's beliefs on record, then tested against the data.
 - **Say:** "Before we see any analysis, each of you writes down what you think the data will show. We will check ourselves against it."
-- **Watch:** it must ask for expectations before showing anything. Go round the room, one line per person.
-- **Facilitator practice, expectations:** it asks five questions, one at a time. Read each aloud and wait. The most senior person tends to answer first and the rest agree; ask the quietest person first.
+- **Watch:** it asks once for the team's expectations before showing anything, and accepts "skip". Go round the room, one line per person; if nobody has one, say skip and move on.
+- **Facilitator practice, expectations:** it asks one question. Read it aloud and wait. The most senior person tends to answer first and the rest agree; ask the quietest person first.
 - **Facilitator practice, the inventory:** before the room confirms the data inventory, ask the person closest to each gap whether that data exists. A gap named now is an open question in the brief; a gap found at the readout costs you credibility.
 - **Good looks like:** top signals with counts and quotes, every claim labelled Known, Assumed, or Needs evidence, and a "What the team expected" table. With telemetry, a **Say and do** table: each theme marked as seen in both, feedback only, or telemetry only.
 - **Facilitator practice, the dashboard:** when an engineer points at the loudest error, ask "How many customers did it stop?" Then show the journey: a journey that fails as designed returns success, so no dashboard shows it.
@@ -114,7 +114,7 @@ One day, one product engineering team, five phases. Keep this page open beside y
 ## When things go wrong
 
 - **The skill is not installed, or behaves like an older version.** `List my skills`, then the module check. If either fails, remove the plugin, import again, and start a new chat. Copying files into the AWS Quick profile by hand is not a fix: AWS Quick keeps its own snapshot.
-- **It skips the expectations, or jumps ahead to verdicts.** Say: "Stop. Follow the aidlc-discovery skill one step at a time. Load the module for this phase and start at Step 1." If it still improvises, the skill is not loaded; see above.
+- **It shows analysis before asking for expectations, or jumps ahead to verdicts.** Say: "Stop. Follow the aidlc-discovery skill one step at a time. Load the module for this phase and start at Step 1." If it still improvises, the skill is not loaded; see above.
 - **Someone else takes over facilitation, with a team Space.** In their own AWS Quick, with the Space attached: "Continue the AI-DLC Discovery workshop for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [role]. Start at [step]." The previous driver stops writing. If two people wrote at once, the last save wins: compare what each changed and redo the lost change.
 - **The chat is lost, or you reinstalled the skill mid-workshop.** Start a new chat with access to the working folder and say: "Continue the AI-DLC Discovery workshop for [project] from discovery/[project]/PROJECT.md. [What is done.] Start at [the next step]." It reads the saved files and picks up from there.
 - **A module path does not resolve.** It should retry with the skill's full installed path. If it doesn't, tell it to.

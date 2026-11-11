@@ -42,13 +42,8 @@ jobs:
       - name: Run tests
         run: python3 -m unittest discover tests -v
 
-      - name: Build the skill bundle
+      - name: Build and package the skill bundle
         run: python3 scripts/build.py
-
-      - name: Package the bundle
-        run: |
-          V="${{ steps.version.outputs.version }}"
-          (cd dist && zip -qr "../aidlc-discovery-v${V}.zip" aidlc-discovery)
 
       - name: Extract release notes
         run: |
@@ -64,4 +59,4 @@ jobs:
           body_path: release-notes.md
           prerelease: false
           make_latest: true
-          files: aidlc-discovery-v*.zip
+          files: dist/aidlc-discovery-v*.zip
