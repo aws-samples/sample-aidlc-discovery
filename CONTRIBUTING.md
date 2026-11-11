@@ -40,6 +40,18 @@ GitHub provides additional document on [forking a repository](https://help.githu
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 
+## Releasing
+
+Merging to `main` does not publish anything: installed skills only change when a release is published and teams reinstall it. To release:
+
+1. Pick the version, by [Semantic Versioning](https://semver.org/): `3.0.1` for fixes, `3.1.0` for new behaviour, `4.0.0` for a breaking change.
+2. In a pull request, set it in `plugin.json` and in the `version:` line of every `skills/*/SKILL.md`, and rename `## [Unreleased]` in `CHANGELOG.md` to `## [X.Y.Z] — YYYY-MM-DD`. Merge it.
+3. Start the release, either way:
+   - **Actions**, **Release v3**, **Run workflow** on `main`, with the version (for example `3.0.1`), or
+   - `git tag vX.Y.Z && git push origin vX.Y.Z` on `main`.
+
+The workflow stops if the version, `plugin.json`, a skill, and the changelog disagree, or if the tag already exists. Otherwise it runs the tests, builds `dist/aidlc-discovery-vX.Y.Z.zip`, and publishes it as the latest release, with that version's changelog section as the notes.
+
 ## Finding contributions to work on
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
 

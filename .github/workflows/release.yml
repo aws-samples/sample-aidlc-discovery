@@ -1,11 +1,21 @@
 name: Release v3
 
 # Builds the AWS Quick skill bundle and publishes it as the latest release.
-# Triggered by v3.*.* tags only; earlier lines keep their own workflows on their branches.
+# Two ways to start it:
+#   - push a v3.*.* tag, or
+#   - Actions, "Release v3", "Run workflow" on main, with a version such as 3.0.1:
+#     the workflow checks it, then creates the tag and the release on main's latest commit.
+# Earlier major lines keep their own workflows on their branches.
 on:
   push:
     tags:
       - 'v3.*.*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release, without the v (for example 3.0.1)"
+        required: true
+        type: string
 
 jobs:
   build-and-release:
@@ -19,12 +29,25 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Resolve version from tag
+      - name: Resolve the version
         id: version
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
         run: |
-          TAG="${GITHUB_REF#refs/tags/}"
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            [ "${GITHUB_REF}" = "refs/heads/main" ] || { echo "::error::Run the release from main, not ${GITHUB_REF}."; exit 1; }
+            V="${INPUT_VERSION#v}"
+            TAG="v${V}"
+            if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null; then
+              echo "::error::${TAG} already exists. Choose the next version."; exit 1
+            fi
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+            V="${TAG#v}"
+          fi
+          echo "${V}" | grep -Eq '^3\.[0-9]+\.[0-9]+$' || { echo "::error::${V} is not a 3.x.y version."; exit 1; }
           echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
-          echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
+          echo "version=${V}" >> "$GITHUB_OUTPUT"
 
       - name: Verify the tag matches plugin.json and every skill
         run: |
@@ -55,6 +78,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.tag }}
+          target_commitish: ${{ github.sha }}
           name: aidlc-discovery ${{ steps.version.outputs.tag }}
           body_path: release-notes.md
           prerelease: false

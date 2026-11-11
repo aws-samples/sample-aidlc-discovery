@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - **Data preparation tool** (`tools/prepare-data/`): a short Python script around Microsoft Presidio that removes personal data from exports offline, on the team's machine, with a report to review before sharing. It drops people columns such as requester, assignee, or owner, removes logins from the text, shortens dates to the month in any common format, and builds `schema.md` from the scrubbed values only. `--synthetic N` writes invented rows in the shape of the scrubbed data, for rehearsals.
 - A `prepare-data` workflow that runs the Presidio tests only when the tool or its tests change, or on demand. The main test workflow stays fast.
 - `scripts/build.py` also writes the release zip to `dist/`, and points the bundled README's links at the repository.
+- The release can be started from **Actions**, **Release v3**, **Run workflow**, with a version: it checks the version, then creates the tag and the release. Releasing steps are in `CONTRIBUTING.md`.
 
 ### Changed
 
