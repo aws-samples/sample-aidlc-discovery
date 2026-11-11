@@ -2,7 +2,7 @@
 
 Run this on your own machine before the workshop, so that the workshop's AI assistant only ever sees customer feedback with the personal information removed. Raw records never leave your environment.
 
-Detection is done by [Microsoft Presidio](https://microsoft.github.io/presidio/), an open-source (MIT) PII detection library. It finds names with a local spaCy language model, and it recognises emails, phone numbers, card numbers, IBANs, IP addresses, and national IDs. `prepare_data.py` is a short, readable script around it. It adds what a workshop needs: what to do with each column, a few patterns Presidio does not have, and a report to review before you share. Everything runs offline, and the script prints counts but never record text. Please read it before you run it.
+Detection is done by [Microsoft Presidio](https://presidio.dataprivacystack.org/), an open-source (MIT) PII detection library. It finds names with a local spaCy language model, and it recognises emails, phone numbers, card numbers, IBANs, IP addresses, and national IDs. `prepare_data.py` is a short, readable script around it. It adds what a workshop needs: what to do with each column, a few patterns Presidio does not have, and a report to review before you share. Everything runs offline, and the script prints counts but never record text. Please read it before you run it.
 
 ## Install once
 

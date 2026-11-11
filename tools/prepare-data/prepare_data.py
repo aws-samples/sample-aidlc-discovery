@@ -6,7 +6,7 @@ matter. This script removes personal information first, so that only scrubbed
 records ever reach the assistant. Read it before you run it: it is meant to be
 reviewed, and it makes no network calls.
 
-Detection is done by Microsoft Presidio (https://microsoft.github.io/presidio/),
+Detection is done by Microsoft Presidio (https://presidio.dataprivacystack.org/),
 which finds names with a local spaCy language model and recognises emails,
 phone numbers, card numbers, IBANs, IP addresses, URLs, and national IDs. This
 script adds what a workshop needs on top: what to do with each column, a few
