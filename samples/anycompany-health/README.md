@@ -85,6 +85,6 @@ Everything is in `discovery/signal-briefs/`, covering 1 May to 15 October 2026. 
    Start AI-DLC Discovery. Project: member-portal. Product: AnyCompany Health's member portal and app. Save Discovery in the [your Space] space. Data: signal-briefs, in discovery/signal-briefs/ in the [your Space] space.
    ```
 
-3. Answer the setup questions as the team above, and write the team's hypotheses before the analysis.
+3. Answer the setup questions as the team above, and write the team's expectations before the analysis.
 
 The data is fictional. A run on it demonstrates Discovery; it is not evidence for a build. The designed answers are in [facilitator/anycompany-health.md](../../facilitator/anycompany-health.md). Read it after the run, not before.

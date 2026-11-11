@@ -98,7 +98,7 @@ Scored out of 10 each for frequency, severity, and reach. Scores are a draft for
 
 ## What the team expected
 
-| # | Team hypothesis | What the data shows | Verdict |
+| # | Team expectation | What the data shows | Verdict |
 |---|---|---|---|
 | 1 | Leisure web bookers complain about a dated booking flow (head of digital) | 39 complaints, mostly leisure, but low severity. Conversion is above the benchmark, and corporate customers say booking is fine. | Partly supported: the friction is real, but it is not the top problem |
 | 2 | Customers complain mainly about fares (commercial director) | 29 records (7%), mostly leisure passives. Disruption is four times as frequent and far more severe. | Contradicted as the main complaint |
@@ -134,7 +134,7 @@ Scored out of 10 each for frequency, severity, and reach. Scores are a draft for
 ## Team challenges (Signals review, 2026-10-29)
 
 ### 1. "The data only covers people who booked. How do we know booking isn't losing customers we can't see?" (head of digital)
-**Verdict: valid gap. It weakens the verdict on team hypothesis 1 but does not reverse it.**
+**Verdict: valid gap. It weakens the verdict on team expectation 1 but does not reverse it.**
 - True: no record comes from someone who abandoned a booking. **[Known]**
 - What the funnel shows: 11.3 million sessions, 6.7 million searches (60%), 353,216 bookings. Search-to-booking is 5.1% to 5.4% and conversion is 3.08% to 3.17% every month, above the 3.0% benchmark in the file. **[Known]**
 - What that means: a flow that drove many people away would usually show up as below-benchmark or falling conversion. It does neither. **[Assumed]** The file does not say how the benchmark is defined, so the comparison may not be like-for-like. **[Needs evidence]**

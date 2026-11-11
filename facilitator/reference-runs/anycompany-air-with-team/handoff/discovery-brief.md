@@ -194,7 +194,7 @@ No codebase was analyzed; no current-product map exists. From the signals: the A
 
 ## 15. Full artifacts
 - [PROJECT.md](../PROJECT.md)
-- Signals: [team-hypotheses.md](../signals/team-hypotheses.md), [signal-summary.md](../signals/signal-summary.md), [hypotheses.md](../signals/hypotheses.md)
+- Signals: [team-expectations.md](../signals/team-expectations.md), [signal-summary.md](../signals/signal-summary.md), [hypotheses.md](../signals/hypotheses.md)
 - Personas: [daniel.md](../working-backwards/personas/daniel.md), [helena.md](../working-backwards/personas/helena.md), [ingrid.md](../working-backwards/personas/ingrid.md), [karim.md](../working-backwards/personas/karim.md), [sofia.md](../working-backwards/personas/sofia.md)
 - Working Backwards: [use-case-scoring.md](../working-backwards/use-case-scoring.md), [working-backwards.md](../working-backwards/working-backwards.md), [feature-description.md](../working-backwards/feature-description.md), [prfaq.md](../working-backwards/prfaq.md), [prd.md](../working-backwards/prd.md), [riskiest-assumption.md](../working-backwards/riskiest-assumption.md), [gtm.md](../working-backwards/gtm.md)
 - Prototype: [index.html](../prototype/index.html) (v3), [v1.html](../prototype/v1.html), [v2.html](../prototype/v2.html), [v3.html](../prototype/v3.html), [compare.html](../prototype/compare.html), [versions.md](../prototype/versions.md), [notes.md](../prototype/notes.md), [persona-critique.md](../prototype/persona-critique.md)

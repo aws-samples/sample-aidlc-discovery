@@ -132,9 +132,9 @@ def check_workshop(workspace: Path, project: str) -> list[Check]:
     checks.append(Check("D15", "Decision is commit, pivot, or park", bool(re.search(r"\*\*decision:\*\*\s*\**\s*(commit|pivot|park)", decision, re.I))))
     drafts = [l.strip() for l in read(d / "working-backwards" / "gtm.md").splitlines() if re.search(r"status:?\**\s*\**draft", l, re.I)]
     checks.append(Check("D16", "No GTM part left as draft", not drafts, "; ".join(drafts[:3])))
-    th, ss = d / "signals" / "team-hypotheses.md", d / "signals" / "signal-summary.md"
+    th, ss = d / "signals" / "team-expectations.md", d / "signals" / "signal-summary.md"
     first = th.is_file() and ss.is_file() and _created(th) <= _created(ss)
-    checks.append(Check("D17", "Team hypotheses written before the analysis", first))
+    checks.append(Check("D17", "Team expectations written before the analysis", first))
     checks.append(Check("D18", "next-steps.md written", (d / "handoff" / "next-steps.md").is_file()))
     steps = read(d / "handoff" / "next-steps.md").lower()
     checks.append(Check("D20", "next-steps.md has a Now, Next, Later roadmap",

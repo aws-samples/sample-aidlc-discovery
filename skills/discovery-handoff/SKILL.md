@@ -39,7 +39,7 @@ Supported AI-DLC: 2.10.0 or later (`awslabs/aidlc-workflows`). The brief relies 
 
 | Artifact | Path under `discovery/{{project}}/` | Produced by |
 |----------|-------------------------------------|-------------|
-| Team hypotheses | `signals/team-hypotheses.md` | discovery-signals |
+| Team expectations | `signals/team-expectations.md` | discovery-signals |
 | Signal Analysis Report | `signals/signal-summary.md` | discovery-signals |
 | Personas (at least two) | `working-backwards/personas/*.md` | discovery-personas |
 | Use case scoring | `working-backwards/use-case-scoring.md` | discovery-use-case-scoring |

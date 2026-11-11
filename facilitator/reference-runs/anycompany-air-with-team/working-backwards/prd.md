@@ -77,7 +77,7 @@ When their flight is cancelled or delayed by more than two hours, AnyCompany Air
 | NF-4 | Fewer than 2% of self-service rebookings need an agent to fix | [Assumed] |
 | NF-5 | Usable on a phone, one-handed, at a gate; readable for passengers with low tech affinity, and accessible to passengers using assistive technology | Need [Known] (Helena; "too many options on one page") |
 | NF-6 | The phone line and airport desk stay available; nothing in this PRD removes a human route | Team constraint (challenge 3) |
-| NF-7 | Booking and check-in in the app keep their current speed and layout | Guardrail (Sofia; engineering lead's hypothesis 6) |
+| NF-7 | Booking and check-in in the app keep their current speed and layout | Guardrail (Sofia; engineering lead's expectation 6) |
 | NF-8 | **Proposal:** the disruption message reaches the passenger within a set time of the disruption being known, before the good flights fill (pre-mortem reason 4). Time to be set | [Assumed]; head of digital sets it at the 30-day follow-up, after the message audit (research hypothesis 5) |
 
 ## 6. User stories and acceptance criteria

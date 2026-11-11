@@ -123,12 +123,12 @@ const ROOMS = [
   { name:"Signals", time:"09:30", col:"#3b6e8f", tint:["#cfe0ec","#c3d6e6"], q:"What are customers telling us?",
     check:"Here are the top signals and their evidence. What do you challenge before we decide what to work on?",
     moments:[
-    { who:"head", time:"09:35", line:"Skip the hypotheses and just show us what the data says. We're busy people.", lesson:L.setup, choices:[
+    { who:"head", time:"09:35", line:"Skip the expectations and just show us what the data says. We're busy people.", lesson:L.setup, choices:[
       { t:"Fair enough. Let's look at the report first and talk afterwards.", good:false, reply:"Good. Ah, so it's... not the booking flow?",
         note:"Once the room has seen the report, it remembers believing it all along, and can't check itself." },
-      { t:"Let's have the assistant draft a few hypotheses for us instead.", good:false, reply:"Even faster.",
+      { t:"Let's have the assistant draft a few expectations for us instead.", good:false, reply:"Even faster.",
         note:"They must be the team's own words, written down as given. Drafted ones defeat the point." },
-      { t:"Hypotheses first: one line each. Then the data can show where we're right.", good:true, reply:"Fine. Booking flow, obviously. Write it down.",
+      { t:"Expectations first: one line each. Then the data can show where we're right.", good:true, reply:"Fine. Booking flow, obviously. Write it down.",
         note:"Hold the line. Ask the quietest person first, so the most senior voice doesn't set the answer." } ] },
     { who:"ops", time:"10:30", line:"I still think this is a staffing problem. What in the data says otherwise?", lesson:L.setup, choices:[
       { t:"Calls rise with disruption, 418 per 1,000 every month, and self-service never moves. What would more agents change?", good:true,

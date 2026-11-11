@@ -59,7 +59,7 @@ Use the name of your scratch folder if it differs. If a Space is attached and yo
 - **Phase status:** the same progress board the assistant shows at each step, with the key artifact of each phase.
 - **With a Space, Storage and Driver:** which Space, and who is writing now. Before every save it checks the driver, so two people never overwrite each other.
 
-The phase status moves with the progress board during the day. The team's decisions live in each phase's own files: hypotheses in `signals/`, scores and overrides in `working-backwards/use-case-scoring.md`, the decision in `validate/decision.md`. Show `PROJECT.md` to the room once, after setup, so they see what they agreed.
+The phase status moves with the progress board during the day. The team's decisions live in each phase's own files: expectations in `signals/`, scores and overrides in `working-backwards/use-case-scoring.md`, the decision in `validate/decision.md`. Show `PROJECT.md` to the room once, after setup, so they see what they agreed.
 
 **Then:** it shows the progress board, with Signals in progress, and starts Signals.
 
@@ -109,7 +109,7 @@ These are written so that the data can contradict some of them: that is the poin
 
 **Facilitator practice:** read each question aloud and wait before anyone answers. In a real room, the most senior person tends to answer first and everyone else then agrees with them. Ask the quietest person first.
 
-**Watch for:** no analysis before your hypotheses are saved in `signals/team-hypotheses.md`, each written as "We expect ... because ...", with a "What would surprise us" list. It says it will not change that file again.
+**Watch for:** no analysis before your expectations are saved in `signals/team-expectations.md`, each written as "We expect ... because ...", with a "What would surprise us" list. It says it will not change that file again.
 
 **Then the data inventory, before any analysis:** 400 text records from six sources plus four data tables, 1 May to 15 October, no personal data (customers appear only as codes, kept out of the quotes), and the gaps it can see, for example no feedback from passengers who rebooked at an airport desk.
 
@@ -138,7 +138,7 @@ Yes, run the full analysis.
 - **Disruption first**, scored for frequency, severity, and reach (about 28 of 30), across all six sources and all three segments. "Delayed baggage" is the largest single call reason; disruption only shows once the six disruption reasons are added up.
 - **Bag tracking second, the booking flow third**: friction, not broken, with web conversion above the industry benchmark.
 - **Price and the 3D seat map low**: price mostly mild, from leisure travellers; the seat map requested almost only by happy customers.
-- **A "What the team expected" table** with a verdict on every hypothesis. Look for the engineering lead's surprise: customers changing their own bookings in the app turns out to be the clearest request in the data.
+- **A "What the team expected" table** with a verdict on every expectation. Look for the engineering lead's surprise: customers changing their own bookings in the app turns out to be the clearest request in the data.
 - **Five customer quotes in full**, the data's limits, and evidence labels throughout.
 - **Counts close to, not exactly, the designed ones.** It groups records by keyword and checks by hand, and says the counts are approximate. That is fine.
 - **The telemetry, read next to the feedback.** The inventory lists the four telemetry files, the two journeys in the journey map, and that real user monitoring (RUM) is included. The report has a **Say and do** table: disruption in both (about 60% of opened alerts reach the other flights, and about 68% of those tap Contact us, with no server errors); booking friction mostly in feedback while the booking journey is healthy; the August payment timeouts in telemetry with almost no complaints; and late alerts (about 9 minutes typical, 41 minutes at the slow end in summer) in telemetry only.

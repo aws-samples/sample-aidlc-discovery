@@ -74,7 +74,7 @@ For leaders or participants, keep slides 1–5, one slide per stage (the first s
 - Each becomes "We expect [segment] to [problem], because [...]"
 - AI analysis is persuasive; written beliefs let the team check itself
 
-**Show:** [`signals/team-hypotheses.md`](../../facilitator/reference-runs/anycompany-air/signals/team-hypotheses.md): nine beliefs, one per role.
+**Show:** [`signals/team-expectations.md`](../../facilitator/reference-runs/anycompany-air/signals/team-expectations.md): nine beliefs, one per role.
 **Say:** Ask the quietest person first.
 
 ### 8. The report weighs signal over frequency
@@ -189,7 +189,7 @@ For leaders or participants, keep slides 1–5, one slide per stage (the first s
 
 ### 20. Your job is the room
 - Time, energy, and making sure the team does the thinking
-- Hold the line on order: hypotheses before analysis, risks before the decision
+- Hold the line on order: expectations before analysis, risks before the decision
 - Next: run the solo dry run, take the train-the-trainer session, co-facilitate once
 
 **Show:** [`facilitator/run-sheet.md`](../../facilitator/run-sheet.md) and [`train-the-trainer.md`](../../facilitator/train-the-trainer.md), "Ready to facilitate".

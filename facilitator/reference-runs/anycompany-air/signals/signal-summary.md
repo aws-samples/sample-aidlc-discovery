@@ -106,7 +106,7 @@ Disruption calls are 38% of call contacts but about 62% of call handle time in t
 | Price, loyalty, 3D seat | 36 / 27 / 16 records | Not covered by telemetry | **Feedback only** |
 
 ## What the team expected
-| Team hypothesis | What the data shows | Verdict |
+| Team expectation | What the data shows | Verdict |
 |-----------------|--------------------|---------|
 | 1. Bookers put off by a dated booking flow (head of digital) | 43 mild mentions; conversion 3.1%, above benchmark and flat; four corporate accounts say booking is not a renewal factor | **Contradicted** |
 | 2. Disrupted passengers cannot choose a new flight and must call (head of digital) | 116 records, all sources and segments; 41% of alert openers tap Contact us; 12.2% self-service | **Supported** |

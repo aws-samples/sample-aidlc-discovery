@@ -28,7 +28,7 @@ def build(root: Path) -> Path:
             p = d / rel
             p.parent.mkdir(parents=True, exist_ok=True)
             p.write_text("# artifact\n", encoding="utf-8")
-    (d / "signals" / "team-hypotheses.md").write_text("# Team hypotheses\n", encoding="utf-8")
+    (d / "signals" / "team-expectations.md").write_text("# Team expectations\n", encoding="utf-8")
     time.sleep(0.02)
     (d / "signals" / "signal-summary.md").unlink()
     (d / "signals" / "signal-summary.md").write_text("# Signals\n\n### 1. Repeat order on a phone takes too long\n", encoding="utf-8")
@@ -143,8 +143,8 @@ class ChecksTests(unittest.TestCase):
         (self.d / "working-backwards" / "gtm.md").write_text("## 4. Viability check · Status: draft\n", encoding="utf-8")
         self.assertIn("D16", self.failed())
 
-    def test_analysis_before_hypotheses_fails(self) -> None:
-        th = self.d / "signals" / "team-hypotheses.md"
+    def test_analysis_before_expectations_fails(self) -> None:
+        th = self.d / "signals" / "team-expectations.md"
         th.unlink()
         time.sleep(0.02)
         th.write_text("# written after\n", encoding="utf-8")

@@ -49,7 +49,7 @@ From the Signal Analysis Report (`signal-summary.md`). Demonstration run on fict
 **Test approach:** [ ] Measure seats left on the best alternative at alert time vs event time. [ ] Method: data analysis. [ ] Expected: fewer options at alert time in peak.
 **Connection:** Persona: leisure. PR/FAQ: FAQ on how fast passengers hear.
 
-### Hypothesis 7: More agents would not move the self-service rate (team hypothesis 4, not settled)
+### Hypothesis 7: More agents would not move the self-service rate (team expectation 4, not settled)
 **Statement:** We believe that adding summer agents would shorten holds but leave the call rate per disrupted passenger at about 415 per 1,000, because the rate is flat across months with very different volumes.
 **Evidence:** operations-monthly.
 **Confidence:** MEDIUM
@@ -61,13 +61,13 @@ From the Signal Analysis Report (`signal-summary.md`). Demonstration run on fict
 **Confidence:** MEDIUM
 **Test approach:** [ ] Count repeat calls per baggage case. [ ] Method: call data. [ ] Expected: over two calls per case.
 
-### Hypothesis 9: A 3D seat map would increase seat upgrade revenue (team hypothesis 3, not settled)
+### Hypothesis 9: A 3D seat map would increase seat upgrade revenue (team expectation 3, not settled)
 **Statement:** We believe that seat buyers would upgrade more with a 3D view, because 16 customers asked for one.
 **Evidence:** VoC: 16 mentions, all nice-to-have. No revenue data.
 **Confidence:** LOW
 **Test approach:** [ ] Get seat upgrade take rates and test a photo view of extra-legroom seats. [ ] Method: A/B test. [ ] Expected: measurable uplift, or none.
 
-### Hypothesis 10: Booking redesign would raise conversion (team hypothesis 1, not settled)
+### Hypothesis 10: Booking redesign would raise conversion (team expectation 1, not settled)
 **Statement:** We believe that fewer upsell steps and multi-city would lift web conversion above 3.1%, because 43 records mention friction.
 **Evidence:** Conversion already above benchmark and flat. **Confidence:** LOW
 **Test approach:** [ ] A/B test removing one upsell page. [ ] Expected: conversion change under 0.1 point if the hypothesis is wrong.

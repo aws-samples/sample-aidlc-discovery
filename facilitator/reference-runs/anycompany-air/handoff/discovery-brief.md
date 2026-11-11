@@ -169,7 +169,7 @@ Greenfield: no existing codebase in this folder. From the telemetry, the product
 
 ## 15. Full artifacts
 - [PROJECT.md](../PROJECT.md)
-- [signals/team-hypotheses.md](../signals/team-hypotheses.md)
+- [signals/team-expectations.md](../signals/team-expectations.md)
 - [signals/signal-summary.md](../signals/signal-summary.md)
 - [signals/hypotheses.md](../signals/hypotheses.md)
 - [working-backwards/personas/amara.md](../working-backwards/personas/amara.md)

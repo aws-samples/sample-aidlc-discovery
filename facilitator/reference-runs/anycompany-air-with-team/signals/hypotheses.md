@@ -112,7 +112,7 @@ Confidence: HIGH = 3+ independent sources; MEDIUM = 2 sources or one strong sour
 
 **Connection to Working Backwards:** Persona: leisure web booker. PR/FAQ topic: a faster booking with fewer steps.
 
-### Hypothesis 8 (team hypothesis 5, not settled): More summer agents would shorten waits but not reduce calls
+### Hypothesis 8 (team expectation 5, not settled): More summer agents would shorten waits but not reduce calls
 **Statement:** We believe that more summer agents would cut hold times but would not change the number of rebooking calls per disrupted passenger, because the calls are caused by the missing self-service option, not by too few agents.
 
 **Evidence:**
@@ -128,7 +128,7 @@ Confidence: HIGH = 3+ independent sources; MEDIUM = 2 sources or one strong sour
 
 **Connection to Working Backwards:** Persona: call centre agent (internal stakeholder). PR/FAQ topic: the FAQ "Why not just hire more agents?"
 
-### Hypothesis 9 (team hypothesis 3, not settled): A better seat preview would raise upgrade sales
+### Hypothesis 9 (team expectation 3, not settled): A better seat preview would raise upgrade sales
 **Statement:** We believe that seat-upgrade sales are held back because customers cannot see the seat, and a richer preview would raise them.
 
 **Evidence:**

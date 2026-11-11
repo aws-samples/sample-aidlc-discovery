@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- **Breaking:** Signals Step 1 now records "team expectations" rather than "team hypotheses", so the team's beliefs before the analysis are no longer confused with the testable hypotheses Step 5 writes from the data. The artifact is renamed from `signals/team-hypotheses.md` to `signals/team-expectations.md`, and Handoff requires the new name. Facilitator material, the course, and the reference runs use the new term.
+
 ---
 
 ## [3.0.0] — 2026-11-05

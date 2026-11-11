@@ -50,7 +50,7 @@ The quantitative files agree with the qualitative data:
 
 The Signal Analysis Report should rank disruption first by frequency, severity, and reach, with bag tracking second. It should show that booking flow and price complaints are frequent but low in severity, and that most customers rate the airline well when flights run to plan.
 
-How the team's likely hypotheses compare:
+How the team's likely expectations compare:
 
 - **The head of digital** (booking flow is the priority): mostly contradicted. The complaints exist but are mild, and conversion is above benchmark.
 - **The commercial director** (customers complain about price): partly supported. Price complaints are real, mostly from leisure travellers on social media, but they are not this team's to fix, and they are not what drives detractors.
