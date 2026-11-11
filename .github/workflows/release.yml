@@ -2,9 +2,11 @@ name: Release
 
 # Publishes a release. The version is decided here, at release time, and nowhere else:
 # Actions, "Release", "Run workflow" on main, then choose patch, minor, or major.
-# The workflow takes the latest vX.Y.Z tag, works out the next version, writes it into
-# plugin.json, every skill, and the changelog, commits that to main, tags the commit,
-# builds the bundle, and publishes it with the Unreleased notes as the release notes.
+# The workflow takes the latest vX.Y.Z tag and works out the next version. GitHub writes
+# the notes from the pull requests merged since that tag; nobody writes them by hand.
+# The version goes into plugin.json and every skill, the notes into the changelog, and
+# the workflow commits that to main, tags it, builds the bundle, and publishes the
+# release with the same notes.
 on:
   workflow_dispatch:
     inputs:
@@ -38,15 +40,32 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Decide the version and write it
+      - name: Decide the version
         id: version
         env:
           BUMP: ${{ inputs.bump }}
         run: |
-          python3 scripts/bump_version.py "${BUMP}" | tee bump.log
-          V=$(tail -n 1 bump.log)
+          OUT=$(python3 scripts/bump_version.py "${BUMP}" --check)
+          read -r LATEST V <<< "${OUT}"
+          echo "Latest release ${LATEST}, releasing ${V}."
+          echo "latest=v${LATEST}" >> "$GITHUB_OUTPUT"
           echo "version=${V}" >> "$GITHUB_OUTPUT"
           echo "tag=v${V}" >> "$GITHUB_OUTPUT"
+
+      - name: Generate the notes from the merged pull requests
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          LATEST: ${{ steps.version.outputs.latest }}
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/releases/generate-notes" \
+            -f tag_name="${TAG}" -f target_commitish="${GITHUB_SHA}" -f previous_tag_name="${LATEST}" \
+            --jq .body > generated-notes.md
+
+      - name: Write the version and the changelog
+        env:
+          V: ${{ steps.version.outputs.version }}
+        run: python3 scripts/bump_version.py "${V}" --notes generated-notes.md
 
       - name: Run tests
         run: python3 -m unittest discover tests -v
@@ -58,7 +77,7 @@ jobs:
         env:
           V: ${{ steps.version.outputs.version }}
         run: |
-          awk -v v="${V}" 'index($0, "## [" v "]") == 1 {f=1; print; next} /^## \[|^---$/ {f=0} f' CHANGELOG.md > release-notes.md
+          awk -v v="${V}" 'index($0, "## [" v "]") == 1 {f=1; next} /^## \[|^---$/ {f=0} f' CHANGELOG.md > release-notes.md
           [ -s release-notes.md ] || echo "Release ${V}." > release-notes.md
 
       - name: Commit the version to main
@@ -67,7 +86,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "release: ${TAG}"
+          git commit -m "release: ${TAG}" -- plugin.json CHANGELOG.md skills
           git push origin HEAD:main
           echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 

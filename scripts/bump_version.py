@@ -3,13 +3,19 @@
 The version is chosen at release time, never before: the release workflow runs this
 with patch, minor, or major, and it works out the next version from the latest vX.Y.Z
 tag. It then writes that version in plugin.json and in the `version:` line of every
-skills/*/SKILL.md, and turns the changelog's Unreleased section into that version's
-section. Between releases, those files hold the last released version.
+skills/*/SKILL.md, and adds the version's section to the changelog: any highlights
+someone left under Unreleased (optional), then the release notes GitHub generated from
+the merged pull requests (--notes). Between releases, those files hold the last
+released version.
 
-Usage: python3 scripts/bump_version.py patch|minor|major|X.Y.Z [--date YYYY-MM-DD]
+Usage:
+    python3 scripts/bump_version.py patch|minor|major|X.Y.Z --check
+        print the latest release and the next version, change nothing
+    python3 scripts/bump_version.py patch|minor|major|X.Y.Z [--notes FILE] [--date YYYY-MM-DD]
+        write the version and the changelog section; the last line printed is the version
 
-It refuses a version whose tag already exists or that is not higher than the latest
-tag, and an empty Unreleased section. The last line it prints is the new version.
+It refuses a version that is not higher than the latest tag, one under an older major
+version than main holds, and a release with no commits since the latest tag.
 """
 
 from __future__ import annotations
@@ -52,15 +58,34 @@ def next_version(latest: str, bump: str) -> str:
     return bump.lstrip("v")
 
 
-def apply(root: Path, version: str, date: str, latest: str) -> list[Path]:
-    """Write the version and close Unreleased. Checks everything before writing anything."""
+def commits_since(root: Path, latest: str) -> int:
+    if latest == "0.0.0":
+        return 1
+    out = subprocess.run(["git", "rev-list", "--count", f"v{latest}..HEAD"], cwd=root,
+                         capture_output=True, text=True, check=True)
+    return int(out.stdout.strip())
+
+
+def check(root: Path, version: str, latest: str) -> None:
     if parse(version) <= parse(latest):
         raise ValueError(f"{version} is not higher than the latest release, {latest}")
     current = json.loads((root / "plugin.json").read_text(encoding="utf-8"))["version"]
     if parse(version)[0] < parse(current)[0]:
         raise ValueError(f"main holds version {current} work, so {version} would release it under an older "
                          f"major version: choose major")
+    if not commits_since(root, latest):
+        raise ValueError(f"nothing has been merged since v{latest}")
 
+
+def section(highlights: str, notes: str) -> str:
+    """Highlights first, then GitHub's notes, with their headings nested under the version."""
+    notes = re.sub(r"^## ", "### ", notes.strip(), flags=re.M)
+    return "\n\n".join(part for part in (highlights.strip(), notes) if part) + "\n\n"
+
+
+def apply(root: Path, version: str, date: str, latest: str, notes: str = "") -> list[Path]:
+    """Write the version and the changelog section. Checks everything before writing anything."""
+    check(root, version, latest)
     changelog = root / "CHANGELOG.md"
     text = changelog.read_text(encoding="utf-8")
     if re.search(rf"^## \[{re.escape(version)}\]", text, re.M):
@@ -68,10 +93,9 @@ def apply(root: Path, version: str, date: str, latest: str) -> list[Path]:
     match = re.search(r"^## \[Unreleased\]\n(.*?)(?=^---$|^## \[)", text, re.M | re.S)
     if not match:
         raise ValueError("CHANGELOG.md has no ## [Unreleased] section")
-    if not match.group(1).strip():
-        raise ValueError("the Unreleased section is empty: nothing to release")
-    text = (text[:match.start()] + f"## [Unreleased]\n\n---\n\n## [{version}] — {date}\n"
-            + text[match.start() + len("## [Unreleased]\n"):])
+    body = section(match.group(1), notes) or "No notes.\n\n"
+    text = (text[:match.start()] + f"## [Unreleased]\n\n---\n\n## [{version}] — {date}\n\n{body}"
+            + text[match.end():])
 
     skills = {}
     for skill in sorted((root / "skills").glob("*/SKILL.md")):
@@ -93,13 +117,20 @@ def apply(root: Path, version: str, date: str, latest: str) -> list[Path]:
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("bump", help="patch, minor, major, or an exact version such as 3.0.1")
+    p.add_argument("--check", action="store_true", help="print the latest and next version, change nothing")
+    p.add_argument("--notes", type=Path, help="release notes to add, such as GitHub's generated notes")
     p.add_argument("--date", default=datetime.date.today().isoformat())
     p.add_argument("--root", type=Path, default=ROOT)
     args = p.parse_args(argv)
     try:
         latest = latest_tag(args.root)
         version = next_version(latest, args.bump)
-        changed = apply(args.root, version, args.date, latest)
+        if args.check:
+            check(args.root, version, latest)
+            print(f"{latest} {version}")
+            return 0
+        notes = args.notes.read_text(encoding="utf-8") if args.notes else ""
+        changed = apply(args.root, version, args.date, latest, notes)
     except (ValueError, subprocess.CalledProcessError) as error:
         sys.exit(f"Not changed: {error}")
     print(f"Latest release: {latest}. Set {version} in {len(changed)} files.")

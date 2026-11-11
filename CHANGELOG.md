@@ -21,7 +21,7 @@ v3 replaces the interview workflow with a full Discovery process for AWS Quick D
 - Optional team Space support, so several people can follow Discovery and take it over.
 - Two synthetic samples (AnyCompany Air, with telemetry, and AnyCompany Health), and facilitator material: answer keys, a run sheet, a dry run, and train-the-trainer.
 - `scripts/build.py`, which bundles the skills into one installable AWS Quick skill with a module per job, and writes the release zip to `dist/`.
-- One-button releases: **Actions**, **Release**, **Run workflow**, then patch, minor, or major. The version is worked out from the latest tag at release time (`scripts/bump_version.py`). Steps in `CONTRIBUTING.md`.
+- One-button releases: **Actions**, **Release**, **Run workflow**, then patch, minor, or major. The version is worked out from the latest tag at release time (`scripts/bump_version.py`), and the release notes and this changelog's entry are generated from the merged pull requests. Steps in `CONTRIBUTING.md`.
 - Unit tests for the skills, the bundle, the samples, and the data preparation tool, and an end-to-end test harness. The Presidio tests run in their own workflow, only when the tool changes.
 
 ### Removed
