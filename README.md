@@ -154,7 +154,7 @@ Use `/aidlc classic` when the team continues on its own instead of in an AI-DLC 
 plugin.json, mcps.json, tasks.json   plugin manifest for AWS Quick Desktop
 skills/                              the twelve skills, one folder each (the source)
 scripts/build.py                     bundles skills/ into one installable skill in dist/
-scripts/bump_version.py              sets the release version everywhere it lives
+scripts/bump_version.py              works out the release version from the latest tag, at release time
 samples/                             two runnable business cases, and how they are built
 scripts/samples/                     the generators that write each sample's data
 tests/                               checks for the skills and the bundle

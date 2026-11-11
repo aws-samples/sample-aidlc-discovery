@@ -42,15 +42,14 @@ GitHub provides additional document on [forking a repository](https://help.githu
 
 ## Releasing
 
-Merging to `main` does not publish anything: installed skills only change when a release is published and teams reinstall it. To release:
+Merging to `main` publishes nothing, and nobody sets a version by hand. Every change adds a line under `## [Unreleased]` in `CHANGELOG.md`. The version is decided only when you release:
 
-1. Pick the version, by [Semantic Versioning](https://semver.org/): `3.0.1` for fixes, `3.1.0` for new behaviour, `4.0.0` for a breaking change.
-2. On a branch, run `python3 scripts/bump_version.py X.Y.Z`. It sets the version in `plugin.json` and every `skills/*/SKILL.md`, and turns the changelog's Unreleased section into `## [X.Y.Z] — today`. It refuses a version that is not higher than the current one, or an empty Unreleased section. Open a pull request with the result and merge it. A test fails on any pull request where the versions disagree, so never edit them by hand.
-3. Start the release, either way:
-   - **Actions**, **Release v3**, **Run workflow** on `main`, with the version (for example `3.0.1`), or
-   - `git tag vX.Y.Z && git push origin vX.Y.Z` on `main`.
+1. **Actions**, **Release**, **Run workflow** on `main`.
+2. Choose by [Semantic Versioning](https://semver.org/): **patch** for fixes (3.0.0 to 3.0.1), **minor** for new behaviour (3.0.1 to 3.1.0), **major** for a breaking change (3.1.0 to 4.0.0).
 
-The workflow stops if the version, `plugin.json`, a skill, and the changelog disagree, or if the tag already exists. Otherwise it runs the tests, builds `dist/aidlc-discovery-vX.Y.Z.zip`, and publishes it as the latest release, with that version's changelog section as the notes.
+The workflow takes the latest `vX.Y.Z` tag and works out the next version with `scripts/bump_version.py`. It writes that version into `plugin.json`, every `skills/*/SKILL.md`, and the changelog, where Unreleased becomes the version's section. It then runs the tests, builds `dist/aidlc-discovery-vX.Y.Z.zip`, commits `release: vX.Y.Z` to `main`, tags it, and publishes the release with that section as its notes. It stops, changing nothing, if Unreleased is empty, or if the version would go backwards.
+
+Between releases, those files hold the last released version, and a test fails if they disagree.
 
 ## Finding contributions to work on
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.

@@ -1,66 +1,52 @@
-name: Release v3
+name: Release
 
-# Builds the AWS Quick skill bundle and publishes it as the latest release.
-# Two ways to start it:
-#   - push a v3.*.* tag, or
-#   - Actions, "Release v3", "Run workflow" on main, with a version such as 3.0.1:
-#     the workflow checks it, then creates the tag and the release on main's latest commit.
-# Earlier major lines keep their own workflows on their branches.
+# Publishes a release. The version is decided here, at release time, and nowhere else:
+# Actions, "Release", "Run workflow" on main, then choose patch, minor, or major.
+# The workflow takes the latest vX.Y.Z tag, works out the next version, writes it into
+# plugin.json, every skill, and the changelog, commits that to main, tags the commit,
+# builds the bundle, and publishes it with the Unreleased notes as the release notes.
 on:
-  push:
-    tags:
-      - 'v3.*.*'
   workflow_dispatch:
     inputs:
-      version:
-        description: "Version to release, without the v (for example 3.0.1)"
+      bump:
+        description: "patch for fixes, minor for new behaviour, major for breaking changes"
         required: true
-        type: string
+        type: choice
+        options: [patch, minor, major]
+
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 jobs:
-  build-and-release:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
+      - name: Release from main only
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "::error::Run the release from main, not ${GITHUB_REF}."
+          exit 1
+
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # every tag, to find the latest release
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Resolve the version
+      - name: Decide the version and write it
         id: version
         env:
-          INPUT_VERSION: ${{ inputs.version }}
+          BUMP: ${{ inputs.bump }}
         run: |
-          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
-            [ "${GITHUB_REF}" = "refs/heads/main" ] || { echo "::error::Run the release from main, not ${GITHUB_REF}."; exit 1; }
-            V="${INPUT_VERSION#v}"
-            TAG="v${V}"
-            if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null; then
-              echo "::error::${TAG} already exists. Choose the next version."; exit 1
-            fi
-          else
-            TAG="${GITHUB_REF#refs/tags/}"
-            V="${TAG#v}"
-          fi
-          echo "${V}" | grep -Eq '^3\.[0-9]+\.[0-9]+$' || { echo "::error::${V} is not a 3.x.y version."; exit 1; }
-          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          python3 scripts/bump_version.py "${BUMP}" | tee bump.log
+          V=$(tail -n 1 bump.log)
           echo "version=${V}" >> "$GITHUB_OUTPUT"
-
-      - name: Verify the tag matches plugin.json and every skill
-        run: |
-          V="${{ steps.version.outputs.version }}"
-          P=$(python3 -c 'import json; print(json.load(open("plugin.json"))["version"])')
-          [ "$P" = "$V" ] || { echo "::error::plugin.json is ${P}, tag is ${V}."; exit 1; }
-          BAD=$(grep -L "^version: \"${V}\"$" skills/*/SKILL.md || true)
-          [ -z "$BAD" ] || { echo "::error::Skills not at ${V}: ${BAD}"; exit 1; }
-
-      - name: Verify CHANGELOG has an entry for this tag
-        run: |
-          V="${{ steps.version.outputs.version }}"
-          grep -q "^## \[${V}\]" CHANGELOG.md || { echo "::error::CHANGELOG.md has no [${V}] section."; exit 1; }
+          echo "tag=v${V}" >> "$GITHUB_OUTPUT"
 
       - name: Run tests
         run: python3 -m unittest discover tests -v
@@ -69,16 +55,27 @@ jobs:
         run: python3 scripts/build.py
 
       - name: Extract release notes
+        env:
+          V: ${{ steps.version.outputs.version }}
         run: |
-          V="${{ steps.version.outputs.version }}"
-          awk "/^## \\[${V}\\]/{f=1;print;next}/^## \\[/{f=0}f" CHANGELOG.md > release-notes.md
+          awk -v v="${V}" 'index($0, "## [" v "]") == 1 {f=1; print; next} /^## \[|^---$/ {f=0} f' CHANGELOG.md > release-notes.md
           [ -s release-notes.md ] || echo "Release ${V}." > release-notes.md
+
+      - name: Commit the version to main
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "release: ${TAG}"
+          git push origin HEAD:main
+          echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.tag }}
-          target_commitish: ${{ github.sha }}
+          target_commitish: ${{ env.SHA }}
           name: aidlc-discovery ${{ steps.version.outputs.tag }}
           body_path: release-notes.md
           prerelease: false

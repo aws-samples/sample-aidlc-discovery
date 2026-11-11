@@ -1,11 +1,14 @@
-"""The version lives in plugin.json and every SKILL.md; they must agree, and the bump script changes them together."""
+"""The version is decided at release time from the latest tag, and written everywhere it lives."""
 
 from __future__ import annotations
 
+import contextlib
 import importlib.util
+import io
 import json
 import re
 import shutil
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -28,41 +31,67 @@ class VersionsAgree(unittest.TestCase):
     def test_every_skill_has_the_plugin_version(self) -> None:
         found = versions(ROOT)
         self.assertEqual({k: v for k, v in found.items() if v != found["plugin.json"]}, {},
-                         "run python3 scripts/bump_version.py X.Y.Z instead of editing versions by hand")
+                         "versions are written only by the release workflow (scripts/bump_version.py)")
 
 
-class Bump(unittest.TestCase):
+class NextVersion(unittest.TestCase):
+    def test_bumps(self) -> None:
+        self.assertEqual(bump_version.next_version("2.0.1", "major"), "3.0.0")
+        self.assertEqual(bump_version.next_version("3.0.0", "patch"), "3.0.1")
+        self.assertEqual(bump_version.next_version("3.0.1", "minor"), "3.1.0")
+        self.assertEqual(bump_version.next_version("3.1.0", "v3.2.0"), "3.2.0")
+        with self.assertRaises(ValueError):
+            bump_version.next_version("3.0.0", "bigger")
+
+
+class Release(unittest.TestCase):
+    """A release in a scratch repository whose latest tag is v2.0.1."""
+
     def setUp(self) -> None:
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name)
         shutil.copy2(ROOT / "plugin.json", self.root)
         shutil.copytree(ROOT / "skills", self.root / "skills")
-        self.current = versions(ROOT)["plugin.json"]
-        major, minor, patch = bump_version.parse(self.current)
-        self.next = f"{major}.{minor}.{patch + 1}"
         (self.root / "CHANGELOG.md").write_text(
-            "# Changelog\n\n---\n\n## [Unreleased]\n\n### Fixed\n\n- A fix.\n\n---\n\n"
-            f"## [{self.current}] — 2026-01-01\n\n- Older.\n", encoding="utf-8")
+            "# Changelog\n\n---\n\n## [Unreleased]\n\n### Added\n\n- v3.\n\n---\n\n"
+            "## [2.0.1] — 2026-07-02\n\n- Older.\n", encoding="utf-8")
+        plain = ["-c", "user.name=t", "-c", "user.email=t@example.com", "-c", "commit.gpgsign=false", "-c", "tag.gpgsign=false"]
+        git = lambda *a: subprocess.run(["git", *plain, *a], cwd=self.root, check=True, capture_output=True)
+        git("init", "-q")
+        git("commit", "-q", "--allow-empty", "-m", "start")
+        git("tag", "v2.0.1")
 
     def tearDown(self) -> None:
         self.tmp.cleanup()
 
-    def test_sets_every_version_and_closes_unreleased(self) -> None:
-        bump_version.bump(self.root, self.next, "2026-11-12")
-        self.assertEqual(set(versions(self.root).values()), {self.next})
-        changelog = (self.root / "CHANGELOG.md").read_text(encoding="utf-8")
-        self.assertIn(f"## [Unreleased]\n\n---\n\n## [{self.next}] — 2026-11-12\n\n### Fixed\n\n- A fix.", changelog)
-        self.assertIn(f"## [{self.current}] — 2026-01-01", changelog)
+    def release(self, bump: str) -> str:
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            bump_version.main([bump, "--root", str(self.root), "--date", "2026-11-12"])
+        return out.getvalue().splitlines()[-1]
 
-    def test_refuses_a_version_that_is_not_higher(self) -> None:
-        with self.assertRaises(ValueError):
-            bump_version.bump(self.root, self.current, "2026-11-12")
-        self.assertEqual(set(versions(self.root).values()), {self.current})
+    def test_major_after_v2_is_3_0_0_everywhere(self) -> None:
+        self.assertEqual(self.release("major"), "3.0.0")
+        self.assertEqual(set(versions(self.root).values()), {"3.0.0"})
+        changelog = (self.root / "CHANGELOG.md").read_text(encoding="utf-8")
+        self.assertIn("## [Unreleased]\n\n---\n\n## [3.0.0] — 2026-11-12\n\n### Added\n\n- v3.", changelog)
+
+    def test_refuses_a_version_that_is_not_higher_than_the_latest_tag(self) -> None:
+        with self.assertRaises(SystemExit):
+            self.release("2.0.1")
+        self.assertNotEqual(set(versions(self.root).values()), {"2.0.1"})
+
+    def test_refuses_patch_onto_an_older_major(self) -> None:
+        with self.assertRaises(SystemExit):  # latest tag v2.0.1, but main holds 3.x work
+            self.release("patch")
+        self.assertNotIn("2.0.2", set(versions(self.root).values()))
 
     def test_refuses_an_empty_unreleased_section(self) -> None:
-        (self.root / "CHANGELOG.md").write_text("## [Unreleased]\n\n---\n\n## [1.0.0] — 2026-01-01\n", encoding="utf-8")
-        with self.assertRaises(ValueError):
-            bump_version.bump(self.root, self.next, "2026-11-12")
+        (self.root / "CHANGELOG.md").write_text("## [Unreleased]\n\n---\n\n## [2.0.1] — 2026-07-02\n", encoding="utf-8")
+        before = versions(self.root)
+        with self.assertRaises(SystemExit):
+            self.release("major")
+        self.assertEqual(versions(self.root), before)
 
 
 if __name__ == "__main__":
