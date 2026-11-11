@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - A `prepare-data` workflow that runs the Presidio tests only when the tool or its tests change, or on demand. The main test workflow stays fast.
 - `scripts/build.py` also writes the release zip to `dist/`, and points the bundled README's links at the repository.
 - The release can be started from **Actions**, **Release v3**, **Run workflow**, with a version: it checks the version, then creates the tag and the release. Releasing steps are in `CONTRIBUTING.md`.
+- `scripts/bump_version.py X.Y.Z` sets the version in `plugin.json` and every skill and closes the changelog's Unreleased section; a test fails when the versions disagree.
 
 ### Changed
 

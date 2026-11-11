@@ -45,7 +45,7 @@ GitHub provides additional document on [forking a repository](https://help.githu
 Merging to `main` does not publish anything: installed skills only change when a release is published and teams reinstall it. To release:
 
 1. Pick the version, by [Semantic Versioning](https://semver.org/): `3.0.1` for fixes, `3.1.0` for new behaviour, `4.0.0` for a breaking change.
-2. In a pull request, set it in `plugin.json` and in the `version:` line of every `skills/*/SKILL.md`, and rename `## [Unreleased]` in `CHANGELOG.md` to `## [X.Y.Z] — YYYY-MM-DD`. Merge it.
+2. On a branch, run `python3 scripts/bump_version.py X.Y.Z`. It sets the version in `plugin.json` and every `skills/*/SKILL.md`, and turns the changelog's Unreleased section into `## [X.Y.Z] — today`. It refuses a version that is not higher than the current one, or an empty Unreleased section. Open a pull request with the result and merge it. A test fails on any pull request where the versions disagree, so never edit them by hand.
 3. Start the release, either way:
    - **Actions**, **Release v3**, **Run workflow** on `main`, with the version (for example `3.0.1`), or
    - `git tag vX.Y.Z && git push origin vX.Y.Z` on `main`.
