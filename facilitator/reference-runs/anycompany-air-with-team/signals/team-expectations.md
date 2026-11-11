@@ -1,4 +1,4 @@
-# Team hypotheses: AnyCompany Air website and app
+# Team expectations: AnyCompany Air website and app
 Written 2026-10-29, before the signal analysis. Do not edit after the analysis runs.
 
 ## Q1. Biggest customer problem today (in the team's words)
@@ -19,7 +19,7 @@ Written 2026-10-29, before the signal analysis. Do not edit after the analysis r
 - **Engineering lead:** "Nothing big. The app's ratings for booking and check-in are good. I'd be careful with anything that changes bookings after they're made."
 - **Customer service operations lead:** "Lost and delayed bags. That's the biggest call reason."
 
-## Hypotheses
+## Expectations
 1. We expect leisure travellers booking on the website to complain about a dated booking flow, because reviews mention the booking flow and the competition's sites look better. (Head of digital)
 2. We expect customers to complain mainly about fares, because the commercial director hears price complaints. (Commercial director)
 3. We expect customers choosing a seat to say they can't see what they're paying for, so seat upgrades don't sell, because the UX designer saw a competitor's 3D cabin view. (UX designer)

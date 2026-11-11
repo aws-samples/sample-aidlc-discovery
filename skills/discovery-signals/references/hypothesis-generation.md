@@ -1,7 +1,7 @@
 # Hypothesis Generation Prompt
 
 ## Purpose
-Generate testable research hypotheses from the Signal Analysis Report (customer feedback, market, and competitive findings, or Signal Briefs).
+Generate testable hypotheses from the Signal Analysis Report (customer feedback, market, and competitive findings, or Signal Briefs).
 
 ---
 

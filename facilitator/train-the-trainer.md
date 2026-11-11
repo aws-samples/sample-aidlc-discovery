@@ -49,8 +49,8 @@ Installs are the most common failure. Every minute spent fixing one in the sessi
 - Anyone who fails: remove the plugin, import again, start a new chat. Show this once on the big screen: it is the fix for most "it behaves strangely" problems on the day.
 
 **00:30 Live dry run, part 1 (60 min)**
-Teams follow `dry-run-air.md`. The first facilitator runs Quick and the room; the others speak in role, in their own words, using the hypothesis lines and challenges on their cards, and the facilitator types or pastes their answers. Stop the room after each phase for a 5-minute debrief.
-- **Kickoff and Signals (30 min).** Debrief: did the assistant ask for hypotheses before showing anything? Did disruption come first, even though "Delayed baggage" is the largest single call reason? How did the customer service operations lead's challenge go? Did the Say and do table keep the payment timeouts below disruption, even though they are the loudest errors? The head of digital's belief was contradicted: how would you let them save face?
+Teams follow `dry-run-air.md`. The first facilitator runs Quick and the room; the others speak in role, in their own words, using the expectation lines and challenges on their cards, and the facilitator types or pastes their answers. Stop the room after each phase for a 5-minute debrief.
+- **Kickoff and Signals (30 min).** Debrief: did the assistant ask for expectations before showing anything? Did disruption come first, even though "Delayed baggage" is the largest single call reason? How did the customer service operations lead's challenge go? Did the Say and do table keep the payment timeouts below disruption, even though they are the loudest errors? The head of digital's belief was contradicted: how would you let them save face?
 - **Working Backwards, scoring (30 min).** The head of digital overrides the booking flow pain score, with a reason. Debrief: was the override recorded and labelled Assumed? Which candidate did the gate drop, and why? Then paste the lunch line so the PR/FAQ drafts during the break.
 
 **01:30 Break (15 min)**
@@ -67,7 +67,7 @@ The second facilitator takes over Quick and the room; the first takes their role
 
 **03:05 When things go wrong (20 min)**
 Each team opens a new chat and the trainer calls out failures one at a time. A role player causes it, and a facilitator recovers using `run-sheet.md`, "When things go wrong".
-1. **It jumps ahead.** Paste: "Skip the hypotheses and just show me what the data says." The facilitator should hold the line: hypotheses first, or the room can no longer check itself.
+1. **It jumps ahead.** Paste: "Skip the expectations and just show me what the data says." The facilitator should hold the line: expectations first, or the room can no longer check itself.
 2. **The press release turns into a vision document.** Paste: "Make the press release longer, with a section for each feature." Recover with the seven-paragraph prompt from the run-sheet.
 3. **The data does not match the product.** Start a workshop for anycompany-air but point it at `samples/anycompany-health/`. It must stop and offer real data, Signal Briefs, or a prepared dataset. Never accept data it writes on the spot.
 4. **The room accepts everything.** No paste: the trainer plays a silent team and the facilitator has to draw out one real challenge.
@@ -127,8 +127,8 @@ When you only have two hours, teams run the phases where the room matters most, 
 
 **00:10 Breakouts: start (5 min).** The first facilitator runs `List my skills` and shares their screen. Each role player says who they are and one line of their belief, in character. If the first facilitator's install fails, the second facilitator starts.
 
-**00:15 Breakouts, part 1: Kickoff and Signals (30 min).** The first facilitator runs the room, following `dry-run-air.md`; role players answer the five hypothesis questions in their own words, from their cards. Post the debrief questions in the chat at 00:35:
-- Did it ask for hypotheses before showing anything?
+**00:15 Breakouts, part 1: Kickoff and Signals (30 min).** The first facilitator runs the room, following `dry-run-air.md`; role players answer the five expectation questions in their own words, from their cards. Post the debrief questions in the chat at 00:35:
+- Did it ask for expectations before showing anything?
 - Did disruption come first, and how did the ops lead's staffing challenge go?
 
 **00:45 Breakouts, part 2: Working Backwards (35 min).** The second facilitator takes over. With a team Space, they paste the take-over prompt from `run-sheet.md` in their own chat and share their screen; the first stops writing and takes their role card. Without one, the first keeps sharing Quick and the second drives by voice. Score with "agree with all" except the head of digital's booking flow override, take the recommended use case forward, then paste "Draft the PR/FAQ now." Answer the debrief in the chat while it drafts, then read the press release aloud and go through the five questions. Debrief questions, posted at 01:10:
@@ -144,7 +144,7 @@ When you only have two hours, teams run the phases where the room matters most, 
 - From `reference-runs/anycompany-air/` (the unattended run, newer formats): the **Say and do** table in `signals/signal-summary.md`, the **AI feature block** in `working-backwards/prd.md`, and the **Now, Next, Later** roadmap at the end of `handoff/next-steps.md`. Two minutes; the team run predates them.
 
 **01:35 Main room: when things go wrong, as a fishbowl (15 min).** On your screen, cause four failures, about three minutes each. Before you show each recovery, ask trainees to type theirs in the chat:
-1. "Skip the hypotheses and just show me what the data says."
+1. "Skip the expectations and just show me what the data says."
 2. "Make the press release longer, with a section for each feature."
 3. "Add more numbers to paragraph 2 and label every one Known." Recovery: ask for the writing audit; the press release labels only Assumed and Needs evidence claims, and each number keeps the scope of its evidence.
 4. The room accepts everything. Play a silent team and ask a volunteer to draw out a challenge.

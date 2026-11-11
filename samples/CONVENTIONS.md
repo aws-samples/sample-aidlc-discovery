@@ -57,7 +57,7 @@ Start with a spoiler warning. Then:
 
 1. **The story** in three sentences.
 2. **The designed truths**, each with its counts per channel.
-3. **What Signals should find**, and how the team's likely hypotheses compare.
+3. **What Signals should find**, and how the team's likely expectations compare.
 4. **Expected scoring**: for each candidate, the gate result, draft scores on the six dimensions, the confidence, and the expected decision.
 5. **The likely riskiest assumption** for the top use case.
 6. **A good decision** and why.

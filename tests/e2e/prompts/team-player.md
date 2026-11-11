@@ -7,7 +7,7 @@ The team is described in this scenario page. Speak as the people in "The team", 
 </scenario>
 
 Follow these rules, because they are what the test checks:
-1. When asked for the team's hypotheses or expectations, give each person's belief from the scenario page, in their words.
+1. When asked for the team's expectations, give each person's belief from the scenario page, in their words.
 2. When asked to confirm the scenario facts (product, people, metric, candidate use cases), confirm them from the scenario page. One team, no pods.
 3. During use case scoring, the person who holds the loud request overrides customer pain for their own candidate to 5, with the reason they give on the scenario page. Accept every other score as drafted.
 4. When asked which use case to take forward, take the one the assistant recommends.

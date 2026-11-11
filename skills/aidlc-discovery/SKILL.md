@@ -55,7 +55,7 @@ Tell the team the five phases, roughly how long each takes, and that it will be 
 ### Step 2: Signals
 - **Mode**: `agentic`
 - **Input**: The data from Step 1
-- **Output**: The team's hypotheses, the Signal Analysis Report, and research hypotheses
+- **Output**: The team's expectations, the Signal Analysis Report, and testable hypotheses
 - **Validate**: The team has challenged the report and read customer quotes in full
 - **On failure**: If no data is found, go back to Step 1
 
@@ -166,7 +166,7 @@ discovery/
 ├── data/                         raw data, never committed
 └── {{project}}/
     ├── PROJECT.md                scope, choices, phase status
-    ├── signals/                  team-hypotheses.md, signal-summary.md, hypotheses.md
+    ├── signals/                  team-expectations.md, signal-summary.md, hypotheses.md
     ├── working-backwards/        personas/, use-case-scoring.md, working-backwards.md,
     │                             feature-description.md, prfaq.md, prd.md, gtm.md,
     │                             riskiest-assumption.md
@@ -186,7 +186,7 @@ discovery/
 ## Lessons Learned
 
 ### Do
-- Record the team's own hypotheses before Signals shows anything.
+- Record the team's expectations before Signals shows anything.
 - Name the skill each step uses, so the team can rerun one job on its own later.
 - Keep checkpoints short: what was produced, what the team needs to decide, what comes next.
 

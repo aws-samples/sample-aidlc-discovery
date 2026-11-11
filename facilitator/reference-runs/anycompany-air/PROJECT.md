@@ -38,7 +38,7 @@
 - **Config:** `config.md` with `unattended: true`, project `air`, engagement reference `E2E-air`, data `production` in `discovery/data/`, `default_days: 0` (the whole period). `storage` empty → working folder.
 - **Setup:** product, people, metric, and candidate use cases taken from `README.md`. Recorded as a demonstration run.
 - **Current-product map:** skipped; the folder holds no product codebase.
-- **Team hypotheses:** written from each person's stated belief in `README.md`, before any analysis.
+- **Team expectations:** written from each person's stated belief in `README.md`, before any analysis.
 - **Signals review:** the challenges the people in the room would likely raise are recorded in the report with the data's answer; the engineering lead's reissue concern added to signal 1.
 - **Personas:** four kept (Amara, Mei, Henrik as buyer, Jonas as satisfied customer). None set aside.
 - **Scoring:** default weights; no overrides; added From Signals candidates #6 (late alerts) and #7 (travel desk rebooking) and dropped price (no build path in the digital product); 3D seat map failed the painkiller gate.

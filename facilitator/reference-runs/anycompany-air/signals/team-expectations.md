@@ -1,4 +1,4 @@
-# Team hypotheses: AnyCompany Air digital (website and app)
+# Team expectations: AnyCompany Air digital (website and app)
 Written 2026-10-30, before the signal analysis. Taken from what each person in the room said at the kickoff (README), in their words, turned into lines the data could prove wrong. Not edited after the analysis.
 
 1. **Head of digital:** We expect website and app bookers to be put off by a dated booking flow, because "our website looks dated next to the competition, and booking is where we make money."

@@ -39,7 +39,7 @@ The team arrives split between a new mobile app and telehealth, the two requests
 
 The top signal is claim status, merged from four briefs, with High confidence: four independent sources, including the call and search aggregates. Provider directory accuracy is second. Telehealth and the app should appear as requests from employers and brokers, with weak member evidence.
 
-How the team's hypotheses usually compare:
+How the team's expectations usually compare:
 - "Members want a new app" (product owner): contradicted as stated. The app's complaints are claim complaints.
 - "Telehealth wins renewals" (broker relations): not settled. The request is real among employers, but there is no member demand and no renewal evidence in this data.
 - "The claims system is slow" (engineering lead): partly supported. The average decision takes 10 to 12 days, but the bigger problem is that members cannot see progress or what is needed.

@@ -103,6 +103,6 @@ Customers appear only as a segment or a code such as "Customer 0412". Staff appe
    Start AI-DLC Discovery. Project: anycompany-air. Save Discovery in the [your Space] space. Data: production, in discovery/data/ in the [your Space] space.
    ```
 
-3. Play the team: answer the setup questions with the roles and beliefs above, and write your hypotheses before you see any analysis.
+3. Play the team: answer the setup questions with the roles and beliefs above, and write your expectations before you see any analysis.
 
 The designed answers are in [facilitator/anycompany-air.md](../../facilitator/anycompany-air.md). Read it after the run, not before.

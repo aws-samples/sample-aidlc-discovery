@@ -43,7 +43,7 @@ Breakouts are open. First facilitator: share Quick, run List my skills, then pas
 ## 00:15 Kickoff and Signals
 
 ```
-Facilitators: read each of the five hypothesis questions aloud and wait. Ask the quietest person first.
+Facilitators: read each of the five expectation questions aloud and wait. Ask the quietest person first.
 ```
 
 ## 00:30
@@ -56,7 +56,7 @@ Facilitators: read each of the five hypothesis questions aloud and wait. Ask the
 
 ```
 Debrief 1, one line per team:
-1. Did the assistant ask for your hypotheses before showing any analysis?
+1. Did the assistant ask for your expectations before showing any analysis?
 2. Did disruption come first? How did the ops lead's staffing challenge and the engineering lead's payment-timeout challenge go?
 3. Whose belief did the data contradict, and how did the facilitator let them save face?
 ```
@@ -99,7 +99,7 @@ Welcome back. I'll show how the rest of the day goes, from a complete run: the p
 Post each one, wait for answers, then show the recovery on your screen.
 
 ```
-Failure 1. A team member pastes: "Skip the hypotheses and just show me what the data says." What do you say? Type it.
+Failure 1. A team member pastes: "Skip the expectations and just show me what the data says." What do you say? Type it.
 ```
 
 ```

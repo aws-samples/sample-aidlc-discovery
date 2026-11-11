@@ -21,7 +21,7 @@
 
 <h2>Four steps</h2>
 <ol class="steps">
-<li><b>Check the required artifacts.</b> Thirteen files, from <code>team-hypotheses.md</code> to <code>decision.md</code>, plus a current-product map when there's a codebase. Anything missing is listed with the skill that produces it. <b>It never writes a partial brief.</b></li>
+<li><b>Check the required artifacts.</b> Thirteen files, from <code>team-expectations.md</code> to <code>decision.md</code>, plus a current-product map when there's a codebase. Anything missing is listed with the skill that produces it. <b>It never writes a partial brief.</b></li>
 <li><b>Write the brief:</b> exactly 15 sections, in order, under 200,000 characters, summarising and linking rather than copying.</li>
 <li><b>AI-DLC team knowledge and data protection.</b> When the route is AI-DLC, every persona is written in full to <code>aidlc/spaces/[space]/knowledge/aidlc-product-agent/discovery-personas.md</code>, so AI-DLC's product agent loads them. With a local folder, <code>discovery/data/</code> goes into <code>.gitignore</code>. In a team Space there is no repository, so no <code>.gitignore</code>: next steps say to download <code>discovery/[project]/</code> and <code>aidlc/</code> from the Space into the build repository, never the data. (<code>aidlc/spaces/</code> is AI-DLC's own folder layout, not an AWS Quick Space.)</li>
 <li><b>Next steps.</b> <code>handoff/next-steps.md</code> says what happens by decision, lists any conditions before the build, and the follow-ups, so what happens next doesn't live only in the chat.</li>
@@ -143,7 +143,7 @@
   <div class="opts">
     <button class="opt">The full risk review table copied over from Validate</button>
     <button class="opt">The architecture options that the engineering lead mentioned earlier</button>
-    <button class="opt">The team's original hypotheses, left unedited, from early Signals</button>
+    <button class="opt">The team's original expectations, left unedited, from early Signals</button>
     <button class="opt">Every unsettled hypothesis, as a question for the build</button>
   </div>
   <div class="why">Every hypothesis Validate didn't settle, every claim still Assumed or Needs evidence, the riskiest assumption if open, and the top pre-mortem risks with warning signs, all as questions. The brief summarises and links; it doesn't copy.</div>
@@ -163,12 +163,12 @@
 <div class="quiz" data-correct="3">
   <div class="stem">8. Mixed review: which of these is <i>not</i> on Handoff's required-artifacts list?</div>
   <div class="opts">
-    <button class="opt"><code>team-hypotheses.md</code></button>
+    <button class="opt"><code>team-expectations.md</code></button>
     <button class="opt"><code>persona-critique.md</code></button>
     <button class="opt"><code>prioritization.md</code></button>
     <button class="opt"><code>feature-description.md</code></button>
   </div>
-  <div class="why">The feature description is a step inside Working Backwards; its choice flows into the PR/FAQ and PRD, which are required. The team's hypotheses are required, so the brief can show what the team believed before the data.</div>
+  <div class="why">The feature description is a step inside Working Backwards; its choice flows into the PR/FAQ and PRD, which are required. The team's expectations are required, so the brief can show what the team believed before the data.</div>
 </div>
 
 <p class="quiz-score"></p>

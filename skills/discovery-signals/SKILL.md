@@ -35,14 +35,14 @@ Signals answers "what are customers telling us?" It turns the team's customer fe
 
 ## Workflow
 
-### Step 1: The team's own hypotheses
+### Step 1: The team's expectations
 - **Mode**: `agentic`
 - **Input**: The team, before it sees any analysis
-- **Output**: `discovery/{{project}}/signals/team-hypotheses.md`
-- **Validate**: At least three hypotheses, each a sentence the data could prove wrong
+- **Output**: `discovery/{{project}}/signals/team-expectations.md`
+- **Validate**: At least three expectations, each a sentence the data could prove wrong
 - **On failure**: If the team cannot name any, ask which customer problem it would bet on today and why
 
-Ask the team what it expects the data to show: the top problems, who has them, and why. Write each answer down as given, without improving it. This matters because AI analysis is persuasive. With the team's beliefs recorded first, the report can show where the data agrees and where it does not, and the team learns something either way. Follow `references/team-hypotheses.md`.
+Ask the team what it expects the data to show: the top problems, who has them, and why. Write each answer down as given, without improving it. This matters because AI analysis is persuasive. With the team's beliefs recorded first, the report can show where the data agrees and where it does not, and the team learns something either way. Follow `references/team-expectations.md`.
 
 ### Step 2: Find and check the data
 - **Mode**: `agentic`
@@ -52,7 +52,7 @@ Ask the team what it expects the data to show: the top problems, who has them, a
 - **Validate**: The team confirms the inventory matches what it meant to bring
 - **On failure**: Ask for the location again, or for the files to be added to the folder
 
-Search the data instead of reading every file into context. Never generate customer data yourself, not even as a synthetic dataset: data written in the session, after the team's hypotheses, can only echo what the team expects. If the data is missing, or is about a different product, stop and offer three options: bring real data, write Signal Briefs with **discovery-signal-brief**, or use a synthetic dataset prepared beforehand. Report what you found before analyzing it: how many records or briefs, from which sources, over which period, and anything that looks missing, such as a channel with no records. If the data contains names, emails, or account identifiers, say so and keep them out of every saved artifact. If it includes telemetry, list its tables, the journeys in the journey map, the period, and whether real user monitoring (RUM) is included: without RUM, the steps on the screen are not visible.
+Search the data instead of reading every file into context. Never generate customer data yourself, not even as a synthetic dataset: data written in the session, after the team's expectations, can only echo what the team expects. If the data is missing, or is about a different product, stop and offer three options: bring real data, write Signal Briefs with **discovery-signal-brief**, or use a synthetic dataset prepared beforehand. Report what you found before analyzing it: how many records or briefs, from which sources, over which period, and anything that looks missing, such as a channel with no records. If the data contains names, emails, or account identifiers, say so and keep them out of every saved artifact. If it includes telemetry, list its tables, the journeys in the journey map, the period, and whether real user monitoring (RUM) is included: without RUM, the steps on the screen are not visible.
 
 ### Step 3: Analyze
 - **Mode**: `agentic`
@@ -74,7 +74,7 @@ Save per-item results only under `discovery/data/`, never under the project fold
 ### Step 4: Write the Signal Analysis Report
 - **Mode**: `agentic`
 - **Tool**: `file_write`
-- **Input**: The findings from Step 3 and the team's hypotheses from Step 1
+- **Input**: The findings from Step 3 and the team's expectations from Step 1
 - **Output**: `discovery/{{project}}/signals/signal-summary.md`
 - **Validate**: The report has every section in the Output below, and every claim carries an evidence label
 - **On failure**: If the evidence for a theme is thin, keep the theme and label it Assumed
@@ -87,7 +87,7 @@ Save per-item results only under `discovery/data/`, never under the project fold
 - **Validate**: 5 to 10 hypotheses, each with evidence, a confidence rating, and a test approach
 - **On failure**: Fewer hypotheses is fine when the data is narrow; say why
 
-Follow `references/hypothesis-generation.md`. Include the team's own hypotheses from Step 1 that the data did not settle.
+Follow `references/hypothesis-generation.md`. Turn each team expectation from Step 1 that the data did not settle into a hypothesis, and say which expectation it came from.
 
 ### Step 6: Review with the team
 - **Mode**: `agentic`
@@ -127,7 +127,7 @@ Two or three sentences: the problem that matters most and the evidence for it.
 | Theme | What customers say | What the systems show | Both, Feedback only, or Telemetry only |
 
 ## What the team expected
-| Team hypothesis | What the data shows | Supported, contradicted, or not settled |
+| Team expectation | What the data shows | Supported, contradicted, or not settled |
 
 ## Customer voices
 Five full, anonymized quotes that show the problem in the customer's words.
@@ -141,7 +141,7 @@ Every claim carries an evidence label: **Known** (a count, quote, or metric from
 ## Lessons Learned
 
 ### Do
-- Record the team's hypotheses before showing any analysis.
+- Record the team's expectations before showing any analysis.
 - Quote customers verbatim, anonymized, and give counts with every theme.
 - Say when all the evidence comes from one channel.
 - Weigh signal over frequency: a topic mentioned often is not always the one that matters most. One clear statement of what customers or the team need can outweigh many mentions of a detail. Severity and reach count as much as volume.

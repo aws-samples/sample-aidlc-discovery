@@ -32,7 +32,7 @@
 <thead><tr><th>Stage</th><th>The question</th><th>Skills</th><th>The team leaves with</th></tr></thead>
 <tbody>
 <tr><td><span class="chip ph0">Setup</span></td><td>What are we here to move, and with which data?</td><td><code>aidlc-discovery</code></td><td>Product, people, business metric with baseline, data input</td></tr>
-<tr><td><span class="chip ph1">Signals</span></td><td>What are customers telling us?</td><td><code>discovery-signals</code></td><td>Team hypotheses; Signal Analysis Report; testable hypotheses</td></tr>
+<tr><td><span class="chip ph1">Signals</span></td><td>What are customers telling us?</td><td><code>discovery-signals</code></td><td>Team expectations; Signal Analysis Report; testable hypotheses</td></tr>
 <tr><td><span class="chip ph2">Working Backwards</span></td><td>Which problem first, for whom, and how would we announce it?</td><td><code>discovery-personas</code>, <code>-use-case-scoring</code>, <code>-working-backwards</code>, <code>-gtm</code></td><td>Personas; scored use cases; PR/FAQ; PRD; GTM draft; riskiest assumption</td></tr>
 <tr><td><span class="chip ph3">Prototype</span></td><td>What would it look like?</td><td><code>discovery-prototype</code>, <code>-personas</code></td><td>Clickable prototype in versions; persona critique</td></tr>
 <tr><td><span class="chip ph4">Validate</span></td><td>What could make it fail, and how will we know it worked?</td><td><code>discovery-validate</code>, <code>-gtm</code>, <code>-use-case-scoring</code></td><td>Four risks; pre-mortem; success criteria; commit, pivot, or park</td></tr>
@@ -113,19 +113,19 @@
 <dt>Needs</dt><dd>The data from Setup.</dd>
 </dl>
 <ol class="steps">
-<li><b>Team hypotheses, before any analysis.</b> At least three, each a sentence the data could prove wrong, written down as given. AI analysis is persuasive; with beliefs on record, the team can check itself.</li>
+<li><b>Team expectations, before any analysis.</b> At least three, each a sentence the data could prove wrong, written down as given. AI analysis is persuasive; with beliefs on record, the team can check itself.</li>
 <li><b>Find and check the data.</b> An inventory: sources, counts, period, gaps. The team confirms it is what it meant to bring.</li>
 <li><b>Analyze.</b> Per record: sentiment, category, urgency, root cause, persona signal, quote; aggregated with Python. Signal Briefs are merged and cross-checked instead.</li>
 <li><b>Signal Analysis Report.</b> Three to seven top signals scored on frequency, severity, and reach (out of 30), each with who, evidence, quotes, and a root-cause hypothesis; a "What the team expected" table; five customer voices; data gaps.</li>
-<li><b>Hypotheses.</b> Five to ten, each with evidence, confidence, and a test, including the team's own that the data didn't settle.</li>
+<li><b>Hypotheses.</b> Five to ten, each with evidence, confidence, and a test, including the team's expectations that the data didn't settle.</li>
 <li><b>Review.</b> The top three signals, five full quotes read aloud, then: what contradicts this, and what is under-represented?</li>
 </ol>
 <dl class="facts">
-<dt>Leaves</dt><dd><code>signals/team-hypotheses.md</code>, <code>signal-summary.md</code>, <code>hypotheses.md</code></dd>
+<dt>Leaves</dt><dd><code>signals/team-expectations.md</code>, <code>signal-summary.md</code>, <code>hypotheses.md</code></dd>
 <dt>Checkpoint</dt><dd>"Here are the top signals and their evidence. What do you challenge before we decide what to work on?"</dd>
 <dt>Principle</dt><dd>Weigh signal over frequency: severity and reach count as much as volume. In AnyCompany Air, "Delayed baggage" is the top single call reason, but disruption is split across six reasons and is 42 of 110 calls.</dd>
 <dt>Facilitator moves</dt><dd>Ask the quietest person first. Before confirming the inventory, ask the person closest to each gap whether that data exists. With a contradicted belief, read what the person got right first. Ask "Where does it work well?" before the challenge. Close by crediting challengers by name and getting a yes from the product owner.</dd>
-<dt>Goes wrong</dt><dd>It skips the hypotheses or jumps to verdicts: stop it and restart the phase at Step 1.</dd>
+<dt>Goes wrong</dt><dd>It skips the expectations or jumps to verdicts: stop it and restart the phase at Step 1.</dd>
 </dl>
 </section>
 

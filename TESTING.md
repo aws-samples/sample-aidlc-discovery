@@ -28,7 +28,7 @@ Measured cost per sample: the `workshop`, `mismatch`, and `missing-prd` legs tog
 
 Checks:
 
-- **D (mechanics):** required artifacts, the brief's 15 sections, links, no emails or CRM identifiers, `.gitignore`, no scripts, prototypes built from the shell, versions logged, the critique in `prototype/`, the decision, no GTM part left as draft, team hypotheses written before the analysis, `next-steps.md` with its Now, Next, Later roadmap.
+- **D (mechanics):** required artifacts, the brief's 15 sections, links, no emails or CRM identifiers, `.gitignore`, no scripts, prototypes built from the shell, versions logged, the critique in `prototype/`, the decision, no GTM part left as draft, team expectations written before the analysis, `next-steps.md` with its Now, Next, Later roadmap.
 - **O (outcome):** graded against the `expectations` block in `facilitator/<sample>.md`: the top signal, the distractor failing the gate, and the use case taken forward. For samples with telemetry, also the Say and do table (O04), the telemetry trap not ranked first (O05), a telemetry-only signal (O06), and the feasibility evidence from telemetry (O07). Alternative phrasings are separated by `|`.
 - **N (negative)** and **T (team)**, for those legs.
 
