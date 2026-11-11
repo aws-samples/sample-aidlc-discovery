@@ -8,23 +8,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
-### Changed
-
-- **Breaking:** Signals Step 1 now records "team expectations" rather than "team hypotheses", so the team's beliefs before the analysis are no longer confused with the testable hypotheses Step 5 writes from the data. The artifact is renamed from `signals/team-hypotheses.md` to `signals/team-expectations.md`, and Handoff requires the new name. Facilitator material, the course, and the reference runs use the new term.
-
----
-
-## [3.0.0] — 2026-11-05
-
 v3 replaces the interview workflow with a full Discovery process for AWS Quick Desktop. A team brings its customer feedback and leaves with a decision on what to build first, a clickable prototype, and a Discovery brief that a build, including AI-DLC, starts from.
 
 ### Added
 
 - Five phases (Signals, Working Backwards, Prototype, Validate, Handoff), run by one entry skill, `aidlc-discovery`, that calls eleven job skills. Each job also works on its own.
-- `scripts/build.py`, which bundles the skills into one installable AWS Quick skill with a module per job. The release asset is that bundle.
+- **Questions in rounds.** Every question to the team uses one format: a numbered question, a recommended answer worded so "yes" accepts it, and only the questions that are ready now. The assistant looks up facts in the data itself instead of asking the team.
+- **Plain-writing rules** (`skills/aidlc-discovery/references/plain-writing.md`), applied to every reply and artifact: short chat, links instead of pasted artifacts, no emojis.
+- Signals records the team's optional expectations before any analysis (`signals/team-expectations.md`, E1, E2), kept apart from the testable hypotheses it writes from the data (H1, H2).
+- Setup asks which direction of the business metric is good, and scoring judges business outcome in that direction. Handoff confirms the build route before writing.
+- **Data preparation tool** (`tools/prepare-data/`): a short Python script around Microsoft Presidio that removes personal data from exports offline, on the team's machine, with a report to review before sharing. `--synthetic N` writes invented rows in the shape of the scrubbed data, for rehearsals.
 - Optional team Space support, so several people can follow Discovery and take it over.
-- Two synthetic samples (AnyCompany Air, with telemetry, and AnyCompany Health), facilitator material, reference runs, and a facilitator course.
-- Unit tests for the skills, the bundle, and the samples, and an end-to-end test harness.
+- Two synthetic samples (AnyCompany Air, with telemetry, and AnyCompany Health), and facilitator material: answer keys, a run sheet, a dry run, and train-the-trainer.
+- `scripts/build.py`, which bundles the skills into one installable AWS Quick skill with a module per job, and writes the release zip to `dist/`.
+- One-button releases: **Actions**, **Release**, **Run workflow**, then patch, minor, or major. The version is worked out from the latest tag at release time (`scripts/bump_version.py`), and the release notes and this changelog's entry are generated from the merged pull requests. Steps in `CONTRIBUTING.md`.
+- Unit tests for the skills, the bundle, the samples, and the data preparation tool, and an end-to-end test harness. The Presidio tests run in their own workflow, only when the tool changes.
 
 ### Removed
 

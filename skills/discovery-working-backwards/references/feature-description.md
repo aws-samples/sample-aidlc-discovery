@@ -14,13 +14,13 @@ Based on the WB Document (Section 3: INVENT), propose 3-5 concrete feature ideas
 ```
 Based on your Working Backwards Document, I see these feature possibilities:
 
-1. **[Feature A]** — [1-sentence description]
+1. **[Feature A]**: [1-sentence description]
    Addresses: [Which problem from DEFINE]
    
-2. **[Feature B]** — [1-sentence description]
+2. **[Feature B]**: [1-sentence description]
    Addresses: [Which problem]
 
-3. **[Feature C]** — [1-sentence description]
+3. **[Feature C]**: [1-sentence description]
    Addresses: [Which problem]
 
 Which feature would you like to explore further? Or do you have your own idea?
@@ -46,9 +46,9 @@ After the user has chosen, create a structured description:
 - **Secondary:** [Persona/Segment]
 
 ## Key Capabilities
-1. [Capability 1] — [What it does]
-2. [Capability 2] — [What it does]
-3. [Capability 3] — [What it does]
+1. [Capability 1]: [What it does]
+2. [Capability 2]: [What it does]
+3. [Capability 3]: [What it does]
 
 ## User Stories
 
@@ -87,7 +87,7 @@ After the user has chosen, create a structured description:
 
 ## Important
 
-- Feature description is SHORTER than a PRD — it is an intermediate step
+- Feature description is SHORTER than a PRD: it is an intermediate step
 - Serves as input for PRFAQ generation
 - The user should review the description before proceeding
 - Always make proposals with reference back to WB document and signals

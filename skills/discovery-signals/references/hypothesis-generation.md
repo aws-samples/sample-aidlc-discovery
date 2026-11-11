@@ -36,7 +36,7 @@ Based on the consolidated Signal Report, generate 5-10 testable hypotheses.
 
 For EACH hypothesis, provide:
 
-### Hypothesis [N]: [Title]
+### H[N]: [Title]
 **Statement:** We believe that [target audience] [has problem/need], because [cause].
 
 **Evidence:**
@@ -63,4 +63,9 @@ For EACH hypothesis, provide:
 
 ## Output
 
-Save as: `discovery/[project]/signals/hypotheses.md`
+Save as: `discovery/[project]/signals/hypotheses.md`, opening with:
+
+```markdown
+# Hypotheses: [product]
+**What this is:** the open questions the data leaves, each with a test plan. What we expected before the analysis is in `team-expectations.md` (E1, E2, ...); an expectation the data did not settle appears here too, with its E number.
+```

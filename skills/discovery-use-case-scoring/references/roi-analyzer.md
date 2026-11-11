@@ -61,20 +61,21 @@ NPV (3 years) = Σ (Monthly Return / (1 + discount_rate)^month) - Investment
 
 ### Step 2: Clarify Assumptions
 ```
-"I need a few assumptions:
+**Q1** - **Team cost**: Should I use an engineering rate of $120 an hour and the team size from the PRD scope?
 
-💰 Team Costs:
-- Engineering hourly rate? (Default: $120/h)
-- Team size? (Default: derive from PRD Scope)
+**Recommendation:** Yes, unless you know your own rate.
 
-📈 Revenue Model:
-- Is there a direct revenue impact? (New customers / Upsell / Pricing)
-- Or rather retention/efficiency?
+---
 
-⏱️ Timeframe:
-- ROI over what period? (Default: 12 months after launch)
+**Q2** - **Revenue model**: Should I count this as retention and efficiency, with no direct revenue from new customers, upsell, or pricing?
 
-Or should I calculate with standard assumptions and you correct?"
+**Recommendation:** Yes, unless the feature is sold or priced.
+
+---
+
+**Q3** - **Timeframe**: Should I measure the ROI over the 12 months after launch?
+
+**Recommendation:** Yes.
 ```
 
 ### Step 3: Calculation + Sensitivity Analysis
@@ -125,9 +126,9 @@ Or should I calculate with standard assumptions and you correct?"
 
 | Scenario | ROI | Payback |
 |----------|:---:|:-------:|
-| 🟢 Best Case (+30%) | XXX% | X mo |
-| 🔵 Base Case | XXX% | X mo |
-| 🔴 Worst Case (-30%) | XXX% | X mo |
+| Best case (+30%) | XXX% | X mo |
+| Base case | XXX% | X mo |
+| Worst case (-30%) | XXX% | X mo |
 
 **Biggest Lever:** [Which assumption has the most impact?]
 
@@ -157,8 +158,8 @@ Or should I calculate with standard assumptions and you correct?"
 
 ## Important Rules
 
-1. **Transparent assumptions** — Every number must have a justification
-2. **Best/Base/Worst** — Always show 3 scenarios
-3. **Name qualitative values** — Strategic Value cannot always be expressed in dollars
-4. **User corrects** — AI estimates, user validates the assumptions
-5. **Connection to prioritization** — ROI informs the business outcome and feasibility scores when the team re-scores
+1. **Transparent assumptions**: Every number must have a justification
+2. **Best/Base/Worst**: Always show 3 scenarios
+3. **Name qualitative values**: Strategic Value cannot always be expressed in dollars
+4. **User corrects**: AI estimates, user validates the assumptions
+5. **Connection to prioritization**: ROI informs the business outcome and feasibility scores when the team re-scores

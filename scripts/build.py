@@ -5,19 +5,29 @@ Installed, they become a single skill, `aidlc-discovery`: the entry skill's
 SKILL.md plus a module per job under modules/, loaded only when its step runs.
 
 Usage: python3 scripts/build.py [output_dir]   (default: dist/aidlc-discovery)
+
+It also writes aidlc-discovery-v<version>.zip next to the output folder (dist/ by default).
 """
 
 from __future__ import annotations
 
+import json
 import re
 import shutil
 import sys
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
 ENTRY = "aidlc-discovery"
 PACKAGE_FILES = ["plugin.json", "mcps.json", "tasks.json", "LICENSE", "README.md"]
+REPO_URL = "https://github.com/aws-samples/sample-aidlc-discovery/blob/main/"
+
+
+def absolute_links(markdown: str) -> str:
+    """Point the README's relative links at the repository: the bundle holds only the skill."""
+    return re.sub(r"\]\((?!https?:|mailto:|#)([^)\s]+)\)", lambda m: f"]({REPO_URL}{m.group(1)})", markdown)
 
 # One line per module for the routing table and the bundled description.
 MODULES = {
@@ -121,6 +131,8 @@ def build(out: Path) -> Path:
     (skill_out / "modules").mkdir(parents=True)
     for f in PACKAGE_FILES:
         shutil.copy2(ROOT / f, out / f)
+    readme = out / "README.md"
+    readme.write_text(absolute_links(readme.read_text(encoding="utf-8")), encoding="utf-8")
 
     entry_fm, entry_body = split((SKILLS / ENTRY / "SKILL.md").read_text(encoding="utf-8"))
     triggers = field(entry_fm, "trigger").strip('"').split()
@@ -187,6 +199,20 @@ def build(out: Path) -> Path:
     return out
 
 
+def package(out: Path) -> Path:
+    """Zip the built folder as aidlc-discovery-v<version>.zip beside it, with the folder at the top."""
+    version = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))["version"]
+    archive = out.parent / f"aidlc-discovery-v{version}.zip"
+    archive.unlink(missing_ok=True)
+    with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in sorted(out.rglob("*")):
+            if f.is_file():
+                z.write(f, Path(ENTRY) / f.relative_to(out))
+    return archive
+
+
 if __name__ == "__main__":
     target = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "dist" / "aidlc-discovery"
-    print(f"Built {build(target.resolve())}")
+    out = build(target.resolve())
+    print(f"Built {out}")
+    print(f"Packaged {package(out)}")

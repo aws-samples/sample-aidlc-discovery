@@ -40,6 +40,25 @@ GitHub provides additional document on [forking a repository](https://help.githu
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 
+## Releasing
+
+Merging to `main` publishes nothing, and nobody writes a version or release notes by hand. Give each pull request a clear title, such as `fix(signals): stop on personal data in production records only`: the titles become the release notes.
+
+To release:
+
+1. **Actions**, **Release**, **Run workflow** on `main`.
+2. Choose by [Semantic Versioning](https://semver.org/): **patch** for fixes (3.0.0 to 3.0.1), **minor** for new behaviour (3.0.1 to 3.1.0), **major** for a breaking change (3.1.0 to 4.0.0).
+
+The workflow then:
+
+1. Takes the latest `vX.Y.Z` tag and works out the next version (`scripts/bump_version.py`).
+2. Asks GitHub for the notes: every pull request merged since that tag, with its author, and a link to the full comparison.
+3. Writes the version into `plugin.json` and every `skills/*/SKILL.md`, and the notes into `CHANGELOG.md` as the version's section. Anything left under `## [Unreleased]` goes on top as highlights; that is optional.
+4. Runs the tests and builds `dist/aidlc-discovery-vX.Y.Z.zip`.
+5. Commits `release: vX.Y.Z` to `main`, tags it, and publishes the release with the zip and the same notes.
+
+It stops, changing nothing, if nothing was merged since the latest tag, or if the version would go backwards or under an older major version.
+
 ## Finding contributions to work on
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
 

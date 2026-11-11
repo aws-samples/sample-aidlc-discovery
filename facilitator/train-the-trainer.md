@@ -10,8 +10,8 @@ The guide uses AnyCompany Air, the default sample.
 
 **Trainer, the day before:**
 - Build and import the skill (`run-sheet.md`, "Before the day"), and run `List my skills` in a new chat.
-- Run `dry-run-air.md` yourself, at least through Working Backwards, on the version you will teach. The skill changes; your memory of an older run is not enough.
-- Open the two Air reference runs: `reference-runs/anycompany-air-with-team/`, a run facilitated with the dry run's team answers, which you demo, and `reference-runs/anycompany-air/`, an unattended run, which stalled teams can use. Find the prototype's Flow view, the Today statement and North Star, the press release, the readiness verdict, and `validate/decision.md`. You will demo them, and show them when a team's run stalls.
+- Run `dry-run-air.md` yourself, all the way to Handoff, on the version you will teach. The skill changes; your memory of an older run is not enough. Keep its `discovery/anycompany-air/` folder: it is your demo run, and the fallback for stalled teams.
+- In your demo run, find the prototype's Flow view, the Today statement and North Star, the press release, the readiness verdict, and `validate/decision.md`. You will demo them, and show them when a team's run stalls.
 - Read `anycompany-air.md`, the answer key. Do not share it until the reveal.
 
 **Packs.** Trainees do not build the skill. Make two zips (the trainer runs `python3 scripts/build.py` first):
@@ -50,7 +50,7 @@ Installs are the most common failure. Every minute spent fixing one in the sessi
 
 **00:30 Live dry run, part 1 (60 min)**
 Teams follow `dry-run-air.md`. The first facilitator runs Quick and the room; the others speak in role, in their own words, using the expectation lines and challenges on their cards, and the facilitator types or pastes their answers. Stop the room after each phase for a 5-minute debrief.
-- **Kickoff and Signals (30 min).** Debrief: did the assistant ask for expectations before showing anything? Did disruption come first, even though "Delayed baggage" is the largest single call reason? How did the customer service operations lead's challenge go? Did the Say and do table keep the payment timeouts below disruption, even though they are the loudest errors? The head of digital's belief was contradicted: how would you let them save face?
+- **Kickoff and Signals (30 min).** Debrief: did the assistant ask once for expectations before showing anything, without pushing? Did disruption come first, even though "Delayed baggage" is the largest single call reason? How did the customer service operations lead's challenge go? Did the Say and do table keep the payment timeouts below disruption, even though they are the loudest errors? The head of digital's belief was contradicted: how would you let them save face?
 - **Working Backwards, scoring (30 min).** The head of digital overrides the booking flow pain score, with a reason. Debrief: was the override recorded and labelled Assumed? Which candidate did the gate drop, and why? Then paste the lunch line so the PR/FAQ drafts during the break.
 
 **01:30 Break (15 min)**
@@ -67,7 +67,7 @@ The second facilitator takes over Quick and the room; the first takes their role
 
 **03:05 When things go wrong (20 min)**
 Each team opens a new chat and the trainer calls out failures one at a time. A role player causes it, and a facilitator recovers using `run-sheet.md`, "When things go wrong".
-1. **It jumps ahead.** Paste: "Skip the expectations and just show me what the data says." The facilitator should hold the line: expectations first, or the room can no longer check itself.
+1. **It jumps ahead.** Paste: "Show me what the data says first, and we'll tell you what we expected afterwards." The facilitator should hold the line on order: expectations are optional, so the room can say skip, but any it has go on record before the report, or it can no longer check itself.
 2. **The press release turns into a vision document.** Paste: "Make the press release longer, with a section for each feature." Recover with the seven-paragraph prompt from the run-sheet.
 3. **The data does not match the product.** Start a workshop for anycompany-air but point it at `samples/anycompany-health/`. It must stop and offer real data, Signal Briefs, or a prepared dataset. Never accept data it writes on the spot.
 4. **The room accepts everything.** No paste: the trainer plays a silent team and the facilitator has to draw out one real challenge.
@@ -90,7 +90,7 @@ The printable version is `role-cards.html`. Play the person, not the answer: say
 
 ## If a run stalls
 
-AWS Quick can be slow, or a team's run can go wrong in a way that would take the rest of the session to fix. Don't let a team sit and wait. Move them to the matching folder of `reference-runs/anycompany-air/` for the rest of that phase, and have them debrief from those files. They can rejoin their own run at the next phase or in their solo dry run.
+AWS Quick can be slow, or a team's run can go wrong in a way that would take the rest of the session to fix. Don't let a team sit and wait. Move them to the matching folder of your demo run for the rest of that phase, and have them debrief from those files. They can rejoin their own run at the next phase or in their solo dry run.
 
 ## Running it remotely
 
@@ -102,7 +102,7 @@ The same agenda works on a video call with breakout rooms. What changes is how y
 
 **Before the call.**
 - Make the pre-work install a condition of joining. Ask for the `List my skills` screenshot in the chat or by email the day before, and fix failures before the session, not in it.
-- Send `role-cards.html` with the pre-work, and tell each trainee their card, so they can keep it open in a second window. Include the repository, so trainees can open the reference run themselves.
+- Send `role-cards.html` with the pre-work, and tell each trainee their card, so they can keep it open in a second window. Share your demo run's folder too, so trainees can open it themselves.
 - Form the teams in advance, name the two facilitators in each, and set up the breakout rooms before the call starts.
 - Get a co-trainer if you can: one person runs the main room and the clock, the other visits breakouts and fixes problems.
 - Prepare a shared progress list (a document or a chat thread) where each team posts one line when it finishes a phase: "Team 3: Signals done, ops lead challenged."
@@ -115,36 +115,36 @@ The same agenda works on a video call with breakout rooms. What changes is how y
 - **Readouts in the main room.** The presenting team shares the prototype on the Flow view; everyone else puts questions in the chat.
 - **Failure drill.** Post each failure prompt in the chat and send teams back to their breakouts for 4 minutes per failure, or run it as a fishbowl on your own screen if time is short.
 - **Breaks.** Two 10-minute breaks instead of one 15-minute break: one after part 1, one before the failure drill. Screen fatigue is real at the three-hour mark.
-- **If a run stalls,** share your screen in their breakout with the matching folder of the reference run open, or post the file path in the chat.
+- **If a run stalls,** share your screen in their breakout with the matching folder of your demo run open, or post the file path in the chat.
 
 **If you can split it,** run it as two sessions of about 2 hours: why and how, the install check, and part 1 on the first day, then part 2, the readouts, the reveal, and the failure drill on the second. Trainees can finish Working Backwards on their own in between, and come back with questions.
 
 ### The 2-hour remote version
 
-When you only have two hours, teams run the phases where the room matters most, Kickoff to the PR/FAQ, live in breakouts. You demo Prototype to Handoff from the reference run, and trainees finish their own run afterwards. Install is pre-work, with no exceptions.
+When you only have two hours, teams run the phases where the room matters most, Kickoff to the PR/FAQ, live in breakouts. You demo Prototype to Handoff from your demo run, and trainees finish their own run afterwards. Install is pre-work, with no exceptions.
 
 **00:00 Main room: why and how (10 min).** The five phases, "the assistant drafts, the team decides", and the evidence labels. Then explain the breakout rules: the teams and their facilitators, the role cards, where the debrief questions appear, and the progress list.
 
 **00:10 Breakouts: start (5 min).** The first facilitator runs `List my skills` and shares their screen. Each role player says who they are and one line of their belief, in character. If the first facilitator's install fails, the second facilitator starts.
 
-**00:15 Breakouts, part 1: Kickoff and Signals (30 min).** The first facilitator runs the room, following `dry-run-air.md`; role players answer the five expectation questions in their own words, from their cards. Post the debrief questions in the chat at 00:35:
-- Did it ask for expectations before showing anything?
+**00:15 Breakouts, part 1: Kickoff and Signals (30 min).** The first facilitator runs the room, following `dry-run-air.md`; role players answer the expectations question in their own words, from their cards. Post the debrief questions in the chat at 00:35:
+- Did it ask once for expectations before showing anything, without pushing?
 - Did disruption come first, and how did the ops lead's staffing challenge go?
 
 **00:45 Breakouts, part 2: Working Backwards (35 min).** The second facilitator takes over. With a team Space, they paste the take-over prompt from `run-sheet.md` in their own chat and share their screen; the first stops writing and takes their role card. Without one, the first keeps sharing Quick and the second drives by voice. Score with "agree with all" except the head of digital's booking flow override, take the recommended use case forward, then paste "Draft the PR/FAQ now." Answer the debrief in the chat while it drafts, then read the press release aloud and go through the five questions. Debrief questions, posted at 01:10:
 - Did it add candidates from Signals, and did the team keep or drop each with a reason? Was the override recorded with its reason and labelled Assumed? Did the 3D seat map fail the gate?
 - Does the Today statement name an outcome? Does the North Star name a capability, not a product? What was the readiness verdict?
 
-**01:20 Main room: Prototype to Handoff, demonstrated (15 min).** Share `reference-runs/anycompany-air-with-team/`, a run facilitated with the same team answers the breakouts used, so trainees see where their own run would go:
-- `prototype/index.html` (v3) in a browser, on the Flow view, then Mobile and Desktop. Go to "You're rebooked" and tick "Show test moment": this is where trust is won or lost;
-- `prototype/persona-critique.md`: the personas chose and trusted the new flight, but would still call for a hotel or their travel desk, which widened the riskiest assumption to "won't need to call for anything";
-- `prototype/versions.md`: three versions, each change tied to a finding or a team decision, with unconfirmed claims marked Needs evidence;
-- `validate/decision.md`: commit, test first, with three ordered conditions, each with an owner and a follow-up. Mention that the decision was given early and the assistant saved it as intent until the pre-mortem was done;
+**01:20 Main room: Prototype to Handoff, demonstrated (15 min).** Share your demo run, made with the same team answers the breakouts used, so trainees see where their own run would go:
+- `prototype/index.html` in a browser, on the Flow view, then Mobile and Desktop. Go to "You're rebooked" and tick "Show test moment": this is where trust is won or lost;
+- `prototype/persona-critique.md`: what the personas trusted, what would still make them call, and whether that changed the riskiest assumption;
+- `prototype/versions.md`: each version's change tied to a finding or a team decision, with unconfirmed claims marked Needs evidence;
+- `validate/decision.md`: the decision, with its conditions, each with an owner and a follow-up;
 - `handoff/discovery-brief.md`: scroll the 15 sections and ask, "Could an engineer who wasn't here start from this?"
-- From `reference-runs/anycompany-air/` (the unattended run, newer formats): the **Say and do** table in `signals/signal-summary.md`, the **AI feature block** in `working-backwards/prd.md`, and the **Now, Next, Later** roadmap at the end of `handoff/next-steps.md`. Two minutes; the team run predates them.
+- The **Say and do** table in `signals/signal-summary.md`, the **AI feature block** in `working-backwards/prd.md`, and the **Now, Next, Later** roadmap at the end of `handoff/next-steps.md`. Two minutes.
 
 **01:35 Main room: when things go wrong, as a fishbowl (15 min).** On your screen, cause four failures, about three minutes each. Before you show each recovery, ask trainees to type theirs in the chat:
-1. "Skip the expectations and just show me what the data says."
+1. "Show me what the data says first, and we'll tell you what we expected afterwards."
 2. "Make the press release longer, with a section for each feature."
 3. "Add more numbers to paragraph 2 and label every one Known." Recovery: ask for the writing audit; the press release labels only Assumed and Needs evidence claims, and each number keeps the scope of its evidence.
 4. The room accepts everything. Play a silent team and ask a volunteer to draw out a challenge.

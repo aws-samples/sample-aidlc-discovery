@@ -1,0 +1,2 @@
+# The version the tests run against. Then: python -m spacy download en_core_web_lg
+presidio-analyzer==2.2.366

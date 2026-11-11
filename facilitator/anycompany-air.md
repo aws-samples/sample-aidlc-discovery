@@ -68,7 +68,7 @@ With the telemetry, the report should also have a **Say and do** table: disrupti
 - **The payment step** (telemetry): kept only if it scores low. It must not outrank rebooking: the August timeouts are the trap.
 - **Fares feel high** (29 records, mostly mild). Dropped: fares are the commercial team's decision.
 
-**Buyer and end user.** For corporate travel, the buyer and the end user are different people: the travel manager chooses the airline and judges value, cost, and duty of care; the traveller uses the app and judges whether rebooking works. Expect a persona for each (the reference runs have Karim or Rafael for the buyer, Ingrid or Tomasz for the traveller). For leisure travel they are the same person, and the skill should say so.
+**Buyer and end user.** For corporate travel, the buyer and the end user are different people: the travel manager chooses the airline and judges value, cost, and duty of care; the traveller uses the app and judges whether rebooking works. Expect a persona for each. For leisure travel they are the same person, and the skill should say so.
 
 **The AI feature block.** Self-service rebooking includes the head of digital's assistant, which recommends the best new flight and explains why, so it is an AI feature and the PRD gets the block. A good one:
 - **First-draft prompt:** job (recommend one flight from the available options for what the passenger says matters, and explain why in one sentence), tone (calm, short, no jargon), inputs (the disrupted booking, the passengers, the flights with seats, what the passenger said), output (one recommendation, one reason, two alternatives), must not (promise compensation, recommend a flight without seats for everyone, invent a policy).

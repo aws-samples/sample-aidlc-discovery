@@ -1,67 +1,102 @@
-name: Release v3
+name: Release
 
-# Builds the AWS Quick skill bundle and publishes it as the latest release.
-# Triggered by v3.*.* tags only; earlier lines keep their own workflows on their branches.
+# Publishes a release. The version is decided here, at release time, and nowhere else:
+# Actions, "Release", "Run workflow" on main, then choose patch, minor, or major.
+# The workflow takes the latest vX.Y.Z tag and works out the next version. GitHub writes
+# the notes from the pull requests merged since that tag; nobody writes them by hand.
+# The version goes into plugin.json and every skill, the notes into the changelog, and
+# the workflow commits that to main, tags it, builds the bundle, and publishes the
+# release with the same notes.
 on:
-  push:
-    tags:
-      - 'v3.*.*'
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "patch for fixes, minor for new behaviour, major for breaking changes"
+        required: true
+        type: choice
+        options: [patch, minor, major]
+
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 jobs:
-  build-and-release:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
+      - name: Release from main only
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "::error::Run the release from main, not ${GITHUB_REF}."
+          exit 1
+
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # every tag, to find the latest release
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Resolve version from tag
+      - name: Decide the version
         id: version
+        env:
+          BUMP: ${{ inputs.bump }}
         run: |
-          TAG="${GITHUB_REF#refs/tags/}"
-          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
-          echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
+          OUT=$(python3 scripts/bump_version.py "${BUMP}" --check)
+          read -r LATEST V <<< "${OUT}"
+          echo "Latest release ${LATEST}, releasing ${V}."
+          echo "latest=v${LATEST}" >> "$GITHUB_OUTPUT"
+          echo "version=${V}" >> "$GITHUB_OUTPUT"
+          echo "tag=v${V}" >> "$GITHUB_OUTPUT"
 
-      - name: Verify the tag matches plugin.json and every skill
+      - name: Generate the notes from the merged pull requests
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          LATEST: ${{ steps.version.outputs.latest }}
         run: |
-          V="${{ steps.version.outputs.version }}"
-          P=$(python3 -c 'import json; print(json.load(open("plugin.json"))["version"])')
-          [ "$P" = "$V" ] || { echo "::error::plugin.json is ${P}, tag is ${V}."; exit 1; }
-          BAD=$(grep -L "^version: \"${V}\"$" skills/*/SKILL.md || true)
-          [ -z "$BAD" ] || { echo "::error::Skills not at ${V}: ${BAD}"; exit 1; }
+          gh api "repos/${GITHUB_REPOSITORY}/releases/generate-notes" \
+            -f tag_name="${TAG}" -f target_commitish="${GITHUB_SHA}" -f previous_tag_name="${LATEST}" \
+            --jq .body > generated-notes.md
 
-      - name: Verify CHANGELOG has an entry for this tag
-        run: |
-          V="${{ steps.version.outputs.version }}"
-          grep -q "^## \[${V}\]" CHANGELOG.md || { echo "::error::CHANGELOG.md has no [${V}] section."; exit 1; }
+      - name: Write the version and the changelog
+        env:
+          V: ${{ steps.version.outputs.version }}
+        run: python3 scripts/bump_version.py "${V}" --notes generated-notes.md
 
       - name: Run tests
         run: python3 -m unittest discover tests -v
 
-      - name: Build the skill bundle
+      - name: Build and package the skill bundle
         run: python3 scripts/build.py
 
-      - name: Package the bundle
-        run: |
-          V="${{ steps.version.outputs.version }}"
-          (cd dist && zip -qr "../aidlc-discovery-v${V}.zip" aidlc-discovery)
-
       - name: Extract release notes
+        env:
+          V: ${{ steps.version.outputs.version }}
         run: |
-          V="${{ steps.version.outputs.version }}"
-          awk "/^## \\[${V}\\]/{f=1;print;next}/^## \\[/{f=0}f" CHANGELOG.md > release-notes.md
+          awk -v v="${V}" 'index($0, "## [" v "]") == 1 {f=1; next} /^## \[|^---$/ {f=0} f' CHANGELOG.md > release-notes.md
           [ -s release-notes.md ] || echo "Release ${V}." > release-notes.md
+
+      - name: Commit the version to main
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "release: ${TAG}" -- plugin.json CHANGELOG.md skills
+          git push origin HEAD:main
+          echo "SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.tag }}
+          target_commitish: ${{ env.SHA }}
           name: aidlc-discovery ${{ steps.version.outputs.tag }}
           body_path: release-notes.md
           prerelease: false
           make_latest: true
-          files: aidlc-discovery-v*.zip
+          files: dist/aidlc-discovery-v*.zip

@@ -44,7 +44,7 @@ Working Backwards writes the press release before anything is built: if the team
 - **Validate**: All five questions answered, in the team's words, with evidence where it exists
 - **On failure**: If the team is stuck on a question, offer two suggestions from the signals and let it choose or rewrite
 
-Follow `references/wb-document.md`: Listen, Define, Invent, Refine, Test. Ask one question at a time and summarize each answer before the next. Suggest from the signals, but the answers are the team's. In Listen and Define, apply `references/framing-rules.md`: name the end customer, write root causes as causes, split the impact, and write the Today statement, How Might We, and North Star.
+Follow `references/wb-document.md`: Listen, Define, Invent, Refine, Test. Ask one Working Backwards question per round: its parts are the round's questions, each with a recommended answer drafted from the signals and personas, so the team can accept with "yes" and correct the rest. Summarize each answer in at most three lines before the next round. Look up any fact the round needs in the data yourself (for example, which field values fail) instead of asking the team. The answers are the team's. In Listen and Define, apply `references/framing-rules.md`: name the end customer, write root causes as causes, split the impact, and write the Today statement, How Might We, and North Star.
 
 In `draft` mode, answer the five questions yourself from the morning's artifacts, write the PR/FAQ (Step 3), and mark the document as a straw-man. When the team returns, go through each answer with it before Step 4.
 
@@ -114,7 +114,7 @@ The other outputs are the Working Backwards document, the feature description, t
 ## Lessons Learned
 
 ### Do
-- Ask the five questions one at a time.
+- Ask the five questions one per round, each part with a recommended answer.
 - Keep the press release to one page, and lead with the customer outcome.
 - Label every claim in the FAQ, and only Assumed and Needs evidence claims in the press release; the riskiest assumption comes from the Assumed ones.
 

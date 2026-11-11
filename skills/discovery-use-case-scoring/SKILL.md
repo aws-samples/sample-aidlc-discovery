@@ -85,7 +85,7 @@ Then **drop** any candidate that fails one of these, and record which. Failing t
 | **Feasibility** | 15 | New data, platform, and skills needed | Some data or platform work needed | Data in place, builds on the existing product and platform |
 | **Adoption load** | 10 | Heavy change for users, or they have not adopted what already shipped in this area | Moderate change in how users work | Fits how users already work |
 
-Score **business outcome** against the business metric agreed at setup, not against a metric the candidate names for itself. A candidate that moves only its own metric (baggage calls, when the metric is the self-service rebooking rate) scores low on outcome, however real its pain.
+Score **business outcome** against the business metric agreed at setup, in the direction setup recorded as good, not against a metric the candidate names for itself. A candidate that moves the metric the wrong way, for example by removing tickets when more tickets mean more onboardings, scores 1 on outcome. A candidate that moves only its own metric (baggage calls, when the metric is the self-service rebooking rate) scores low on outcome, however real its pain.
 
 Weighted score = the sum of (score × weight) ÷ 100, from 1.0 to 5.0.
 

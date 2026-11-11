@@ -37,6 +37,8 @@ Supported AI-DLC: 2.10.0 or later (`awslabs/aidlc-workflows`). The brief relies 
 - **Validate**: Every artifact in the table exists
 - **On failure**: List what is missing and which skill produces it; never write a partial brief
 
+In the same round as the result, confirm the build route (own engineering, agents, AI-DLC workshop, AI-DLC classic, or none), with a recommendation from `PROJECT.md` and `validate/decision.md`. Never assume it: Step 3 and `next-steps.md` depend on it.
+
 | Artifact | Path under `discovery/{{project}}/` | Produced by |
 |----------|-------------------------------------|-------------|
 | Team expectations | `signals/team-expectations.md` | discovery-signals |
@@ -213,5 +215,5 @@ Relative links to every artifact under discovery/[project]/.
 - **Persona names differ between the brief and the team knowledge.** Use the name exactly as the persona file's first line.
 
 ### When to Ask the User
-- The route, if the decision is commit and the route is not clear.
+- The route, before writing the brief, with a recommended answer.
 - Anything in the brief the team wants to change before the readout.

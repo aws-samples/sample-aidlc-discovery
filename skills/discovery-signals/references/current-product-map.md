@@ -1,4 +1,4 @@
-# Current-Product Map — Skill (Signal Analyzer)
+# Current-product map
 
 ## Purpose
 
