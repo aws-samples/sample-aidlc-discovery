@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+---
+
+## [3.0.0] — 2026-11-11
+
 v3 replaces the interview workflow with a full Discovery process for AWS Quick Desktop. A team brings its customer feedback and leaves with a decision on what to build first, a clickable prototype, and a Discovery brief that a build, including AI-DLC, starts from.
 
 ### Added
@@ -27,6 +31,20 @@ v3 replaces the interview workflow with a full Discovery process for AWS Quick D
 ### Removed
 
 - **Breaking:** the Kiro and Claude Code bundles, the Node build (`build.js`), and the v1 rule set. The skill now targets AWS Quick Desktop only. Earlier releases remain available on the releases page.
+
+### What's Changed
+* V3 by @ConnorKirk in https://github.com/aws-samples/sample-aidlc-discovery/pull/1
+* Remove reference to a workshop by @ConnorKirk in https://github.com/aws-samples/sample-aidlc-discovery/pull/3
+* docs(readme): link the AI-DLC Discovery workshop by @hjgraca in https://github.com/aws-samples/sample-aidlc-discovery/pull/2
+* Amazon Quick -> AWS Quick by @ConnorKirk in https://github.com/aws-samples/sample-aidlc-discovery/pull/4
+* refactor(signals)!: rename team hypotheses to team expectations by @ConnorKirk in https://github.com/aws-samples/sample-aidlc-discovery/pull/5
+* feat: ask in rounds, plain writing, optional expectations, data preparation tool by @hjgraca in https://github.com/aws-samples/sample-aidlc-discovery/pull/6
+
+### New Contributors
+* @ConnorKirk made their first contribution in https://github.com/aws-samples/sample-aidlc-discovery/pull/1
+* @hjgraca made their first contribution in https://github.com/aws-samples/sample-aidlc-discovery/pull/2
+
+**Full Changelog**: https://github.com/aws-samples/sample-aidlc-discovery/compare/v2.0.1...v3.0.0
 
 ---
 
