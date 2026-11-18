@@ -48,6 +48,8 @@ Draft the setup from what you can find first (the request, the folder or Space, 
 
 Read `config.md` in the working folder if it exists, otherwise `config.default.md` in this skill's folder, for defaults.
 
+**Project language.** The project language is the human language the team works in, such as English or Japanese. It is not a programming language, and not the language the feedback is written in. It is the language the team writes to you in, unless `project_language` in the config sets one; in unattended runs with an empty `project_language`, it is the language of the starting prompt. Record it in `PROJECT.md` as `Project language: [language]`, so a later session or another driver keeps it. When `PROJECT.md` records none, for example when a job skill runs on its own, use the language the team writes in.
+
 **Where Discovery is saved.** In the working folder, or, in AWS Quick, in a Space, so the work stays in AWS Quick and the people it is shared with can follow and take over from their own AWS Quick. Use a Space when `storage` in the config is `space`, when the team asks for one (for example "save Discovery in our team Space"), or when a Space is attached to this chat and `storage` is empty: then ask once, "Save Discovery in the [space] Space, or in this folder?" The data stays where it is either way. In unattended runs, never ask: an empty `storage` means the working folder. With a Space, use **discovery-team-space** for the setup and follow it for every read and write from then on. Without one, nothing changes.
 
 Tell the team the five phases, roughly how long each takes, and that it will be asked to review at every checkpoint. If the user asks to jump to a phase, check that phase's inputs exist first (see the table in Output).
@@ -122,7 +124,13 @@ These apply in every phase, so the job skills can assume them.
 9. **Ask in rounds.** Every question to the team uses the format in "Asking the team" below.
 10. **Keep the chat short.** The files hold the detail; the chat holds what the team needs to decide now. Summarize an artifact in at most five lines and link to it, except the press release, which the team reads in full. Acknowledge an answer in one line, not by restating it. Never repeat a question the team has already answered or skipped; carry it as an open item instead.
 11. **Corrections flow downstream.** When the team corrects something an earlier confirmed step relied on (the metric or its direction, a data file, a score), say in one line what it changes, and make re-running that step the recommended answer in the next round. Do not continue on the old basis.
-12. **Plain writing.** Before you send any reply or save any artifact, check it against `references/plain-writing.md` and fix what fails. It keeps the method's own names, the round format, and the evidence labels, and it allows no emojis.
+12. **Plain writing.** Before you send any reply or save any artifact, check it against `references/plain-writing.md` and fix what fails. It keeps the structure of the method's own names, the round format, and the evidence labels, and it allows no emojis.
+13. **Project language.** Write every message to the team and every artifact in the project language (see Step 1), including when another driver or a later session continues. The rules in these skills are written in English: apply each for its purpose, not its English words.
+    - **Everywhere**, keep in English only these values: the method's own names; the decision values commit, pivot, and park; the evidence labels; and the route, data, and status values. A heading or label that names such a value, such as a "Phase" or "Status" column, is translated.
+    - **In chat**, write everything else in the project language, including the headings, column headers, and labels of the formats and examples these skills show in English, such as a bold label before a colon.
+    - **In artifacts**, also keep in English these parts of a job skill's template: headings; the name before a colon that labels a value, such as `Verdict:` or `**Decision:**`, but not the text after it; the table headers it defines; markers such as `[GAP]`; and any value the template offers as a choice, such as `GREEN | AMBER | RED`, written as listed. Everything else is prose: a question, a title, or a sentence is written in the project language, even when it is bold or the template writes it out in English.
+    - **Keep as they are**: file and folder names and paths; and commands.
+    - **Customer quotes.** A quote is the customer's words together with their source. When the words are in the project language, write `"[original]" ([Source])`. When they are in another language, the quotation marks hold the translation: write `"[translation into the project language]" ("[original]", [Source])` in artifacts, and `"[translation]" ([Source], translated)` in chat. The translation keeps the original's meaning and strength and adds nothing; the original stays verbatim. When you reuse a quote from another artifact, take all of it, and write it in the form for where it goes.
 
 ## Asking the team
 
@@ -131,16 +139,16 @@ Ask in rounds. A round holds every question that is ready to be asked now, each 
 ```markdown
 **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
-**Recommendation:** <your recommended answer>
+**<"Recommendation" in the project language>:** <your recommended answer>
 
 ---
 
 **Q2** - **<question title>**: <question body>
 
-**Recommendation:** <your recommended answer>
+**<"Recommendation" in the project language>:** <your recommended answer>
 ```
 
-- **Word each question so "yes" accepts the recommended answer.** The team can answer a whole round with "yes", or with "yes, except Q2: ...".
+- **Word each question so "yes", or the project language's word for yes, accepts the recommended answer.** The team can answer a whole round with "yes", or with "yes, except Q2: ...".
 - **Recompute the frontier after each answer.** Settled decisions unblock the questions that depended on them. A question whose answer depends on another question still open in this round belongs to a later round, not this one.
 - **Finding facts is your job, never the team's.** If a question needs a fact from the data, the files, or the Space, look it up before asking. When the harness can run sub-agents, dispatch one with a fresh context for each lookup and ask the rest of the round meanwhile; only the questions that depend on the lookup wait. Never ask the team for something you could read yourself.
 - **The decisions are the team's.** Put each one to the team and wait. A recommendation is a draft, never a decision.
@@ -150,6 +158,8 @@ Ask in rounds. A round holds every question that is ready to be asked now, each 
 ## Progress board
 
 Two short tables, with no emojis. Status values: Complete, In progress, Not started, Deferred for phases; Saved, Draft, Missing for artifacts.
+
+In the Artifact column, write each artifact's title as it appears in the file.
 
 ```markdown
 **Discovery progress**

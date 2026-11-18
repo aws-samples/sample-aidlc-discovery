@@ -33,6 +33,10 @@ doc_format: "markdown"  # markdown | docx
 # Project folder name under output_folder (empty: ask)
 project: ""
 
+# The human language the team works in, such as "English" or "Japanese"; not a programming language,
+# and not the language of the feedback (empty: the language the team writes in)
+project_language: ""
+
 # true: run all phases without checkpoints or questions (automated tests only)
 unattended: false
 ```

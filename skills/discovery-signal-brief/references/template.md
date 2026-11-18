@@ -9,8 +9,8 @@ Brief ID: SB-[number] | Written: [date] | Period covered: [from] to [to]
 **Job or desired outcome:** [what the customer is trying to achieve]
 
 **Evidence:**
-- "[anonymized quote]" ([source type, such as support ticket])
-- "[anonymized quote]" ([source type])
+- [Anonymized customer quote, written as the project language rule says, with the source type, such as support ticket]
+- [Another anonymized customer quote, written the same way]
 - [volume: for example, about 35% of setup tickets in the last 90 days]
 
 **Estimated impact:** [time, money, risk, or retention, even approximate; say if it is an estimate]

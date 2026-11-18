@@ -4,7 +4,7 @@ Optional. Ask before any analysis, so whatever the team already believes is on r
 
 ## The question
 
-Ask it once, as one question in the round format, with no recommendation of what to believe:
+Ask it once, as one question in the round format, with no recommendation of what to believe. The quoted text shows what the round covers, not the wording to paste.
 
 ```markdown
 **Q1** - **Any expectations before we look?**: Before I show you anything, do you already expect the data to show something: a problem, who has it, or why? List as many as you like. If nothing comes to mind, say skip and I'll go straight to the data.

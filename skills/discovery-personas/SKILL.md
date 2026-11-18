@@ -42,10 +42,19 @@ Personas put a face on the signals. In Working Backwards they are generated firs
 - **Tool**: `file_rag_search`, `run_python`
 - **Input**: `discovery/{{project}}/signals/signal-summary.md` and the data behind it; `{{count}}`
 - **Output**: One file per persona in `discovery/{{project}}/working-backwards/personas/`
-- **Validate**: At least two personas; every quote is real; each has a confidence rating and an evidence count
+- **Validate**: At least two personas; every quote is real; each has a confidence rating, an evidence count, and a background basis
 - **On failure**: If the data supports fewer distinct segments than asked, generate fewer and say why
 
-Follow `references/persona-generation.md`: find behavioral segments in the feedback, write each persona in the format in `references/persona-document.md`, then check each one against the data. Make one of them a customer who is satisfied today, so the team sees what it could break. When the buyer and the end user are different people (for example a travel manager who chooses the airline, and the traveller who uses the app), give each one a persona and say which is which: the buyer judges value and cost; the end user judges whether the workflow works. If they are the same person, say so.
+Follow `references/persona-generation.md`, and pass it the language rules below as `{custom_instructions}`: find behavioral segments in the feedback, write each persona in the format in `references/persona-document.md`, then check each one against the data. Make one of them a customer who is satisfied today, so the team sees what it could break. When the buyer and the end user are different people (for example a travel manager who chooses the airline, and the traveller who uses the app), give each one a persona and say which is which: the buyer judges value and cost; the end user judges whether the workflow works. If they are the same person, say so.
+
+**Background, names, and profiles.** Choose each persona's nationality and cultural background before its name and profile:
+
+1. If the data states the segment's country, region, or market (a location field, a stated home country, or the segment of a Signal Brief), use that background, and record `**Background:** [background] (from the data)`.
+2. Otherwise, use the background of the project language, and record `**Background:** [background] (from the project language, **Assumed**)`. Never infer nationality or culture from the language the feedback is written in: it may have been translated.
+3. Choose a name that fits the persona's background, and write it as that name is usually written in the project language.
+4. Keep the profile consistent with the background: location, currency, education, and workplace.
+
+**Language of what personas say.** Personas speak the project language, whatever their background: in the critique, and in simulate and panel answers. Every statement that rests on the data carries the customer quote behind it. The statement keeps the original's meaning and strength and adds nothing to it.
 
 With a synthetic dataset, rate confidence no higher than Medium, whatever the item count: the items are not real customers. With Signal Briefs, there is no record-level data. Build segments from the briefs' segments and jobs, use only the quotes the briefs contain, and rate confidence no higher than Medium unless three or more briefs describe the same segment.
 
@@ -67,11 +76,11 @@ Follow `references/persona-critique.md`. When the prototype shows AI output from
 - **Validate**: Each answer starts with `**[Persona: Name]**` and stays in character
 - **On failure**: If the persona does not exist, list the project's personas
 
-For a single persona, answer as that person until the user says "stop": their language, their pain points, their constraints. When something is outside their experience, say so. For a panel, ask each persona the same question in turn, then summarize where they agree and where they differ. Useful in Working Backwards to test a PR/FAQ headline, and in prep calls.
+For a single persona, answer as that person until the user says "stop": their way of speaking, their pain points, their constraints. When something is outside their experience, say so. For a panel, ask each persona the same question in turn, then summarize where they agree and where they differ. Useful in Working Backwards to test a PR/FAQ headline, and in prep calls.
 
 ## Output
 
-- `working-backwards/personas/[first-name].md`: one per persona, in the format in `references/persona-document.md`
+- `working-backwards/personas/[given-name].md`: one per persona, the given name in lowercase ASCII (romanized if needed), in the format in `references/persona-document.md`
 - `prototype/persona-critique.md`: one section per persona and a findings table
 - `working-backwards/personas/panel-[topic].md`: optional
 
@@ -80,11 +89,12 @@ For a single persona, answer as that person until the user says "stop": their la
 ### Do
 - Generate personas before scoring; scoring and the PR/FAQ use them.
 - Include one satisfied customer.
-- Vary names, genders, ages, and backgrounds across personas, and never pair them with roles by stereotype. If two personas share the same demographic pattern, change one.
+- Vary names, genders, ages, and backgrounds across personas, within the backgrounds chosen above, and never pair them with roles by stereotype. If two personas share the same demographic pattern, change one.
 - Ask the team whether it recognizes each persona.
 
 ### Don't
-- Invent quotes, or give a persona traits the data does not show.
+- Invent quotes, present a persona's restated statement as the original quote, or give a persona traits the data does not show.
+- Infer a persona's nationality from the language of the feedback.
 - Let a critique come back with no problems; ask again, more specifically.
 - Treat a persona's reaction as customer evidence; it is a hypothesis to test.
 

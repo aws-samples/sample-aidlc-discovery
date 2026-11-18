@@ -1,6 +1,6 @@
 # Persona document
 
-Save each persona as its own file, `discovery/[project]/working-backwards/personas/[first-name].md`. The first line is the persona's name; the brief and AI-DLC's team knowledge use it as written.
+Save each persona as its own file, `discovery/[project]/working-backwards/personas/[given-name].md`, with the given name in lowercase ASCII, romanized if the name is not in Latin script. The first line is the persona's name; the brief and AI-DLC's team knowledge use it as written.
 
 ```markdown
 # [Name]
@@ -10,6 +10,7 @@ Save each persona as its own file, `discovery/[project]/working-backwards/person
 ## Identity
 - **Age:** [Range]
 - **Location:** [City/Region]
+- **Background:** [Nationality or culture] (from the data) | [Nationality or culture] (from the project language, **Assumed**)
 - **Occupation:** [Job Title]
 - **Bio:** [2-3 sentences background story]
 
@@ -39,8 +40,8 @@ Save each persona as its own file, `discovery/[project]/working-backwards/person
 - **Influencers:** [Who influences their decisions]
 
 ## Quotes
-> "[Exact quote from feedback]" ([Source])
-> "[Another quote]" ([Source])
+> [Customer quote, written as the project language rule says]
+> [Another customer quote, written the same way]
 
 ## Scenario
 **[Title]**
@@ -56,7 +57,7 @@ Trigger → Action → Thought process → Desired outcome.]
 
 ## Rules
 
-1. **Real quotes only.** Every quote is copied from the feedback or a Signal Brief, anonymized. Never invent one.
+1. **Real quotes only.** Every quote is copied verbatim from the feedback or a Signal Brief, anonymized. Never invent one.
 2. **Evidence count.** Under the tagline, add `**Based on:** [N] feedback items` or `[N] Signal Briefs`.
 3. **Confidence.** High: five or more items. Medium: two to four. Low: one item, or inferred. On a synthetic dataset, never higher than Medium.
 4. **No real people.** Names are invented; nothing identifies a real customer.

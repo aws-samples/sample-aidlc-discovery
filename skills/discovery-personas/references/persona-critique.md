@@ -37,7 +37,7 @@ The satisfied persona answers one more question: what does this change that alre
 
 ## [Persona name]
 - Walk-through: where they got stuck, by screen
-- Pain solved: [...] (quote) | Pain not solved: [...]
+- Pain solved: [...] ([customer quote, written as the project language rule says]) | Pain not solved: [...]
 - Workflow fit: [...]
 - Switching: what would make them switch, what would stop them
 - Riskiest assumption: holds / does not hold / unclear, because [...]

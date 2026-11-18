@@ -53,7 +53,7 @@ A Signal Brief lets a team bring its customer evidence to Discovery without brin
 - **Validate**: All seven fields are filled; the anonymization check passes
 - **On failure**: Leave a field marked "unknown" rather than inventing it
 
-Use the template in `references/template.md`. Choose 2 to 4 quotes that show the problem in the customer's words, then anonymize them.
+Use the template in `references/template.md`. Choose 2 to 4 quotes that show the problem, then anonymize them.
 
 ### Step 4: Anonymization check
 - **Mode**: `agentic`

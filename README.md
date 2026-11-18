@@ -139,7 +139,7 @@ aidlc config --harness <claude | kiro | kiro-ide | codex | cursor | opencode | c
 /aidlc workshop Read ./discovery/[project]/handoff/discovery-brief.md and build what it describes, [product or feature name]
 ```
 
-Use `/aidlc classic` when the team continues on its own instead of in an AI-DLC workshop. AI-DLC reads the brief as its single input and generates the requirements, user stories, and design from it. AWS Quick does not run AI-DLC itself, so the skills print the command and stop.
+Use `/aidlc classic` when the team continues on its own instead of in an AI-DLC workshop. The skills write the request after the profile name in the project language. AI-DLC reads the brief as its single input and generates the requirements, user stories, and design from it. AWS Quick does not run AI-DLC itself, so the skills print the command and stop.
 
 ## Things to know
 

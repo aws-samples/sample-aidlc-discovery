@@ -116,6 +116,17 @@ class HandoffContractTests(unittest.TestCase):
             self.assertIn(needle, text)
 
 
+class ProjectLanguageTests(unittest.TestCase):
+    def test_project_language_contract(self) -> None:
+        entry = (SKILLS / ENTRY / "SKILL.md").read_text(encoding="utf-8")
+        config = (SKILLS / ENTRY / "config.default.md").read_text(encoding="utf-8")
+        persona = (SKILLS / "discovery-personas" / "references" / "persona-document.md").read_text(encoding="utf-8")
+        self.assertIn('project_language: ""', config)
+        self.assertIn("Project language: [language]", entry)
+        self.assertIn("**Project language.** Write every message", entry)
+        self.assertIn("- **Background:**", persona)
+
+
 if __name__ == "__main__":
     unittest.main()
 

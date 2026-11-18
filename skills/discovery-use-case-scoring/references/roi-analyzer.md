@@ -60,6 +60,7 @@ NPV (3 years) = Σ (Monthly Return / (1 + discount_rate)^month) - Investment
 ```
 
 ### Step 2: Clarify Assumptions
+The quoted text shows what the round covers, not the wording to paste.
 ```
 **Q1** - **Team cost**: Should I use an engineering rate of $120 an hour and the team size from the PRD scope?
 
