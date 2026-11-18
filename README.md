@@ -41,6 +41,7 @@ A team can run the phases in one sitting or across several sessions; every artif
 | `discovery-handoff` | Handoff | The Discovery brief, AI-DLC team knowledge, and next steps |
 | `discovery-signal-brief` | Before Discovery | Optional. The team writes anonymized Signal Briefs from its own data |
 | `discovery-survey` | After Discovery | Optional. Surveys that test the open hypotheses with real users, and a results dashboard |
+| `discovery-team-space` | Any phase, AWS Quick only | Optional. Saves Discovery in a team Space, so several people can follow it and take over |
 
 In this repository each skill is its own folder under [`skills/`](skills/), with a `SKILL.md` and, where needed, `references/` that hold the detailed prompts, so each job is easy to read, change, and test. For installation, [`scripts/build.py`](scripts/build.py) bundles them into **one** skill, `aidlc-discovery`, with a module per job that loads only when its step runs. You install, update, and remove one item. The skills follow the [Agent Skills](https://agentskills.io/) format and AWS Quick's skill conventions.
 
@@ -139,7 +140,7 @@ aidlc config --harness <claude | kiro | kiro-ide | codex | cursor | opencode | c
 /aidlc workshop Read ./discovery/[project]/handoff/discovery-brief.md and build what it describes, [product or feature name]
 ```
 
-Use `/aidlc classic` when the team continues on its own instead of in an AI-DLC workshop. The skills write the request after the profile name in the project language. AI-DLC reads the brief as its single input and generates the requirements, user stories, and design from it. AWS Quick does not run AI-DLC itself, so the skills print the command and stop.
+The command is `/aidlc [scope] [intent description]`. `workshop` is one scope: use another, such as `classic`, or leave the scope out, and AI-DLC suggests the one that fits. The skills write the intent description in the project language. AI-DLC reads the brief as its single input and generates the requirements, user stories, and design from it. AWS Quick does not run AI-DLC itself, so the skills print the command and stop.
 
 ## Things to know
 

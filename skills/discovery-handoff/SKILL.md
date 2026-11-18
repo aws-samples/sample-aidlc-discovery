@@ -25,7 +25,7 @@ license: MIT-0
 
 Handoff writes the Discovery brief: the single document that carries the team's decision, its evidence, and what is still unproven into whatever build follows, whether the team's own engineering, agents, or AI-DLC. It is written for every decision, including pivot and park, so the evidence is never lost. When the team uses AI-DLC, the brief is the one document AI-DLC Inception reads, and Discovery takes the place of AI-DLC's own Ideation phase.
 
-Supported AI-DLC: 2.10.0 or later (`awslabs/aidlc-workflows`). The brief relies on AI-DLC's single-document input (UTF-8 text, at most 200,000 characters), the `workshop` and `classic` profiles, and team knowledge in `aidlc/spaces/[space]/knowledge/aidlc-product-agent/`.
+Supported AI-DLC: 2.10.0 or later (`awslabs/aidlc-workflows`). The brief relies on AI-DLC's single-document input (UTF-8 text, at most 200,000 characters), the `/aidlc [scope] [intent description]` command, and team knowledge in `aidlc/spaces/[space]/knowledge/aidlc-product-agent/`.
 
 ## Workflow
 
@@ -37,7 +37,7 @@ Supported AI-DLC: 2.10.0 or later (`awslabs/aidlc-workflows`). The brief relies 
 - **Validate**: Every artifact in the table exists
 - **On failure**: List what is missing and which skill produces it; never write a partial brief
 
-In the same round as the result, confirm the build route (own engineering, agents, AI-DLC workshop, AI-DLC classic, or none), with a recommendation from `PROJECT.md` and `validate/decision.md`. Never assume it: Step 3 and `next-steps.md` depend on it.
+In the same round as the result, confirm the build route (own engineering, agents, AI-DLC, or none), with a recommendation from `PROJECT.md` and `validate/decision.md`. Never assume it: Step 3 and `next-steps.md` depend on it.
 
 | Artifact | Path under `discovery/{{project}}/` | Produced by |
 |----------|-------------------------------------|-------------|
@@ -92,7 +92,9 @@ Write `handoff/next-steps.md`, so what happens next does not live only in the ch
   /aidlc workshop Read ./discovery/{{project}}/handoff/discovery-brief.md and build what it describes, [product or feature name]
   ```
 
-  Use `/aidlc classic` when the team continues on its own. The text after the profile name is a request to AI-DLC: it is prose, not part of the command, so write it in the project language, saying the same as the example (read the brief at its path and build what it describes, with the product or feature name). AWS Quick does not run AI-DLC: tell the team to commit the `discovery/` folder to the repository where it will build, and run the command there.
+  The command is `/aidlc [scope] [intent description]`. `workshop` in the example is one scope: the team can use another, such as `classic`, or leave the scope out, and AI-DLC suggests the one that fits. Do not ask the team for the scope. Say this in `next-steps.md` too, under the command. The intent description is a request to AI-DLC: it is prose, not part of the command, so write it in the project language, saying the same as the example (read the brief at its path and build what it describes, with the product or feature name).
+
+  AWS Quick does not run AI-DLC: tell the team to commit the `discovery/` folder to the repository where it will build, and run the command there.
 - **Commit with the team's own engineering or agents**: point to the brief as the build's starting document.
 - **Pivot or park**: what happens at the 30-day follow-up, from the decision file.
 
@@ -120,7 +122,8 @@ Decision: [commit | pivot | park]
 1. Copy or commit the `discovery/` and `aidlc/` folders into the repository where the team will build.
 2. In that repository, run:
    aidlc config --harness <claude | kiro | kiro-ide | codex | cursor | opencode | copilot>
-   /aidlc workshop Read ./discovery/[project]/handoff/discovery-brief.md and build what it describes, [name]
+   /aidlc workshop [intent description: Read ./discovery/[project]/handoff/discovery-brief.md and build what it describes, [name]]
+   `workshop` can be another scope, such as `classic`, or left out: AI-DLC then suggests the scope that fits.
 (or, for pivot and park, what happens at the 30-day follow-up instead)
 
 ## Conditions before the build
@@ -134,7 +137,7 @@ Decision: [commit | pivot | park]
 # Discovery brief: [product or feature name]
 
 ## 1. Context
-Date: [YYYY-MM-DD] | Route: [own engineering | agents | AI-DLC workshop | AI-DLC classic | none] | Data: [production | Signal Briefs | synthetic]
+Date: [YYYY-MM-DD] | Route: [own engineering | agents | AI-DLC | none] | Data: [production | Signal Briefs | synthetic]
 
 ## 2. Decision
 Commit, pivot, or park, the reason, any conditions that must be true before the build starts, and what happens next.
