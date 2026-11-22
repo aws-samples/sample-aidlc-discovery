@@ -9,7 +9,7 @@ Tomorrow's AI-DLC Discovery train the trainer: pre-work, about 20 minutes. Pleas
 
 1. Unzip the pack I sent you: the facilitator pack if you facilitate, the trainee pack otherwise.
 2. In AWS Quick Desktop: Customize > Skills > Create > From folder, and choose the aidlc-discovery folder from the pack.
-3. Start a new chat and type: List my skills. Reply to this message with a screenshot. You should see AI-DLC Discovery Workshop.
+3. Start a new chat and type: List my skills. Reply to this message with a screenshot. You should see AI-DLC Discovery.
 4. Open the anycompany-air folder from the pack and read its README.md, the scenario page. Read nothing else; the answers are hidden in the data.
 5. Open role-cards.html from the pack and find your card.
 6. First facilitators: create a Space for your team (Spaces > Create space), name it after your team, copy the sample into it (the copy prompt in facilitator/dry-run-air.md, step 0), and share it with your team as Owners. Everyone: attach your team's Space to a new chat (the + menu > Spaces).
@@ -64,7 +64,7 @@ Debrief 1, one line per team:
 ## 00:45 Second facilitator takes over
 
 ```
-Switch: the second facilitator takes over now. With your team Space: paste the take-over prompt ("Continue the AI-DLC Discovery workshop for anycompany-air from discovery/anycompany-air/PROJECT.md in the [space] space. I'm taking over as [role]. Start at the personas.") in your own chat and share your screen. Without one: the first keeps sharing Quick and becomes the keyboard. Next: personas, weights, then scoring. Use "agree with all" except the head of digital's override on the booking flow.
+Switch: the second facilitator takes over now. With your team Space: paste the take-over prompt ("Continue AI-DLC Discovery for anycompany-air from discovery/anycompany-air/PROJECT.md in the [space] space. I'm taking over as [role]. Start at the personas.") in your own chat and share your screen. Without one: the first keeps sharing Quick and becomes the keyboard. Next: personas, weights, then scoring. Use "agree with all" except the head of digital's override on the booking flow.
 ```
 
 ## 01:00
