@@ -57,7 +57,7 @@ Above the paragraphs: a short, bold **headline**, and a one-sentence **subheadin
 | 3 | **Solution.** How the product helps, at a high level, in plain language. No step-by-step experience. |
 | 4 | **Leader quote** from the company launching the product: why it matters, in two or three short, confident sentences. Format: "Quote," says [Name], [Title]. |
 | 5 | **Customer experience.** One journey from trigger to outcome, step by step, for each persona that matters. No architecture. |
-| 6 | **Customer testimonial.** Two or three sentences in the persona's own voice: a feeling or a concrete benefit, as they would tell a colleague. Avoid the "I used to, now I" pattern. Mark it as synthetic. |
+| 6 | **Customer testimonial.** Two or three sentences in the persona's own voice: a feeling or a concrete benefit, as they would tell a colleague. Avoid the "I used to, now I" pattern. Use the persona's name as in its file. Mark it as synthetic. |
 | 7 | **Call to action.** Where to get started, in one or two sentences. |
 
 ### Rules

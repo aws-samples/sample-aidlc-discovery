@@ -40,7 +40,7 @@ Scoring decides which problem the rest of the day goes to. The team brings 3 to 
 
 Each candidate is a problem with five fields: who has it, the problem, the evidence from Signals, the business metric it moves, and the person on the team who would own the build. If the team brought none, draft 3 to 5 from the top signals and ask the team to confirm or edit them. Merge candidates that solve the same problem.
 
-**Then add candidates from Signals.** When the team brought its own candidates, add two or three drawn from Signals themes that none of them covers, including telemetry-only signals. Write each as a problem with its evidence, and mark it "From Signals". The team keeps or drops each one, which takes about a minute: kept ones go through the gate and are scored like the rest; dropped ones are recorded with the reason and not scored. If every theme is covered, say so and add none.
+**Then add candidates from Signals.** When the team brought its own candidates, add two or three drawn from Signals themes that none of them covers, including telemetry-only signals. Write each as a problem with its evidence, and mark it "From Signals". The team keeps or drops each one, which takes about a minute: kept ones take the next number in the Candidates table, go through the gate, and are scored like the rest; dropped ones are recorded with the reason and not scored. If every theme is covered, say so and add none.
 
 ### Step 2: Weights
 - **Mode**: `agentic`
@@ -156,7 +156,16 @@ Weights: pain 25, outcome 25, reach 15, fit 10, feasibility 15, adoption 10 [not
 | # | Pain | Outcome | Reach | Fit | Feas. | Adopt. | Weighted | Confidence | Decision |
 
 ## Evidence per score
-One line per score: the signal, count, or quote behind it, or "Assumed".
+
+### #[N] [Use case]
+- **Customer pain: [score]/5.** [why this score, each number saying what it counts and where it comes from, such as "102 of 400 feedback records"] [a customer quote behind it, written as the project language rule says, if one fits] [each claim's evidence label]
+- **Business outcome: [score]/5.** [the same parts]
+- **Reach: [score]/5.** [the same parts]
+- **Strategic fit or threat: [score]/5.** [the same parts]
+- **Feasibility: [score]/5.** [the same parts]
+- **Adoption load: [score]/5.** [the same parts]
+
+(one section per candidate that passed the gate, in the order of the Scores table; one line per dimension, never two scores on one line)
 
 ## Overrides
 | # | Dimension | Draft | Team | Reason | When |

@@ -4,7 +4,7 @@ Run after the PR/FAQ and before the prototype. The check makes sure the PR/FAQ s
 
 ## The seven questions
 
-For each question, **draft a full answer** from the PR/FAQ, the PRD so far, and the signals: three to five sentences, not a status label. Where the answer is missing or vague, write what is there and mark the gap inline with `[GAP]`, saying what is missing and how to get it.
+Write each question as one short, natural question that ends with a question mark, the way a colleague would ask it. It asks about the row's topic; the "What a ready answer contains" column is what the answer covers, not a list the question repeats. For each question, **draft a full answer** from the PR/FAQ, the PRD so far, and the signals: three to five sentences, not a status label. Where the answer is missing or vague, write what is there and mark the gap inline with `[GAP]`, saying what is missing and how to get it.
 
 | # | Question | What a ready answer contains |
 |---|----------|------------------------------|
@@ -33,7 +33,7 @@ Append to `working-backwards/prfaq.md`:
 Verdict: GREEN | AMBER | RED, because [one sentence]
 
 ## Prototype scope
-**Q: Who is the primary user, and what are they accountable for?**
+**Q:** **[the row's question; for row 1, for example: Who is the primary user, and what are they accountable for?]**
 A: [drafted answer, with [GAP] markers]
 (one Q and A per question, seven in total)
 

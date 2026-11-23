@@ -99,7 +99,7 @@ When the team gave expectations, two lists exist from here on, and teams confuse
 - **Validate**: The team has read at least five customer quotes in full, or the report says the data holds none
 - **On failure**: None; this step is the team's
 
-Walk the team through the top three signals, one or two lines each, and link to the report for the rest. Show five full customer quotes, not just theme names, so the team hears customers in their own words. Then ask, in one round, what contradicts the top signals, which segments or channels the data under-represents, and whether the business metric still looks right. Change the report where the team finds a real gap, and record the challenge where it does not. Ask this round once; if the team moves on, record "no challenges".
+Walk the team through the top three signals, one or two lines each, and link to the report for the rest. Show five full customer quotes, not just theme names, so the team hears what customers say. Then ask, in one round, what contradicts the top signals, which segments or channels the data under-represents, and whether the business metric still looks right. Change the report where the team finds a real gap, and record the challenge where it does not. Ask this round once; if the team moves on, record "no challenges".
 
 **When the data has no customer words** (counts, tickets, or metrics without free text), say so in the inventory, not at the review. Ask the team, in the same round as the inventory, for three to five things customers have said to them, anonymized, and label them as reported by the team. If there are none, the report's Customer voices section says so, and every root cause stays Assumed.
 
@@ -136,7 +136,7 @@ Two or three sentences: the problem that matters most and the evidence for it.
 (When the team recorded no expectations: one line saying so, and no table.)
 
 ## Customer voices
-Five full, anonymized quotes that show the problem in the customer's words.
+Five full, anonymized customer quotes that show the problem.
 
 ## Data gaps
 Channels, segments, or periods the data does not cover.
@@ -148,7 +148,7 @@ Every claim carries an evidence label: **Known** (a count, quote, or metric from
 
 ### Do
 - Ask for the team's expectations once, before showing any analysis, and accept none.
-- Quote customers verbatim, anonymized, and give counts with every theme.
+- Quote customers, anonymized, and give counts with every theme.
 - Say when all the evidence comes from one channel.
 - Weigh signal over frequency: a topic mentioned often is not always the one that matters most. One clear statement of what customers or the team need can outweigh many mentions of a detail. Severity and reach count as much as volume.
 

@@ -4,13 +4,14 @@ Apply these rules to everything you write for the team: every chat reply and eve
 
 ## Keep the method's own format
 
-These are part of Discovery, so the rules below never remove them:
+These are part of Discovery, so the rules below never remove their structure. Which language they are written in follows the project language rule (in the entry skill's Shared rules):
 
 - **Method names**: North Star, How Might We, Today statement, Working Backwards, PR/FAQ, riskiest assumption, customer journey, Day 1, pre-mortem, and the phase names.
-- **The round format** from "Asking the team": the bold `Q1` label and title, the body, the `**Recommendation:**` line, and the `---` between questions.
+- **The round format** from "Asking the team": the bold question number and title, the body, the bold recommendation line, and the `---` between questions.
 - **Evidence labels** in bold: **Known**, **Assumed**, **Needs evidence**.
-- **Templates**: the headings, bold lead-in labels, and tables the job skills define.
-- **Colons** before a list, after a label, and in the round format.
+- **Templates**: the headings, labels, and tables the job skills define.
+- **Colons** before a list, after a label, and in the round format. The label before a colon follows the project language rule like any other text.
+- **Customer quotes**: the original as written, in its own language and punctuation.
 
 ## Words
 
@@ -34,11 +35,11 @@ These are part of Discovery, so the rules below never remove them:
 
 ## Punctuation and format
 
-15. **No dashes as punctuation.** No em dashes or en dashes between clauses. Use a period or a comma.
+15. **No dashes as punctuation.** No em dashes or en dashes between clauses. Use a period or a comma, in the form the project language commonly uses.
 16. **No emojis.** Not in replies, headings, bullets, tables, or status values. Write the word: Complete, Draft, Missing, Yes, No.
 17. **Bold sparingly.** Bold labels, and the few words the team must not miss. Do not bold every name or number.
-18. **Sentence case** for headings.
-19. **Straight quotes**, not curly ones.
+18. **Sentence case** for headings, in scripts with upper and lower case.
+19. **Straight quotes**, not curly ones, in Latin script. In other scripts, use the quotation marks the project language commonly uses.
 
 ## Chat manner
 

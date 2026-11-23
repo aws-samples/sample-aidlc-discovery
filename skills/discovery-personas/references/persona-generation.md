@@ -7,6 +7,8 @@ Generate data-driven synthetic personas from customer feedback using a 3-step ch
 > [`lambda/api/prompts/persona-generation.json`](https://github.com/aws-samples/sample-voice-of-customer-datalake/blob/main/voc-datalake/lambda/api/prompts/persona-generation.json).
 > Treat that JSON as the source of truth if the two drift.
 
+The JSON values below show the format only, not names, places, or currencies to use. Background, names, and language follow the rules in the skill's Step 1, passed in as `{custom_instructions}`.
+
 ---
 
 ## Step 1: Research Analysis
