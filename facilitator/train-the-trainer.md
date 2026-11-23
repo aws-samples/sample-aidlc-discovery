@@ -45,7 +45,7 @@ Installs are the most common failure. Every minute spent fixing one in the sessi
 - Evidence labels: Known, Assumed, Needs evidence. Ask trainees to listen for them all day.
 
 **00:15 Install check (15 min)**
-- Each trainee runs `List my skills` in a new chat. It must show one skill, AI-DLC Discovery Workshop.
+- Each trainee runs `List my skills` in a new chat. It must show one skill, AI-DLC Discovery.
 - Anyone who fails: remove the plugin, import again, start a new chat. Show this once on the big screen: it is the fix for most "it behaves strangely" problems on the day.
 
 **00:30 Live dry run, part 1 (60 min)**

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<!-- この文書は facilitator/role-cards.html の日本語訳です。v3.0.0 の原文をもとにしています。内容が食い違う場合は原文を優先します。 -->
+<meta charset="utf-8">
+<title>AnyCompany Air: ロールカード</title>
+<style>
+  /* 日本語版のみ: 6 枚のカードを A4 の枠内に収めるため、カードの高さを原文より高く、文字の大きさ、行間、余白を原文より小さくしています。 */
+  @page { size: A4; margin: 10mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; color: #16191f; }
+  .note { padding: 8px 4px 12px; font-size: 13px; color: #545b64; }
+  .sheet { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 91mm; gap: 0; }
+  .card { border: 1px dashed #879196; padding: 6mm 7mm; display: flex; flex-direction: column; gap: 2mm; }
+  .tag { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #687078; }
+  h2 { margin: 0; font-size: 20px; }
+  .belief { font-size: 13px; line-height: 1.35; margin: 0; }
+  .label { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: #687078; margin: 1mm 0 0; }
+  .say { font-size: 12px; line-height: 1.35; margin: 0; padding-left: 3mm; border-left: 3px solid #ff9900; }
+  .play { font-size: 11.5px; line-height: 1.35; margin: 0; color: #232f3e; }
+  @media print { .note { display: none; } }
+</style>
+</head>
+<body>
+<p class="note">対面の場合: A4 または Letter に印刷し、2 人に 1 枚配って、点線に沿って切ります。リモートの場合: チーム役を演じている間、このページを別のウィンドウで開いておきます。正解ではなく、その人物を演じてください。必須の 4 役は必ず演じます。UX デザイナーと営業本部長は任意の役で、6 人以上のチームで使います。<code>train-the-trainer.md</code> と <code>dry-run-air.md</code> で使います。</p>
+<div class="sheet">
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · 必須の役</div>
+    <h2>デジタル部門長（プロダクトオーナー）</h2>
+    <p class="belief">最優先は予約フローです。サイトは競合より古く、収益源は予約です。</p>
+    <p class="label">聞かれたときの予想</p>
+    <p class="say">「予約フローです。サイトが競合より古いし、稼ぎは予約ですから。」</p>
+    <p class="label">演じ方</p>
+    <p class="play">採点で「予約フローの刷新の顧客の痛みは 4 に。レビューでいつも言われます」と上書きします。プロダクトの責任者なので、データに否定されるとこたえます。</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · 必須の役</div>
+    <h2>エンジニアリングリード</h2>
+    <p class="belief">大きな問題はありません。アプリの評価は高く、8 月の決済のタイムアウト以外は正常です。予約システム連携の担当です。</p>
+    <p class="label">聞かれたときの予想</p>
+    <p class="say">「大きな問題はないです。アプリの評価は高いし、ダッシュボードも 8 月の決済のタイムアウト以外は正常です。予約後の変更には慎重でいたいです。」</p>
+    <p class="label">演じ方</p>
+    <p class="play">Signals（顧客シグナルの分析）で「夏の最大の障害は決済のタイムアウトなのに、なぜ上位じゃないんですか」と異議を出します。実現可能性の採点では毎回「予約の変更に何が必要ですか」と聞きます。実現可能性を決めるのは、アシスタントではなくあなたです。</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · 任意の役</div>
+    <h2>UX デザイナー</h2>
+    <p class="belief">競合のアプリで客室の 3D ビューを見ました。座席のアップグレードが売りやすくなります。</p>
+    <p class="label">聞かれたときの予想</p>
+    <p class="say">「座席のアップグレードが売れないのは、どんな席か見えないからです。3D 座席マップがあれば違うと思います。」</p>
+    <p class="label">演じ方</p>
+    <p class="play">ゲートで落ちるまで 3D 座席マップを推します。プロトタイプでは、搭乗口でスマートフォンを片手で使えるか聞きます。</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · 必須の役</div>
+    <h2>カスタマーサービス運用責任者</h2>
+    <p class="belief">コールセンターを運営し、待ち行列を見ています。答えは夏のオペレーターの増員です。</p>
+    <p class="label">聞かれたときの予想</p>
+    <p class="say">「夏の待ち行列です。6 月から 9 月はオペレーターを増やさないと。」</p>
+    <p class="label">演じ方</p>
+    <p class="play">Signals で「やっぱり人手の問題です。違うと言える根拠はデータのどこですか」と異議を出します。Validate（検証）では「お客様はアプリを信用せず、結局電話してきます」と失敗の理由を挙げます。</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · 必須の役</div>
+    <h2>法人営業部長</h2>
+    <p class="belief">法人の出張者は売上の 3 分の 1 です。トラベルマネージャーから毎週苦情が届きます。</p>
+    <p class="label">聞かれたときの予想</p>
+    <p class="say">「法人のお客様が不満を持っています。売上の 3 分の 1 ですよ。まず法人の声を聞いてください。」</p>
+    <p class="label">演じ方</p>
+    <p class="play">旅客全体ではなく、法人の出張者についてデータが何を示すかを聞きます。Validate では、トラベルマネージャーをデザインパートナーに推薦します。</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">AnyCompany Air · 任意の役</div>
+    <h2>営業本部長</h2>
+    <p class="belief">顧客の不満は主に価格だと考えています。参加するのはキックオフと報告会だけです。</p>
+    <p class="label">聞かれたときの予想</p>
+    <p class="say">「価格ですよ。お客様は運賃に不満を持っています。」</p>
+    <p class="label">演じ方</p>
+    <p class="play">報告会で「それより運賃を下げればいいのでは」「費用はいくらかかって、うまくいったかはいつ分かるんですか」と聞きます。ファシリテーターは、決定、成功基準、次のステップで答えるはずです。</p>
+  </div>
+
+</div>
+</body>
+</html>

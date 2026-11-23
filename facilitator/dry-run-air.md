@@ -36,13 +36,13 @@ Do this before the kickoff, so the start prompt can name it.
 
 **Paste, with everything in a Space** (use your Space's name):
 ```
-Start an AI-DLC Discovery workshop. Project: anycompany-air. Engagement reference: Self-serve. Save the workshop in the AnyCompany Air Discovery space. Data: production, in discovery/data/ in the AnyCompany Air Discovery space.
+Start AI-DLC Discovery. Project: anycompany-air. Save Discovery in the AnyCompany Air Discovery space. Data: production, in discovery/data/ in the AnyCompany Air Discovery space.
 ```
 When it says the data is in the Space, answer: "It's fictional sample data, keep it in the Space."
 
 **Or, with only the folder:**
 ```
-Start an AI-DLC Discovery workshop. Project: anycompany-air. Engagement reference: Self-serve. Data: production, in discovery/data/ in my anycompany-air folder.
+Start AI-DLC Discovery. Project: anycompany-air. Data: production, in discovery/data/ in my anycompany-air folder.
 ```
 Use the name of your scratch folder if it differs. If a Space is attached and you used the folder-only prompt, it asks once where to save.
 
@@ -53,7 +53,7 @@ Use the name of your scratch folder if it differs. If a Space is attached and yo
 **Answer:** when it asks whether the scope is right and how the room works, choose **Confirmed: one group** (or type it).
 
 **What `PROJECT.md` is.** The workshop's scope and status, in `discovery/anycompany-air/PROJECT.md`, in the Space or the scratch folder. It holds:
-- **Scope:** the project, engagement reference, product, users, people in the room, pods, the business metric and its baseline, and the data input and location, each marked Confirmed once the room agrees.
+- **Scope:** the project, product, users, people in the room, pods, the business metric and its baseline, and the data input and location, each marked Confirmed once the room agrees.
 - **Candidate use cases** the team brought, with their owners.
 - **Phase status:** the same progress board the assistant shows at each step, with the key artifact of each phase.
 - **With a Space, Storage and Driver:** which Space, and who is writing now. Before every save it checks the driver, so two people never overwrite each other.
@@ -327,9 +327,7 @@ Head of digital: agreed, disruption is the problem we work on. Thanks for the ch
    ```
    Head of digital: the GTM draft is ours. The UX designer and I recruit the 8 recently disrupted passengers by the 30-day follow-up. The engineering lead owns the reissue spike. The head of corporate accounts confirms the design partners and sizes the revenue at risk by the 7-day follow-up.
    We're ready to prototype.
-   ``` As the engineering lead, ask what changing a booking involves; feasibility is the team's call, not the assistant's.
-
-**Watch for:** the override recorded with your reason and labelled Assumed. The 3D seat map dropped at the gate. The PR/FAQ marked as a lunch draft. In the five questions, a Today statement whose need is an outcome ("choose and confirm a new flight within minutes"), not a feature, and a North Star that names a capability, not a product name. A press release of exactly seven paragraphs in 500 to 700 words, a writing-audit line, and a readiness verdict with a Prototype scope section.
+   ```
 
 **Reflect:** where did the room spend the most time? On the day, that is where you need the most time.
 
@@ -454,7 +452,7 @@ If you saved the workshop in a Space, rehearse what happens when someone else ta
 
 **Watch for:** it confirms the Space attached to the chat, writes `PROJECT.md` there with a Storage line and a Driver line, and saves every artifact at the usual `discovery/anycompany-air/` paths in the Space. After Signals, your colleague takes over in their own chat:
 ```
-Continue the AI-DLC Discovery workshop for anycompany-air from discovery/anycompany-air/PROJECT.md in the [space] space. I'm taking over as head of digital. Start at the personas.
+Continue AI-DLC Discovery for anycompany-air from discovery/anycompany-air/PROJECT.md in the [space] space. I'm taking over as head of digital. Start at the personas.
 ```
 It should show who was driving, update the driver, and continue. If you then try to write from your chat, it should stop and ask whether you are taking over.
 
