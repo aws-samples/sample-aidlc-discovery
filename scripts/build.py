@@ -47,7 +47,6 @@ MODULES = {
     "discovery-handoff": ("Handoff", "write the Discovery brief and next steps"),
     "discovery-signal-brief": ("Before Discovery", "write anonymized Signal Briefs"),
     "discovery-survey": ("After Discovery", "survey real users on open hypotheses"),
-    "discovery-team-space": ("Any phase, AWS Quick only", "save Discovery artefacts in a team Space so several people can follow and take over"),
 }
 
 
@@ -136,20 +135,12 @@ ROUTING = {
     "cowork": "Each job lives in its own module, a companion file of this skill. Before you start any phase or job, read its module with `Read` at `${CLAUDE_SKILL_DIR}/` followed by its path, for example `${CLAUDE_SKILL_DIR}/modules/discovery-signals.md`, and follow it from the top. Never do a phase's work without its module loaded. Read a module's `references/` files the same way, only when the module says so. These files ship with the skill; they are not in the user's folders, so do not search the user's folders for them. When the user asks for one job on its own, read just that module, and \"Running in Cowork\" below.",
 }
 
-# Modules that only work in AWS Quick.
-QUICK_ONLY = {"discovery-team-space"}
-
-
-def modules_for(target: str) -> dict[str, tuple[str, str]]:
-    return {k: v for k, v in MODULES.items() if target == "quick" or k not in QUICK_ONLY}
-
-
 def build(out: Path, target: str = "quick") -> Path:
     if target not in TARGETS:
         raise ValueError(f"unknown target {target!r}: use one of {', '.join(TARGETS)}")
     if out.exists():
         shutil.rmtree(out)
-    modules = modules_for(target)
+    modules = MODULES
     if target == "quick":
         skill_out = out / "skills" / ENTRY
         (skill_out / "modules").mkdir(parents=True)
@@ -233,8 +224,6 @@ def build(out: Path, target: str = "quick") -> Path:
     body = body.replace(marker, "\n".join(routing) + "\n\n" + extra + marker, 1)
     (skill_out / "SKILL.md").write_text(f"---\n{frontmatter}\n---\n{body}", encoding="utf-8")
     if target == "cowork":
-        (skill_out / "cowork").mkdir()
-        shutil.copy2(COWORK / "journey.py", skill_out / "cowork" / "journey.py")
         cowork_rewrite(skill_out)
     return out
 
@@ -242,22 +231,18 @@ def build(out: Path, target: str = "quick") -> Path:
 # Cowork: each rewrite is (file in the built skill, text in the source, replacement). The build
 # fails if a text is no longer there, so a change to a source sentence cannot slip through unadapted.
 COWORK_REWRITES: list[tuple[str, str, str]] = [
-    ("SKILL.md", "(the request, the folder or Space, `config.md`, the data files)",
-     "(the request, the working folder, `config.md`, the data files)"),
-    ("SKILL.md", "**Where Discovery is saved.** In the working folder, or, in AWS Quick, in a Space, so the work stays in AWS Quick and the people it is shared with can follow and take over from their own AWS Quick. Use a Space when `storage` in the config is `space`, when the team asks for one (for example \"save Discovery in our team Space\"), or when a Space is attached to this chat and `storage` is empty: then ask once, \"Save Discovery in the [space] Space, or in this folder?\" The data stays where it is either way. In unattended runs, never ask: an empty `storage` means the working folder. With a Space, use **discovery-team-space** for the setup and follow it for every read and write from then on. Without one, nothing changes.",
-     "**Where Discovery is saved.** In the working folder: the folder connected to this Cowork session (see \"Running in Cowork\"). Team Spaces are an AWS Quick feature: if `storage` in the config is `space`, or the team asks for a Space, say so in one line and save in the working folder; never ask about it."),
-    ("SKILL.md", " With a team Space, that path is in the Space (see **discovery-team-space**).", ""),
-    ("SKILL.md", "a fact from the data, the files, or the Space,", "a fact from the data or the files,"),
-    ("SKILL.md", "Other skills add rows to the table, such as the storage and the driver with a team Space.",
-     "Other skills can add rows to the table."),
     ("SKILL.md", "- When the harness shows answer buttons (for example decision cards), make the recommended answer the first option. The chat text still uses the format above.",
      "- In Cowork, also put the round on question cards, with the recommended answer as the first option (see \"Running in Cowork\"). The chat text still uses the format above."),
-    ("SKILL.md", "    ├── PROJECT.md                scope, choices, phase status\n",
-     "    ├── PROJECT.md                scope, choices, phase status\n    ├── journey.html              the journey app, generated from the files (Cowork)\n"),
+    ("references/journey-app.md", "1. Load `references/journey-shell.md` with `file_read`, and save its HTML code block to `discovery/{{project}}/journey.html` with `file_write`, exactly as it is. Never retype it from memory, shorten it, or reformat it.",
+     "1. Set `SHELL` in the update, as \"Running in Cowork\" says: the update writes `journey.html` from the shell."),
+    ("references/journey-app.md", "3. Open `journey.html` with `open_in_session_tab`. Then tell",
+     "3. Publish it as the journey artifact (see \"Running in Cowork\"). Then tell"),
+    ("references/journey-app.md", "At a checkpoint, also open `journey.html` again with `open_in_session_tab`, so the session tab shows the new version.",
+     "After every update, update the journey artifact (see \"Running in Cowork\")."),
+    ("references/journey-app.md", "If it stops with \"copy the shell again\", do step 1 of \"Create it once\" again, then run the update again.",
+     "If it stops with \"copy the shell again\", check that `SHELL` points at this skill's `references/journey-shell.md`, then run the update again."),
     ("config.default.md", "# Where it is: a folder relative to the working folder, or an AWS Quick Space name.",
      "# Where it is: a folder relative to the working folder."),
-    ("config.default.md", "# Where Discovery is saved: local (the working folder) | space (an AWS Quick team Space, see discovery-team-space)\nstorage: \"local\"\n\n# With storage: space, the team Space. The team creates and names it; empty: use the Space attached to the chat\nspace_name: \"\"\n",
-     "# Where Discovery is saved: local, the working folder. (Team Spaces are an AWS Quick feature.)\nstorage: \"local\"\n"),
     ("modules/discovery-prototype.md", "`file_write`, then `open_in_session_tab`", "`Write`, then the prototype artifact"),
     ("modules/discovery-prototype.md", "; the build open in a session tab",
      "; the build published as the prototype artifact"),

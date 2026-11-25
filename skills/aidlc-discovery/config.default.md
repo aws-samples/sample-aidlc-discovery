@@ -14,12 +14,6 @@ data_location: "discovery/data/"
 ## Output Settings
 
 ```yaml
-# Where Discovery is saved: local (the working folder) | space (an AWS Quick team Space, see discovery-team-space)
-storage: "local"
-
-# With storage: space, the team Space. The team creates and names it; empty: use the Space attached to the chat
-space_name: ""
-
 # Where to save generated artifacts (default: discovery/[project]/ in the working folder)
 output_folder: "discovery/"
 

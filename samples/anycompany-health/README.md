@@ -71,18 +71,11 @@ Everything is in `discovery/signal-briefs/`, covering 1 May to 15 October 2026. 
 
 ## How to run it
 
-1. In AWS Quick Desktop, open **Settings**, then **My computer**, then **Local folders**, and add this folder (`samples/anycompany-health`).
-   Optional, recommended: create a Space in AWS Quick and name it yourself (**Spaces**, then **Create space**), attach it and this folder to a chat (the **+** menu), and ask Quick to copy `README.md` and the `discovery/` data folder into the Space, keeping the same paths. Then work from a new chat with only the Space attached: the scenario, the data, and the Discovery artifacts all live in the Space, and you can share it with your team. The data is fictional, so it can go in a Space.
+1. Give the app access to this folder (`samples/anycompany-health`): in AWS Quick Desktop, open **Settings**, then **My computer**, then **Local folders**, and add it; in Claude Cowork, connect it to a new task.
 2. In a new chat, ask:
 
    ```text
    Start AI-DLC Discovery. Project: member-portal. Product: AnyCompany Health's member portal and app. Data: signal-briefs, in discovery/signal-briefs/ in my anycompany-health folder.
-   ```
-
-   With everything in a Space, name it for Discovery and the data:
-
-   ```text
-   Start AI-DLC Discovery. Project: member-portal. Product: AnyCompany Health's member portal and app. Save Discovery in the [your Space] space. Data: signal-briefs, in discovery/signal-briefs/ in the [your Space] space.
    ```
 
 3. Answer the setup questions as the team above, and write the team's expectations before the analysis.

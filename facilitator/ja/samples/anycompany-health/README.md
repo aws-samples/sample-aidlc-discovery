@@ -73,15 +73,10 @@ AnyCompany Health は地域の医療保険会社で、ブローカー（保険�
 
 ## 実行方法
 
-1. AWS Quick Desktop で、**設定**（Settings）、**マイコンピュータ**（My computer）、**ローカルフォルダ**（Local folders）の順に開き、このフォルダ（`samples/anycompany-health`）を追加する。
-   任意ですが、おすすめです: AWS Quick でスペースを作り、自分で名前をつける（**スペース**（Spaces）、**作成**（Create space）の順に選ぶ）。スペースとこのフォルダをチャットに添付し（**+** メニュー）、`README.md` と `discovery/` のデータフォルダを、同じパスのままスペースにコピーするよう AWS Quick に頼む。そのあと、スペースだけを添付した新しいチャットで作業する。シナリオ、データ、Discovery の成果物がすべてスペースに入り、チームと共有できる。データは架空のものなので、スペースに置いてよい。
+1. アプリに、このフォルダ（`samples/anycompany-health`）へのアクセスを許可する。AWS Quick Desktop では、**設定**（Settings）、**マイコンピュータ**（My computer）、**ローカルフォルダ**（Local folders）の順に開いて追加し、Claude Cowork では新しいタスクに接続する。
 2. 新しいチャットで、次のように依頼する。
    ```text
    AI-DLC Discovery を開始してください。プロジェクト: member-portal。プロダクト: AnyCompany Health の加入者ポータルとアプリ。データ: signal-briefs、anycompany-health フォルダの discovery/signal-briefs/ にあります。
-   ```
-   すべてをスペースに置いた場合は、Discovery の保存先とデータの場所にそのスペースを指定する。
-   ```text
-   AI-DLC Discovery を開始してください。プロジェクト: member-portal。プロダクト: AnyCompany Health の加入者ポータルとアプリ。Discovery を [スペース名] スペースに保存してください。データ: signal-briefs、[スペース名] スペースの discovery/signal-briefs/ にあります。
    ```
 3. 上のチームとしてセットアップの質問に答え、分析の前にチームの予想を書く。
 

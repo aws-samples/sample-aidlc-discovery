@@ -17,7 +17,7 @@ REQUIRED_JOBS = [
     "discovery-working-backwards", "discovery-gtm", "discovery-prototype",
     "discovery-validate", "discovery-handoff",
 ]
-OPTIONAL = ["discovery-signal-brief", "discovery-survey", "discovery-team-space"]
+OPTIONAL = ["discovery-signal-brief", "discovery-survey"]
 SECTIONS = ["## Overview", "## Workflow", "## Output", "## Lessons Learned"]
 
 

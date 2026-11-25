@@ -89,18 +89,11 @@ Customers appear only as a segment or a code such as "Customer 0412". Staff appe
 
 ## How to run it
 
-1. Give AWS Quick access to this folder (`samples/anycompany-air`).
-   Optional, recommended: create a Space in AWS Quick and name it yourself (**Spaces**, then **Create space**), attach it and this folder to a chat (the **+** menu), and ask Quick to copy `README.md` and the `discovery/` data folder into the Space, keeping the same paths. Then work from a new chat with only the Space attached: the scenario, the data, and the Discovery artifacts all live in the Space, and you can share it with your team. The data is fictional, so it can go in a Space.
+1. Give the app access to this folder (`samples/anycompany-air`): in AWS Quick, add it as a local folder; in Claude Cowork, connect it to a new task.
 2. Start Discovery:
 
    ```text
    Start AI-DLC Discovery. Project: anycompany-air. Data: production, in discovery/data/ in my anycompany-air folder.
-   ```
-
-   With everything in a Space, name it for Discovery and the data:
-
-   ```text
-   Start AI-DLC Discovery. Project: anycompany-air. Save Discovery in the [your Space] space. Data: production, in discovery/data/ in the [your Space] space.
    ```
 
 3. Play the team: answer the setup questions with the roles and beliefs above, and write your expectations before you see any analysis.

@@ -21,7 +21,7 @@ inputs:
     type: string
     default: production
 depends-on: [discovery-signals, discovery-personas, discovery-use-case-scoring, discovery-working-backwards, discovery-gtm, discovery-prototype, discovery-validate, discovery-handoff]
-tools: [file_read, file_write, run_python]
+tools: [file_read, file_write, run_python, open_in_session_tab]
 version: "3.0.0"
 license: MIT-0
 ---
@@ -40,17 +40,15 @@ Discovery ends with a decision on what to build and why. Building, running, and 
 - **Mode**: `agentic`
 - **Tool**: `file_write`
 - **Input**: The user's request; `{{project}}`, `{{data_input}}`
-- **Output**: `discovery/{{project}}/PROJECT.md` with the scope and choices, in the format in Output
+- **Output**: `discovery/{{project}}/PROJECT.md` with the scope and choices, in the format in Output; then the journey app, `discovery/{{project}}/journey.html` (see Shared rules)
 - **Validate**: The team confirms the product, the people on the team, the business metric with its baseline, and the data input
 - **On failure**: Ask for what is missing in the next round
 
-Draft the setup from what you can find first (the request, the folder or Space, `config.md`, the data files), then confirm it in one or two rounds (see Shared rules): the product and who uses it; who is on the team, whether it splits into pods, and who drives; the business metric the work should move, **which direction is good** (higher or lower), and its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never assume the direction of the metric: scoring depends on it. (Unattended runs follow the default in "Unattended runs".) If the request contains a term you cannot place (an engagement reference, a code name), ask what it is in the first round, never twice. Never write a customer account, CRM, or sales identifier, or a revenue amount (a share that sizes a segment, such as "a third of revenue", is fine). If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
+Draft the setup from what you can find first (the request, the working folder, `config.md`, the data files), then confirm it in one or two rounds (see Shared rules): the product and who uses it; who is on the team, whether it splits into pods, and who drives; the business metric the work should move, **which direction is good** (higher or lower), and its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never assume the direction of the metric: scoring depends on it. (Unattended runs follow the default in "Unattended runs".) If the request contains a term you cannot place (an engagement reference, a code name), ask what it is in the first round, never twice. Never write a customer account, CRM, or sales identifier, or a revenue amount (a share that sizes a segment, such as "a third of revenue", is fine). If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
 
 Read `config.md` in the working folder if it exists, and `config.default.md` in this skill's folder for defaults: a key that `config.md` does not set takes its value from `config.default.md`.
 
-**Project language.** The project language is the human language the team works in, such as English or Japanese. It is not a programming language, and not the language the feedback is written in. It is the language the team writes to you in, unless `project_language` in the config sets one; in unattended runs with an empty `project_language`, it is the language of the starting prompt. Record it in `PROJECT.md` as `Project language: [language]` (see the format in Output), so a later session or another driver keeps it. When `PROJECT.md` records none, for example when a job skill runs on its own, use the language the team writes in.
-
-**Where Discovery is saved.** In the working folder, or, in AWS Quick, in a Space, so the work stays in AWS Quick and the people it is shared with can follow and take over from their own AWS Quick. Use a Space when `storage` in the config is `space`, when the team asks for one (for example "save Discovery in our team Space"), or when a Space is attached to this chat and `storage` is empty: then ask once, "Save Discovery in the [space] Space, or in this folder?" The data stays where it is either way. In unattended runs, never ask: an empty `storage` means the working folder. With a Space, use **discovery-team-space** for the setup and follow it for every read and write from then on. Without one, nothing changes.
+**Project language.** The project language is the human language the team works in, such as English or Japanese. It is not a programming language, and not the language the feedback is written in. It is the language the team writes to you in, unless `project_language` in the config sets one; in unattended runs with an empty `project_language`, it is the language of the starting prompt. Record it in `PROJECT.md` as `Project language: [language]` (see the format in Output), so a later session keeps it. When `PROJECT.md` records none, for example when a job skill runs on its own, use the language the team writes in.
 
 Tell the team the five phases, and that it will be asked to review at every checkpoint. If the user asks to jump to a phase, check that phase's inputs exist first (see the table in Output).
 
@@ -116,7 +114,7 @@ These apply in every phase, so the job skills can assume them.
 2. **Evidence labels.** Every claim in the PR/FAQ, PRD, GTM section, and brief is **Known** (backed by data from Signals), **Assumed** (believed, not shown), or **Needs evidence** (it matters to the decision and has to be tested).
 3. **Anonymized.** Quotes carry no names, emails, companies, or account identifiers. Replace each one inside a quote with a bracketed role, such as `[corporate account]` or `[agent]`, and keep every other word as written: the quote still counts as verbatim. Raw data stays in `discovery/data/`.
 4. **No architecture.** Discovery decides who, what, and why. Technology choices belong to the build.
-5. **Files, not chat.** Save every artifact under `discovery/{{project}}/` as soon as it exists, so the team keeps it and later steps can read it. With a team Space, that path is in the Space (see **discovery-team-space**).
+5. **Files, not chat.** Save every artifact under `discovery/{{project}}/` as soon as it exists, so the team keeps it and later steps can read it.
 6. **One step at a time.** Say which phase and step the team is in, and what comes next.
 7. **Customer's interest only.** No artifact mentions a vendor's commercial interest, vendor competition, or anyone's internal strategy. The documents describe the customer's problem and the customer's outcome.
 8. **Show progress.** At the end of each phase, and whenever the team asks where it is, show the progress board below, then the next round. Within a phase, one line is enough: "Working Backwards, step 3 of 5: PR/FAQ." Keep `PROJECT.md`'s `## Phase status` in step with it: the board's first table and the three lists.
@@ -124,12 +122,13 @@ These apply in every phase, so the job skills can assume them.
 10. **Keep the chat short.** The files hold the detail; the chat holds what the team needs to decide now. Summarize an artifact in at most five lines and link to it, except the press release, which the team reads in full. Acknowledge an answer in one line, not by restating it. Never repeat a question the team has already answered or skipped; carry it as an open item instead.
 11. **Corrections flow downstream.** When the team corrects something an earlier confirmed step relied on (the metric or its direction, a data file, a score), say in one line what it changes, and make re-running that step the recommended answer in the next round. Do not continue on the old basis.
 12. **Plain writing.** Before you send any reply or save any artifact, check it against `references/plain-writing.md` and fix what fails. It keeps the structure of the method's own names, the round format, and the evidence labels, and it allows no emojis.
-13. **Project language.** Write every message to the team and every artifact in the project language (see Step 1), including when another driver or a later session continues. The rules in these skills are written in English: apply each for its purpose, not its English words.
+13. **Project language.** Write every message to the team and every artifact in the project language (see Step 1), including when a later session continues. The rules in these skills are written in English: apply each for its purpose, not its English words.
     - **Everywhere**, keep in English only these values: the method's own names; the decision values commit, pivot, and park; the evidence labels; and the route, data, and status values. A heading or label that names such a value, such as a "Phase" or "Status" column, is translated.
     - **In chat**, write everything else in the project language, including the headings, column headers, and labels of the formats and examples these skills show in English, such as a bold label before a colon.
     - **In artifacts**, also keep in English these parts of a job skill's template: headings; the name before a colon that labels a value, such as `Verdict:` or `**Decision:**`, but not the text after it; the table headers it defines; markers such as `[GAP]`; and any value the template offers as a choice, such as `GREEN | AMBER | RED`, written as listed. Everything else is prose: a question, a title, or a sentence is written in the project language, even when it is bold or the template writes it out in English.
     - **Keep as they are**: file and folder names and paths; and commands.
     - **Customer quotes.** A quote is the customer's words together with their source. When the words are in the project language, write `"[original]" ([Source])`. When they are in another language, the quotation marks hold the translation: write `"[translation into the project language]" ("[original]", [Source])` in artifacts, and `"[translation]" ([Source], translated)` in chat. The translation keeps the original's meaning and strength and adds nothing; the original stays verbatim. When you reuse a quote from another artifact, take all of it, and write it in the form for where it goes.
+14. **The journey app.** Once `PROJECT.md` exists, create the journey app, then update it at the start of every step and at every checkpoint, so the room can follow where Discovery stands. Load `references/journey-app.md` once, after Setup, and follow it.
 
 ## Asking the team
 
@@ -149,7 +148,7 @@ Ask in rounds. A round holds every question that is ready to be asked now, each 
 
 - **Word each question so "yes", or the project language's word for yes, accepts the recommended answer.** The team can answer a whole round with "yes", or with "yes, except Q2: ...".
 - **Recompute the frontier after each answer.** Settled decisions unblock the questions that depended on them. A question whose answer depends on another question still open in this round belongs to a later round, not this one.
-- **Finding facts is your job, never the team's.** If a question needs a fact from the data, the files, or the Space, look it up before asking. When the harness can run sub-agents, dispatch one with a fresh context for each lookup and ask the rest of the round meanwhile; only the questions that depend on the lookup wait. Never ask the team for something you could read yourself.
+- **Finding facts is your job, never the team's.** If a question needs a fact from the data or the files, look it up before asking. When the harness can run sub-agents, dispatch one with a fresh context for each lookup and ask the rest of the round meanwhile; only the questions that depend on the lookup wait. Never ask the team for something you could read yourself.
 - **The decisions are the team's.** Put each one to the team and wait. A recommendation is a draft, never a decision.
 - **No recommendation where it would bias the team.** For the team's expectations before Signals, never suggest what to believe; the only recommendation is that skipping is fine.
 - When the harness shows answer buttons (for example decision cards), make the recommended answer the first option. The chat text still uses the format above.
@@ -215,6 +214,7 @@ discovery/
 ├── data/                         raw data, never committed
 └── {{project}}/
     ├── PROJECT.md                scope, choices, phase status
+    ├── journey.html              the journey app, generated from the files
     ├── signals/                  team-expectations.md, signal-summary.md, hypotheses.md
     ├── working-backwards/        personas/, use-case-scoring.md, working-backwards.md,
     │                             feature-description.md, prfaq.md, prd.md, gtm.md,
@@ -254,7 +254,7 @@ Project language: [language]
 |----------|--------|--------|
 ```
 
-A value the team has not confirmed yet has the status Assumed or Open. Other skills add rows to the table, such as the storage and the driver with a team Space.
+A value the team has not confirmed yet has the status Assumed or Open. Other skills can add rows to the table.
 
 | To start | It needs |
 |----------|----------|

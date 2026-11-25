@@ -10,10 +10,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- **Cowork build.** `python3 scripts/build.py --target cowork` builds the same skills for Claude Cowork as one `.skill` file: Cowork tool names, `${CLAUDE_SKILL_DIR}` paths, and a "Running in Cowork" section. The team Space module is left out. The AWS Quick build is unchanged.
-- **Journey app** (`cowork/journey.py`): one Cowork artifact per project with the five phases, every artifact rendered, the prototype versions clickable in place, the decision and its conditions, and the evidence labels counted. The skill regenerates it at the end of every phase.
+- **Cowork build.** `python3 scripts/build.py --target cowork` builds the same skills for Claude Cowork as one `.skill` file: Cowork tool names, `${CLAUDE_SKILL_DIR}` paths, and a "Running in Cowork" section. The AWS Quick build is unchanged.
+- **Journey app**, in both builds: `discovery/[project]/journey.html`, one page that the room can follow, with the five phases, a **Now** banner with the current step and the next one, every artifact rendered, the prototype versions clickable in place, the decision and its conditions, and the evidence labels counted. The page is a fixed shell (`references/journey-shell.md`) that renders the project's files itself; a short Python update, in `references/journey-app.md`, copies the files into it at the start of every step and at every checkpoint, and checks that the shell is unchanged. AWS Quick opens it in the session tab, Cowork publishes it as an artifact, and opened from the working folder in a browser it refreshes itself every 15 seconds.
 - In Cowork, every prototype version is also published as its own artifact, and each round of questions also appears as question cards.
-- `tests/e2e/check_workspace.py` grades a working folder from any harness, with `--cowork` for the journey app checks; `tests/test_cowork.py` covers the Cowork build and the renderer.
+- The README, the facilitator guides (English and Japanese), and the sample pages cover Claude Cowork next to AWS Quick: install, connecting a folder, and running the workshop.
+- **Install with your assistant.** The README gives a prompt to paste into AWS Quick or Cowork, and install steps written for the assistant: it gets the right release package and prepares it, and the user does the last click. Each release now also publishes the Cowork `.skill` file.
+- `tests/e2e/check_workspace.py` grades a working folder from any harness, with `--journey` for the journey app checks; `tests/test_cowork.py` covers the Cowork build, and `tests/test_journey.py` the journey app.
+
+### Removed
+
+- **Breaking:** the team Space (`discovery-team-space`): saving Discovery in an AWS Quick Space, the Storage and Driver lines in `PROJECT.md`, and taking over from another person's chat. Discovery is saved in the working folder, with one person at the keyboard. The `storage` and `space_name` config keys are gone. Data can still come from a Space.
 
 ### Fixed
 
@@ -39,7 +45,7 @@ Gaps that the first Cowork end-to-end run had to guess at, in both builds:
 - **No time estimates.** The phase and step durations are removed: they were guesses. The survey's length limit and the P0 size check stay.
 - **No placeholders** such as `[City]` or `[Name]` in a finished artifact: the press release uses the title alone, or the date without a city, and the gap goes to the open items.
 - **Step order.** The readiness check drafts from what exists before the PRD; `draft` mode includes the feature description; Prototype logs a version before it opens it.
-- **`PROJECT.md`** has one template in the entry skill, which the team Space rows and the Cowork journey app both read.
+- **`PROJECT.md`** has one template in the entry skill, which the journey app reads.
 
 ---
 

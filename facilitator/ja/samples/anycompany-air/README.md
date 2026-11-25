@@ -91,15 +91,10 @@ AnyCompany Air は欧州の中堅航空会社で、短距離と中距離の路�
 
 ## 実行方法
 
-1. AWS Quick に、このフォルダ（`samples/anycompany-air`）へのアクセスを許可する。
-   任意ですが、おすすめです: AWS Quick でスペースを作り、自分で名前をつける（**スペース**（Spaces）、**作成**（Create space）の順に選ぶ）。スペースとこのフォルダをチャットに添付し（**+** メニュー）、`README.md` と `discovery/` のデータフォルダを、同じパスのままスペースにコピーするよう AWS Quick に頼む。そのあと、スペースだけを添付した新しいチャットで作業する。シナリオ、データ、Discovery の成果物がすべてスペースに入り、チームと共有できる。データは架空のものなので、スペースに置いてよい。
+1. アプリに、このフォルダ（`samples/anycompany-air`）へのアクセスを許可する。AWS Quick ではローカルフォルダとして追加し、Claude Cowork では新しいタスクに接続する。
 2. Discovery を開始する。
    ```text
    AI-DLC Discovery を開始してください。プロジェクト: anycompany-air。データ: production、anycompany-air フォルダの discovery/data/ にあります。
-   ```
-   すべてをスペースに置いた場合は、Discovery の保存先とデータの場所にそのスペースを指定する。
-   ```text
-   AI-DLC Discovery を開始してください。プロジェクト: anycompany-air。Discovery を [スペース名] スペースに保存してください。データ: production、[スペース名] スペースの discovery/data/ にあります。
    ```
 3. チームを演じる。セットアップの質問に上の役と思い込みで答え、分析を見る前に自分たちの予想を書く。
 

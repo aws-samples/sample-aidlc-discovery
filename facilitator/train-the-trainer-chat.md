@@ -8,11 +8,10 @@ The messages to post in the call's chat, in order, ready to copy. Times follow "
 Tomorrow's AI-DLC Discovery train the trainer: pre-work, about 20 minutes. Please do it today, so we spend the session practising, not installing.
 
 1. Unzip the pack I sent you: the facilitator pack if you facilitate, the trainee pack otherwise.
-2. In AWS Quick Desktop: Customize > Skills > Create > From folder, and choose the aidlc-discovery folder from the pack.
+2. In AWS Quick Desktop: Customize > Skills > Create > From folder, and choose the aidlc-discovery folder from the pack. In Claude Cowork: open the .skill file from the pack in a chat and choose Save skill.
 3. Start a new chat and type: List my skills. Reply to this message with a screenshot. You should see AI-DLC Discovery.
 4. Open the anycompany-air folder from the pack and read its README.md, the scenario page. Read nothing else; the answers are hidden in the data.
 5. Open role-cards.html from the pack and find your card.
-6. First facilitators: create a Space for your team (Spaces > Create space), name it after your team, copy the sample into it (the copy prompt in facilitator/dry-run-air.md, step 0), and share it with your team as Owners. Everyone: attach your team's Space to a new chat (the + menu > Spaces).
 
 Your team and role:
 [Team 1: facilitators [name] (first half) and [name] (second half). [Name]: head of digital. [Name]: engineering lead. [Name]: customer service operations lead. [Name]: head of corporate accounts.]
@@ -27,17 +26,17 @@ Welcome. Today you learn to facilitate an AI-DLC Discovery workshop by running o
 
 ```
 Breakout rules:
-- One team per breakout. The first facilitator shares AWS Quick and follows dry-run-air.md (in the pack, facilitator folder).
+- One team per breakout. The first facilitator shares the app and follows dry-run-air.md (in the pack, facilitator folder).
 - Everyone else plays their role card, in their own words. Push back when your character would.
-- At 00:45 the second facilitator takes over the room. The first keeps sharing Quick and types what the second asks for.
+- At 00:45 the second facilitator takes over the room. The first keeps sharing the app and types what the second asks for.
 - Post one line in this chat when your team finishes a phase, for example: "Team 2: Signals done, ops lead challenged."
-- Debrief questions appear here. Answer them in a thread while Quick works.
+- Debrief questions appear here. Answer them in a thread while the assistant works.
 ```
 
 ## 00:10 Breakouts open
 
 ```
-Breakouts are open. First facilitator: share Quick, run List my skills, then paste the start prompt from dry-run-air.md. Role players: introduce yourself in character, one line each.
+Breakouts are open. First facilitator: share the app, run List my skills, then paste the start prompt from dry-run-air.md. Role players: introduce yourself in character, one line each.
 ```
 
 ## 00:15 Kickoff and Signals
@@ -64,7 +63,7 @@ Debrief 1, one line per team:
 ## 00:45 Second facilitator takes over
 
 ```
-Switch: the second facilitator takes over now. With your team Space: paste the take-over prompt ("Continue AI-DLC Discovery for anycompany-air from discovery/anycompany-air/PROJECT.md in the [space] space. I'm taking over as [role]. Start at the personas.") in your own chat and share your screen. Without one: the first keeps sharing Quick and becomes the keyboard. Next: personas, weights, then scoring. Use "agree with all" except the head of digital's override on the booking flow.
+Switch: the second facilitator takes over the room now. The first keeps sharing the app and becomes the keyboard. Next: personas, weights, then scoring. Use "agree with all" except the head of digital's override on the booking flow.
 ```
 
 ## 01:00
