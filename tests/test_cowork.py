@@ -76,17 +76,19 @@ class CoworkBuildTests(unittest.TestCase):
                     self.assertLessEqual(len(description), 1024)
         self.assertNotIn("Development build", self.frontmatter)  # no stamp unless the CLI adds one
 
-    def test_artifact_ids_are_unique_per_run(self) -> None:
+    def test_no_artifact_unless_the_team_asks(self) -> None:
+        # Cowork asks the user to approve every artifact call, so the skill publishes none on its own.
+        self.assertIn("**Artifacts only when the team asks.**", self.text)
+        self.assertIn("Cowork artifacts: [id], ...", self.text)  # an id per run, kept in PROJECT.md
         self.assertNotIn("says the id exists, update it instead", self.text)
-        self.assertIn("Cowork artifacts: [journey id], [prototype id]", self.text)
-        self.assertNotRegex(self.text, r"with id `discovery-\{\{project\}\}(-prototype)?`")
-
-    def test_artifact_updates_only_at_checkpoints(self) -> None:
-        # Cowork asks the user to approve every artifact call: never one per step.
-        self.assertIn("never call it at every step", self.text)
-        app = (self.skill / "references" / "journey-app.md").read_text(encoding="utf-8")
-        self.assertIn("Within a phase, update the file only", app)
-        self.assertNotIn("After every update, update the journey artifact", app)
+        for path in self.skill.rglob("*.md"):
+            text = path.read_text(encoding="utf-8")
+            with self.subTest(file=str(path.relative_to(self.skill))):
+                self.assertNotIn("prototype artifact", text)
+                self.assertNotIn("journey artifact", text)
+        rest = self.text.replace(self.text[self.text.index("**Artifacts only when the team asks.**"):].split("\n\n", 1)[0], "")
+        self.assertNotIn("create_artifact", rest)
+        self.assertNotIn("update_artifact", rest)
 
     def test_every_rewrite_applies(self) -> None:
         for rel, old, new in build.COWORK_REWRITES:

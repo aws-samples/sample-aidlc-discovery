@@ -49,7 +49,7 @@ In this repository each skill is its own folder under [`skills/`](skills/), with
 | Tool | What you need | Build and install | Saves Discovery in | Only in this tool |
 |------|---------------|-------------------|--------------------|-------------------|
 | [AWS Quick](https://aws.amazon.com/quick/) Desktop | macOS or Windows, signed in to any AWS Quick plan. Skills and plugins run only in the Desktop app. | Download the release zip or run `python3 scripts/build.py`, then import the folder: see [Install in AWS Quick](#install-in-aws-quick) | The working folder | Prototypes in the session tab |
-| [Claude Cowork](https://claude.com/docs/third-party/claude-desktop/overview) | The Claude desktop app | `python3 scripts/build.py --target cowork`, then save the `.skill` file: see [Run it in Claude Cowork](#run-it-in-claude-cowork) | The connected folder | Prototype artifact, question cards; the in-codebase prototype and the current-product map |
+| [Claude Cowork](https://claude.com/docs/third-party/claude-desktop/overview) | The Claude desktop app | `python3 scripts/build.py --target cowork`, then save the `.skill` file: see [Run it in Claude Cowork](#run-it-in-claude-cowork) | The connected folder | Question cards; the in-codebase prototype and the current-product map |
 
 With either, you also need a folder on your computer that the app can access. Discovery saves everything there. Building needs Python 3.9 or later, with no dependencies.
 
@@ -100,9 +100,9 @@ Copying the skill folder by hand into the AWS Quick profile folder is not a supp
 
 ## Run it in Claude Cowork
 
-The same skills also build for [Claude Cowork](https://claude.com/docs/third-party/claude-desktop/overview). The Cowork build is one skill, with the tool names and steps rewritten for Cowork, and two additions:
+The same skills also build for [Claude Cowork](https://claude.com/docs/third-party/claude-desktop/overview). The Cowork build is one skill, with the tool names and steps rewritten for Cowork, and two differences:
 
-- **The prototype artifact.** Every prototype version is also published as its own artifact, full size, and opens in the file preview.
+- **No artifact prompts.** Cowork asks you to approve every artifact it creates or updates, so the skill publishes none on its own. The journey app and every prototype version open in the file preview, and the browser view of `journey.html` follows every step. Ask for an artifact when you want one.
 - **Question cards.** Each round of questions also appears as Cowork's multiple-choice cards, with the recommended answer first. Free-text questions, such as the team's expectations, stay in chat.
 
 To install:
@@ -175,7 +175,7 @@ discovery/
     └── handoff/                discovery-brief.md, next-steps.md (with the roadmap)
 ```
 
-**The journey app**, `journey.html`, lets the room follow along, in AWS Quick and in Cowork. It shows the five phases and their status, a **Now** banner with the step the team is on and what comes next, every artifact rendered from its file, the prototype versions clickable in place, the decision with its conditions, and how many claims are Known, Assumed, or Needs evidence. The skill creates it after Setup from a fixed page (`skills/aidlc-discovery/references/journey-shell.md`) and updates it at the start of every step with a short Python script that copies the project's files into the page, so the files stay the record. In AWS Quick it opens in the session tab; in Cowork it is published as an artifact. To put it on the room's screen, open `discovery/[project]/journey.html` from the working folder in a browser: there it refreshes itself every 15 seconds and keeps your place.
+**The journey app**, `journey.html`, lets the room follow along, in AWS Quick and in Cowork. It shows the five phases and their status, a **Now** banner with the step the team is on and what comes next, every artifact rendered from its file, the prototype versions clickable in place, the decision with its conditions, and how many claims are Known, Assumed, or Needs evidence. The skill creates it after Setup from a fixed page (`skills/aidlc-discovery/references/journey-shell.md`) and updates it at the start of every step with a short Python script that copies the project's files into the page, so the files stay the record. In AWS Quick it opens in the session tab; in Cowork, in the file preview. To put it on the room's screen, open `discovery/[project]/journey.html` from the working folder in a browser: there it refreshes itself every 15 seconds and keeps your place.
 
 **Running again, and resuming.** Every run is a project folder, `discovery/[project]/`, so runs never mix. When Discovery starts, it lists the projects already in the working folder and asks whether to continue one or start a new one; a new run with a name already used becomes `[project]-2`, and nothing is overwritten. To resume in a new chat, even after the old chat is gone, say "Continue AI-DLC Discovery for [project]": the journey update keeps a `Now:` line in `PROJECT.md` with the step the team is on, and the skill picks up there.
 
