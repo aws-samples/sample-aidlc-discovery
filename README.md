@@ -92,7 +92,7 @@ Follow these when a user asks you to install AI-DLC Discovery from this reposito
 
 **How AWS Quick stores the skill.** Importing from a folder uploads a snapshot of the skill to AWS Quick's own storage. AWS Quick reads that snapshot, not the folder on your computer, so you can move or delete the folder after importing, and changing files in it has no effect until you import again.
 
-**To update:** delete **AI-DLC Discovery** in **Customize**, **Skills** (the ⋮ menu on its row); build again (or download and unzip the new release); import the new `aidlc-discovery` folder; and start a new chat. Check the version in `List my skills`.
+**To update:** delete **AI-DLC Discovery** in **Customize**, **Skills** (the ⋮ menu on its row); build again (or download and unzip the new release); import the new `aidlc-discovery` folder; and start a new chat. Check the version in `List my skills`. A build from anything but a release ends its description with the commit it was built from, such as "Development build f149ce5 of 3.0.0.", so you can see which build is installed.
 
 Copying the skill folder by hand into the AWS Quick profile folder is not a supported install: AWS Quick may not pick up later changes to it. Import from a folder.
 
@@ -117,7 +117,7 @@ To install:
 2. In Cowork, open the `.skill` file in a chat (or ask Claude to present it) and choose **Save skill**.
 3. Connect the folder of a sample, for example `samples/anycompany-air`, start a new task, and use the prompt on the sample's page.
 
-To update, build again and save the new `.skill` file over the old skill. The build fails if a source sentence it rewrites for Cowork has changed, so a change in `skills/` cannot reach the Cowork build unadapted: update `COWORK_REWRITES` in `scripts/build.py` when it does.
+To update, build again and save the new `.skill` file over the old skill. Start a new task, and check with `List my skills` that the description ends with the commit you built. The build fails if a source sentence it rewrites for Cowork has changed, so a change in `skills/` cannot reach the Cowork build unadapted: update `COWORK_REWRITES` in `scripts/build.py` when it does.
 
 ## What Discovery covers
 
@@ -176,6 +176,8 @@ discovery/
 ```
 
 **The journey app**, `journey.html`, lets the room follow along, in AWS Quick and in Cowork. It shows the five phases and their status, a **Now** banner with the step the team is on and what comes next, every artifact rendered from its file, the prototype versions clickable in place, the decision with its conditions, and how many claims are Known, Assumed, or Needs evidence. The skill creates it after Setup from a fixed page (`skills/aidlc-discovery/references/journey-shell.md`) and updates it at the start of every step with a short Python script that copies the project's files into the page, so the files stay the record. In AWS Quick it opens in the session tab; in Cowork it is published as an artifact. To put it on the room's screen, open `discovery/[project]/journey.html` from the working folder in a browser: there it refreshes itself every 15 seconds and keeps your place.
+
+**Running again, and resuming.** Every run is a project folder, `discovery/[project]/`, so runs never mix. When Discovery starts, it lists the projects already in the working folder and asks whether to continue one or start a new one; a new run with a name already used becomes `[project]-2`, and nothing is overwritten. To resume in a new chat, even after the old chat is gone, say "Continue AI-DLC Discovery for [project]": the journey update keeps a `Now:` line in `PROJECT.md` with the step the team is on, and the skill picks up there.
 
 The Discovery brief has fifteen sections: context (date, route, and data), decision, problem and evidence, personas, prioritized use cases, PR/FAQ summary, success criteria, go-to-market, scope, prioritized backlog, prototype screens and flows, current product, constraints, open hypotheses, and links to every artifact. It contains no architecture or technology choices; those belong to the build. For an AI feature, it also carries the AI feature block and the AI quality target.
 

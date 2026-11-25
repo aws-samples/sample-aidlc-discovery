@@ -81,7 +81,7 @@ class ShellTests(unittest.TestCase):
 
     def test_update_script_is_short(self) -> None:
         # The assistant types it at every step in AWS Quick: keep it small.
-        self.assertLessEqual(len(UPDATE.splitlines()), 30)
+        self.assertLessEqual(len(UPDATE.splitlines()), 36)
 
     @unittest.skipUnless(NODE, "node not installed")
     def test_app_script_compiles(self) -> None:
@@ -166,6 +166,19 @@ class UpdateTests(unittest.TestCase):
         self.assertNotIn("<", block)
         self.assertEqual(now, self.data()["now"])
         self.assertEqual("demo", self.data()["project"])
+
+    def test_keeps_the_now_line_in_project_md(self) -> None:
+        (self.project / "PROJECT.md").write_text("# Discovery: Demo\n\nProject language: English\n\n| Field | Value |\n", encoding="utf-8")
+        self.update(now={"phase": "Signals", "step": "Step 2 of 6", "doing": "x", "next": "Step 3"})
+        self.update(now={"phase": "Prototype", "step": "Step 1 of 4", "doing": "x", "next": "Step 2"})
+        text = (self.project / "PROJECT.md").read_text(encoding="utf-8")
+        self.assertEqual(1, text.count("\nNow: "))
+        self.assertRegex(text, r"Project language: English\nNow: Prototype, Step 1 of 4\. Next: Step 2\. Updated \d{4}-\d\d-\d\d \d\d:\d\d\.\n")
+        self.assertIn("Now: Prototype", self.data()["files"]["PROJECT.md"])  # the page sees the new line
+
+    def test_now_line_without_a_language_line(self) -> None:
+        self.update(now={"phase": "Signals", "step": "Step 1", "doing": "x", "next": "Step 2"})
+        self.assertTrue((self.project / "PROJECT.md").read_text(encoding="utf-8").startswith("# Discovery project: demo\nNow: Signals, Step 1."))
 
     @unittest.skipUnless(NODE, "node not installed")
     def test_reads_status_and_carried_lists(self) -> None:

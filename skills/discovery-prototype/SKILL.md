@@ -13,7 +13,7 @@ inputs:
     type: string
     required: true
   - name: use_case
-    description: "The selected use case. With pods, each pod builds its own prototype."
+    description: "The selected use case."
     type: string
     required: true
   - name: design_standards

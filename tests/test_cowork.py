@@ -64,6 +64,18 @@ class CoworkBuildTests(unittest.TestCase):
             self.assertTrue((self.skill / "references" / ref).is_file())
         self.assertLess(len(self.text.splitlines()), 500)
 
+    def test_development_stamp_ends_the_description(self) -> None:
+        stamp = "Development build abc1234 with local changes of 3.0.0."
+        with tempfile.TemporaryDirectory() as tmp:
+            for target in build.TARGETS:
+                out = build.build(Path(tmp) / target, target, stamp)
+                skill = out / "SKILL.md" if target == "cowork" else out / "skills" / "aidlc-discovery" / "SKILL.md"
+                description = re.search(r'(?m)^description: "(.*)"$', skill.read_text(encoding="utf-8")).group(1)
+                with self.subTest(target=target):
+                    self.assertTrue(description.endswith(" " + stamp))
+                    self.assertLessEqual(len(description), 1024)
+        self.assertNotIn("Development build", self.frontmatter)  # no stamp unless the CLI adds one
+
     def test_every_rewrite_applies(self) -> None:
         for rel, old, new in build.COWORK_REWRITES:
             with self.subTest(file=rel, text=old[:50]):

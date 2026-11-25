@@ -111,7 +111,7 @@ The data rarely shows strategy or platform, so draft strategic fit and feasibili
 | 2.5 to 3.4 | Any | **Defer.** Revisit at the 30-day follow-up with new evidence. |
 | Below 2.5 | Any | **Drop.** Record why. |
 
-**One decision per team.** Only one candidate is "build first" or "prototype to learn": the one with the highest weighted score. Any other that qualifies is **Defer, next in line**, so the day has one clear focus. With pods, each pod has one.
+**One decision per team.** Only one candidate is "build first" or "prototype to learn": the one with the highest weighted score. Any other that qualifies is **Defer, next in line**, so the day has one clear focus.
 
 ### Step 6: The team reviews and selects
 - **Mode**: `agentic`
@@ -121,7 +121,7 @@ The data rarely shows strategy or platform, so draft strategic fit and feasibili
 - **Validate**: The team confirmed or overrode every score, and named what it takes forward
 - **On failure**: If the team disagrees with the framework's decision, record its decision and the reason; the team owns the call
 
-Show the table one candidate at a time. For each score, show the evidence and ask: agree, or change it? Record every override with the reason. Then ask which use case the team takes forward: the top "build first", or the top "prototype to learn" when there is no "build first". With pods, each pod takes one; two pods never take the same one.
+Show the table one candidate at a time. For each score, show the evidence and ask: agree, or change it? Record every override with the reason. Then ask which use case the team takes forward: the top "build first", or the top "prototype to learn" when there is no "build first".
 
 ### Step 7: Re-score after Validate (mode `rescore`)
 - **Mode**: `agentic`
@@ -171,7 +171,7 @@ Weights: pain 25, outcome 25, reach 15, fit 10, feasibility 15, adoption 10 [not
 | # | Dimension | Draft | Team | Reason | When |
 
 ## Taken forward
-#[N] [Name]: [problem], [build first or prototype to learn], by [pod or team]
+#[N] [Name]: [problem], [build first or prototype to learn]
 ```
 
 ## Lessons Learned

@@ -72,8 +72,8 @@ jobs:
 
       - name: Build and package the skill bundle
         run: |
-          python3 scripts/build.py
-          python3 scripts/build.py --target cowork
+          python3 scripts/build.py --release
+          python3 scripts/build.py --target cowork --release
 
       - name: Extract release notes
         env:

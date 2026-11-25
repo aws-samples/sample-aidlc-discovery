@@ -1,6 +1,6 @@
 # The journey app
 
-One page per project, `discovery/{{project}}/journey.html`, that the room can follow: the five phases and their status, a **Now** banner with the step the team is on and what comes next, every artifact rendered from its file, the prototype versions clickable in place, the decision with its conditions, and how many claims are Known, Assumed, or Needs evidence. It is generated from the files, so the files stay the record.
+One page per project, `discovery/{{project}}/journey.html`, that the room can follow: the five phases and their status, a **Now** banner with the step the team is on and what comes next, every artifact rendered from its file, the prototype versions clickable in place, the decision with its conditions, and how many claims are Known, Assumed, or Needs evidence. It is generated from the files, so the files stay the record. The update also keeps the `Now:` line in `PROJECT.md`, which is how a new chat knows the step to resume at.
 
 ## Create it once, after Setup
 
@@ -14,7 +14,8 @@ Run the update with `run_python`:
 
 - at the start of every step of a module (each `### Step` heading), with Now set to that step;
 - after each checkpoint, with the progress board, and after each new prototype version;
-- when the team asks.
+- when the team asks;
+- when Discovery resumes in a new chat: run it, then open `journey.html` again as in step 3 of "Create it once".
 
 The update is silent: say nothing about it in chat. At a checkpoint, also open `journey.html` again with `open_in_session_tab`, so the session tab shows the new version.
 
@@ -43,12 +44,21 @@ if hashlib.sha256(shape.encode()).hexdigest()[:12] != SHAPE:
     if not SHELL:
         raise SystemExit("journey.html is missing or is not the shell: copy the shell again")
     page = re.search(r"```html\n(.*)\n```", pathlib.Path(SHELL).read_text(encoding="utf-8"), re.S).group(1)
+stamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+pm = PROJECT / "PROJECT.md"
+if pm.is_file():  # keep the Now line in PROJECT.md, so a new chat can resume at this step
+    text, line = pm.read_text(encoding="utf-8"), f"Now: {NOW['phase']}, {NOW['step']}. Next: {NOW['next']}. Updated {stamp}."
+    for where in (r"^Now: .*$", r"^Project language: .*$", r"^# .*$"):  # replace the line, or add it after one of these
+        text, n = re.subn(where, lambda m: line if m.group(0).startswith("Now: ") else m.group(0) + "\n" + line, text, count=1, flags=re.M)
+        if n:
+            break
+    pm.write_text(text, encoding="utf-8")
 files = {}
 for f in sorted(PROJECT.rglob("*")):
     rel = f.relative_to(PROJECT).as_posix()
     if f.is_file() and (f.suffix == ".md" or re.fullmatch(r"prototype/(v\d[^/]*|index)\.html", rel)):
         files[rel] = f.read_text(encoding="utf-8")
-data = {"project": PROJECT.name, "updated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"), "now": NOW, "files": files}
+data = {"project": PROJECT.name, "updated": stamp, "now": NOW, "files": files}
 blob = json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")
 page_file.write_text(DATA.sub(lambda m: m.group(1) + blob + m.group(3), page, count=1), encoding="utf-8")
 print(f"Journey app updated: {len(files)} files, {page_file.stat().st_size // 1024} KB")

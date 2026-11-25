@@ -17,7 +17,7 @@ inputs:
     type: string
     required: true
   - name: use_case
-    description: "The selected use case from use-case-scoring.md. With pods, each pod runs this skill for its own use case."
+    description: "The selected use case from use-case-scoring.md."
     type: string
     required: true
   - name: mode

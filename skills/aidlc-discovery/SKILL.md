@@ -44,7 +44,15 @@ Discovery ends with a decision on what to build and why. Building, running, and 
 - **Validate**: The team confirms the product, the people on the team, the business metric with its baseline, and the data input
 - **On failure**: Ask for what is missing in the next round
 
-Draft the setup from what you can find first (the request, the working folder, `config.md`, the data files), then confirm it in one or two rounds (see Shared rules): the product and who uses it; who is on the team, whether it splits into pods, and who drives; the business metric the work should move, **which direction is good** (higher or lower), and its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never assume the direction of the metric: scoring depends on it. (Unattended runs follow the default in "Unattended runs".) If the request contains a term you cannot place (an engagement reference, a code name), ask what it is in the first round, never twice. Never write a customer account, CRM, or sales identifier, or a revenue amount (a share that sizes a segment, such as "a third of revenue", is fine). If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
+**Start or resume.** Before anything else, look for `discovery/*/PROJECT.md` in the working folder.
+- None: start a new project.
+- One or more: list each project with its product and its `Now:` line (or, without one, its phase status), then ask in one round: continue one of them, or start a new project. Recommend the one updated last, or the one the user named.
+- To continue: read its `PROJECT.md` and the saved artifacts of its current phase, say in one line where it stands, and pick up at the step in the `Now:` line. Do not ask the setup questions again. Load the module of that phase first.
+- To start a new project with a name already used: never overwrite it. Propose the name with the next free number, such as `[project]-2`.
+- If the working folder holds this skill's own source (a `skills/aidlc-discovery/` folder), say so in one line and recommend connecting a copy of a sample or the product's repository instead.
+- In unattended runs, never ask: use the configured project, and continue it if it exists.
+
+Draft the setup from what you can find first (the request, the working folder, `config.md`, the data files), then confirm it in one or two rounds (see Shared rules): the product and who uses it; who is on the team; the business metric the work should move, **which direction is good** (higher or lower), and its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never assume the direction of the metric: scoring depends on it. (Unattended runs follow the default in "Unattended runs".) If the request contains a term you cannot place (an engagement reference, a code name), ask what it is in the first round, never twice. Never write a customer account, CRM, or sales identifier, or a revenue amount (a share that sizes a segment, such as "a third of revenue", is fine). If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
 
 Read `config.md` in the working folder if it exists, and `config.default.md` in this skill's folder for defaults: a key that `config.md` does not set takes its value from `config.default.md`.
 
@@ -71,7 +79,7 @@ Use **discovery-signals**. Checkpoint: "Here are the top signals and their evide
 In this order:
 
 1. **discovery-personas**: three personas by default, including one satisfied customer, and a buyer persona on top when the buyer is not the end user.
-2. **discovery-use-case-scoring**: 3 to 5 candidate use cases through the gate, scores, confidence, and decision. Checkpoint: the team confirms every score and selects the use case to take forward. With pods, each pod takes one selected use case from here on.
+2. **discovery-use-case-scoring**: 3 to 5 candidate use cases through the gate, scores, confidence, and decision. Checkpoint: the team confirms every score and selects the use case to take forward.
 3. **discovery-working-backwards**: the five Working Backwards questions, the PR/FAQ, the readiness check, the PRD, and the riskiest assumption.
 4. **discovery-gtm**: first adopters, positioning, and the hypotheses for business model and launch.
 
@@ -231,11 +239,12 @@ discovery/
 # Discovery: [product]
 
 Project language: [language]
+Now: [phase], [step]. Next: [the next step]. Updated [date and time].
 
 | Field | Value | Status |
 |-------|-------|--------|
 | Product | [the product, and who uses it] | Confirmed |
-| Team | [the roles; the pods, if any; who drives] | Confirmed |
+| Team | [the roles] | Confirmed |
 | Business metric | [the metric] | Confirmed |
 | Direction | [Higher or Lower] is better | Confirmed |
 | Baseline | [value], [period] | Confirmed |
@@ -254,7 +263,7 @@ Project language: [language]
 |----------|--------|--------|
 ```
 
-A value the team has not confirmed yet has the status Assumed or Open. Other skills can add rows to the table.
+A value the team has not confirmed yet has the status Assumed or Open. Other skills can add rows to the table. The journey update (see Shared rules) rewrites the `Now:` line at every step; when you save `PROJECT.md` yourself, keep that line as it is.
 
 | To start | It needs |
 |----------|----------|
@@ -286,4 +295,3 @@ A value the team has not confirmed yet has the status Assumed or Open. Other ski
 ### When to Ask the User
 - The scope, the business metric, or the data input is unclear.
 - The team wants to change the order of the phases.
-- Two pods want the same use case.

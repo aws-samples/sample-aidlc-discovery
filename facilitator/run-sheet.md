@@ -13,7 +13,7 @@ One day, one product engineering team, five phases. Keep this page open beside y
 **Rehearse once.** Run a sample end to end (see `dry-run-air.md`). New facilitators can also take the half-day session in `train-the-trainer.md`. You will meet every checkpoint before the team does.
 
 **Agree with the team:**
-- **Who is in the room.** The product owner and engineering lead who own the build. Add design, data, support, or sales as needed. 4 to 6 people, or pods of 4 to 5.
+- **Who is in the room.** The product owner and engineering lead who own the build. Add design, data, support, or sales as needed. 4 to 6 people. With several teams, give each table its own laptop, its own project, and its own data.
 - **The data input.** Production data in their own AWS Quick or Cowork (the default), Signal Briefs when data cannot be loaded into a tool, or a synthetic dataset prepared before the day. Never let the assistant invent data on the day.
 - **Telemetry, if the team has it.** Daily aggregates per journey step from their monitoring (CloudWatch, Datadog, or OpenTelemetry exports in S3): sessions per step from real user monitoring, requests, errors, and latency per service, and the top error codes, with a short map from each step to its screen and backend route. Never raw logs or traces: they are too large and carry personal data. Telemetry is read next to the feedback, never instead of it.
 - **3 to 5 candidate use cases,** each written as a problem: who has it, the problem, the evidence they think they have, the business metric it moves, and the owner.
@@ -56,7 +56,7 @@ One day, one product engineering team, five phases. Keep this page open beside y
 - **Personas, buyer and end user:** when the person who buys is not the person who uses (a travel manager and a traveller), there should be one persona for each. The buyer judges value and cost; the end user judges the workflow.
 - **Facilitator practice, weights:** settle them with the sponsor before the first score, and say why: "Once we see scores, nobody can move a weight to help their favourite."
 - **Timing tip:** when the room agrees with a candidate's drafts, choose "agree with all" and move on. Spend the time on the scores people disagree with.
-- **Checkpoint:** every score confirmed or overridden, with reasons recorded, and one use case selected (one per pod).
+- **Checkpoint:** every score confirmed or overridden, with reasons recorded, and one use case selected.
 
 ### 12:00 Lunch (60 min)
 - **Ask the assistant:** "We're breaking for lunch. Draft the PR/FAQ while we're away."
@@ -107,14 +107,14 @@ One day, one product engineering team, five phases. Keep this page open beside y
 - **Ask the room:** "Could an engineer who wasn't here start from this brief?"
 
 ### 16:20 Readout (40 min)
-- Each pod shows the sponsor its decision, the prototype on the Flow view, the success criteria, and the next steps. Agree the next step and its owner before people leave.
+- The team shows the sponsor its decision, the prototype on the Flow view, the success criteria, and the next steps. Agree the next step and its owner before people leave.
 - **Facilitator practice, the sponsor's question:** answer "why not do the thing I believed?" with the evidence from Signals, not an opinion, then bring it back to the next step. A readout ends with a name and a date.
 
 ## When things go wrong
 
 - **The skill is not installed, or behaves like an older version.** `List my skills`, then the module check. If either fails, reinstall as in "Before the day" and start a new chat. In AWS Quick, copying files into the profile by hand is not a fix: AWS Quick keeps its own snapshot.
 - **It shows analysis before asking for expectations, or jumps ahead to verdicts.** Say: "Stop. Follow the aidlc-discovery skill one step at a time. Load the module for this phase and start at Step 1." If it still improvises, the skill is not loaded; see above.
-- **The chat is lost, or you reinstalled the skill mid-workshop.** Start a new chat with access to the working folder and say: "Continue AI-DLC Discovery for [project] from discovery/[project]/PROJECT.md. [What is done.] Start at [the next step]." It reads the saved files and picks up from there.
+- **The chat is lost, or you reinstalled the skill mid-workshop.** Start a new chat with access to the working folder and say: "Continue AI-DLC Discovery for [project]." It reads the `Now:` line in `discovery/[project]/PROJECT.md`, says where the workshop stands, and picks up at that step. Say "start at [step]" if you want a different one.
 - **A module path does not resolve.** It should retry with the skill's full installed path. If it doesn't, tell it to.
 - **The data does not match the product.** It should stop and offer real data, Signal Briefs, or a prepared dataset. Never accept data it writes on the spot: it can only echo what the team just said.
 - **The prototype is one plain page.** It did not build from the shell. Say: "Load modules/discovery-prototype/references/prototype-shell.md and copy that HTML exactly, filling only the edit region." Ask it to quote the `EDIT BELOW` line first, to prove it read the file.

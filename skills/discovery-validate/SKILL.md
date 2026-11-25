@@ -15,7 +15,7 @@ inputs:
     type: string
     required: true
   - name: use_case
-    description: "The use case being validated. With pods, each pod validates its own."
+    description: "The use case being validated."
     type: string
     required: true
   - name: mode

@@ -70,7 +70,7 @@ For the claim tracker: members who can see a claim's status and exactly what is 
 
 ## 6. A good decision
 
-**Commit, testing first.** The pain and the metric link are strong, but the decision depends on two things the workshop cannot settle: whether the claims system can expose status and pended reasons to the portal, and whether members stop calling when they can see them. Good conditions before the build: the claims team confirms the data is available, and a test with members on pended claims shows they find what is needed without calling. Provider directory accuracy goes forward as a second pod or the next brief.
+**Commit, testing first.** The pain and the metric link are strong, but the decision depends on two things the workshop cannot settle: whether the claims system can expose status and pended reasons to the portal, and whether members stop calling when they can see them. Good conditions before the build: the claims team confirms the data is available, and a test with members on pended claims shows they find what is needed without calling. Provider directory accuracy goes forward as the next Discovery, at another table or after this one.
 
 ## 7. Traps
 

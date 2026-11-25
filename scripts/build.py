@@ -6,6 +6,11 @@ SKILL.md plus a module per job under modules/, loaded only when its step runs.
 
 Usage: python3 scripts/build.py [output_dir]                  AWS Quick (default: dist/aidlc-discovery)
        python3 scripts/build.py --target cowork [output_dir]  Claude Cowork (default: dist/cowork/aidlc-discovery)
+       --release                                             a release build: no development stamp
+
+A build from anything but a clean checkout of the release tag says so at the end of the
+skill's description, for example "Development build f149ce5 of 3.0.0.", so `List my skills`
+shows which build is installed. The version fields stay X.Y.Z.
 
 The AWS Quick build writes aidlc-discovery-v<version>.zip next to the output folder.
 The Cowork build is the skill folder itself, with the tool names, paths, and steps
@@ -18,6 +23,7 @@ from __future__ import annotations
 import json
 import re
 import shutil
+import subprocess
 import sys
 import zipfile
 from pathlib import Path
@@ -135,7 +141,20 @@ ROUTING = {
     "cowork": "Each job lives in its own module, a companion file of this skill. Before you start any phase or job, read its module with `Read` at `${CLAUDE_SKILL_DIR}/` followed by its path, for example `${CLAUDE_SKILL_DIR}/modules/discovery-signals.md`, and follow it from the top. Never do a phase's work without its module loaded. Read a module's `references/` files the same way, only when the module says so. These files ship with the skill; they are not in the user's folders, so do not search the user's folders for them. When the user asks for one job on its own, read just that module, and \"Running in Cowork\" below.",
 }
 
-def build(out: Path, target: str = "quick") -> Path:
+def dev_stamp(version: str) -> str:
+    """'' for a clean checkout of the release tag; otherwise the commit, marked when there are uncommitted changes."""
+    def git(*args: str) -> str:
+        return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, check=False).stdout.strip()
+    sha = git("rev-parse", "--short", "HEAD")
+    if not sha:
+        return ""
+    dirty = bool(git("status", "--porcelain", "--", ".", ":!dist", ":!.e2e"))
+    if not dirty and git("tag", "--points-at", "HEAD") and f"v{version}" in git("tag", "--points-at", "HEAD").split():
+        return ""
+    return f"Development build {sha}{' with local changes' if dirty else ''} of {version}."
+
+
+def build(out: Path, target: str = "quick", stamp: str = "") -> Path:
     if target not in TARGETS:
         raise ValueError(f"unknown target {target!r}: use one of {', '.join(TARGETS)}")
     if out.exists():
@@ -190,7 +209,7 @@ def build(out: Path, target: str = "quick") -> Path:
         "Runs AI-DLC Discovery end to end in five phases (Signals, Working Backwards, Prototype, "
         "Validate, Handoff), from customer feedback to a Discovery brief the team builds from. Use it to start or "
         f"continue Discovery, or for one job on its own: {purposes}."
-    )
+    ) + (f" {stamp}" if stamp else "")
     # Keep the entry's frontmatter, minus the keys rebuilt from all skills.
     kept, skipping = [], False
     for line in entry_fm.splitlines():
@@ -309,14 +328,19 @@ def package(out: Path, target: str = "quick") -> Path:
 
 
 def main(argv: list[str]) -> int:
-    target = "quick"
+    target, release = "quick", "--release" in argv
+    argv = [a for a in argv if a != "--release"]
     if argv[:1] == ["--target"] and len(argv) > 1:
         target, argv = argv[1], argv[2:]
     if target not in TARGETS:
         print(f"Unknown target {target!r}: use one of {', '.join(TARGETS)}", file=sys.stderr)
         return 2
     default = ROOT / "dist" / ("aidlc-discovery" if target == "quick" else "cowork/aidlc-discovery")
-    out = build((Path(argv[0]) if argv else default).resolve(), target)
+    version = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))["version"]
+    stamp = "" if release else dev_stamp(version)
+    out = build((Path(argv[0]) if argv else default).resolve(), target, stamp)
+    if stamp:
+        print(stamp)
     print(f"Built {out}")
     print(f"Packaged {package(out, target)}")
     return 0

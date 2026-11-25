@@ -25,14 +25,14 @@ Start AI-DLC Discovery. Project: anycompany-air. Data: production, in discovery/
 ```
 Use the name of your scratch folder if it differs.
 
-**Answer as the team:** the product (the website and app), the six roles (one team, no pods; the commercial director joins the kickoff and readout), the business metric (self-service rebooking rate for disrupted passengers, 12%), and the five candidate use cases from the scenario page.
+**Answer as the team:** the product (the website and app), the six roles (the commercial director joins the kickoff and readout), the business metric (self-service rebooking rate for disrupted passengers, 12%), and the five candidate use cases from the scenario page.
 
 **Watch for:** a draft of the setup filled in from the scenario page, for you to confirm or correct in one step, a `PROJECT.md` file, and a note that sample data makes this a demonstration. Then `journey.html` opens in the session tab (in Cowork, as an artifact) with a **Now** banner. Open it in a browser as well, as you would on the room's screen, and check that the banner moves at every step.
 
-**Answer:** when it asks whether the scope is right and how the room works, choose **Confirmed: one group** (or type it).
+**Answer:** when it asks whether the scope is right, choose **Confirmed** (or type it).
 
 **What `PROJECT.md` is.** The workshop's scope and status, in `discovery/anycompany-air/PROJECT.md` in the scratch folder. It holds:
-- **Scope:** the project, product, users, people in the room, pods, the business metric and its baseline, and the data input and location, each marked Confirmed once the room agrees.
+- **Scope:** the project, product, users, people in the room, the business metric and its baseline, and the data input and location, each marked Confirmed once the room agrees.
 - **Candidate use cases** the team brought, with their owners.
 - **Phase status:** the same progress board the assistant shows at each step, with the key artifact of each phase.
 
