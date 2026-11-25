@@ -112,7 +112,7 @@ class HandoffContractTests(unittest.TestCase):
     def test_aidlc_contract(self) -> None:
         text = self.HANDOFF.read_text(encoding="utf-8")
         for needle in ("2.10.0", "200,000", "aidlc/spaces/[space]/knowledge/aidlc-product-agent/",
-                       "/aidlc workshop", "/aidlc classic", "discovery/data/", "CRM"):
+                       "/aidlc workshop", "[scope] [intent description]", "discovery/data/", "CRM"):
             self.assertIn(needle, text)
 
 

@@ -47,7 +47,7 @@ def build(root: Path) -> Path:
     (proto / "index.html").write_text(shell, encoding="utf-8")
     (proto / "versions.md").write_text("| v1 | first |\n| v2 | iteration |\n", encoding="utf-8")
     links = "\n".join(f"- [x](../{p.relative_to(d)})" for p in [d / "working-backwards" / "prd.md", proto / "v1.html"])
-    body = {"Context": "Date: 2026-01-01 | Route: AI-DLC classic | Data: synthetic", "Full artifacts": links}
+    body = {"Context": "Date: 2026-01-01 | Route: AI-DLC | Data: synthetic", "Full artifacts": links}
     brief = "# Discovery brief\n\n" + "".join(f"## {i}. {t}\n{body.get(t, 'Content.')}\n\n"
                                                for i, t in enumerate(checks.brief_sections(), 1))
     (d / "handoff").mkdir(parents=True, exist_ok=True)
