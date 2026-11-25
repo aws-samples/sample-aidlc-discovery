@@ -45,6 +45,22 @@ Each run writes `.e2e/<timestamp>/` with every workspace, transcript, and cost, 
 
 These runs test the method and the artifacts. They run in Claude Code, not AWS Quick, so check a release in AWS Quick by hand as well: import it, start Discovery on a sample, and build a prototype.
 
+## Cowork runs (by hand, or unattended)
+
+Cowork runs in the desktop app, so it has no headless runner. Build the Cowork skill, run Discovery in Cowork on a copy of a sample, then grade the working folder with the same checks:
+
+```bash
+python3 scripts/build.py --target cowork
+mkdir -p .e2e/cowork-air && cp -r samples/anycompany-air .e2e/cowork-air/workspace
+# add config.md with unattended: true (as run_e2e.py writes it), connect the folder in Cowork,
+# and start the run with the prompt in tests/e2e/prompts/workshop.md
+python3 tests/e2e/check_workspace.py .e2e/cowork-air/workspace --sample air --cowork
+```
+
+`--cowork` adds the journey app checks (C): the app was rendered, its data parses, it shows the five phases complete, it holds every prototype version, it shows the decision, and it loads nothing from the web. `tests/test_cowork.py` covers the Cowork build and the renderer without model calls.
+
+Measured on AnyCompany Air (2026-11-25, three unattended runs, one Cowork session each): 36 checks, 0 failed in the first two; the third failed O03 only because scoring renamed the team's candidates, which scoring now keeps. About 100 to 140 tool calls and 40 to 90 minutes a run; the journey app updated 7 to 8 times and the prototype artifact twice.
+
 ## Team Space mode
 
 The automated tests run in Claude Code, which has no AWS Quick Spaces, so they cover the local folder only. Test team Space mode by hand in AWS Quick Desktop with two people, following "Optional: run it in a team Space" in `facilitator/dry-run-air.md`: the Space confirmed, `PROJECT.md` with the Storage and Driver lines, artifacts at the usual paths in the Space, the take-over, the stop when the other person tries to write, and no customer data in the Space.

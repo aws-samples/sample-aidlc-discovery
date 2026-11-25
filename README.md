@@ -72,6 +72,30 @@ Copying the skill folder by hand into the AWS Quick profile folder is not a supp
 
 **Viewing prototypes.** Prototypes open in AWS Quick's session tab, and as plain files in any browser. If a view does not switch in the session tab, open the file from your working folder (`discovery/[project]/prototype/`).
 
+## Run it in Claude Cowork
+
+The same skills also build for [Claude Cowork](https://claude.com/docs/third-party/claude-desktop/overview). The Cowork build is one skill, with the tool names and steps rewritten for Cowork, and three additions:
+
+- **The journey app.** One Cowork artifact per project shows the whole of Discovery: the five phases and their status, every artifact rendered from its file, the prototype versions clickable in place, the decision with its conditions, and how many claims are Known, Assumed, or Needs evidence. The skill regenerates it from the files at the end of every phase (`cowork/journey.py`, standard library only), so the files stay the record.
+- **The prototype artifact.** Every prototype version is also published as its own artifact, full size, and opens in the file preview.
+- **Question cards.** Each round of questions also appears as Cowork's multiple-choice cards, with the recommended answer first. Free-text questions, such as the team's expectations, stay in chat.
+
+Team Spaces are an AWS Quick feature, so the Cowork build leaves out `discovery-team-space` and always saves in the connected folder.
+
+To install:
+
+1. Build it (Python 3.9 or later, no dependencies):
+
+   ```bash
+   python3 scripts/build.py --target cowork
+   ```
+
+   This writes the skill folder `dist/cowork/aidlc-discovery/` and the same folder packaged as `dist/cowork/aidlc-discovery-vX.Y.Z.skill`.
+2. In Cowork, open the `.skill` file in a chat (or ask Claude to present it) and choose **Save skill**.
+3. Connect the folder of a sample, for example `samples/anycompany-air`, start a new task, and use the prompt on the sample's page.
+
+To update, build again and save the new `.skill` file over the old skill. The build fails if a source sentence it rewrites for Cowork has changed, so a change in `skills/` cannot reach the Cowork build unadapted: update `COWORK_REWRITES` in `scripts/build.py` when it does.
+
 ## What Discovery covers
 
 Discovery ends with a decision on what to build and why. Building, running, and operating the product come after, with the team's own engineers, AI-DLC, or AAP, and the Discovery brief is what they start from.
@@ -154,7 +178,8 @@ The command is `/aidlc [scope] [intent description]`. `workshop` is one scope: u
 ```text
 plugin.json, mcps.json, tasks.json   plugin manifest for AWS Quick Desktop
 skills/                              the twelve skills, one folder each (the source)
-scripts/build.py                     bundles skills/ into one installable skill in dist/
+scripts/build.py                     bundles skills/ into one installable skill in dist/ (AWS Quick or, with --target cowork, Cowork)
+cowork/                              Cowork only: the "Running in Cowork" section and the journey app renderer
 scripts/bump_version.py              works out the release version from the latest tag, at release time
 samples/                             two runnable business cases, and how they are built
 scripts/samples/                     the generators that write each sample's data
@@ -170,7 +195,7 @@ docs/                                design notes: team Space, telemetry signals
 python3 -m unittest discover tests
 ```
 
-End-to-end runs in Claude Code, graded against each sample's answer key, are described in [TESTING.md](TESTING.md).
+End-to-end runs in Claude Code and in Cowork, graded against each sample's answer key, are described in [TESTING.md](TESTING.md).
 
 The tests check that every skill has the required frontmatter and sections, that every referenced file exists, that the entry skill depends on every job skill, that each artifact the Handoff requires is written by the skill that owns it, and that the brief keeps its fifteen sections and the AI-DLC contract. They check that every sample follows the conventions, has no duplicate records, and is reproduced exactly by its generator. They also build the bundle and check it: one skill, a module and a route for every job, every path resolving, and no path left pointing at the source layout.
 
