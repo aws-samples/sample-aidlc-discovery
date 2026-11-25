@@ -81,6 +81,13 @@ class CoworkBuildTests(unittest.TestCase):
         self.assertIn("Cowork artifacts: [journey id], [prototype id]", self.text)
         self.assertNotRegex(self.text, r"with id `discovery-\{\{project\}\}(-prototype)?`")
 
+    def test_artifact_updates_only_at_checkpoints(self) -> None:
+        # Cowork asks the user to approve every artifact call: never one per step.
+        self.assertIn("never call it at every step", self.text)
+        app = (self.skill / "references" / "journey-app.md").read_text(encoding="utf-8")
+        self.assertIn("Within a phase, update the file only", app)
+        self.assertNotIn("After every update, update the journey artifact", app)
+
     def test_every_rewrite_applies(self) -> None:
         for rel, old, new in build.COWORK_REWRITES:
             with self.subTest(file=rel, text=old[:50]):

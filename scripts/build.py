@@ -257,7 +257,7 @@ COWORK_REWRITES: list[tuple[str, str, str]] = [
     ("references/journey-app.md", "3. Open `journey.html` with `open_in_session_tab`. Then tell",
      "3. Publish it as the journey artifact (see \"Running in Cowork\"). Then tell"),
     ("references/journey-app.md", "At a checkpoint, also open `journey.html` again with `open_in_session_tab`, so the session tab shows the new version.",
-     "After every update, update the journey artifact (see \"Running in Cowork\")."),
+     "At a checkpoint, also update the journey artifact (see \"Running in Cowork\"). Within a phase, update the file only: Cowork asks the user to approve every artifact call."),
     ("references/journey-app.md", "If it stops with \"copy the shell again\", do step 1 of \"Create it once\" again, then run the update again.",
      "If it stops with \"copy the shell again\", check that `SHELL` points at this skill's `references/journey-shell.md`, then run the update again."),
     ("config.default.md", "# Where it is: a folder relative to the working folder, or an AWS Quick Space name.",
