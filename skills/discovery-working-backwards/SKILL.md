@@ -21,9 +21,8 @@ inputs:
     type: string
     required: true
   - name: mode
-    description: "dialog (the team answers the five questions) or draft (write a straw-man PR/FAQ for the team to challenge, for example during a break)."
+    description: "dialog (the team answers the five questions, then the PR/FAQ is written) or draft (write a straw-man PR/FAQ for the team to challenge, for example during a break). Ask the team if it is not given."
     type: string
-    default: dialog
 tools: [file_read, file_write]
 version: "3.0.0"
 license: MIT-0
@@ -43,6 +42,8 @@ Working Backwards writes the press release before anything is built: if the team
 - **Output**: `discovery/{{project}}/working-backwards/working-backwards.md`
 - **Validate**: All five questions answered, in the team's words, with evidence where it exists
 - **On failure**: If the team is stuck on a question, offer two suggestions from the signals and let it choose or rewrite
+
+If the mode is not given, ask the team first, as one question in the round format: answer the five questions together, then write the PR/FAQ (`dialog`), or have a straw-man PR/FAQ drafted to challenge (`draft`)? Recommend `draft`, so the team can take a break while the straw-man is written and come back to a draft to challenge. In unattended runs, use `draft` without asking, and continue to Step 4 without waiting for the team.
 
 Follow `references/wb-document.md`: Listen, Define, Invent, Refine, Test. Ask one Working Backwards question per round: its parts are the round's questions, each with a recommended answer drafted from the signals and personas, so the team can accept with "yes" and correct the rest. Summarize each answer in at most three lines before the next round. Look up any fact the round needs in the data yourself (for example, which field values fail) instead of asking the team. The answers are the team's. In Listen and Define, apply `references/framing-rules.md`: name the end customer, write root causes as causes, split the impact, and write the Today statement, How Might We, and North Star.
 

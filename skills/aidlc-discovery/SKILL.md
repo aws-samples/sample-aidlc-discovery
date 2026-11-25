@@ -74,9 +74,8 @@ In this order:
 
 1. **discovery-personas**: three or more personas, including one satisfied customer.
 2. **discovery-use-case-scoring**: 3 to 5 candidate use cases through the gate, scores, confidence, and decision. Checkpoint: the team confirms every score and selects the use case to take forward. With pods, each pod takes one selected use case from here on.
-3. If the team takes a break now, offer to draft the PR/FAQ for each selected use case meanwhile, so the team returns to a draft to challenge.
-4. **discovery-working-backwards**: the five Working Backwards questions, the PR/FAQ, the readiness check, the PRD, and the riskiest assumption.
-5. **discovery-gtm**: first adopters, positioning, and the hypotheses for business model and launch.
+3. **discovery-working-backwards**: the five Working Backwards questions, the PR/FAQ, the readiness check, the PRD, and the riskiest assumption.
+4. **discovery-gtm**: first adopters, positioning, and the hypotheses for business model and launch.
 
 Checkpoint: "Here is what you chose, why, and what must the prototype prove. Ready to prototype?"
 
