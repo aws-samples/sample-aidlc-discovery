@@ -23,7 +23,7 @@ AnyCompany Air is a mid-size European airline with about 300 flights a day on sh
 
 ## The business metric
 
-**Self-service rebooking rate for disrupted passengers: 12%** from May to mid-October 2026. A disrupted passenger is one whose flight was cancelled or delayed by more than two hours. The rest rebook through the call centre, at an airport desk, or not at all.
+**Self-service rebooking rate for disrupted passengers: 12%** from May to mid-October 2026. A disrupted passenger is one whose flight was cancelled or delayed by more than two hours. The rest rebook through the call centre, at an airport desk, or not at all. Higher is better.
 
 ## Candidate use cases the team brings
 

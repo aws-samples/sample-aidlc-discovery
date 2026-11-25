@@ -40,15 +40,15 @@ Discovery ends with a decision on what to build and why. Building, running, and 
 - **Mode**: `agentic`
 - **Tool**: `file_write`
 - **Input**: The user's request; `{{project}}`, `{{data_input}}`
-- **Output**: `discovery/{{project}}/PROJECT.md` with the scope and choices
+- **Output**: `discovery/{{project}}/PROJECT.md` with the scope and choices, in the format in Output
 - **Validate**: The team confirms the product, the people on the team, the business metric with its baseline, and the data input
 - **On failure**: Ask for what is missing in the next round
 
-Draft the setup from what you can find first (the request, the folder or Space, `config.md`, the data files), then confirm it in one or two rounds (see Shared rules): the product and who uses it; who is on the team, whether it splits into pods, and who drives; the business metric the work should move, **which direction is good** (higher or lower), and its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never assume the direction of the metric: scoring depends on it. If the request contains a term you cannot place (an engagement reference, a code name), ask what it is in the first round, never twice. Never write a customer account, CRM, or sales identifier. If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
+Draft the setup from what you can find first (the request, the folder or Space, `config.md`, the data files), then confirm it in one or two rounds (see Shared rules): the product and who uses it; who is on the team, whether it splits into pods, and who drives; the business metric the work should move, **which direction is good** (higher or lower), and its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never assume the direction of the metric: scoring depends on it. (Unattended runs follow the default in "Unattended runs".) If the request contains a term you cannot place (an engagement reference, a code name), ask what it is in the first round, never twice. Never write a customer account, CRM, or sales identifier, or a revenue amount (a share that sizes a segment, such as "a third of revenue", is fine). If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
 
-Read `config.md` in the working folder if it exists, otherwise `config.default.md` in this skill's folder, for defaults.
+Read `config.md` in the working folder if it exists, and `config.default.md` in this skill's folder for defaults: a key that `config.md` does not set takes its value from `config.default.md`.
 
-**Project language.** The project language is the human language the team works in, such as English or Japanese. It is not a programming language, and not the language the feedback is written in. It is the language the team writes to you in, unless `project_language` in the config sets one; in unattended runs with an empty `project_language`, it is the language of the starting prompt. Record it in `PROJECT.md` as `Project language: [language]`, so a later session or another driver keeps it. When `PROJECT.md` records none, for example when a job skill runs on its own, use the language the team writes in.
+**Project language.** The project language is the human language the team works in, such as English or Japanese. It is not a programming language, and not the language the feedback is written in. It is the language the team writes to you in, unless `project_language` in the config sets one; in unattended runs with an empty `project_language`, it is the language of the starting prompt. Record it in `PROJECT.md` as `Project language: [language]` (see the format in Output), so a later session or another driver keeps it. When `PROJECT.md` records none, for example when a job skill runs on its own, use the language the team writes in.
 
 **Where Discovery is saved.** In the working folder, or, in AWS Quick, in a Space, so the work stays in AWS Quick and the people it is shared with can follow and take over from their own AWS Quick. Use a Space when `storage` in the config is `space`, when the team asks for one (for example "save Discovery in our team Space"), or when a Space is attached to this chat and `storage` is empty: then ask once, "Save Discovery in the [space] Space, or in this folder?" The data stays where it is either way. In unattended runs, never ask: an empty `storage` means the working folder. With a Space, use **discovery-team-space** for the setup and follow it for every read and write from then on. Without one, nothing changes.
 
@@ -72,7 +72,7 @@ Use **discovery-signals**. Checkpoint: "Here are the top signals and their evide
 
 In this order:
 
-1. **discovery-personas**: three or more personas, including one satisfied customer.
+1. **discovery-personas**: three personas by default, including one satisfied customer, and a buyer persona on top when the buyer is not the end user.
 2. **discovery-use-case-scoring**: 3 to 5 candidate use cases through the gate, scores, confidence, and decision. Checkpoint: the team confirms every score and selects the use case to take forward. With pods, each pod takes one selected use case from here on.
 3. **discovery-working-backwards**: the five Working Backwards questions, the PR/FAQ, the readiness check, the PRD, and the riskiest assumption.
 4. **discovery-gtm**: first adopters, positioning, and the hypotheses for business model and launch.
@@ -114,12 +114,12 @@ These apply in every phase, so the job skills can assume them.
 
 1. **The team decides.** Draft, cite, and ask. Never present a score, ranking, or decision as final until the team confirms it.
 2. **Evidence labels.** Every claim in the PR/FAQ, PRD, GTM section, and brief is **Known** (backed by data from Signals), **Assumed** (believed, not shown), or **Needs evidence** (it matters to the decision and has to be tested).
-3. **Anonymized.** Quotes carry no names, emails, companies, or account identifiers. Raw data stays in `discovery/data/`.
+3. **Anonymized.** Quotes carry no names, emails, companies, or account identifiers. Replace each one inside a quote with a bracketed role, such as `[corporate account]` or `[agent]`, and keep every other word as written: the quote still counts as verbatim. Raw data stays in `discovery/data/`.
 4. **No architecture.** Discovery decides who, what, and why. Technology choices belong to the build.
 5. **Files, not chat.** Save every artifact under `discovery/{{project}}/` as soon as it exists, so the team keeps it and later steps can read it. With a team Space, that path is in the Space (see **discovery-team-space**).
 6. **One step at a time.** Say which phase and step the team is in, and what comes next.
 7. **Customer's interest only.** No artifact mentions a vendor's commercial interest, vendor competition, or anyone's internal strategy. The documents describe the customer's problem and the customer's outcome.
-8. **Show progress.** At the end of each phase, and whenever the team asks where it is, show the progress board below, then the next round. Within a phase, one line is enough: "Working Backwards, step 3 of 5: PR/FAQ." Keep `PROJECT.md`'s phase status in step with it.
+8. **Show progress.** At the end of each phase, and whenever the team asks where it is, show the progress board below, then the next round. Within a phase, one line is enough: "Working Backwards, step 3 of 5: PR/FAQ." Keep `PROJECT.md`'s `## Phase status` in step with it: the board's first table and the three lists.
 9. **Ask in rounds.** Every question to the team uses the format in "Asking the team" below.
 10. **Keep the chat short.** The files hold the detail; the chat holds what the team needs to decide now. Summarize an artifact in at most five lines and link to it, except the press release, which the team reads in full. Acknowledge an answer in one line, not by restating it. Never repeat a question the team has already answered or skipped; carry it as an open item instead.
 11. **Corrections flow downstream.** When the team corrects something an earlier confirmed step relied on (the metric or its direction, a data file, a score), say in one line what it changes, and make re-running that step the recommended answer in the next round. Do not continue on the old basis.
@@ -193,7 +193,20 @@ They feed the open hypotheses in the brief.
 
 ## Unattended runs
 
-When `config.md` sets `unattended: true`, run every phase without stopping: use the configured project and data input; take the defaults the job skills give; record each choice in `PROJECT.md` under `## Unattended choices`; and end with the Handoff. Never ask a question in this mode. It exists for automated tests and demonstrations, not for work with a team.
+When `config.md` sets `unattended: true`, run every phase without stopping: use the configured project and data input; take the defaults below and those the job skills give; record each choice in `PROJECT.md` under `## Unattended choices`; and end with the Handoff. Never ask a question in this mode. It exists for automated tests and demonstrations, not for work with a team.
+
+| Decision | Default in an unattended run |
+|----------|------------------------------|
+| Which direction of the metric is good | As the scenario or `config.md` states it. If neither does, infer it from the metric's wording, and record it as **Assumed** |
+| The team's expectations before Signals | The beliefs the scenario page gives for each role, turned into expectation lines as `team-expectations.md` says, before any analysis; a belief that names no problem (a caution, a preference) is left out, with the reason; "none" if the page gives none |
+| Candidates from Signals | Keep each one; the gate decides |
+| Score overrides, and re-scoring in Validate | None |
+| Prototype version handed off | The latest |
+| Commit, pivot, or park | The one the evidence summary in Validate supports, with its reason, recorded as the recommended answer, not as the team's |
+| Commit while the riskiest assumption is open | Test first, with the conditions before the build |
+| Build route | AI-DLC |
+
+For any other decision the team would make, take the recommended answer of that round, and record it like the rest. Where a step asks for the team's own input and offers no recommendation (reactions to a click-through, the team's own pre-mortem reasons, a fact only the team knows, such as a city or a name), record "none given (unattended run)" and carry the gap as an open item; never write a view and present it as the team's.
 
 ## Output
 
@@ -211,6 +224,37 @@ discovery/
     ├── validate/                 risk-review.md, prioritization.md, decision.md
     └── handoff/                  discovery-brief.md, next-steps.md
 ```
+
+`PROJECT.md`, written at Setup and kept current:
+
+```markdown
+# Discovery: [product]
+
+Project language: [language]
+
+| Field | Value | Status |
+|-------|-------|--------|
+| Product | [the product, and who uses it] | Confirmed |
+| Team | [the roles; the pods, if any; who drives] | Confirmed |
+| Business metric | [the metric] | Confirmed |
+| Direction | [Higher or Lower] is better | Confirmed |
+| Baseline | [value], [period] | Confirmed |
+| Data input | [production, signal-briefs, or synthetic], in [location] | Confirmed |
+| Note | [only with sample data:] Demonstration run on sample data; the brief is not evidence for a build | |
+
+## Phase status
+[The progress board's first table, with its Key artifact column, and the three lists below it]
+
+## Open items
+- [a question the team skipped, or an answer still missing]
+
+## Unattended choices
+[Only in unattended runs]
+| Decision | Choice | Source |
+|----------|--------|--------|
+```
+
+A value the team has not confirmed yet has the status Assumed or Open. Other skills add rows to the table, such as the storage and the driver with a team Space.
 
 | To start | It needs |
 |----------|----------|

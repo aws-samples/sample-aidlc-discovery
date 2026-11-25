@@ -21,7 +21,7 @@ The sample folder is the working folder a team gives AWS Quick access to, so it 
 1. **The company and its product**, in two or three sentences.
 2. **Customers and segments**, with rough sizes.
 3. **The team**: four to six roles, each with what they believe before Discovery. At least one belief must be the loud request the data does not support.
-4. **The business metric** the team wants to move, with its current baseline and the period it covers.
+4. **The business metric** the team wants to move, with its current baseline, the period it covers, and which direction is good (higher or lower).
 5. **Candidate use cases** the team brings, 3 to 5, each written as a problem with five fields: who has it, the problem, the evidence the team thinks it has, the business metric it moves, and the owner.
 6. **The data**: one line per file with its source, record count, and period.
 7. **How to run it**: the folder to grant, the data input, and the prompt to start Discovery.

@@ -63,7 +63,7 @@ Follow `references/feature-description.md`: propose 3 to 5 feature ideas for the
 - **Tool**: `file_write`
 - **Input**: The Working Backwards document, the feature description, the personas
 - **Output**: `discovery/{{project}}/working-backwards/prfaq.md`
-- **Validate**: The press release has a headline, a subheading, and exactly seven paragraphs, each doing its one job, in 500 to 700 words; every claim in the FAQ carries an evidence label, and the press release labels only Assumed and Needs evidence claims; `references/writing-audit.md` passes
+- **Validate**: The press release has a headline, a subheading, and exactly seven paragraphs, each doing its one job, in about 500 to 700 words (a check, not a target); every claim in the FAQ carries an evidence label, and the press release labels only Assumed and Needs evidence claims; `references/writing-audit.md` passes
 - **On failure**: If a quality check fails, show the team which one and rewrite that part with it
 
 Follow `references/prfaq-generation.md`: customer thinking, the seven-paragraph press release, five to seven customer FAQs, and five to seven internal FAQs. The testimonial comes from a persona and is labeled as synthetic. Run `references/writing-audit.md` before showing it, and say in one line what it checked and fixed.

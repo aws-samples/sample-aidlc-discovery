@@ -23,7 +23,7 @@ AnyCompany Health is a regional health insurer that sells group health plans to 
 
 ## The business metric
 
-**Claim-status calls per 1,000 claims.** Baseline: 120, from 1 May to 15 October 2026. Every call that asks "where is my claim?" costs agent time and means the member could not find the answer alone.
+**Claim-status calls per 1,000 claims.** Baseline: 120, from 1 May to 15 October 2026. Every call that asks "where is my claim?" costs agent time and means the member could not find the answer alone. Lower is better.
 
 ## Candidate use cases the team brings
 

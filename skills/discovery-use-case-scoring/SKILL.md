@@ -27,20 +27,20 @@ license: MIT-0
 
 ## Overview
 
-Scoring decides which problem the rest of the day goes to. The team brings 3 to 5 candidate use cases, or draws them from the signals. Each one goes through a gate, six weighted scores, a confidence rating, and a decision. It scores problems, not features. The skill drafts every score with the evidence behind it; the team reviews every score, overrides any it disagrees with, and owns the ranking.
+Scoring decides which problem the rest of the day goes to. The team brings 3 to 5 candidate use cases, or draws them from the signals, and the skill adds up to three more from the signals. Each one goes through a gate, six weighted scores, a confidence rating, and a decision. It scores problems, not features. The skill drafts every score with the evidence behind it; the team reviews every score, overrides any it disagrees with, and owns the ranking.
 
 ## Workflow
 
 ### Step 1: Candidate use cases
 - **Mode**: `agentic`
 - **Input**: The team's candidates, or `signals/signal-summary.md` and any Signal Briefs; the personas
-- **Output**: 3 to 5 candidates, each written as a problem
+- **Output**: The team's 3 to 5 candidates and up to three From Signals, each written as a problem
 - **Validate**: Every candidate has the five fields below, and no two solve the same problem
 - **On failure**: If the team brings features, ask what problem each one solves and for whom
 
-Each candidate is a problem with five fields: who has it, the problem, the evidence from Signals, the business metric it moves, and the person on the team who would own the build. If the team brought none, draft 3 to 5 from the top signals and ask the team to confirm or edit them. Merge candidates that solve the same problem.
+Each candidate is a problem with five fields: who has it, the problem, the evidence from Signals, the business metric it moves, and the person on the team who would own the build. Keep the name the team gave each of its candidates, such as "Self-service rebooking", next to the problem it is written as, so the team finds its own candidates in every later artifact; give each candidate from Signals a short name of the same kind. If the team brought none, draft 3 to 5 from the top signals and ask the team to confirm or edit them. Merge candidates that solve the same problem.
 
-**Then add candidates from Signals.** When the team brought its own candidates, add two or three drawn from Signals themes that none of them covers, including telemetry-only signals. Write each as a problem with its evidence, and mark it "From Signals". The team keeps or drops each one, which takes about a minute: kept ones take the next number in the Candidates table, go through the gate, and are scored like the rest; dropped ones are recorded with the reason and not scored. If every theme is covered, say so and add none.
+**Then add candidates from Signals.** When the team brought its own candidates, add two or three drawn from Signals themes that none of them covers, including telemetry-only signals. Write each as a problem with its evidence, and mark it "From Signals". The team keeps or drops each one, which takes about a minute: kept ones take the next number in the Candidates table, go through the gate, and are scored like the rest; dropped ones are recorded with the reason and not scored. If every theme is covered, say so and add none. So up to eight candidates can reach the gate; the 3 to 5 is the team's own list, not a limit on what is scored. The gate and the merges usually leave 3 to 5 to score.
 
 ### Step 2: Weights
 - **Mode**: `agentic`
@@ -144,7 +144,7 @@ Once a PRD exists for a selected use case, follow `references/roi-analyzer.md` i
 Weights: pain 25, outcome 25, reach 15, fit 10, feasibility 15, adoption 10 [note any sponsor shift]
 
 ## Candidates
-| # | Use case (problem) | Who | Business metric | Owner | Source (team or From Signals) |
+| # | Name | Use case (problem) | Who | Business metric | Owner | Source (team or From Signals) |
 
 ## From Signals
 | Candidate | Evidence | Kept or dropped | Reason |
@@ -171,7 +171,7 @@ Weights: pain 25, outcome 25, reach 15, fit 10, feasibility 15, adoption 10 [not
 | # | Dimension | Draft | Team | Reason | When |
 
 ## Taken forward
-[Use case], [build first or prototype to learn], by [pod or team]
+#[N] [Name]: [problem], [build first or prototype to learn], by [pod or team]
 ```
 
 ## Lessons Learned

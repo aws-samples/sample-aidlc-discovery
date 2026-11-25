@@ -101,7 +101,7 @@ Follow the structure in this reference: a top bar with Flow, Mobile, and Desktop
 | Flow, Mobile, and Desktop views all work, and open from `#/flow`, `#/mobile`, `#/desktop` | Yes |
 | Every P0 requirement appears on a screen | Yes |
 | Every screen is reachable by clicking, and back works | Yes |
-| The test moment is reachable in two taps from the start | Yes |
+| The test moment is on the core flow, and every screen before it is a step of the main task, with no detour | Yes |
 | Realistic content, no placeholder text | Yes |
 | One accent color, consistent type and spacing | Yes |
 | Contrast and tap-target sizes meet the accessibility rules | Yes |

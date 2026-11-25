@@ -21,7 +21,7 @@ inputs:
     type: string
     default: generate
   - name: count
-    description: "How many personas to generate."
+    description: "How many end-user personas to generate, the satisfied customer included. A buyer persona, when one is needed, comes on top."
     type: number
     default: 3
 tools: [file_rag_search, file_read, run_python, file_write]
@@ -47,12 +47,18 @@ Personas put a face on the signals. In Working Backwards they are generated firs
 
 Follow `references/persona-generation.md`, and pass it the language rules below as `{custom_instructions}`: find behavioral segments in the feedback, write each persona in the format in `references/persona-document.md`, then check each one against the data. Make one of them a customer who is satisfied today, so the team sees what it could break. When the buyer and the end user are different people (for example a travel manager who chooses the airline, and the traveller who uses the app), give each one a persona and say which is which: the buyer judges value and cost; the end user judges whether the workflow works. If they are the same person, say so.
 
+**How many.** `{{count}}` is the number of end-user personas, and the satisfied customer is one of them, so the default of three gives two personas with the problem and one without it. A buyer persona, when the buyer is a different person, comes on top: pass `{{count}}` plus one as `{persona_count}`, and say in one line why there is an extra persona. With fewer distinct segments in the data, write fewer, as On failure says.
+
 **Background, names, and profiles.** Choose each persona's nationality and cultural background before its name and profile:
 
 1. If the data states the segment's country, region, or market (a location field, a stated home country, or the segment of a Signal Brief), use that background, and record `**Background:** [background] (from the data)`.
-2. Otherwise, use the background of the project language, and record `**Background:** [background] (from the project language, **Assumed**)`. Never infer nationality or culture from the language the feedback is written in: it may have been translated.
-3. Choose a name that fits the persona's background, and write it as that name is usually written in the project language.
-4. Keep the profile consistent with the background: location, currency, education, and workplace.
+2. Otherwise, if the data implies a market (the currency, place names, routes, or address and phone formats), choose backgrounds from that market, and record `**Background:** [background] (from the data's market, **Assumed**)`. A market that spans several countries, such as Europe, gives the personas different backgrounds within it.
+3. Otherwise, if the setup or scenario states the company's home market, use it, and record `**Background:** [background] (from the company's home market, **Assumed**)`.
+4. Otherwise, use the background of the project language, and record `**Background:** [background] (from the project language, **Assumed**)`. When the language is spoken in several countries, as English or Spanish is, choose the one nearest the data's region, and vary it across personas.
+
+Never infer nationality or culture from the language the feedback is written in: it may have been translated.
+5. Choose a name that fits the persona's background, and write it as that name is usually written in the project language.
+6. Keep the profile consistent with the background: location, currency, education, and workplace.
 
 **Language of what personas say.** Personas speak the project language, whatever their background: in the critique, and in simulate and panel answers. Every statement that rests on the data carries the customer quote behind it. The statement keeps the original's meaning and strength and adds nothing to it.
 

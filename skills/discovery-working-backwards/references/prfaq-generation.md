@@ -61,10 +61,10 @@ Above the paragraphs: a short, bold **headline**, and a one-sentence **subheadin
 | 7 | **Call to action.** Where to get started, in one or two sentences. |
 
 ### Rules
-- 500 to 700 words from the headline to the end of paragraph 7. Fewer usually means a paragraph is missing; more means FAQ material has crept in.
+- About 500 to 700 words from the headline to the end of paragraph 7. The range is a check, not a target. Fewer usually means a paragraph is missing its job: find it and complete it. More means FAQ material has crept in: move it to the FAQ. Never add or cut words only to reach the range; a release where every paragraph does its job stands at any length.
 - Flowing paragraphs only. Headings inside the press release turn it into a vision document.
 - The customer is the subject: "Chefs can now…", not "[Company] launches a platform that…".
-- Start every paragraph positively, with what the product does. Objections belong in the FAQ.
+- Start every paragraph positively, with what the product does or makes possible, except paragraph 2, whose job is the problem: it opens with the customer's situation today. Objections belong in the FAQ.
 - No superlatives and no "first" or "first-ever" without evidence.
 - Draft lean: three or four sentences a paragraph.
 - **Labels stay out of the way.** A press release reads as journalism, not as a report. Known claims carry no label in it. Label a claim only when it is Assumed or Needs evidence, once, at the end of its sentence. The FAQ carries the labels for every number.
@@ -88,7 +88,7 @@ Evidence (every number and claim must come from here):
 ### Quality checks before moving on
 
 1. Count the paragraphs between the subheading and the FAQ: exactly seven, each doing only its job.
-2. Count the words: 500 to 700.
+2. Count the words. Outside 500 to 700, check paragraph by paragraph, as the rule above says, and record the count.
 3. Can every claim about the problem and its impact point to evidence in the Signal Analysis Report? Label each claim Known, Assumed, or Needs evidence.
 4. Would a real customer in the target segment recognize themselves?
 5. Run `writing-audit.md` on the whole PR/FAQ.

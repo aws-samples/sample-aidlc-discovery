@@ -70,6 +70,16 @@ Choose the path for `{{data_input}}`:
 
 **Telemetry**, with any data input: if the data includes telemetry (a `telemetry/` folder, or RUM, trace, metric, or log exports), also follow `references/telemetry-analysis.md`. It reads the journey map first, measures each journey step and service, and writes the Say and do table. Telemetry is read next to the feedback, never instead of it.
 
+Score each candidate signal from 1 to 10 on three dimensions, then rank by the total, out of 30. Validate's prioritization uses the same bands, so the two phases agree:
+
+| Score | Frequency: share of the records | Severity: what it does to the customer | Reach: segments affected |
+|-------|------|------|------|
+| 1 to 3 | under 5% | a mild inconvenience | one niche segment |
+| 4 to 6 | 5% to 15% | significant frustration | two or three segments |
+| 7 to 10 | over 15% | blocks the task, or loses the customer | every segment |
+
+With Signal Briefs, frequency comes from the briefs' stated volumes (see `references/signal-brief-mode.md`). When two signals have the same total, rank the one with the higher severity first.
+
 Save per-item results only under `discovery/data/`, never under the project folder, and do not save the helper scripts anywhere in the working folder.
 
 ### Step 4: Write the Signal Analysis Report
@@ -129,7 +139,8 @@ Two or three sentences: the problem that matters most and the evidence for it.
 (three to seven signals)
 
 ## Say and do (when the data includes telemetry)
-| Theme | What customers say | What the systems show | Both, Feedback only, or Telemetry only |
+| Theme | What customers say | What the systems show | Reading |
+(Reading: Both, Feedback only, or Telemetry only, as in `references/telemetry-analysis.md`.)
 
 ## What the team expected
 | Team expectation (E1: the team's sentence) | What the data shows | Supported, contradicted, or not settled |

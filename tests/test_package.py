@@ -127,6 +127,109 @@ class ProjectLanguageTests(unittest.TestCase):
         self.assertIn("- **Background:**", persona)
 
 
+class MethodContractTests(unittest.TestCase):
+    """Fixes from the Cowork end-to-end run (2026-11-25): each closes a gap a run had to guess at."""
+
+    def read(self, rel: str) -> str:
+        return (ROOT / rel).read_text(encoding="utf-8")
+
+    def test_unattended_runs_have_a_default_for_every_team_decision(self) -> None:
+        text = self.read("skills/aidlc-discovery/SKILL.md")
+        table = text.split("## Unattended runs", 1)[1].split("\n## ", 1)[0]
+        for decision in ("direction of the metric", "expectations before Signals", "Candidates from Signals",
+                         "re-scoring", "Prototype version handed off", "Commit, pivot, or park", "riskiest assumption is open", "Build route"):
+            with self.subTest(decision=decision):
+                self.assertRegex(table, rf"(?m)^\| [^|]*{re.escape(decision)}[^|]*\| .+ \|$")
+        self.assertIn("take the recommended answer", table)
+        self.assertIn("none given (unattended run)", table)
+        self.assertNotIn("in the team's words", table)
+
+    def test_missing_config_keys_fall_back_to_the_defaults(self) -> None:
+        self.assertIn("a key that `config.md` does not set takes its value from `config.default.md`",
+                      self.read("skills/aidlc-discovery/SKILL.md"))
+
+    def test_scoring_says_how_many_candidates_reach_the_gate(self) -> None:
+        self.assertIn("up to eight candidates can reach the gate", self.read("skills/discovery-use-case-scoring/SKILL.md"))
+
+    def test_brief_tells_greenfield_from_code_not_in_the_folder(self) -> None:
+        section = self.read("skills/discovery-handoff/SKILL.md").split("## 12. Current product", 1)[1].split("## 13.", 1)[0]
+        self.assertIn("Greenfield: there is no product yet.", section)
+        self.assertIn("Existing product: no current-product map", section)
+
+    def test_templates_use_no_arrows(self) -> None:
+        for path in SKILLS.rglob("*.md"):
+            with self.subTest(file=str(path.relative_to(SKILLS))):
+                self.assertNotRegex(path.read_text(encoding="utf-8"), r"[↑↓]")
+
+    def test_persona_count_says_what_it_covers(self) -> None:
+        text = self.read("skills/discovery-personas/SKILL.md")
+        self.assertIn("the satisfied customer is one of them", text)
+        self.assertIn("A buyer persona, when the buyer is a different person, comes on top", text)
+
+    def test_prfaq_word_range_is_a_check_not_a_target(self) -> None:
+        text = self.read("skills/discovery-working-backwards/references/prfaq-generation.md")
+        self.assertIn("The range is a check, not a target.", text)
+        self.assertIn("Never add or cut words only to reach the range", text)
+
+    def test_test_moment_rule_fits_any_flow_length(self) -> None:
+        text = self.read("skills/discovery-prototype/references/html-prototype.md")
+        self.assertNotIn("two taps", text)
+        self.assertIn("every screen before it is a step of the main task", text)
+
+    def test_say_and_do_has_one_column_name(self) -> None:
+        header = r"\| Theme \| What customers say \| What the systems show \| Reading \|"
+        for rel in ("skills/discovery-signals/SKILL.md", "skills/discovery-signals/references/telemetry-analysis.md"):
+            with self.subTest(file=rel):
+                self.assertRegex(self.read(rel), header)
+
+    def test_identifiers_in_quotes_become_bracketed_roles(self) -> None:
+        self.assertIn("the quote still counts as verbatim", self.read("skills/aidlc-discovery/SKILL.md"))
+        self.assertIn("identifiers replaced by a bracketed role",
+                      self.read("skills/discovery-personas/references/persona-document.md"))
+
+    def test_press_release_paragraph_two_may_open_with_the_problem(self) -> None:
+        self.assertIn("except paragraph 2, whose job is the problem",
+                      self.read("skills/discovery-working-backwards/references/prfaq-generation.md"))
+
+    def test_revenue_amounts_not_shares_are_kept_out(self) -> None:
+        for rel in ("skills/aidlc-discovery/SKILL.md", "skills/discovery-handoff/SKILL.md"):
+            with self.subTest(file=rel):
+                self.assertIn('a share that sizes a segment, such as "a third of revenue", is fine', self.read(rel).replace("A share", "a share"))
+
+    def test_signal_scores_use_the_bands_validate_uses(self) -> None:
+        signals = self.read("skills/discovery-signals/SKILL.md")
+        prioritization = self.read("skills/discovery-validate/references/prioritization.md")
+        for signals_band, validate_band in (("under 5%", "< 5%"), ("5% to 15%", "5-15%"), ("over 15%", "> 15%"),
+                                            ("one niche segment", "One niche segment")):
+            with self.subTest(band=signals_band):
+                self.assertIn(signals_band, signals)
+                self.assertIn(validate_band, prioritization)
+
+    def test_persona_background_order(self) -> None:
+        text = self.read("skills/discovery-personas/SKILL.md")
+        order = ["(from the data)", "(from the data's market", "(from the company's home market", "(from the project language"]
+        self.assertEqual(order, sorted(order, key=text.index))
+
+    def test_project_md_has_one_template(self) -> None:
+        text = self.read("skills/aidlc-discovery/SKILL.md")
+        template = text.split("`PROJECT.md`, written at Setup and kept current:", 1)[1].split("```", 2)[1]
+        for part in ("Project language: [language]", "| Field | Value | Status |", "| Direction |",
+                     "## Phase status", "## Open items", "## Unattended choices", "| Decision | Choice | Source |"):
+            with self.subTest(part=part):
+                self.assertIn(part, template)
+
+    def test_candidates_keep_the_teams_name(self) -> None:
+        text = self.read("skills/discovery-use-case-scoring/SKILL.md")
+        self.assertIn("| # | Name | Use case (problem) |", text)
+        self.assertIn("#[N] [Name]: [problem]", text)
+
+    def test_samples_state_the_direction_of_the_metric(self) -> None:
+        for rel in ("samples/anycompany-air/README.md", "samples/anycompany-health/README.md"):
+            metric = self.read(rel).split("## The business metric", 1)[1].split("\n## ", 1)[0]
+            with self.subTest(sample=rel):
+                self.assertRegex(metric, r"(Higher|Lower) is better\.")
+
+
 if __name__ == "__main__":
     unittest.main()
 

@@ -50,7 +50,7 @@ default_days: 30
 # Maximum feedback items to include in LLM context
 max_context_items: 50
 
-# Default number of personas to generate
+# Default number of end-user personas, the satisfied customer included (a buyer persona comes on top)
 default_persona_count: 3
 
 # Default categories (comma-separated, or "auto" for AI detection)
