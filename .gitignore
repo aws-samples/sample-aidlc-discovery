@@ -9,3 +9,7 @@ dist/
 
 # Playwright MCP session files
 .playwright-mcp/
+
+# Local Claude Code settings and hooks
+.claude/settings.local.json
+.claude/hooks/

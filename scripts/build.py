@@ -148,7 +148,7 @@ def dev_stamp(version: str) -> str:
     sha = git("rev-parse", "--short", "HEAD")
     if not sha:
         return ""
-    dirty = bool(git("status", "--porcelain", "--", ".", ":!dist", ":!.e2e"))
+    dirty = bool(git("status", "--porcelain", "--", ".", ":!dist", ":!.e2e", ":!.claude"))
     if not dirty and git("tag", "--points-at", "HEAD") and f"v{version}" in git("tag", "--points-at", "HEAD").split():
         return ""
     return f"Development build {sha}{' with local changes' if dirty else ''} of {version}."
