@@ -8,6 +8,36 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- **Cowork build.** `python3 scripts/build.py --target cowork` builds the same skills for Claude Cowork as one `.skill` file: Cowork tool names, `${CLAUDE_SKILL_DIR}` paths, and a "Running in Cowork" section. The team Space module is left out. The AWS Quick build is unchanged.
+- **Journey app** (`cowork/journey.py`): one Cowork artifact per project with the five phases, every artifact rendered, the prototype versions clickable in place, the decision and its conditions, and the evidence labels counted. The skill regenerates it at the end of every phase.
+- In Cowork, every prototype version is also published as its own artifact, and each round of questions also appears as question cards.
+- `tests/e2e/check_workspace.py` grades a working folder from any harness, with `--cowork` for the journey app checks; `tests/test_cowork.py` covers the Cowork build and the renderer.
+
+### Fixed
+
+Gaps that the first Cowork end-to-end run had to guess at, in both builds:
+
+- **Unattended defaults.** The entry skill now has a default for every decision the team would make (the metric's direction, the team's expectations, candidates from Signals, overrides and re-scoring, the prototype version, commit, pivot, or park, building or testing first, the build route), and takes the round's recommended answer for anything else.
+- **Config.** A key that `config.md` does not set takes its value from `config.default.md`.
+- **Scoring.** The 3 to 5 is the team's own list; with the candidates from Signals, up to eight reach the gate.
+- **Brief section 12** tells a product with no code in the working folder apart from a greenfield one.
+- **Prioritization** writes the trend in words, as the plain-writing rules ask, not with arrows.
+- **Samples** state which direction of the business metric is good.
+- **Personas.** The count is the number of end-user personas, the satisfied customer included; a buyer persona, when the buyer is a different person, comes on top.
+- **PR/FAQ.** The 500 to 700 words are a check, not a target: a short release means a paragraph is missing its job, and words are never added only to reach the range.
+- **Prototype.** The test moment must sit on the core flow with no detour before it, instead of "two taps from the start", which a longer flow cannot meet.
+- **Say and do.** The Signals template and the telemetry reference use the same column name, Reading.
+- **Unattended runs** record "none given (unattended run)" where a step asks for the team's own input and has no recommendation, instead of writing a view as the team's.
+- **Quotes.** An identifier inside a quote is replaced with a bracketed role, such as `[corporate account]`, and the quote still counts as verbatim.
+- **Press release.** Paragraph 2 opens with the customer's situation today; only the other paragraphs open with what the product does.
+- **Revenue.** Revenue amounts stay out of the repository; a share that sizes a segment, such as "a third of revenue", is fine.
+- **Signal scores** have their 1 to 10 bands in Signals itself, the same bands Validate's prioritization uses, with ties ranked by severity.
+- **Persona backgrounds** come from the data, then the market the data implies, then the company's home market, and only then the project language.
+- **Scoring** keeps the team's name for each of its candidates next to the problem it is written as, in the Candidates table and the Taken forward line.
+- **`PROJECT.md`** has one template in the entry skill, which the team Space rows and the Cowork journey app both read.
+
 ---
 
 ## [3.0.0] — 2026-11-11
