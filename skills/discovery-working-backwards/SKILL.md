@@ -47,7 +47,7 @@ If the mode is not given, ask the team first, as one question in the round forma
 
 Follow `references/wb-document.md`: Listen, Define, Invent, Refine, Test. Ask one Working Backwards question per round: its parts are the round's questions, each with a recommended answer drafted from the signals and personas, so the team can accept with "yes" and correct the rest. Summarize each answer in at most three lines before the next round. Look up any fact the round needs in the data yourself (for example, which field values fail) instead of asking the team. The answers are the team's. In Listen and Define, apply `references/framing-rules.md`: name the end customer, write root causes as causes, split the impact, and write the Today statement, How Might We, and North Star.
 
-In `draft` mode, answer the five questions yourself from the morning's artifacts, write the PR/FAQ (Step 3), and mark the document as a straw-man. When the team returns, go through each answer with it before Step 4.
+In `draft` mode, answer the five questions yourself from the earlier artifacts, draft the feature description with its recommended idea or combination (Step 2), write the PR/FAQ (Step 3), and mark the documents as straw-men. When the team returns, go through each answer with it before Step 4.
 
 ### Step 2: Feature description
 - **Mode**: `agentic`
@@ -87,7 +87,7 @@ Follow `references/readiness-check.md`.
 - **Validate**: P0, P1, and P2 requirements; P0 is small enough to prototype in an hour; when the feature uses AI, the AI feature checklist and the AI feature block are filled in
 - **On failure**: If P0 is too big, ask the team what to move to P1
 
-Follow `references/prd-generation.md`, then run `references/writing-audit.md` on it. When the feature uses AI (a model generates, ranks, summarizes, or decides something the customer sees), add the **AI feature block** with `references/ai-feature-block.md`: a first-draft prompt, 5 to 10 evaluation cases from the Signals quotes and the personas, and sample outputs for the prototype. About 10 minutes with the team. If it is unclear whether the feature uses AI, ask.
+Follow `references/prd-generation.md`, then run `references/writing-audit.md` on it. When the feature uses AI (a model generates, ranks, summarizes, or decides something the customer sees), add the **AI feature block** with `references/ai-feature-block.md`: a first-draft prompt, 5 to 10 evaluation cases from the Signals quotes and the personas, and sample outputs for the prototype. If it is unclear whether the feature uses AI, ask.
 
 ### Step 6: Riskiest assumption
 - **Mode**: `agentic`

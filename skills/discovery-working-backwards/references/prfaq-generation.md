@@ -52,10 +52,10 @@ Above the paragraphs: a short, bold **headline**, and a one-sentence **subheadin
 
 | Para | Its only job |
 |------|--------------|
-| 1 | **Summary.** Location, a future date, what launched, for whom, and the one thing to know. Assume the reader stops here. |
+| 1 | **Summary.** The location (the company's home city, when the team or the scenario gives it; otherwise begin with the date), a future date, what launched, for whom, and the one thing to know. Assume the reader stops here. |
 | 2 | **Problem.** The customer's situation today, the friction, and what it costs them. No solution and no product name. |
 | 3 | **Solution.** How the product helps, at a high level, in plain language. No step-by-step experience. |
-| 4 | **Leader quote** from the company launching the product: why it matters, in two or three short, confident sentences. Format: "Quote," says [Name], [Title]. |
+| 4 | **Leader quote** from the company launching the product: why it matters, in two or three short, confident sentences. Format: "Quote," says [Name], [Title]. Without a name from the team, use the title alone: "says the head of digital at [company]". |
 | 5 | **Customer experience.** One journey from trigger to outcome, step by step, for each persona that matters. No architecture. |
 | 6 | **Customer testimonial.** Two or three sentences in the persona's own voice: a feeling or a concrete benefit, as they would tell a colleague. Avoid the "I used to, now I" pattern. Use the persona's name as in its file. Mark it as synthetic. |
 | 7 | **Call to action.** Where to get started, in one or two sentences. |
@@ -63,6 +63,7 @@ Above the paragraphs: a short, bold **headline**, and a one-sentence **subheadin
 ### Rules
 - About 500 to 700 words from the headline to the end of paragraph 7. The range is a check, not a target. Fewer usually means a paragraph is missing its job: find it and complete it. More means FAQ material has crept in: move it to the FAQ. Never add or cut words only to reach the range; a release where every paragraph does its job stands at any length.
 - Flowing paragraphs only. Headings inside the press release turn it into a vision document.
+- No placeholders such as `[City]` or `[Name]` in the finished release. Write around a fact the team has not given, as paragraphs 1 and 4 say, and add it to the open items in `PROJECT.md`, so the team can fill it in.
 - The customer is the subject: "Chefs can now…", not "[Company] launches a platform that…".
 - Start every paragraph positively, with what the product does or makes possible, except paragraph 2, whose job is the problem: it opens with the customer's situation today. Objections belong in the FAQ.
 - No superlatives and no "first" or "first-ever" without evidence.

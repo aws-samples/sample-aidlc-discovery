@@ -52,7 +52,7 @@ Read `config.md` in the working folder if it exists, and `config.default.md` in 
 
 **Where Discovery is saved.** In the working folder, or, in AWS Quick, in a Space, so the work stays in AWS Quick and the people it is shared with can follow and take over from their own AWS Quick. Use a Space when `storage` in the config is `space`, when the team asks for one (for example "save Discovery in our team Space"), or when a Space is attached to this chat and `storage` is empty: then ask once, "Save Discovery in the [space] Space, or in this folder?" The data stays where it is either way. In unattended runs, never ask: an empty `storage` means the working folder. With a Space, use **discovery-team-space** for the setup and follow it for every read and write from then on. Without one, nothing changes.
 
-Tell the team the five phases, roughly how long each takes, and that it will be asked to review at every checkpoint. If the user asks to jump to a phase, check that phase's inputs exist first (see the table in Output).
+Tell the team the five phases, and that it will be asked to review at every checkpoint. If the user asks to jump to a phase, check that phase's inputs exist first (see the table in Output).
 
 ### Step 2: Signals
 - **Mode**: `agentic`
@@ -206,7 +206,7 @@ When `config.md` sets `unattended: true`, run every phase without stopping: use 
 | Commit while the riskiest assumption is open | Test first, with the conditions before the build |
 | Build route | AI-DLC |
 
-For any other decision the team would make, take the recommended answer of that round, and record it like the rest. Where a step asks for the team's own input and offers no recommendation (reactions to a click-through, the team's own pre-mortem reasons, a fact only the team knows, such as a city or a name), record "none given (unattended run)" and carry the gap as an open item; never write a view and present it as the team's.
+For any other decision the team would make, take the recommended answer of that round, and record it like the rest. Where a step asks for the team's own input and offers no recommendation (reactions to a click-through, the team's own pre-mortem reasons, a fact only the team knows, such as a city or a name), record "none given (unattended run)" and carry the gap as an open item; never write a view and present it as the team's. In an artifact's text, write around a missing fact instead of leaving a placeholder: a role instead of a name, the date without a city.
 
 ## Output
 
@@ -280,7 +280,7 @@ A value the team has not confirmed yet has the status Assumed or Open. Other ski
 
 ### Common Failures
 - **A job's instructions are missing.** Say which skill or module is missing and that the package needs reinstalling; do not improvise its job.
-- **The team wants to skip Validate.** Explain that the brief needs the decision and the success criteria; offer the 20-minute version: the four risks and the decision, using the persona critique from Prototype.
+- **The team wants to skip Validate.** Explain that the brief needs the decision and the success criteria; offer the short version: the four risks and the decision, using the persona critique from Prototype.
 - **Time runs out.** Write the brief with what exists, marking unfinished parts as open hypotheses, only if every required artifact exists; otherwise list what is missing.
 
 ### When to Ask the User

@@ -27,7 +27,7 @@ license: MIT-0
 
 ## Overview
 
-The GTM section answers: if we build it, who uses it first, how do we describe it, and how will we know it worked? Every Discovery brief has one. Working Backwards drafts it in about 10 minutes, from the press release and the signals. Validate completes it in about 10 more: the viability check and the adoption and success table, with targets the follow-ups check. Parts marked required are finished on the day; the rest are hypotheses with an owner and a date.
+The GTM section answers: if we build it, who uses it first, how do we describe it, and how will we know it worked? Every Discovery brief has one. Working Backwards drafts it, briefly, from the press release and the signals. Validate completes it: the viability check and the adoption and success table, with targets the follow-ups check. Parts marked required are finished on the day; the rest are hypotheses with an owner and a date.
 
 ## Workflow
 
@@ -95,7 +95,7 @@ Then update the status line of **all seven parts**, including parts 1, 2, 3, and
 - Put the adoption owner on the product engineering team.
 
 ### Don't
-- Spend more than 10 minutes on the draft; it is completed in Validate.
+- Polish the draft; it is completed in Validate.
 - Write pricing as a decision; it is a hypothesis with an owner.
 - Leave "do nothing" out of the alternatives.
 

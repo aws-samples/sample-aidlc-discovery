@@ -223,6 +223,29 @@ class MethodContractTests(unittest.TestCase):
         self.assertIn("| # | Name | Use case (problem) |", text)
         self.assertIn("#[N] [Name]: [problem]", text)
 
+    def test_no_time_estimates_for_phases_or_steps(self) -> None:
+        allowed = ("under five minutes", "prototype in an hour", "is a symptom")  # a limit, a size check, an example
+        for path in SKILLS.rglob("*.md"):
+            text = path.read_text(encoding="utf-8")
+            for match in re.finditer(r"[^.|]*\b(\d+|five|ten)[- ](minutes?|hours?)\b[^.|]*", text, re.I):
+                with self.subTest(file=str(path.relative_to(SKILLS)), text=match.group(0).strip()[:80]):
+                    self.assertTrue(any(a in match.group(0) for a in allowed))
+        self.assertNotIn("how long each takes", self.read("skills/aidlc-discovery/SKILL.md"))
+
+    def test_finished_press_release_has_no_placeholders(self) -> None:
+        text = self.read("skills/discovery-working-backwards/references/prfaq-generation.md")
+        self.assertIn("No placeholders such as `[City]` or `[Name]` in the finished release", text)
+        self.assertIn("use the title alone", text)
+        self.assertIn("write around a missing fact", self.read("skills/aidlc-discovery/SKILL.md"))
+
+    def test_steps_read_only_what_exists_by_then(self) -> None:
+        readiness = self.read("skills/discovery-working-backwards/references/readiness-check.md")
+        self.assertNotIn("the PRD so far", readiness)
+        self.assertIn("before the PRD", readiness)
+        self.assertIn("draft the feature description", self.read("skills/discovery-working-backwards/SKILL.md"))
+        proto = self.read("skills/discovery-prototype/SKILL.md")
+        self.assertLess(proto.index("Write the first entry in `prototype/versions.md`"), proto.index("Then open it on the **Flow** view"))
+
     def test_samples_state_the_direction_of_the_metric(self) -> None:
         for rel in ("samples/anycompany-air/README.md", "samples/anycompany-health/README.md"):
             metric = self.read(rel).split("## The business metric", 1)[1].split("\n## ", 1)[0]

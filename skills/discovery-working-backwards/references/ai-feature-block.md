@@ -1,6 +1,6 @@
 # AI feature block
 
-Only for a feature that uses AI: one where a model generates, ranks, summarizes, or decides something the customer sees. About 10 minutes with the team. It goes at the end of the PRD, after the AI feature checklist.
+Only for a feature that uses AI: one where a model generates, ranks, summarizes, or decides something the customer sees. It goes at the end of the PRD, after the AI feature checklist.
 
 The block is a starting point for the build, not a specification. The model, the data and retrieval design, and the final prompt are chosen in the build. What Discovery adds is a first answer to "what should it say, and how would we know it is good?", drawn from the customers' own words, early enough to test it in the prototype.
 

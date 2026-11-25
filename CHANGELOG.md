@@ -36,6 +36,9 @@ Gaps that the first Cowork end-to-end run had to guess at, in both builds:
 - **Signal scores** have their 1 to 10 bands in Signals itself, the same bands Validate's prioritization uses, with ties ranked by severity.
 - **Persona backgrounds** come from the data, then the market the data implies, then the company's home market, and only then the project language.
 - **Scoring** keeps the team's name for each of its candidates next to the problem it is written as, in the Candidates table and the Taken forward line.
+- **No time estimates.** The phase and step durations are removed: they were guesses. The survey's length limit and the P0 size check stay.
+- **No placeholders** such as `[City]` or `[Name]` in a finished artifact: the press release uses the title alone, or the date without a city, and the gap goes to the open items.
+- **Step order.** The readiness check drafts from what exists before the PRD; `draft` mode includes the feature description; Prototype logs a version before it opens it.
 - **`PROJECT.md`** has one template in the entry skill, which the team Space rows and the Cowork journey app both read.
 
 ---
