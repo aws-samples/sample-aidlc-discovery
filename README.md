@@ -145,6 +145,8 @@ The skill asks once, optionally, for the team's expectations before it shows any
 
 ## Use your own data
 
+**Start with the team page.** A real team has no scenario page, so give it [`skills/aidlc-discovery/templates/team-page.md`](skills/aidlc-discovery/templates/team-page.md) (in Japanese, [`facilitator/ja/team-page.md`](facilitator/ja/team-page.md)) a week before the workshop: one page with the product, the team and what each role believes, the business metric with its direction and baseline, 3 to 5 candidate use cases, the data, and what cannot change. Save the filled-in page as `discovery/team-page.md` in the working folder, and setup drafts everything from it in one confirmation. The assistant can also save a blank copy for you: ask for the team page.
+
 Choose how the data comes in at setup:
 
 - **Production data** (the default). Feedback the team can load into its own AWS Quick or Cowork: exports in `discovery/data/` in the working folder, or, in AWS Quick, a Space with connectors to the team's sources. JSON, CSV, Excel, PDF, DOCX, and plain text work.

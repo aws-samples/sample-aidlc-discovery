@@ -246,6 +246,18 @@ class MethodContractTests(unittest.TestCase):
         proto = self.read("skills/discovery-prototype/SKILL.md")
         self.assertLess(proto.index("Write the first entry in `prototype/versions.md`"), proto.index("Then open it on the **Flow** view"))
 
+    def test_team_page_matches_what_setup_needs(self) -> None:
+        page = self.read("skills/aidlc-discovery/templates/team-page.md")
+        for section in ("## The product", "## The team", "## The business metric", "## Candidate use cases", "## The data"):
+            self.assertIn(section, page)
+        self.assertIn("Which direction is good", page)  # setup never assumes the direction
+        self.assertIn("discovery/team-page.md", page)
+        entry = self.read("skills/aidlc-discovery/SKILL.md")
+        self.assertIn("discovery/team-page.md", entry)
+        self.assertIn("templates/team-page.md", entry)
+        ja = self.read("facilitator/ja/team-page.md")
+        self.assertEqual(page.count("\n## "), ja.count("\n## "))  # the translation keeps every section
+
     def test_samples_state_the_direction_of_the_metric(self) -> None:
         for rel in ("samples/anycompany-air/README.md", "samples/anycompany-health/README.md"):
             metric = self.read(rel).split("## The business metric", 1)[1].split("\n## ", 1)[0]

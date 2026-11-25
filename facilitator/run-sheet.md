@@ -12,7 +12,7 @@ One day, one product engineering team, five phases. Keep this page open beside y
 
 **Rehearse once.** Run a sample end to end (see `dry-run-air.md`). New facilitators can also take the half-day session in `train-the-trainer.md`. You will meet every checkpoint before the team does.
 
-**Agree with the team:**
+**Agree with the team,** ideally on the team page: send `skills/aidlc-discovery/templates/team-page.md` (in Japanese, `facilitator/ja/team-page.md`) a week ahead, and save the filled-in page as `discovery/team-page.md` in the working folder. Setup then drafts everything from it.
 - **Who is in the room.** The product owner and engineering lead who own the build. Add design, data, support, or sales as needed. 4 to 6 people. With several teams, give each table its own laptop, its own project, and its own data.
 - **The data input.** Production data in their own AWS Quick or Cowork (the default), Signal Briefs when data cannot be loaded into a tool, or a synthetic dataset prepared before the day. Never let the assistant invent data on the day.
 - **Telemetry, if the team has it.** Daily aggregates per journey step from their monitoring (CloudWatch, Datadog, or OpenTelemetry exports in S3): sessions per step from real user monitoring, requests, errors, and latency per service, and the top error codes, with a short map from each step to its screen and backend route. Never raw logs or traces: they are too large and carry personal data. Telemetry is read next to the feedback, never instead of it.
