@@ -76,6 +76,11 @@ class CoworkBuildTests(unittest.TestCase):
                     self.assertLessEqual(len(description), 1024)
         self.assertNotIn("Development build", self.frontmatter)  # no stamp unless the CLI adds one
 
+    def test_artifact_ids_are_unique_per_run(self) -> None:
+        self.assertNotIn("says the id exists, update it instead", self.text)
+        self.assertIn("Cowork artifacts: [journey id], [prototype id]", self.text)
+        self.assertNotRegex(self.text, r"with id `discovery-\{\{project\}\}(-prototype)?`")
+
     def test_every_rewrite_applies(self) -> None:
         for rel, old, new in build.COWORK_REWRITES:
             with self.subTest(file=rel, text=old[:50]):

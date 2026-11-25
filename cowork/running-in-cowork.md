@@ -15,12 +15,18 @@ This build of the skill runs in Claude Cowork. The modules are written for sever
 **The journey app** (see `references/journey-app.md`) works the same way here, with three differences:
 
 1. Never copy the shell by hand. Set `SHELL` in the update to `${CLAUDE_SKILL_DIR}/references/journey-shell.md`, with the shell path, and the update writes `journey.html` from it when the file is missing or changed. `PROJECT` is the project folder, also with the shell path.
-2. Publish it as an artifact. After the first update, call `create_artifact` with id `discovery-{{project}}`, `html_path` set to the file tool path of `journey.html`, and a one-line description. After every later update, call `update_artifact` with the same id and a one-line `update_summary`, such as "Signals, step 3: the team checks the top signals". If `create_artifact` says the id exists, update it instead.
+2. Publish it as an artifact, with the ids in "Artifact ids" below. After the first update, call `create_artifact` with the journey id, `html_path` set to the file tool path of `journey.html`, and a one-line description. After every later update, call `update_artifact` with the same id and a one-line `update_summary`, such as "Signals, step 3: the team checks the top signals".
 3. Before an update at the end of a phase, keep `PROJECT.md`'s `## Phase status` current, in the format in Output: the progress board's table with its Key artifact column, and the three lists. The app reads them from there; the chat alone does not reach it.
+
+**Artifact ids.** Cowork keeps artifacts across tasks and folders, so a plain `discovery-{{project}}` may already belong to an earlier run. Each project gets its own ids, made once and kept in `PROJECT.md`:
+
+- The first time you publish for a project, take the date and time now and make the ids `discovery-{{project}}-[YYYYMMDD-HHMM]` for the journey and the same with `-prototype` for the prototype. Write them in `PROJECT.md` on one line after `Project language:`: `Cowork artifacts: [journey id], [prototype id]`.
+- When Discovery continues, in this task or a new one, read the ids from that line and use `update_artifact`. Create one only when the line names no id for it yet.
+- If `create_artifact` says an id exists, it belongs to another run: never update it. Add `-2` (or the next free number) to the id, create it, and record the new id in `PROJECT.md`.
 
 `screenshot_artifact` shows only the artifact open in the side panel; a failed screenshot of another one is not an error, so do not retry it.
 
-**The prototype artifact.** Publish every new prototype version on its own as well, so the team can open it at full size: `create_artifact` for the first version, then `update_artifact`, with id `discovery-{{project}}-prototype` and `html_path` set to the new `prototype/v[N].html`. The shell works in the artifact view as it is: never edit it to make it fit. Then show the same file with `present_files`, so it also opens in the file preview, and update the journey app.
+**The prototype artifact.** Publish every new prototype version on its own as well, so the team can open it at full size: `create_artifact` for the first version, then `update_artifact`, with the prototype id (see "Artifact ids") and `html_path` set to the new `prototype/v[N].html`. The shell works in the artifact view as it is: never edit it to make it fit. Then show the same file with `present_files`, so it also opens in the file preview, and update the journey app.
 
 **Other HTML files** (`compare.html`, a survey or its dashboard): show them with `present_files`. Publish one as an artifact only when the team asks; an artifact can load no external scripts except the few that `create_artifact` lists.
 
