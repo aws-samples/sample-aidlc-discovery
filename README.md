@@ -69,9 +69,9 @@ Follow these when a user asks you to install AI-DLC Discovery from this reposito
 
 1. **Work out which tool you run in.** AWS Quick Desktop or Claude Cowork. If you cannot tell, ask the user once.
 2. **Get the package from the latest release**, https://github.com/aws-samples/sample-aidlc-discovery/releases/latest. The API lists its files: `https://api.github.com/repos/aws-samples/sample-aidlc-discovery/releases/latest`, each with a `browser_download_url`.
-   - AWS Quick: `aidlc-discovery-vX.Y.Z.zip`. Unzip it into a folder the user names, or their Downloads folder. It holds one folder, `aidlc-discovery`.
-   - Cowork: `aidlc-discovery-vX.Y.Z.skill`. Save it in the connected folder.
-   - If you cannot download files, give the user the release link and the file name, and continue from step 3 once they have it. If you can run a shell with git and Python 3.9 or later, you can also build it: clone the repository and run `python3 scripts/build.py` (AWS Quick, writes `dist/aidlc-discovery/`) or `python3 scripts/build.py --target cowork` (Cowork, writes `dist/cowork/aidlc-discovery-vX.Y.Z.skill`).
+   - AWS Quick: `aidlc-discovery-quick-vX.Y.Z.zip`. Unzip it into a folder the user names, or their Downloads folder. It holds one folder, `aidlc-discovery`.
+   - Cowork: `aidlc-discovery-cowork-vX.Y.Z.skill`. Save it in the connected folder.
+   - If you cannot download files, give the user the release link and the file name, and continue from step 3 once they have it. If you can run a shell with git and Python 3.9 or later, you can also build it: clone the repository and run `python3 scripts/build.py` (AWS Quick, writes `dist/quick/aidlc-discovery/`) or `python3 scripts/build.py --target cowork` (Cowork, writes `dist/cowork/aidlc-discovery-cowork-vX.Y.Z.skill`).
 3. **Hand over the last step.** You cannot install it yourself; say so in one line.
    - AWS Quick: tell the user to open **Customize**, then **Skills**, choose **Create**, then **From folder**, and select the `aidlc-discovery` folder. Never copy the skill into the AWS Quick profile folder: AWS Quick does not pick that up.
    - Cowork: present the `.skill` file in the chat and tell the user to choose **Save skill**.
@@ -80,14 +80,14 @@ Follow these when a user asks you to install AI-DLC Discovery from this reposito
 
 ## Install in AWS Quick
 
-1. Get the package. Either download `aidlc-discovery-vX.Y.Z.zip` from the [latest release](https://github.com/aws-samples/sample-aidlc-discovery/releases/latest) and unzip it, which gives you an `aidlc-discovery` folder, or clone this repository and build it (Python 3.9 or later, no dependencies):
+1. Get the package. Either download `aidlc-discovery-quick-vX.Y.Z.zip` from the [latest release](https://github.com/aws-samples/sample-aidlc-discovery/releases/latest) and unzip it, which gives you an `aidlc-discovery` folder, or clone this repository and build it (Python 3.9 or later, no dependencies):
 
    ```bash
    python3 scripts/build.py
    ```
 
-   This writes `dist/aidlc-discovery/`, the plugin manifest and one skill, `aidlc-discovery`, with its modules, and the same folder zipped as `dist/aidlc-discovery-vX.Y.Z.zip`.
-2. In AWS Quick Desktop, open **Customize**, then **Skills**, choose **Create**, then **From folder**. Select the unzipped `aidlc-discovery` folder, or `dist/aidlc-discovery` if you built it.
+   This writes `dist/quick/aidlc-discovery/`, the plugin manifest and one skill, `aidlc-discovery`, with its modules, and the same folder zipped as `dist/quick/aidlc-discovery-quick-vX.Y.Z.zip`.
+2. In AWS Quick Desktop, open **Customize**, then **Skills**, choose **Create**, then **From folder**. Select the unzipped `aidlc-discovery` folder, or `dist/quick/aidlc-discovery` if you built it.
 3. In a new chat, ask `List my skills`. You should see one skill, **AI-DLC Discovery**.
 
 **How AWS Quick stores the skill.** Importing from a folder uploads a snapshot of the skill to AWS Quick's own storage. AWS Quick reads that snapshot, not the folder on your computer, so you can move or delete the folder after importing, and changing files in it has no effect until you import again.
@@ -113,7 +113,7 @@ To install:
    python3 scripts/build.py --target cowork
    ```
 
-   This writes the skill folder `dist/cowork/aidlc-discovery/` and the same folder packaged as `dist/cowork/aidlc-discovery-vX.Y.Z.skill`.
+   This writes the skill folder `dist/cowork/aidlc-discovery/` and the same folder packaged as `dist/cowork/aidlc-discovery-cowork-vX.Y.Z.skill`.
 2. In Cowork, open the `.skill` file in a chat (or ask Claude to present it) and choose **Save skill**.
 3. Connect the folder of a sample, for example `samples/anycompany-air`, start a new task, and use the prompt on the sample's page.
 
@@ -208,7 +208,7 @@ The command is `/aidlc [scope] [intent description]`. `workshop` is one scope: u
 ```text
 plugin.json, mcps.json, tasks.json   plugin manifest for AWS Quick Desktop
 skills/                              the eleven skills, one folder each (the source)
-scripts/build.py                     bundles skills/ into one installable skill in dist/ (AWS Quick or, with --target cowork, Cowork)
+scripts/build.py                     bundles skills/ into one installable skill in dist/quick/ (AWS Quick) or dist/cowork/ (Cowork)
 cowork/                              Cowork only: the "Running in Cowork" section
 scripts/bump_version.py              works out the release version from the latest tag, at release time
 samples/                             two runnable business cases, and how they are built

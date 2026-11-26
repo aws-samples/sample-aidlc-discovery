@@ -15,7 +15,7 @@ The guide uses AnyCompany Air, the default sample.
 - Read `anycompany-air.md`, the answer key. Do not share it until the reveal.
 
 **Packs.** Trainees do not build the skill. Make two zips (the trainer runs `python3 scripts/build.py` first):
-- **Trainee pack:** `dist/aidlc-discovery` (the built plugin) for AWS Quick, or `dist/cowork/aidlc-discovery-vX.Y.Z.skill` (built with `--target cowork`) for Cowork, `samples/anycompany-air/`, `role-cards.html`, and a START-HERE note.
+- **Trainee pack:** `dist/quick/aidlc-discovery` (the built plugin) for AWS Quick, or `dist/cowork/aidlc-discovery-cowork-vX.Y.Z.skill` (built with `--target cowork`) for Cowork, `samples/anycompany-air/`, `role-cards.html`, and a START-HERE note.
 - **Facilitator pack:** the same, plus `facilitator/dry-run-air.md` and `facilitator/run-sheet.md`. Only the named facilitators get it: the dry run gives answers away.
 
 Share the packs privately, not in a public place. `train-the-trainer-chat.md` has the pre-work message and every message to post during the 2-hour session.

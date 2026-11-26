@@ -102,5 +102,5 @@ jobs:
           prerelease: false
           make_latest: true
           files: |
-            dist/aidlc-discovery-v*.zip
-            dist/cowork/aidlc-discovery-v*.skill
+            dist/quick/aidlc-discovery-quick-v*.zip
+            dist/cowork/aidlc-discovery-cowork-v*.skill

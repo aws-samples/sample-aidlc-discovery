@@ -112,7 +112,7 @@ class CoworkBuildTests(unittest.TestCase):
                                     capture_output=True, text=True, check=False)
             self.assertEqual(0, result.returncode, result.stderr)
             self.assertTrue((out / "SKILL.md").is_file())
-            self.assertTrue(list(Path(tmp).glob("aidlc-discovery-v*.skill")))
+            self.assertTrue(list(Path(tmp).glob("aidlc-discovery-cowork-v*.skill")))
 
 
 

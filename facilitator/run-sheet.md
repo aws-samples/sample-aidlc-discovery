@@ -5,8 +5,8 @@ One day, one product engineering team, five phases. Keep this page open beside y
 ## Before the day
 
 **Install, a day ahead.**
-- In AWS Quick Desktop: **Customize**, **Skills**, **Create**, **From folder**, then pick `dist/aidlc-discovery` (built with `python3 scripts/build.py`). Import stores a snapshot. Editing the folder afterwards changes nothing. To update: remove the plugin, import again, start a new chat.
-- In Claude Cowork: build with `python3 scripts/build.py --target cowork`, open `dist/cowork/aidlc-discovery-vX.Y.Z.skill` in a chat, and choose **Save skill**. To update: build again, save the new `.skill` over the old one, start a new task.
+- In AWS Quick Desktop: **Customize**, **Skills**, **Create**, **From folder**, then pick `dist/quick/aidlc-discovery` (built with `python3 scripts/build.py`). Import stores a snapshot. Editing the folder afterwards changes nothing. To update: remove the plugin, import again, start a new chat.
+- In Claude Cowork: build with `python3 scripts/build.py --target cowork`, open `dist/cowork/aidlc-discovery-cowork-vX.Y.Z.skill` in a chat, and choose **Save skill**. To update: build again, save the new `.skill` over the old one, start a new task.
 - Check the install in a new chat: `List my skills` shows one skill, AI-DLC Discovery.
 - Run the 30-second module check: "Use the aidlc-discovery skill. Load modules/discovery-signals.md with file_read and tell me what Step 1 says." In Cowork, say `Read` instead of `file_read`. It must answer: the team's expectations, optional, asked once before any analysis. If it cannot find the file, reinstall.
 

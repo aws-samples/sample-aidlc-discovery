@@ -17,7 +17,7 @@
 - 解答集の `anycompany-air.md` を読む。種明かしまでは誰にも見せない。
 
 **パック。** 受講者はスキルをビルドしません。zip ファイルを 2 つ作ります（先にトレーナーが `python3 scripts/build.py` を実行します）。
-- **受講者パック:** AWS Quick 用には `dist/aidlc-discovery`（ビルドしたプラグイン）、Cowork 用には `dist/cowork/aidlc-discovery-vX.Y.Z.skill`（`--target cowork` でビルドしたもの）、`samples/anycompany-air/`、`role-cards.html`、START-HERE（はじめにお読みください）メモ。
+- **受講者パック:** AWS Quick 用には `dist/quick/aidlc-discovery`（ビルドしたプラグイン）、Cowork 用には `dist/cowork/aidlc-discovery-cowork-vX.Y.Z.skill`（`--target cowork` でビルドしたもの）、`samples/anycompany-air/`、`role-cards.html`、START-HERE（はじめにお読みください）メモ。
 - **ファシリテーターパック:** 受講者パックと同じものに、`facilitator/dry-run-air.md` と `facilitator/run-sheet.md` を加えたものです。ドライランには答えが載っているので、指名したファシリテーターにだけ渡します。
 
 訳注: パックの中身は原文のとおり英語のファイルです。日本語版のファシリテーターガイドは `facilitator/ja/` にあります。

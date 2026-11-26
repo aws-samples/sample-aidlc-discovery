@@ -4,7 +4,7 @@ The repository keeps one folder per skill, so each job is easy to edit and test.
 Installed, they become a single skill, `aidlc-discovery`: the entry skill's
 SKILL.md plus a module per job under modules/, loaded only when its step runs.
 
-Usage: python3 scripts/build.py [output_dir]                  AWS Quick (default: dist/aidlc-discovery)
+Usage: python3 scripts/build.py [output_dir]                  AWS Quick (default: dist/quick/aidlc-discovery)
        python3 scripts/build.py --target cowork [output_dir]  Claude Cowork (default: dist/cowork/aidlc-discovery)
        --release                                             a release build: no development stamp
 
@@ -12,10 +12,10 @@ A build from anything but a clean checkout of the release tag says so at the end
 skill's description, for example "Development build f149ce5 of 3.0.0.", so `List my skills`
 shows which build is installed. The version fields stay X.Y.Z.
 
-The AWS Quick build writes aidlc-discovery-v<version>.zip next to the output folder.
+The AWS Quick build writes aidlc-discovery-quick-v<version>.zip next to the output folder.
 The Cowork build is the skill folder itself, with the tool names, paths, and steps
 rewritten for Cowork (see COWORK_REWRITES and cowork/), and writes
-aidlc-discovery-v<version>.skill next to it: Cowork installs a .skill file in one click.
+aidlc-discovery-cowork-v<version>.skill next to it: Cowork installs a .skill file in one click.
 """
 
 from __future__ import annotations
@@ -318,7 +318,7 @@ def cowork_rewrite(skill: Path) -> None:
 def package(out: Path, target: str = "quick") -> Path:
     """Zip the built folder beside it, with the folder at the top: .zip for AWS Quick, .skill for Cowork."""
     version = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))["version"]
-    archive = out.parent / f"aidlc-discovery-v{version}.{'zip' if target == 'quick' else 'skill'}"
+    archive = out.parent / f"aidlc-discovery-{target}-v{version}.{'zip' if target == 'quick' else 'skill'}"
     archive.unlink(missing_ok=True)
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as z:
         for f in sorted(out.rglob("*")):
@@ -335,7 +335,7 @@ def main(argv: list[str]) -> int:
     if target not in TARGETS:
         print(f"Unknown target {target!r}: use one of {', '.join(TARGETS)}", file=sys.stderr)
         return 2
-    default = ROOT / "dist" / ("aidlc-discovery" if target == "quick" else "cowork/aidlc-discovery")
+    default = ROOT / "dist" / target / "aidlc-discovery"
     version = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))["version"]
     stamp = "" if release else dev_stamp(version)
     out = build((Path(argv[0]) if argv else default).resolve(), target, stamp)

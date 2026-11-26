@@ -8,8 +8,8 @@
 
 **前日にインストールする。**
 
-- AWS Quick Desktop で、**カスタマイズ**（Customize）、**スキル**（Skills）、**作成**（Create）、**フォルダから**（From folder）の順に選び、`dist/aidlc-discovery` を選ぶ（`python3 scripts/build.py` でビルドしたもの）。インポートはスナップショットを保存する。あとでフォルダを編集しても何も変わらない。更新するには、プラグインを削除し、もう一度インポートして、新しいチャットを始める。
-- Claude Cowork では、`python3 scripts/build.py --target cowork` でビルドし、`dist/cowork/aidlc-discovery-vX.Y.Z.skill` をチャットで開いて、**Save skill** を選ぶ。更新するには、もう一度ビルドし、新しい `.skill` を古いスキルに上書きして保存し、新しいタスクを始める。
+- AWS Quick Desktop で、**カスタマイズ**（Customize）、**スキル**（Skills）、**作成**（Create）、**フォルダから**（From folder）の順に選び、`dist/quick/aidlc-discovery` を選ぶ（`python3 scripts/build.py` でビルドしたもの）。インポートはスナップショットを保存する。あとでフォルダを編集しても何も変わらない。更新するには、プラグインを削除し、もう一度インポートして、新しいチャットを始める。
+- Claude Cowork では、`python3 scripts/build.py --target cowork` でビルドし、`dist/cowork/aidlc-discovery-cowork-vX.Y.Z.skill` をチャットで開いて、**Save skill** を選ぶ。更新するには、もう一度ビルドし、新しい `.skill` を古いスキルに上書きして保存し、新しいタスクを始める。
 - 新しいチャットでインストールを確認する。「スキルの一覧を表示して」と入力すると、AI-DLC Discovery という 1 つのスキルが表示される。
 - 30 秒でできるモジュールの確認をする。「aidlc-discovery スキルを使ってください。file_read で modules/discovery-signals.md を読み込み、Step 1 に何が書いてあるか教えてください。」と入力する。Cowork では `file_read` の代わりに `Read` と言う。答えは「チームの予想を、任意で、分析の前に一度だけ聞く」でなければならない。ファイルが見つからないと言われたら、インストールし直す。
 
