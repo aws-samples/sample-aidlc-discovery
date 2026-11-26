@@ -27,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Removed
 
+- **Breaking:** the go-to-market skill (`discovery-gtm`) and `working-backwards/gtm.md`. Most of it repeated other artifacts: the positioning repeated the press release, and the adoption targets repeated Validate's success criteria. The parts the rest of Discovery used moved: first adopters and design partners into the riskiest assumption, under "Who tests it first", because they are who the real-user test recruits; the viability check (legal, privacy, sales, support, marketing, each with an owner role) into Validate's viable risk; and the adoption owner and the result that means stop into Validate's success criteria. Business model, pricing, and launch plan are left to the build. The brief keeps fifteen sections: section 8 is now "Viability and adoption". End-to-end check D16 (no GTM part left as draft) is gone.
 - **Breaking:** pods. A project is one team and one use case; several teams each run their own project, at their own table.
 - **Breaking:** the team Space (`discovery-team-space`): saving Discovery in an AWS Quick Space, the Storage and Driver lines in `PROJECT.md`, and taking over from another person's chat. Discovery is saved in the working folder, with one person at the keyboard. The `storage` and `space_name` config keys are gone. Data can still come from a Space.
 

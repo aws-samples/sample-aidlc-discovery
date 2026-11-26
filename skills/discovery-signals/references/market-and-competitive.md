@@ -35,7 +35,7 @@ When the location holds competitor material (reports, feature lists, pricing pag
 1. **Landscape:** each competitor's strengths, weaknesses, strategy, and threat level (high, medium, low).
 2. **Feature comparison:** capabilities the product has or lacks against each competitor.
 3. **Gaps:** what the product is missing, who has it, the customer impact, and how urgent it is.
-4. **Alternatives customers use today,** including spreadsheets and doing nothing. The GTM positioning needs them.
+4. **Alternatives customers use today,** including spreadsheets and doing nothing. The PR/FAQ compares the idea against them.
 
 Every competitive claim needs a source. If a claim cannot be backed up, mark it Assumed.
 

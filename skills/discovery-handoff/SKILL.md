@@ -48,7 +48,6 @@ In the same round as the result, confirm the build route (own engineering, agent
 | PR/FAQ | `working-backwards/prfaq.md` | discovery-working-backwards |
 | PRD | `working-backwards/prd.md` | discovery-working-backwards |
 | Riskiest assumption | `working-backwards/riskiest-assumption.md` | discovery-working-backwards |
-| GTM section | `working-backwards/gtm.md` | discovery-gtm |
 | HTML prototype | `prototype/index.html` | discovery-prototype |
 | Persona critique | `prototype/persona-critique.md` | discovery-personas |
 | Risk review | `validate/risk-review.md` | discovery-validate |
@@ -98,7 +97,7 @@ Write `handoff/next-steps.md`, so what happens next does not live only in the ch
 - **Commit with the team's own engineering or agents**: point to the brief as the build's starting document.
 - **Pivot or park**: what happens at the 30-day follow-up, from the decision file.
 
-It also lists any conditions before the build from the decision, and the follow-ups: the real-user test of the prototype and the open hypotheses to take to real customers by day 30.
+It also lists any conditions before the build from the decision, and the follow-ups: the real-user test of the prototype, with the first adopters and design partners from the riskiest assumption, and the open hypotheses to take to real customers by day 30.
 
 It ends with a **roadmap for the product owner: Now, Next, Later**, from what Discovery already produced, never new ideas:
 
@@ -164,10 +163,10 @@ The testable criteria from Validate: metric, baseline, target, and when it is ch
 For an AI feature, include the AI quality target and the evaluation cases it is
 measured on.
 
-## 8. GTM
-First adopters, positioning, the viability check with owner roles, and the
-adoption and success table. Business model, pricing, and launch plan as
-hypotheses with owners.
+## 8. Viability and adoption
+The viability check with owner roles and concerns, from the risk review; the
+first adopters and design partners, from the riskiest assumption; the adoption
+owner; and the result that means stop.
 
 ## 9. Scope
 In scope and out of scope, as two lists.

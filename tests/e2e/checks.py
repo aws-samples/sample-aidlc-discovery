@@ -228,8 +228,6 @@ def check_workshop(workspace: Path, project: str) -> list[Check]:
                         "; ".join((["not walked: " + ", ".join(unwalked)] if unwalked else []) + bad_steps[:3])))
     decision = read(d / "validate" / "decision.md").lower()
     checks.append(Check("D15", "Decision is commit, pivot, or park", bool(re.search(r"\*\*decision:\*\*\s*\**\s*(commit|pivot|park)", decision, re.I))))
-    drafts = [l.strip() for l in read(d / "working-backwards" / "gtm.md").splitlines() if re.search(r"status:?\**\s*\**draft", l, re.I)]
-    checks.append(Check("D16", "No GTM part left as draft", not drafts, "; ".join(drafts[:3])))
     th, ss = d / "signals" / "team-expectations.md", d / "signals" / "signal-summary.md"
     first = th.is_file() and ss.is_file() and _created(th) <= _created(ss)
     checks.append(Check("D17", "Team expectations written before the analysis", first))
@@ -295,8 +293,8 @@ def check_outcome(workspace: Path, project: str, expectations: dict[str, str]) -
         rows = [l for l in block.splitlines() if re.match(r"^\|\s*\d+\s*\|", l)]
         checks.append(Check("O09", "The PRD has an AI feature block with 5 to 10 evaluation cases, including negative ones",
                             5 <= len(rows) <= 10 and any("negative" in l.lower() for l in rows), f"{len(rows)} cases"))
-        later = read(d / "validate" / "decision.md") + read(d / "validate" / "risk-review.md") + read(d / "working-backwards" / "gtm.md")
-        checks.append(Check("O10", "An AI quality target is in the success criteria or the GTM table", "ai quality" in later.lower()))
+        later = read(d / "validate" / "decision.md") + read(d / "validate" / "risk-review.md")
+        checks.append(Check("O10", "An AI quality target is in the success criteria", "ai quality" in later.lower()))
 
     forward = section(scoring, "Taken forward") or scoring[-1500:]
     checks.append(Check("O03", f"\"{expectations['build_first_or_learn']}\" is taken forward",

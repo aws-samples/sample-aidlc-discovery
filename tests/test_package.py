@@ -14,7 +14,7 @@ SKILLS = ROOT / "skills"
 ENTRY = "aidlc-discovery"
 REQUIRED_JOBS = [
     "discovery-signals", "discovery-personas", "discovery-use-case-scoring",
-    "discovery-working-backwards", "discovery-gtm", "discovery-prototype",
+    "discovery-working-backwards", "discovery-prototype",
     "discovery-validate", "discovery-handoff",
 ]
 OPTIONAL = ["discovery-signal-brief", "discovery-survey"]

@@ -8,9 +8,9 @@ Discovery is the part of the AI-Driven Development Lifecycle (AI-DLC) that decid
 
 ## What this sample demonstrates
 
-- **A product method packaged as agent skills.** Five phases (Signals, Working Backwards, Prototype, Validate, Handoff), run by one entry skill that calls ten job skills. Each job also works on its own.
+- **A product method packaged as agent skills.** Five phases (Signals, Working Backwards, Prototype, Validate, Handoff), run by one entry skill that calls nine job skills. Each job also works on its own.
 - **AI that drafts and humans who decide.** The skills analyze, draft, and cite evidence, then stop at a checkpoint after every phase. The team reviews every score, writes or challenges every document, and makes the build decision.
-- **Evidence you can trace.** Every claim in the PR/FAQ, PRD, go-to-market section, and brief is labeled Known (backed by the data), Assumed, or Needs evidence. Anything still unproven goes into the brief as an open question.
+- **Evidence you can trace.** Every claim in the PR/FAQ, PRD, risk review, and brief is labeled Known (backed by the data), Assumed, or Needs evidence. Anything still unproven goes into the brief as an open question.
 - **Customer data handled with care.** The skills work on production data, on anonymized Signal Briefs written in the team's own environment, or on a synthetic dataset prepared beforehand. They never invent data during a run, and raw data stays out of version control. Beforehand, the team runs [`tools/prepare-data`](tools/prepare-data/README.md) on its own machine: a short, readable Python script around [Microsoft Presidio](https://presidio.dataprivacystack.org/) that removes personal information offline, so raw records never reach the AI assistant.
 - **A handoff a build can read.** The Discovery brief is plain Markdown under 200,000 characters, written for a person or an agent who took no part in Discovery. For AI-DLC 2.10.0 or later, the skills also write the personas into AI-DLC team knowledge and give the command that starts Inception from the brief.
 
@@ -19,9 +19,9 @@ Discovery is the part of the AI-Driven Development Lifecycle (AI-DLC) that decid
 | Phase | The question | What the team leaves with |
 |-------|--------------|---------------------------|
 | 1. Signals | What are customers telling us? | The team's expectations, written first; a Signal Analysis Report; testable hypotheses |
-| 2. Working Backwards | Which problem first, for whom, and how would we announce it? | Personas; 3 to 5 use cases scored on six weighted dimensions; PR/FAQ; PRD; go-to-market draft; the riskiest assumption |
+| 2. Working Backwards | Which problem first, for whom, and how would we announce it? | Personas; 3 to 5 use cases scored on six weighted dimensions; PR/FAQ; PRD; the riskiest assumption, with the first adopters who test it |
 | 3. Prototype | What would it look like? | A multi-screen prototype with Flow, Mobile, and Desktop views, critiqued by the personas; every iteration kept as a version |
-| 4. Validate | What could make it fail, and how will we know it worked? | Four risks (valuable, usable, feasible, viable); a pre-mortem; testable success criteria; commit, pivot, or park |
+| 4. Validate | What could make it fail, and how will we know it worked? | Four risks (valuable, usable, feasible, viable), with a viability check; a pre-mortem; testable success criteria, an adoption owner, and when to stop; commit, pivot, or park |
 | 5. Handoff | What does the build start from? | The Discovery brief, and the next steps |
 
 A team can run the phases in one sitting or across several sessions; every artifact is saved as a file, so Discovery picks up where it stopped.
@@ -34,10 +34,9 @@ A team can run the phases in one sitting or across several sessions; every artif
 | `discovery-signals` | Signals | Team expectations, then the analysis of feedback, Signal Briefs, or a synthetic dataset |
 | `discovery-personas` | Working Backwards, Prototype | Personas from the data; the persona critique of the prototype; persona role-play and panels |
 | `discovery-use-case-scoring` | Working Backwards, Validate | Gate, six weighted scores, confidence, and a decision for each candidate use case |
-| `discovery-working-backwards` | Working Backwards | The five Working Backwards questions, PR/FAQ, readiness check, PRD, riskiest assumption |
-| `discovery-gtm` | Working Backwards, Validate | First adopters, positioning, viability check, adoption and success targets |
+| `discovery-working-backwards` | Working Backwards | The five Working Backwards questions, PR/FAQ, readiness check, PRD, riskiest assumption and who tests it first |
 | `discovery-prototype` | Prototype | The clickable prototype, the critique, and the iteration |
-| `discovery-validate` | Validate | Four risks, pre-mortem, success criteria, prioritized problems, and the decision |
+| `discovery-validate` | Validate | Four risks with the viability check, pre-mortem, success criteria, prioritized problems, and the decision |
 | `discovery-handoff` | Handoff | The Discovery brief, AI-DLC team knowledge, and next steps |
 | `discovery-signal-brief` | Before Discovery | Optional. The team writes anonymized Signal Briefs from its own data |
 | `discovery-survey` | After Discovery | Optional. Surveys that test the open hypotheses with real users, and a results dashboard |
@@ -123,7 +122,7 @@ To update, build again and save the new `.skill` file over the old skill. Start 
 
 Discovery ends with a decision on what to build and why. Building, running, and operating the product come after, with the team's own engineers, AI-DLC, or AAP, and the Discovery brief is what they start from.
 
-- **Covered:** customer signals, personas, use case scoring, the PR/FAQ and PRD, a clickable prototype, and, for AI features, a first-draft prompt and evaluation cases. Also the business side of launch: the viability check, go-to-market, success criteria, and the commit, pivot, or park decision.
+- **Covered:** customer signals, personas, use case scoring, the PR/FAQ and PRD, a clickable prototype, and, for AI features, a first-draft prompt and evaluation cases. Also the business side: the first adopters, the viability check, success criteria with an adoption owner and a result that means stop, and the commit, pivot, or park decision.
 - **Owned by the build:** architecture, model selection, the data and retrieval design, the final prompt, evaluation automation, operational readiness, rollout, and support.
 - **Out of scope:** product strategy across several products, product management operating models, and AI use case selection outside a product team's own product.
 
@@ -169,7 +168,7 @@ discovery/
     ├── journey.html            the journey app, generated from the files
     ├── signals/                team-expectations.md, signal-summary.md, hypotheses.md
     ├── working-backwards/      personas/, use-case-scoring.md, working-backwards.md,
-    │                           feature-description.md, prfaq.md, prd.md, gtm.md,
+    │                           feature-description.md, prfaq.md, prd.md,
     │                           riskiest-assumption.md
     ├── prototype/              v1.html, v2.html, ... (every version), index.html (the chosen one),
     │                           versions.md, compare.html, persona-critique.md, notes.md
@@ -181,7 +180,7 @@ discovery/
 
 **Running again, and resuming.** Every run is a project folder, `discovery/[project]/`, so runs never mix. When Discovery starts, it lists the projects already in the working folder and asks whether to continue one or start a new one; a new run with a name already used becomes `[project]-2`, and nothing is overwritten. To resume in a new chat, even after the old chat is gone, say "Continue AI-DLC Discovery for [project]": the journey update keeps a `Now:` line in `PROJECT.md` with the step the team is on, and the skill picks up there.
 
-The Discovery brief has fifteen sections: context (date, route, and data), decision, problem and evidence, personas, prioritized use cases, PR/FAQ summary, success criteria, go-to-market, scope, prioritized backlog, prototype screens and flows, current product, constraints, open hypotheses, and links to every artifact. It contains no architecture or technology choices; those belong to the build. For an AI feature, it also carries the AI feature block and the AI quality target.
+The Discovery brief has fifteen sections: context (date, route, and data), decision, problem and evidence, personas, prioritized use cases, PR/FAQ summary, success criteria, viability and adoption, scope, prioritized backlog, prototype screens and flows, current product, constraints, open hypotheses, and links to every artifact. It contains no architecture or technology choices; those belong to the build. For an AI feature, it also carries the AI feature block and the AI quality target.
 
 `next-steps.md` ends with a **roadmap for the product owner: Now, Next, Later**. Now is the use case taken forward and its conditions; Next is each deferred candidate with the evidence that would move it up and who gets it; Later is the rest, with why. Customer problems and the metrics they move, ordered by conditions, with no delivery dates.
 

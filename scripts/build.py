@@ -47,7 +47,6 @@ MODULES = {
     "discovery-personas": ("Working Backwards, Prototype", "generate personas, run a persona critique, panel, or role-play"),
     "discovery-use-case-scoring": ("Working Backwards, Validate", "score and prioritize 3 to 5 use cases"),
     "discovery-working-backwards": ("Working Backwards", "write or challenge a PR/FAQ and PRD, name the riskiest assumption"),
-    "discovery-gtm": ("Working Backwards, Validate", "draft and complete the go-to-market section"),
     "discovery-prototype": ("Prototype", "build and iterate a clickable prototype"),
     "discovery-validate": ("Validate", "run the four risks, a pre-mortem, success criteria, and the decision"),
     "discovery-handoff": ("Handoff", "write the Discovery brief and next steps"),

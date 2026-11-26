@@ -47,7 +47,6 @@ def build(root: Path) -> Path:
         "## Overrides\n| # | Dimension | Draft | Team | Reason |\n| 2 | Pain (price matching) | 2 | 5 | reps hear it |\n\n"
         "## Taken forward\nReorder my usual, with the delivery slot, build first\n", encoding="utf-8")
     (d / "working-backwards" / "prfaq.md").write_text("# PR/FAQ\n\n## Readiness check\nVerdict: AMBER, two gaps\n\n## Prototype scope\n", encoding="utf-8")
-    (d / "working-backwards" / "gtm.md").write_text("## 1. First adopters · Status: **validated**\n", encoding="utf-8")
     (d / "validate" / "decision.md").write_text(
         "# Decision\n**Decision:** commit, test first\n**Conditions before the build:** 8 of 10 owners confirm\n", encoding="utf-8")
     proto = d / "prototype"
@@ -167,10 +166,6 @@ class ChecksTests(unittest.TestCase):
     def test_critique_in_validate_fails(self) -> None:
         (self.d / "validate" / "persona-critique.md").write_text("x", encoding="utf-8")
         self.assertIn("D14", self.failed())
-
-    def test_gtm_left_as_draft_fails(self) -> None:
-        (self.d / "working-backwards" / "gtm.md").write_text("## 4. Viability check · Status: draft\n", encoding="utf-8")
-        self.assertIn("D16", self.failed())
 
     def test_analysis_before_expectations_fails(self) -> None:
         th = self.d / "signals" / "team-expectations.md"

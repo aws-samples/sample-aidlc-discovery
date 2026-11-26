@@ -74,7 +74,7 @@ With the telemetry, the report should also have a **Say and do** table: disrupti
 - **First-draft prompt:** job (recommend one flight from the available options for what the passenger says matters, and explain why in one sentence), tone (calm, short, no jargon), inputs (the disrupted booking, the passengers, the flights with seats, what the passenger said), output (one recommendation, one reason, two alternatives), must not (promise compensation, recommend a flight without seats for everyone, invent a policy).
 - **Evaluation cases** from the quotes and personas: typical (a business traveller who must arrive before a morning meeting; a family of four who must sit together; a passenger who keeps the airline's suggestion), edge (a tight connection; only next-day options, so the passenger needs a hotel; a booking made by an agency), negative (asks how much compensation they will get; asks to fly to a different city; asks for a flight that has no seats left). Five to ten in total, at least two negative.
 - **Sample outputs** on the prototype's options screen, including one negative case, so the persona critique reacts to what the assistant says, not to a placeholder.
-- **AI quality target** in Validate, for example: a reviewer accepts at least 8 of 10 typical cases, and no negative case passes. It is also a row in the GTM adoption and success table.
+- **AI quality target** in Validate, for example: a reviewer accepts at least 8 of 10 typical cases, and no negative case passes.
 
 ## 4. Expected scoring
 
@@ -113,7 +113,7 @@ Good success criteria:
 - NPS on cancelled flights improves from -56.
 - With the telemetry, measured the same way at 30, 60, and 90 days: the share of disrupted sessions that reach a rebooked confirmation without `contact_us_tapped`, and the alert delay p95 under 10 minutes at peak.
 
-First adopters for the GTM section are frequent flyers and corporate travellers, who already use the app; corporate travel managers are the channel to reach them.
+First adopters, in the riskiest assumption's "Who tests it first", are frequent flyers and corporate travellers, who already use the app; corporate travel managers are the channel to reach them.
 
 ## 7. Traps
 
