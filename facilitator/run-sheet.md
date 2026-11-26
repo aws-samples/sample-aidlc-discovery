@@ -63,7 +63,7 @@ One day, one product engineering team, five phases. Keep this page open beside y
 - It writes a straw-man PR/FAQ, marked as a draft, so the room returns to something to challenge.
 
 ### 13:00 Working Backwards 2 (55 min)
-- **Goal:** the team owns the PR/FAQ, the PRD scope, the GTM draft, and the riskiest assumption.
+- **Goal:** the team owns the PR/FAQ, the PRD scope, and the riskiest assumption with the first adopters who test it.
 - **Say:** "This is the AI's draft. Read the press release aloud. Change anything that doesn't sound like us."
 - **Listen for the framing first.** The five questions should produce three sentences the room agrees with: a **Today statement** whose "need a way to" names an outcome, not a feature; a **How Might We**; and a **North Star** that names a capability, not a product, with numbers tied to the business metric. If a feature has crept into the need, ask "what does that give the customer?"
 - **Good looks like:** a press release with a headline, a subheading, and exactly seven paragraphs (summary, problem, solution, leader quote, customer experience, testimonial, call to action) in 500 to 700 words, no headings inside, the customer as the subject; a one-line writing-audit result; a readiness verdict of GREEN or AMBER with a Prototype scope section that names the slice the prototype will show; a small P0; and one riskiest assumption.
@@ -93,7 +93,7 @@ One day, one product engineering team, five phases. Keep this page open beside y
 ### 15:05 Validate (45 min)
 - **Goal:** try to prove it fails, then decide.
 - **Say:** "Imagine it's 90 days after launch and it failed. Why?" Take the room's reasons first.
-- **Good looks like:** a re-walk of the changed prototype, four risks each with evidence for and against, measurable success criteria (for an AI feature, one is an AI quality target measured on the evaluation cases, also a row in the GTM adoption table), the GTM viability check and adoption table completed, and the prototype version to hand off.
+- **Good looks like:** a re-walk of the changed prototype, four risks each with evidence for and against, measurable success criteria (for an AI feature, one is an AI quality target measured on the evaluation cases), the viability check with an owner role for each area, an adoption owner and a result that means stop, and the prototype version to hand off.
 - **Facilitator practice, the pre-mortem:** everyone writes their reason before anyone speaks; go round starting with the most optimistic person. The pre-mortem makes "this fails" safe to say by assuming it already did.
 - **Facilitator practice, conditions:** a condition needs four things before the room moves on: what is measured, the threshold, who checks it, and by which follow-up. Check it against what the team already agreed in Working Backwards, so the two do not contradict each other.
 - **Watch:** it does not record a decision before the review is finished. A decision given early is saved as the team's intent, with what is still open. That is correct.
@@ -128,5 +128,5 @@ One day, one product engineering team, five phases. Keep this page open beside y
 
 - **7 days:** the baseline for the business metric is in, the brief is in the build repository, and the owners in `next-steps.md` have started.
 - **By 30 days:** real users have tried the prototype (the personas are synthetic), the open hypotheses have been taken to real customers, and deferred use cases are revisited with new evidence.
-- **30 and 60 days:** adoption and the business metric against the success criteria and the kill criteria in the GTM section.
+- **30 and 60 days:** adoption and the business metric against the success criteria and the stop result in the risk review.
 - Feed what the team learns back into Signals for the next cycle.

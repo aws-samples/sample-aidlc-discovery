@@ -94,10 +94,10 @@ Follow `references/prd-generation.md`, then run `references/writing-audit.md` on
 - **Tool**: `file_write`
 - **Input**: The PR/FAQ and the PRD, especially their Assumed and Needs evidence claims
 - **Output**: `discovery/{{project}}/working-backwards/riskiest-assumption.md`
-- **Validate**: One assumption, and what the prototype must show about it
+- **Validate**: One assumption, what the prototype must show about it, and who tests it first
 - **On failure**: If the team names several, ask which one, if wrong, would end the idea
 
-List the claims labeled Assumed or Needs evidence. Ask the team which one, if it turned out to be wrong, would end the idea. Write it down with what the prototype has to show to test it, and how the team will judge the result in Validate.
+List the claims labeled Assumed or Needs evidence. Ask the team which one, if it turned out to be wrong, would end the idea. Write it down with what the prototype has to show to test it, and how the team will judge the result in Validate. Then ask who tests it first: the segment that would adopt first, roughly how many users or accounts it covers, how the team reaches them (in the product, sales, customer success, partners), and two or three design partners, by role, not by name. These are the people the real-user test in the follow-up recruits. If the team has no design partner in mind, describe one and mark it Needs evidence.
 
 ## Output
 
@@ -108,6 +108,10 @@ List the claims labeled Assumed or Needs evidence. Ask the team which one, if it
 **Why it is the riskiest:** [what happens to the idea if it is wrong]
 **What the prototype must show:** [the interaction or moment that tests it]
 **How we will judge it in Validate:** [what would support it, what would contradict it]
+
+## Who tests it first
+**First adopters:** [segment, roughly how many, and how the team reaches them]
+**Design partners:** [two or three, by role]
 ```
 
 The other outputs are the Working Backwards document, the feature description, the PR/FAQ with its readiness check, and the PRD, all under `discovery/{{project}}/working-backwards/`.

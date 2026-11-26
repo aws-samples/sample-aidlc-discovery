@@ -173,7 +173,7 @@ iframe.proto { width: 100%; height: max(640px, 78vh); border: 1px solid var(--ru
   const PHASES = [
     ["signals", "Signals", "What are customers telling us?", ["team-expectations.md", "signal-summary.md", "hypotheses.md"]],
     ["working-backwards", "Working Backwards", "Which problem first, for whom, and how would we announce it?",
-      ["personas/", "use-case-scoring.md", "working-backwards.md", "feature-description.md", "prfaq.md", "prd.md", "gtm.md", "riskiest-assumption.md"]],
+      ["personas/", "use-case-scoring.md", "working-backwards.md", "feature-description.md", "prfaq.md", "prd.md", "riskiest-assumption.md"]],
     ["prototype", "Prototype", "What would it look like?", ["notes.md", "persona-critique.md", "versions.md"]],
     ["validate", "Validate", "What could make it fail, and how will we know it worked?", ["risk-review.md", "prioritization.md", "decision.md"]],
     ["handoff", "Handoff", "What does the build start from?", ["discovery-brief.md", "next-steps.md"]],

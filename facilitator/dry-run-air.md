@@ -292,18 +292,18 @@ Head of digital: agreed, disruption is the problem we work on. Thanks for the ch
 
    **Paste:**
    ```
-   Team: set the thresholds. Supports it: at least 6 of 8 recently disrupted passengers choose a flight without help, in under three minutes, and say they would not call to check. Contradicts it: 3 or more of 8 would still call, or wait for the airline to decide. Go on to the GTM draft.
+   Team: set the thresholds. Supports it: at least 6 of 8 recently disrupted passengers choose a flight without help, in under three minutes, and say they would not call to check. Contradicts it: 3 or more of 8 would still call, or wait for the airline to decide. Go on to who tests it first.
    ```
 
    It may point out a result neither threshold covers (for example 5 of 8 pass and the other 3 only miss the time) and say how the team reads it in Validate. It also says the persona critique cannot meet or break the thresholds: only real passengers can, so someone must own recruiting them.
 
-10. **The GTM draft.** Expect first adopters with evidence and an estimate labelled Assumed (here, corporate travellers on single bookings, reached through the disruption message, account managers, and agencies), design partners by role, not by name, a one-paragraph positioning, a business model labelled as an assumption, and a launch path where each step must be met before the next. Viability and adoption are left for Validate. The phase ends with what we know, what we don't know, what we're assuming, and what the prototype must prove.
+10. **Who tests it first.** Expect first adopters with evidence and an estimate labelled Assumed (here, corporate travellers on single bookings, reached through the disruption message, account managers, and agencies), and design partners by role, not by name. The viability check and adoption come in Validate. The phase ends with what we know, what we don't know, what we're assuming, and what the prototype must prove.
 
    **Facilitator practice:** before the phase closes, put a name and a date on every open question that blocks the build: who recruits the real passengers, who runs the reissue spike, who asks security. An open question without an owner is still open at the 30-day follow-up.
 
    **Paste:**
    ```
-   Head of digital: the GTM draft is ours. The UX designer and I recruit the 8 recently disrupted passengers by the 30-day follow-up. The engineering lead owns the reissue spike. The head of corporate accounts confirms the design partners and sizes the revenue at risk by the 7-day follow-up.
+   Head of digital: these are our first adopters. The UX designer and I recruit the 8 recently disrupted passengers by the 30-day follow-up. The engineering lead owns the reissue spike. The head of corporate accounts confirms the design partners and sizes the revenue at risk by the 7-day follow-up.
    We're ready to prototype.
    ```
 
@@ -395,7 +395,7 @@ Commit, but test the riskiest assumption first.
 Hand off v3. Decided by the head of digital, engineering lead, customer service operations lead, head of corporate accounts, and UX designer; confirmed with the commercial director at the readout.
 ```
 
-**Watch for:** the AI quality target among the success criteria and as a row in the GTM adoption and success table; success criteria with a metric, a baseline, a target, and a check date, using the North Star's numbers, and written as telemetry measures where they exist (the share of disrupted sessions that reach a rebooked confirmation without Contact us; the alert delay at peak); the GTM viability and adoption tables completed, with no part left as draft; the version to hand off; and `validate/decision.md` with the decision, the conditions in order, their owners, and who decided.
+**Watch for:** the AI quality target among the success criteria; success criteria with a metric, a baseline, a target, and a check date, using the North Star's numbers, and written as telemetry measures where they exist (the share of disrupted sessions that reach a rebooked confirmation without Contact us; the alert delay at peak); the viability check with an owner role for each area, an adoption owner, and a result that means stop; the version to hand off; and `validate/decision.md` with the decision, the conditions in order, their owners, and who decided.
 
 **4. Review what it drafted for you.** It records the decision, then lists what it wrote on the team's behalf: the reason, interim targets, kill criteria, an adoption owner, a new PRD requirement. It also checks the plan against itself, for example that 30 days of gates plus a 4-week pilot barely fits a 60-day check, or that the pilot route needs the hotel-voucher rule working first.
 

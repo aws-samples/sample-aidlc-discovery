@@ -20,7 +20,7 @@ inputs:
     description: "production, signal-briefs, or synthetic."
     type: string
     default: production
-depends-on: [discovery-signals, discovery-personas, discovery-use-case-scoring, discovery-working-backwards, discovery-gtm, discovery-prototype, discovery-validate, discovery-handoff]
+depends-on: [discovery-signals, discovery-personas, discovery-use-case-scoring, discovery-working-backwards, discovery-prototype, discovery-validate, discovery-handoff]
 tools: [file_read, file_write, run_python, open_in_session_tab]
 version: "3.0.0"
 license: MIT-0
@@ -74,7 +74,7 @@ Use **discovery-signals**. Checkpoint: "Here are the top signals and their evide
 ### Step 3: Working Backwards
 - **Mode**: `agentic`
 - **Input**: The Signal Analysis Report
-- **Output**: Personas, scored use cases, PR/FAQ, PRD, GTM draft, and the riskiest assumption
+- **Output**: Personas, scored use cases, PR/FAQ, PRD, and the riskiest assumption, with who tests it first
 - **Validate**: The team confirmed or overrode every score and selected the use case to take forward
 - **On failure**: If the signals are too thin to score, say so and offer to return to Signals
 
@@ -82,8 +82,7 @@ In this order:
 
 1. **discovery-personas**: three personas by default, including one satisfied customer, and a buyer persona on top when the buyer is not the end user.
 2. **discovery-use-case-scoring**: 3 to 5 candidate use cases through the gate, scores, confidence, and decision. Checkpoint: the team confirms every score and selects the use case to take forward.
-3. **discovery-working-backwards**: the five Working Backwards questions, the PR/FAQ, the readiness check, the PRD, and the riskiest assumption.
-4. **discovery-gtm**: first adopters, positioning, and the hypotheses for business model and launch.
+3. **discovery-working-backwards**: the five Working Backwards questions, the PR/FAQ, the readiness check, the PRD, and the riskiest assumption, with the first adopters and design partners who test it.
 
 Checkpoint: "Here is what you chose, why, and what must the prototype prove. Ready to prototype?"
 
@@ -99,11 +98,11 @@ Use **discovery-prototype**, which calls **discovery-personas** for the persona 
 ### Step 5: Validate
 - **Mode**: `agentic`
 - **Input**: Everything from Steps 2 to 4
-- **Output**: Risk review, prioritized problems, success criteria, completed GTM tables, and the decision
+- **Output**: Risk review with the viability check, prioritized problems, success criteria with the adoption owner and when to stop, and the decision
 - **Validate**: Every risk has a verdict, the success criteria are testable, and the team stated commit, pivot, or park with a reason
 - **On failure**: Anything that cannot be settled today stays an open hypothesis; never wait for surveys
 
-In this order: **discovery-validate** for a short re-walk of the iterated prototype, the four risks, the pre-mortem, and success criteria; **discovery-gtm** to complete the viability check and the adoption and success table; **discovery-use-case-scoring** if the team wants to re-score; then **discovery-validate** again for the decision.
+In this order: **discovery-validate** for a short re-walk of the iterated prototype, the four risks with the viability check, the pre-mortem, and success criteria; **discovery-use-case-scoring** if the team wants to re-score; then **discovery-validate** again for the decision.
 
 Checkpoint: "Commit, pivot, or park, and why?"
 
@@ -121,7 +120,7 @@ Use **discovery-handoff**. Then summarize what the team produced, with links, an
 These apply in every phase, so the job skills can assume them.
 
 1. **The team decides.** Draft, cite, and ask. Never present a score, ranking, or decision as final until the team confirms it.
-2. **Evidence labels.** Every claim in the PR/FAQ, PRD, GTM section, and brief is **Known** (backed by data from Signals), **Assumed** (believed, not shown), or **Needs evidence** (it matters to the decision and has to be tested).
+2. **Evidence labels.** Every claim in the PR/FAQ, PRD, risk review, and brief is **Known** (backed by data from Signals), **Assumed** (believed, not shown), or **Needs evidence** (it matters to the decision and has to be tested).
 3. **Anonymized.** Quotes carry no names, emails, companies, or account identifiers. Replace each one inside a quote with a bracketed role, such as `[business customer]` or `[agent]`, and keep every other word as written: the quote still counts as verbatim. Raw data stays in `discovery/data/`.
 4. **No architecture.** Discovery decides who, what, and why. Technology choices belong to the build.
 5. **Files, not chat.** Save every artifact under `discovery/{{project}}/` as soon as it exists, so the team keeps it and later steps can read it.
@@ -227,7 +226,7 @@ discovery/
     ├── journey.html              the journey app, generated from the files
     ├── signals/                  team-expectations.md, signal-summary.md, hypotheses.md
     ├── working-backwards/        personas/, use-case-scoring.md, working-backwards.md,
-    │                             feature-description.md, prfaq.md, prd.md, gtm.md,
+    │                             feature-description.md, prfaq.md, prd.md,
     │                             riskiest-assumption.md
     ├── prototype/                v1.html, v2.html, ..., index.html (the chosen version),
     │                             versions.md, compare.html, persona-critique.md, notes.md

@@ -38,12 +38,12 @@ Validate answers: what could make this fail, and how will we know it worked? The
 ### Step 1: Check the inputs (mode `review`)
 - **Mode**: `deterministic`
 - **Tool**: `file_read`
-- **Input**: `prototype/index.html`, `prototype/persona-critique.md`, `prototype/notes.md`, `working-backwards/` (PR/FAQ, PRD, GTM draft, riskiest assumption, scoring)
+- **Input**: `prototype/index.html`, `prototype/persona-critique.md`, `prototype/notes.md`, `working-backwards/` (PR/FAQ, PRD, riskiest assumption, scoring)
 - **Output**: The inputs loaded, or a list of what is missing
 - **Validate**: The prototype and the persona critique exist
 - **On failure**: If the persona critique is missing, ask **discovery-prototype** to finish its critique and iteration first; the critique is the main evidence for the first two risks
 
-Then re-walk the iterated prototype with the primary personas, only for the findings the iteration changed: did the change fix it? Keep it short, and record it in the risk review. The critique judged the first build; Validate judges the one the team will hand off.
+Then re-walk the iterated prototype with the primary personas, only for the findings the iteration changed: did the change fix it? Keep it short, and record it in the risk review. Record each re-walk in the iterated version's `persona-walkthroughs` block too, in the format its comment shows, so the team can watch in the Personas view whether the fix worked. The critique judged the first build; Validate judges the one the team will hand off.
 
 ### Step 2: Four risks
 - **Mode**: `agentic`
@@ -57,7 +57,17 @@ Then re-walk the iterated prototype with the primary personas, only for the find
 | **Valuable** | Will customers want it enough to change what they do today? | The critique's pain and switching answers; the signals' frequency and severity |
 | **Usable** | Can each persona complete the core flow without help? | The critique's walk-through and the re-walk of the iterated version |
 | **Feasible** | Is there a known path to build it with the team's data, product, and platform? | The engineering lead; the PRD's dependencies. Name unknowns, not an architecture |
-| **Viable** | Does it work for the business? | The GTM viability check, completed next by **discovery-gtm** |
+| **Viable** | Does it work for the business? | The viability check below, with an owner role for each area |
+
+For the viable risk, go through each area with the team, and write an owner role and the main concern, or "none":
+
+| Area | Question |
+|------|----------|
+| Legal and compliance | Does it touch regulated data, contracts, or terms of service? |
+| Privacy and security | What customer data does it use, and does it leave its current boundary? |
+| Sales | Can the sales team explain and sell it, and does it change existing deals? |
+| Support and success | What new questions will support get, and who answers them? |
+| Marketing | Is there a story to tell, and does it fit the brand? |
 
 For each risk, state the assumption, the evidence for and against, the verdict, and the test that would settle it. Check the riskiest assumption explicitly: does the test moment in the prototype support it, contradict it, or leave it open?
 
@@ -72,12 +82,14 @@ Tell the team: it is 90 days after launch, and the feature failed. Ask for the r
 
 ### Step 4: Success criteria
 - **Mode**: `agentic`
-- **Input**: The PR/FAQ, the GTM draft, the business metric from setup
+- **Input**: The PR/FAQ, the riskiest assumption's first adopters, the business metric from setup
 - **Output**: 3 to 5 testable criteria
-- **Validate**: Each has a metric, a baseline where the data gives one, a target, and when it is checked (30, 60, or 90 days)
+- **Validate**: Each has a metric, a baseline where the data gives one, a target, and when it is checked (30, 60, or 90 days); there is an adoption owner and a result that means stop
 - **On failure**: If a criterion cannot be measured, ask what data would show it, and who will get it
 
-These are what the build is measured against, and what the follow-ups check. For an AI feature, one of the 3 to 5 criteria is an **AI quality target** measured on the evaluation cases in the PRD's AI feature block, for example the share of typical cases a reviewer accepts, and no negative case passing. When the Signal Analysis Report has telemetry, write the criteria as the same journey measures where they exist (for example, the share of sessions that complete the journey without leaving for Contact us), so the 30, 60, and 90-day follow-ups read the same telemetry. Keep them consistent with the adoption and success table that **discovery-gtm** completes, and with the North Star's targets in `working-backwards/working-backwards.md`. Where a criterion differs from the North Star, for example a pilot target, say why.
+These are what the build is measured against, and what the follow-ups check. For an AI feature, one of the 3 to 5 criteria is an **AI quality target** measured on the evaluation cases in the PRD's AI feature block, for example the share of typical cases a reviewer accepts, and no negative case passing. When the Signal Analysis Report has telemetry, write the criteria as the same journey measures where they exist (for example, the share of sessions that complete the journey without leaving for Contact us), so the 30, 60, and 90-day follow-ups read the same telemetry. Keep them consistent with the North Star's targets in `working-backwards/working-backwards.md`. Where a criterion differs from the North Star, for example a pilot target, say why. One criterion measures adoption among the first adopters, for example weekly active users of the feature as a share of that segment.
+
+Then name two things the follow-ups need: the **adoption owner**, a role on the product engineering team, not marketing; and **when to stop**, the result after launch that means the idea did not work and the team stops, as a number by a date. If the business metric has no baseline, record "baseline needed by the 7-day follow-up" and who gets it.
 
 ### Step 5: Prioritize the problems
 - **Mode**: `agentic`
@@ -89,12 +101,12 @@ These are what the build is measured against, and what the follow-ups check. For
 
 Follow `references/prioritization.md`.
 
-Save Steps 2 to 4 as `discovery/{{project}}/validate/risk-review.md`. Then the entry skill runs **discovery-gtm** to complete the viability check and the adoption table, and **discovery-use-case-scoring** if the review changed any score.
+Save Steps 2 to 4 as `discovery/{{project}}/validate/risk-review.md`. Then the entry skill runs **discovery-use-case-scoring** if the review changed any score.
 
 ### Step 6: The decision (mode `decide`)
 - **Mode**: `agentic`
 - **Tool**: `file_write`
-- **Input**: The risk review, the completed GTM section, any re-scoring
+- **Input**: The risk review, any re-scoring
 - **Output**: `discovery/{{project}}/validate/decision.md`
 - **Validate**: The team chose commit, pivot, or park, and gave its reason
 - **On failure**: If the team cannot agree, record the positions and the evidence each rests on, and ask the sponsor at the readout
@@ -119,6 +131,9 @@ If the riskiest assumption is still open, ask one more question before recording
 ## Four risks
 | Risk | Assumption | Evidence for | Evidence against | Verdict | Test to settle it |
 
+## Viability check
+| Area | Owner role | Concern |
+
 ## Riskiest assumption
 [assumption]: supported / contradicted / open, because [what the test moment showed]
 
@@ -127,6 +142,9 @@ If the riskiest assumption is still open, ask one more question before recording
 
 ## Success criteria
 | # | Criterion | Metric | Baseline | Target | Checked at |
+
+**Adoption owner:** [role]
+**Stop if:** [the result, as a number by a date]
 
 ## Open hypotheses
 Every assumption with verdict "open", as a question for the build.
@@ -160,10 +178,13 @@ Every assumption with verdict "open", as a question for the build.
 ### Common Failures
 - **Every risk comes back supported.** Ask what the satisfied persona loses, and what the pre-mortem's top reason says about it.
 - **The success criteria are vanity metrics.** Tie each one to the business metric or to adoption.
+- **The viability check is all "none".** Ask again, area by area; in regulated industries, check legal and privacy first.
+- **A stop result that never triggers.** Make it a specific number by a specific date.
 - **The team wants to decide before the review.** Do the four risks first; the decision rests on them.
 
 ### When to Ask the User
 - The engineering lead's view on feasibility.
+- Who owns adoption, and whether a viability concern is serious enough to change the decision.
 - Whether a contradicted risk changes the decision.
 - The decision itself; never make it for the team.
 

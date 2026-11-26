@@ -16,6 +16,16 @@ EXPECT = {"top_signal": "reorder | repeat order", "loud_request": "price", "dist
           "build_first_or_learn": "reorder my usual with a delivery slot", "data_input": "production"}
 
 
+WALKS = """[
+  {"id": "marco", "name": "Marco", "score": 7, "steps": [
+    {"screen": "start", "tap": "Continue", "say": "Fine.", "mood": "ok"},
+    {"screen": "done", "look": "All set", "say": "Done?", "mood": "hesitate", "finding": 1}]},
+  {"id": "sofia", "name": "Sofia", "score": 5, "steps": [
+    {"screen": "start", "tap": "Continue", "say": "Fine.", "mood": "ok"},
+    {"screen": "done", "tap": "Start again", "say": "Again.", "mood": "ok"}]}
+]"""
+
+
 def build(root: Path) -> Path:
     d = root / "discovery" / PROJECT
     for rel in checks.required_artifacts():
@@ -37,13 +47,12 @@ def build(root: Path) -> Path:
         "## Overrides\n| # | Dimension | Draft | Team | Reason |\n| 2 | Pain (price matching) | 2 | 5 | reps hear it |\n\n"
         "## Taken forward\nReorder my usual, with the delivery slot, build first\n", encoding="utf-8")
     (d / "working-backwards" / "prfaq.md").write_text("# PR/FAQ\n\n## Readiness check\nVerdict: AMBER, two gaps\n\n## Prototype scope\n", encoding="utf-8")
-    (d / "working-backwards" / "gtm.md").write_text("## 1. First adopters · Status: **validated**\n", encoding="utf-8")
     (d / "validate" / "decision.md").write_text(
         "# Decision\n**Decision:** commit, test first\n**Conditions before the build:** 8 of 10 owners confirm\n", encoding="utf-8")
     proto = d / "prototype"
     shell = checks.shell_html()
-    for v in ("v1", "v2"):
-        (proto / f"{v}.html").write_text(shell, encoding="utf-8")
+    (proto / "v1.html").write_text(shell.replace("const WALKTHROUGHS = [];", "const WALKTHROUGHS = " + WALKS + ";"), encoding="utf-8")
+    (proto / "v2.html").write_text(shell, encoding="utf-8")
     (proto / "index.html").write_text(shell, encoding="utf-8")
     (proto / "versions.md").write_text("| v1 | first |\n| v2 | iteration |\n", encoding="utf-8")
     links = "\n".join(f"- [x](../{p.relative_to(d)})" for p in [d / "working-backwards" / "prd.md", proto / "v1.html"])
@@ -135,13 +144,28 @@ class ChecksTests(unittest.TestCase):
         (self.d / "prototype" / "v2.html").write_text("<html><body>my own layout</body></html>", encoding="utf-8")
         self.assertIn("D11", self.failed())
 
+    def test_a_walk_that_does_not_fit_the_screens_fails(self) -> None:
+        v1 = self.d / "prototype" / "v1.html"
+        good = v1.read_text(encoding="utf-8")
+        self.assertEqual([], checks.walk_problems(good))
+        cases = {"is not on start": ('"tap": "Continue", "say": "Fine.", "mood": "ok"},\n    {"screen": "done", "look"',
+                                     '"tap": "Go on", "say": "Fine.", "mood": "ok"},\n    {"screen": "done", "look"'),
+                 "leads to done, but the next step is on start": ('{"screen": "done", "tap": "Start again"',
+                                                                  '{"screen": "start", "tap": "Continue"')}
+        for expected, (old, new) in cases.items():
+            with self.subTest(expected=expected):
+                self.assertEqual(1, good.count(old))
+                v1.write_text(good.replace(old, new), encoding="utf-8")
+                self.assertIn(expected, " ".join(checks.walk_problems(v1.read_text(encoding="utf-8"))))
+                self.assertIn("D21", self.failed())
+
+    def test_a_persona_who_did_not_walk_fails(self) -> None:
+        (self.d / "working-backwards" / "personas" / "lena.md").write_text("# Lena\n", encoding="utf-8")
+        self.assertIn("D21", self.failed())
+
     def test_critique_in_validate_fails(self) -> None:
         (self.d / "validate" / "persona-critique.md").write_text("x", encoding="utf-8")
         self.assertIn("D14", self.failed())
-
-    def test_gtm_left_as_draft_fails(self) -> None:
-        (self.d / "working-backwards" / "gtm.md").write_text("## 4. Viability check · Status: draft\n", encoding="utf-8")
-        self.assertIn("D16", self.failed())
 
     def test_analysis_before_expectations_fails(self) -> None:
         th = self.d / "signals" / "team-expectations.md"

@@ -7,8 +7,10 @@ notes. Every check returns pass or fail with a short detail.
 
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import dataclass
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -53,6 +55,95 @@ def outside_edit_region(html: str) -> str:
         return ""
     outside = html[: html.index(EDIT_BELOW)] + html[html.index(EDIT_ABOVE) + len(EDIT_ABOVE):]
     return "\n".join(line.rstrip() for line in outside.strip().splitlines())  # ignore trailing whitespace
+
+
+VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+MOODS = {"ok", "hesitate", "stuck", "gave-up"}
+
+
+def _norm(text: str) -> str:
+    """Text as the persona replay compares it: no double quotes, straight apostrophes, single spaces, lower case."""
+    text = re.sub(r"[\u201c\u201d\"]", "", text).replace("\u2018", "'").replace("\u2019", "'")
+    return re.sub(r"\s+", " ", text).strip().lower()
+
+
+class _Screens(HTMLParser):
+    """Every element of each screen template: its text, and the data-go of the element or its nearest ancestor."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.screens: dict[str, list[tuple[str, str | None]]] = {}
+        self.screen: str | None = None
+        self.stack: list[dict] = []
+
+    def handle_starttag(self, tag: str, attrs: list) -> None:
+        a = dict(attrs)
+        if tag == "template" and "data-screen" in a:
+            self.screen, self.stack = a.get("id") or "", []
+            self.screens[self.screen] = []
+        elif self.screen is not None and tag not in VOID:
+            self.stack.append({"go": a.get("data-go") or (self.stack[-1]["go"] if self.stack else None), "text": []})
+
+    def handle_endtag(self, tag: str) -> None:
+        if self.screen is None:
+            return
+        if tag == "template":
+            self.screen = None
+        elif tag not in VOID and self.stack:
+            e = self.stack.pop()
+            self.screens[self.screen].append((_norm("".join(e["text"])), e["go"]))
+
+    def handle_data(self, data: str) -> None:
+        for e in self.stack:
+            e["text"].append(data)
+
+
+def walkthroughs(html: str) -> list | None:
+    """The WALKTHROUGHS list of a prototype version; None when the block is missing or not JSON."""
+    m = re.search(r'<script id="persona-walkthroughs">\s*const WALKTHROUGHS\s*=\s*(.*?);?\s*</script>', html, re.S)
+    try:
+        return json.loads(m.group(1)) if m else None
+    except json.JSONDecodeError:
+        return None
+
+
+def walk_problems(html: str) -> list[str]:
+    """Steps that do not fit the screens, the way the Personas view checks them."""
+    walks = walkthroughs(html)
+    if walks is None:
+        return ["the persona-walkthroughs block is missing or not JSON"]
+    parser = _Screens()
+    parser.feed(html)
+    screens = parser.screens
+
+    def find(screen: str, text: str) -> tuple[bool, str | None]:
+        want, elements = _norm(text), screens.get(screen, [])
+        pool = [e for e in elements if e[0] == want] or [e for e in elements if want in e[0]]
+        return (True, min(pool, key=lambda e: len(e[0]))[1]) if pool else (False, None)
+
+    problems = []
+    for w in walks:
+        steps = w.get("steps") or []
+        for i, st in enumerate(steps):
+            where, screen = f"{w.get('id')} step {i + 1}", st.get("screen", "")
+            nxt = steps[i + 1].get("screen") if i + 1 < len(steps) else None
+            if screen not in screens:
+                problems.append(f"{where}: no screen {screen!r}")
+                continue
+            if st.get("mood") not in MOODS:
+                problems.append(f"{where}: mood {st.get('mood')!r}")
+            if st.get("look") and not find(screen, st["look"])[0]:
+                problems.append(f"{where}: {st['look']!r} is not on {screen}")
+            goes_to = screen
+            if st.get("tap"):
+                found, go = find(screen, st["tap"])
+                if not found:
+                    problems.append(f"{where}: {st['tap']!r} is not on {screen}")
+                    continue
+                goes_to = go if go in screens else screen
+            if nxt is not None and nxt != goes_to:
+                problems.append(f"{where}: leads to {goes_to}, but the next step is on {nxt}")
+    return problems
 
 
 def section(text: str, heading: str) -> str:
@@ -128,10 +219,15 @@ def check_workshop(workspace: Path, project: str) -> list[Check]:
     checks.append(Check("D13", "versions.md logs the versions", bool(versions) and all(p.stem in read(proto / "versions.md") for p in versions)))
     checks.append(Check("D14", "Persona critique sits in prototype/", (proto / "persona-critique.md").is_file()
                         and not (d / "validate" / "persona-critique.md").exists()))
+    walked = {w.get("id") for p in versions for w in (walkthroughs(read(p)) or [])}
+    personas = {p.stem for p in (d / "working-backwards" / "personas").glob("*.md")}
+    unwalked = sorted(personas - walked)
+    bad_steps = [f"{p.name}: {x}" for p in versions for x in walk_problems(read(p))]
+    checks.append(Check("D21", "Every persona's walk is recorded in the prototype and fits its screens",
+                        bool(walked) and not unwalked and not bad_steps,
+                        "; ".join((["not walked: " + ", ".join(unwalked)] if unwalked else []) + bad_steps[:3])))
     decision = read(d / "validate" / "decision.md").lower()
     checks.append(Check("D15", "Decision is commit, pivot, or park", bool(re.search(r"\*\*decision:\*\*\s*\**\s*(commit|pivot|park)", decision, re.I))))
-    drafts = [l.strip() for l in read(d / "working-backwards" / "gtm.md").splitlines() if re.search(r"status:?\**\s*\**draft", l, re.I)]
-    checks.append(Check("D16", "No GTM part left as draft", not drafts, "; ".join(drafts[:3])))
     th, ss = d / "signals" / "team-expectations.md", d / "signals" / "signal-summary.md"
     first = th.is_file() and ss.is_file() and _created(th) <= _created(ss)
     checks.append(Check("D17", "Team expectations written before the analysis", first))
@@ -197,8 +293,8 @@ def check_outcome(workspace: Path, project: str, expectations: dict[str, str]) -
         rows = [l for l in block.splitlines() if re.match(r"^\|\s*\d+\s*\|", l)]
         checks.append(Check("O09", "The PRD has an AI feature block with 5 to 10 evaluation cases, including negative ones",
                             5 <= len(rows) <= 10 and any("negative" in l.lower() for l in rows), f"{len(rows)} cases"))
-        later = read(d / "validate" / "decision.md") + read(d / "validate" / "risk-review.md") + read(d / "working-backwards" / "gtm.md")
-        checks.append(Check("O10", "An AI quality target is in the success criteria or the GTM table", "ai quality" in later.lower()))
+        later = read(d / "validate" / "decision.md") + read(d / "validate" / "risk-review.md")
+        checks.append(Check("O10", "An AI quality target is in the success criteria", "ai quality" in later.lower()))
 
     forward = section(scoring, "Taken forward") or scoring[-1500:]
     checks.append(Check("O03", f"\"{expectations['build_first_or_learn']}\" is taken forward",
