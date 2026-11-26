@@ -4,7 +4,7 @@ Agent skills that run product discovery (see [Supported tools](#supported-tools)
 
 Discovery is the part of the AI-Driven Development Lifecycle (AI-DLC) that decides what to build and for whom. When a team continues into AI-DLC, the brief takes the place of AI-DLC's own Ideation phase, and AI-DLC starts at Inception.
 
-**Workshop:** to learn the method hands-on, follow the [AI-DLC Discovery workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/cd263623-2478-48f8-b5bf-f7cd56d731f6/en-US) in AWS Workshop Studio.
+**Workshop:** to learn the method hands-on, follow the [AI-DLC Discovery workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/cd263623-2478-48f8-b5bf-f7cd56d731f6/en-US) in AWS Workshop Studio. The workshop uses AWS Quick. To run Discovery in Claude Cowork, follow [Run it in Claude Cowork](#run-it-in-claude-cowork) below.
 
 ## What this sample demonstrates
 
