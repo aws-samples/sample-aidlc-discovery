@@ -43,7 +43,7 @@ Validate answers: what could make this fail, and how will we know it worked? The
 - **Validate**: The prototype and the persona critique exist
 - **On failure**: If the persona critique is missing, ask **discovery-prototype** to finish its critique and iteration first; the critique is the main evidence for the first two risks
 
-Then re-walk the iterated prototype with the primary personas, only for the findings the iteration changed: did the change fix it? Keep it short, and record it in the risk review. The critique judged the first build; Validate judges the one the team will hand off.
+Then re-walk the iterated prototype with the primary personas, only for the findings the iteration changed: did the change fix it? Keep it short, and record it in the risk review. Record each re-walk in the iterated version's `persona-walkthroughs` block too, in the format its comment shows, so the team can watch in the Personas view whether the fix worked. The critique judged the first build; Validate judges the one the team will hand off.
 
 ### Step 2: Four risks
 - **Mode**: `agentic`

@@ -68,12 +68,12 @@ Show the team a one-line summary of each persona (name, tagline, confidence) and
 
 ### Step 2: Persona critique (mode `critique`)
 - **Mode**: `agentic`
-- **Input**: The personas, `prototype/index.html`, `prfaq.md`, `riskiest-assumption.md`
-- **Output**: `discovery/{{project}}/prototype/persona-critique.md`
-- **Validate**: Every persona walked through the core flow and gave a day-one adoption score with a reason
+- **Input**: The personas, the version `prototype/index.html` copies, `prfaq.md`, `riskiest-assumption.md`
+- **Output**: `discovery/{{project}}/prototype/persona-critique.md`; each persona's walkthrough in that version's `persona-walkthroughs` block
+- **Validate**: Every persona walked through the flow on the real screens, step by step, and gave a day-one adoption score with a reason
 - **On failure**: If the prototype is missing, say so; the critique needs something to react to
 
-Follow `references/persona-critique.md`. When the prototype shows AI output from the PRD's AI feature block, each persona also reacts to that output: would they trust it, act on it, or want something else. Run each persona in turn, then summarize what the critique shows and which risk each finding points to. Hand the findings to **discovery-prototype** for the iteration; **discovery-validate** reads the file later.
+Follow `references/persona-critique.md`. When the prototype shows AI output from the PRD's AI feature block, each persona also reacts to that output: would they trust it, act on it, or want something else. Run each persona in turn, recording their steps as you go, then summarize what the critique shows and which risk each finding points to, with a link to the step where each finding shows. Hand the findings to **discovery-prototype** for the iteration; **discovery-validate** reads the file later.
 
 ### Step 3: Talk to a persona or run a panel (mode `simulate`)
 - **Mode**: `agentic`
@@ -88,6 +88,7 @@ For a single persona, answer as that person until the user says "stop": their wa
 
 - `working-backwards/personas/[given-name].md`: one per persona, the given name in lowercase ASCII (romanized if needed), in the format in `references/persona-document.md`
 - `prototype/persona-critique.md`: one section per persona and a findings table
+- The walkthroughs, in the critiqued version's `persona-walkthroughs` block: the team replays them in the prototype's Personas view
 - `working-backwards/personas/panel-[topic].md`: optional
 
 ## Lessons Learned

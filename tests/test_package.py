@@ -311,7 +311,12 @@ class PrototypeTemplateTests(unittest.TestCase):
                 self.assertNotRegex(text, r"(?:src|href)=[\"']https?://")
                 self.assertNotIn("innerHTML", text)
 
-    def test_shell_provides_the_three_views(self) -> None:
+    def test_shell_provides_the_views(self) -> None:
         text = self.html("prototype-shell.md")
-        for needle in ('href="#/flow"', 'href="#/mobile"', 'href="#/desktop"', 'id="tm"', "data-screen", "data-test-moment"):
+        for needle in ('href="#/flow"', 'href="#/mobile"', 'href="#/desktop"', 'href="#/replay"', 'id="tm"', "data-screen", "data-test-moment"):
             self.assertIn(needle, text)
+
+    def test_walkthroughs_start_empty_inside_the_edit_region(self) -> None:
+        text = self.html("prototype-shell.md")
+        region = text[text.index("EDIT BELOW"):text.index("EDIT ABOVE")]
+        self.assertIn('<script id="persona-walkthroughs">\nconst WALKTHROUGHS = [];\n</script>', region)

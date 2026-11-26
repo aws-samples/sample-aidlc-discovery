@@ -6,15 +6,16 @@ Turn the PRD, the PR/FAQ, and the riskiest assumption into a prototype that look
 
 ## Start from the shell
 
-Every version starts as a copy of `prototype-shell.md`. The shell is the product frame: the top bar, the three views, the phone and browser frames, routing, steppers, and the test moment toggle. You fill only the region between its `EDIT BELOW` and `EDIT ABOVE` markers: the settings and the screens. The rest of this page describes what the finished file does and how to write good screens.
+Every version starts as a copy of `prototype-shell.md`. The shell is the product frame: the top bar, the three views, the phone and browser frames, routing, steppers, and the test moment toggle. You fill only the region between its `EDIT BELOW` and `EDIT ABOVE` markers: the settings and the screens. The persona critique later fills in the walkthroughs, in the same region. The rest of this page describes what the finished file does and how to write good screens.
 
 ## What the file contains
 
-The file opens on a top bar with the product name and three views:
+The file opens on a top bar with the product name and up to four views:
 
 1. **Flow.** A design board: every screen of the core flow side by side in phone frames, in order, each with a step number, a short title, and an arrow to the next. This is the view people look at first and screenshot for the readout.
 2. **Mobile.** One phone frame in the center with the live, clickable prototype. Tapping moves between screens exactly as the flow describes.
 3. **Desktop.** The same product in a browser window frame (address bar, tabs), with a layout designed for a wide screen, not a stretched phone.
+4. **Personas.** Shown once the persona critique has walked the version: pick a persona and replay their walk, step by step or with Play, on the real screens. Each step marks what they tap and says where it leads, or that nothing happens, with what they think and their mood. The shell provides it; the critique fills in the `WALKTHROUGHS` list.
 
 A **Show test moment** toggle highlights the screen and element where the riskiest assumption is tested, with a one-line note on what the team wants to learn there.
 

@@ -54,8 +54,8 @@ Plan the core user flow as 4 to 8 screens: the entry point, the steps of the mai
 Build every version from the shell, never from scratch and never by editing an earlier version's layout:
 
 1. Load `references/prototype-shell.md` and `references/html-prototype.md` with `file_read`. The shell is the single HTML code block in `prototype-shell.md`; copy all of it.
-2. Write the new version as an exact copy of that code block, changing **only** the region between the `EDIT BELOW` and `EDIT ABOVE` markers: the `PROTOTYPE` settings (product, version, tagline, URL, clock, theme, test moment, starting state) and one `<template data-screen>` per planned screen, 4 to 8, plus an optional `<template data-desktop>` for a screen that needs its own wide layout.
-3. Keep everything outside the markers exactly as it is in the shell. The shell already provides the Flow, Mobile, and Desktop views, the phone and browser frames, the routes (`#/flow`, `#/mobile/screen-id`, `#/desktop/screen-id`), steppers, and the Show test moment toggle. Those are what make it a professional prototype, so never remove or rebuild them.
+2. Write the new version as an exact copy of that code block, changing **only** the region between the `EDIT BELOW` and `EDIT ABOVE` markers: the `PROTOTYPE` settings (product, version, tagline, URL, clock, theme, test moment, starting state) and one `<template data-screen>` per planned screen, 4 to 8, plus an optional `<template data-desktop>` for a screen that needs its own wide layout. Leave `WALKTHROUGHS` empty: the persona critique fills it in.
+3. Keep everything outside the markers exactly as it is in the shell. The shell already provides the Flow, Mobile, Desktop, and Personas views, the phone and browser frames, the routes (`#/flow`, `#/mobile/screen-id`, `#/desktop/screen-id`, `#/replay/persona-id/step`), steppers, the Show test moment toggle, and the persona replay. Those are what make it a professional prototype, so never remove or rebuild them.
 
 Put the design into the screens: the persona's real content, the states, one failure state, and the element under test marked with `class="test-moment"` on the screen that has `data-test-moment`. Adjust the look through `theme` (for example the accent color), not by editing the shell's styles.
 
@@ -73,11 +73,11 @@ Show the Flow view, then ask the team to click through the core flow in the Mobi
 ### Step 4: Persona critique
 - **Mode**: `agentic`
 - **Input**: The first build, the personas, the riskiest assumption
-- **Output**: `discovery/{{project}}/prototype/persona-critique.md`
-- **Validate**: Every persona walked the core flow and gave a day-one adoption score
+- **Output**: `discovery/{{project}}/prototype/persona-critique.md`; the walkthroughs in the critiqued version (and in `index.html`, its copy)
+- **Validate**: Every persona walked the flow on the real screens, step by step, and gave a day-one adoption score
 - **On failure**: If the personas are missing, ask **discovery-personas** to generate them
 
-Use **discovery-personas** in `critique` mode. Teams often find little to change on their own first click-through; the personas, each grounded in its customer quotes, usually find the problems that matter.
+Use **discovery-personas** in `critique` mode. Teams often find little to change on their own first click-through; the personas, each grounded in its customer quotes, usually find the problems that matter. Each persona's walk is recorded tap by tap in the version it critiques, so the team can watch it in the Personas view.
 
 ### Step 5: Iterate
 - **Mode**: `agentic`
@@ -86,7 +86,9 @@ Use **discovery-personas** in `critique` mode. Teams often find little to change
 - **Validate**: At least one new version, logged in `versions.md` with the finding or request behind each change; earlier versions untouched
 - **On failure**: None
 
-Show the team the critique's findings next to its own reactions, and ask which to fix now. Make the changes in plain language. A fix that promises a capability nobody has confirmed (holding seats, sending health or financial data by email or link, a real-time feed) is a question for the build, not a design detail: before adding it, tell the team what it depends on and who must confirm it. If they keep it, log it in `versions.md` as Needs evidence and list it in `notes.md` as a feasibility or compliance question for Validate. Record in the critique which findings were fixed and which were not, and why. Stop when the prototype is good enough to start a conversation, not when it is finished.
+First open the critiqued version on the **Personas** view (`v[N].html#/replay`), the same way as the build in Step 2, and tell the team in one line: pick a persona, then press Play or step through. Each step shows the real screen, what the persona taps and where it leads, and what they think. Then show the critique's findings next to the team's own reactions, each with its link to the step where it shows, and ask which to fix now. Make the changes in plain language. A fix that promises a capability nobody has confirmed (holding seats, sending health or financial data by email or link, a real-time feed) is a question for the build, not a design detail: before adding it, tell the team what it depends on and who must confirm it. If they keep it, log it in `versions.md` as Needs evidence and list it in `notes.md` as a feasibility or compliance question for Validate. Record in the critique which findings were fixed and which were not, and why. Stop when the prototype is good enough to start a conversation, not when it is finished.
+
+A new version starts with `WALKTHROUGHS` empty: the walkthroughs belong to the version the personas walked.
 
 Every build or iteration is a **new version file**. Never overwrite a version: the team may want to go back, and Validate picks one. Copy the latest to `index.html`, so links keep working, until the team picks another.
 
@@ -99,7 +101,7 @@ When the working folder is the product's own repository and the harness can run 
 
 ## Output
 
-- `prototype/v1.html`, `v2.html`, …: every version, never overwritten, each a single file with Flow, Mobile, and Desktop views
+- `prototype/v1.html`, `v2.html`, …: every version, never overwritten, each a single file with Flow, Mobile, and Desktop views, and a Personas view once the personas have walked it
 - `prototype/index.html`: a copy of the current or chosen version
 - `prototype/versions.md`: the version log
 - `prototype/compare.html`: the versions side by side, once there are two or more
