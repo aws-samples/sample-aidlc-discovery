@@ -29,7 +29,7 @@ Joins only the kickoff and the readout: nobody.
 - **Which direction is good:** Lower is better
 - **Baseline:** 120, over 1 May to 15 October 2026, from the member services call data.
 
-## Candidate use cases
+## Ideas we already have
 
 1. **Claim tracker**
    - Who has it: members who file claims, and the brokers and HR teams they turn to.

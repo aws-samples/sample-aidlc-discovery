@@ -13,3 +13,8 @@ dist/
 # Local Claude Code settings and hooks
 .claude/settings.local.json
 .claude/hooks/
+
+# Demo runs inside a sample folder: keep the sample itself clean
+samples/*/discovery/*/
+!samples/*/discovery/data/
+!samples/*/discovery/signal-briefs/

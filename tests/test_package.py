@@ -248,7 +248,7 @@ class MethodContractTests(unittest.TestCase):
 
     def test_kickoff_page_is_what_setup_reads(self) -> None:
         page = self.read("skills/aidlc-discovery/templates/kickoff.md")
-        for section in ("## The product", "## The team", "## The business metric", "## Candidate use cases", "## The data"):
+        for section in ("## The product", "## The team", "## The business metric", "## Ideas we already have", "## The data"):
             self.assertIn(section, page)
         self.assertIn("Which direction is good", page)  # setup never assumes the direction
         self.assertIn("discovery/kickoff.md", page)

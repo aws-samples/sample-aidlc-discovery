@@ -28,7 +28,7 @@ Joins only the kickoff and the readout: the commercial director, who believes cu
 - **Which direction is good:** Higher is better
 - **Baseline:** 12%, over 1 May to 15 October 2026, from the operations data.
 
-## Candidate use cases
+## Ideas we already have
 
 1. **Self-service rebooking**
    - Who has it: passengers whose flight is cancelled or delayed, or who miss a connection.

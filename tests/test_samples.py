@@ -57,7 +57,9 @@ class SampleTests(unittest.TestCase):
     def test_no_answers_inside_the_working_folder(self) -> None:
         """The assistant can read the whole sample folder, so the answers live in facilitator/."""
         for name in SAMPLES:
-            for path in (ROOT / "samples" / name).rglob("*"):
+            # Only the committed sample: a demo run inside the folder (discovery/<project>/) is ignored by git.
+            tracked = subprocess.run(["git", "ls-files", f"samples/{name}"], cwd=ROOT, capture_output=True, text=True).stdout.split()
+            for path in [ROOT / f for f in tracked] or (ROOT / "samples" / name).rglob("*"):
                 if path.is_file():
                     text = path.read_text(encoding="utf-8").lower()
                     with self.subTest(file=str(path.relative_to(ROOT))):

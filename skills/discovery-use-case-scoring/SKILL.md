@@ -33,7 +33,7 @@ Scoring decides which problem the rest of the day goes to. The team brings 3 to 
 
 ### Step 1: Candidate use cases
 - **Mode**: `agentic`
-- **Input**: The team's candidates, or `signals/signal-summary.md` and any Signal Briefs; the personas
+- **Input**: The team's candidates ("Ideas we already have" on the kickoff page, `discovery/kickoff.md`, or what the team names), or `signals/signal-summary.md` and any Signal Briefs; the personas
 - **Output**: The team's 3 to 5 candidates and up to three From Signals, each written as a problem
 - **Validate**: Every candidate has the five fields below, and no two solve the same problem
 - **On failure**: If the team brings features, ask what problem each one solves and for whom
