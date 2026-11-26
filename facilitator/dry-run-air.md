@@ -5,9 +5,9 @@ A rehearsal for a facilitator who has never run a Discovery workshop. You play b
 **Before you start**
 - Install the skill (see `run-sheet.md`, "Before the day") and start a new chat.
 - Copy `samples/anycompany-air/` to a scratch folder and give the app access to it (in Cowork, connect it to the task). Keep the repository copy clean.
-- Read the scenario page, `README.md` in that folder. Do not read `facilitator/anycompany-air.md` yet: it holds the answers.
+- Read the kickoff page, `discovery/kickoff.md` in that folder. Do not read `facilitator/anycompany-air.md` yet: it holds the answers.
 
-**How to play the team.** Six people, each with a belief from the scenario page. Answer as they would, not as you think the answer is. The printable cards are in `role-cards.html`.
+**How to play the team.** Six people, each with a belief from the kickoff page. Answer as they would, not as you think the answer is. The printable cards are in `role-cards.html`.
 - Head of digital (product owner): the booking flow looks dated, and booking is where we make money.
 - Engineering lead: cautious about anything that changes a booking after it is made.
 - UX designer: a 3D cabin view would make seat upgrades easier to sell.
@@ -21,13 +21,13 @@ A rehearsal for a facilitator who has never run a Discovery workshop. You play b
 
 **Paste:**
 ```
-Start AI-DLC Discovery. Project: anycompany-air. Data: production, in discovery/data/ in my anycompany-air folder.
+Start AI-DLC Discovery. Project: anycompany-air.
 ```
-Use the name of your scratch folder if it differs.
+It finds the kickoff page, `discovery/kickoff.md`, and takes the product, the team, the metric, the use cases, and the data from it.
 
-**Answer as the team:** the product (the website and app), the six roles (the commercial director joins the kickoff and readout), the business metric (self-service rebooking rate for disrupted passengers, 12%), and the five candidate use cases from the scenario page.
+**Answer as the team:** confirm the draft if it matches the kickoff page: the product (the website and app), the six roles (the commercial director joins the kickoff and readout), the business metric (self-service rebooking rate for disrupted passengers, 12%, higher is better), the five candidate use cases, and the data.
 
-**Watch for:** a draft of the setup filled in from the scenario page, for you to confirm or correct in one step, a `PROJECT.md` file, and a note that sample data makes this a demonstration. Then `journey.html` opens in the session tab (in Cowork, as an artifact) with a **Now** banner. Open it in a browser as well, as you would on the room's screen, and check that the banner moves at every step.
+**Watch for:** a draft of the setup filled in from the kickoff page, for you to confirm or correct in one step, a `PROJECT.md` file, and a note that sample data makes this a demonstration. Then `journey.html` opens in the session tab (in Cowork, in the file preview) with a **Now** banner. Open it in a browser as well, as you would on the room's screen, and check that the banner moves at every step.
 
 **Answer:** when it asks whether the scope is right, choose **Confirmed** (or type it).
 

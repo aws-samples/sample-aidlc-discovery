@@ -12,7 +12,7 @@ One day, one product engineering team, five phases. Keep this page open beside y
 
 **Rehearse once.** Run a sample end to end (see `dry-run-air.md`). New facilitators can also take the half-day session in `train-the-trainer.md`. You will meet every checkpoint before the team does.
 
-**Agree with the team,** ideally on the team page: send `skills/aidlc-discovery/templates/team-page.md` (in Japanese, `facilitator/ja/team-page.md`) a week ahead, and save the filled-in page as `discovery/team-page.md` in the working folder. Setup then drafts everything from it.
+**Agree with the team,** on the kickoff page: send `skills/aidlc-discovery/templates/kickoff.md` (in Japanese, `facilitator/ja/kickoff.md`) a week ahead, and save the filled-in page as `discovery/kickoff.md` in the working folder, next to the data, as in the samples. Setup then drafts everything from it.
 - **Who is in the room.** The product owner and engineering lead who own the build. Add design, data, support, or sales as needed. 4 to 6 people. With several teams, give each table its own laptop, its own project, and its own data.
 - **The data input.** Production data in their own AWS Quick or Cowork (the default), Signal Briefs when data cannot be loaded into a tool, or a synthetic dataset prepared before the day. Never let the assistant invent data on the day.
 - **Telemetry, if the team has it.** Daily aggregates per journey step from their monitoring (CloudWatch, Datadog, or OpenTelemetry exports in S3): sessions per step from real user monitoring, requests, errors, and latency per service, and the top error codes, with a short map from each step to its screen and backend route. Never raw logs or traces: they are too large and carry personal data. Telemetry is read next to the feedback, never instead of it.
@@ -25,9 +25,9 @@ One day, one product engineering team, five phases. Keep this page open beside y
 ### 09:00 Kickoff (30 min)
 - **Goal:** everyone knows why they are here and how the day runs.
 - **Say:** "Today we decide what to build next, from evidence, and we leave with a brief the build starts from. The assistant drafts; you decide. It stops after every phase, and nothing moves on until you say so."
-- **Ask the assistant:** "Start AI-DLC Discovery. Project: [name]. Data: [input], in [folder]."
+- **Ask the assistant:** "Start AI-DLC Discovery. Project: [name]." With a kickoff page, that is all: the rest comes from the page. Without one, add "Data: [input], in [folder]."
 - **Put the journey on the room's screen.** After setup, open `discovery/[project]/journey.html` from the working folder in a browser, on the screen the room watches. It shows the step the team is on, what comes next, and every artifact so far, and refreshes itself every 15 seconds. Keep the chat beside it, or switch to it when the team answers.
-- **Good looks like:** it drafts the setup from what it can find (a scenario page, the folder, `config.md`) and asks the room to confirm, or asks in one or two rounds of numbered questions, each with a recommended answer, when there is nothing to draft from. Then it writes `PROJECT.md`. Read the draft aloud and have the product owner confirm the business metric and which direction is good: everything is scored against it.
+- **Good looks like:** it drafts the setup from what it can find (the kickoff page, the folder, `config.md`) and asks the room to confirm, or asks in one or two rounds of numbered questions, each with a recommended answer, when there is nothing to draft from. Then it writes `PROJECT.md`. Read the draft aloud and have the product owner confirm the business metric and which direction is good: everything is scored against it.
 - **Facilitator practice:** don't confirm the setup yourself. Ask the product owner, "Is anything here wrong or missing?" If the sponsor leaves after the kickoff, ask them now whether the metric is the one they care about.
 
 ### 09:30 Signals (60 min)

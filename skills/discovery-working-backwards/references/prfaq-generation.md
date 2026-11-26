@@ -52,7 +52,7 @@ Above the paragraphs: a short, bold **headline**, and a one-sentence **subheadin
 
 | Para | Its only job |
 |------|--------------|
-| 1 | **Summary.** The location (the company's home city, when the team or the scenario gives it; otherwise begin with the date), a future date, what launched, for whom, and the one thing to know. Assume the reader stops here. |
+| 1 | **Summary.** The location (the company's home city, when the team or the kickoff page gives it; otherwise begin with the date), a future date, what launched, for whom, and the one thing to know. Assume the reader stops here. |
 | 2 | **Problem.** The customer's situation today, the friction, and what it costs them. No solution and no product name. |
 | 3 | **Solution.** How the product helps, at a high level, in plain language. No step-by-step experience. |
 | 4 | **Leader quote** from the company launching the product: why it matters, in two or three short, confident sentences. Format: "Quote," says [Name], [Title]. Without a name from the team, use the title alone: "says the head of digital at [company]". |
@@ -69,7 +69,7 @@ Above the paragraphs: a short, bold **headline**, and a one-sentence **subheadin
 - No superlatives and no "first" or "first-ever" without evidence.
 - Draft lean: three or four sentences a paragraph.
 - **Labels stay out of the way.** A press release reads as journalism, not as a report. Known claims carry no label in it. Label a claim only when it is Assumed or Needs evidence, once, at the end of its sentence. The FAQ carries the labels for every number.
-- **Each claim keeps the scope of its evidence.** A number from one account, one quote, or one month is written as that: "one corporate account reports…", never as a general fact. If you need a general claim, use a figure that covers the whole data.
+- **Each claim keeps the scope of its evidence.** A number from one account, one quote, or one month is written as that: "one business customer reports…", never as a general fact. If you need a general claim, use a figure that covers the whole data.
 - **Use the North Star's numbers.** Targets in the press release and the FAQ are the ones in the North Star. If one differs, for example a smaller pilot target, say so and why.
 
 ### User Prompt Template

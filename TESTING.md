@@ -31,7 +31,7 @@ python3 tests/e2e/run_e2e.py --sample all --legs workshop,team --budget-usd 20
 | `workshop` | A full Discovery run, unattended, ending with the Discovery brief |
 | `mismatch` | Data about a different product: no analysis, and no invented data |
 | `missing-prd` | Handoff without the PRD refuses to write a brief (reuses the workshop leg's results) |
-| `team` | A second model plays the scenario's team turn by turn, so the checkpoints, overrides, iteration, and test-first decision are tested |
+| `team` | A second model plays the team on the sample's kickoff page turn by turn, so the checkpoints, overrides, iteration, and test-first decision are tested |
 
 Measured cost per sample: the `workshop`, `mismatch`, and `missing-prd` legs together about $3.50 to $4.60 (AnyCompany Air and Health); the team leg about $110 (measured on a former sample, 36 turns, each resuming the whole session). Run the team leg before a release, not on every change.
 

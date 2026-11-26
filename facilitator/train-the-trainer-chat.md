@@ -10,7 +10,7 @@ Tomorrow's AI-DLC Discovery train the trainer: pre-work, about 20 minutes. Pleas
 1. Unzip the pack I sent you: the facilitator pack if you facilitate, the trainee pack otherwise.
 2. In AWS Quick Desktop: Customize > Skills > Create > From folder, and choose the aidlc-discovery folder from the pack. In Claude Cowork: open the .skill file from the pack in a chat and choose Save skill.
 3. Start a new chat and type: List my skills. Reply to this message with a screenshot. You should see AI-DLC Discovery.
-4. Open the anycompany-air folder from the pack and read its README.md, the scenario page. Read nothing else; the answers are hidden in the data.
+4. Open the anycompany-air folder from the pack and read discovery/kickoff.md, the team's kickoff page. Read nothing else; the answers are hidden in the data.
 5. Open role-cards.html from the pack and find your card.
 
 Your team and role:

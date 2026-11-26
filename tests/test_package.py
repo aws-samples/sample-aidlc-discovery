@@ -246,23 +246,33 @@ class MethodContractTests(unittest.TestCase):
         proto = self.read("skills/discovery-prototype/SKILL.md")
         self.assertLess(proto.index("Write the first entry in `prototype/versions.md`"), proto.index("Then open it on the **Flow** view"))
 
-    def test_team_page_matches_what_setup_needs(self) -> None:
-        page = self.read("skills/aidlc-discovery/templates/team-page.md")
+    def test_kickoff_page_is_what_setup_reads(self) -> None:
+        page = self.read("skills/aidlc-discovery/templates/kickoff.md")
         for section in ("## The product", "## The team", "## The business metric", "## Candidate use cases", "## The data"):
             self.assertIn(section, page)
         self.assertIn("Which direction is good", page)  # setup never assumes the direction
-        self.assertIn("discovery/team-page.md", page)
+        self.assertIn("discovery/kickoff.md", page)
         entry = self.read("skills/aidlc-discovery/SKILL.md")
-        self.assertIn("discovery/team-page.md", entry)
-        self.assertIn("templates/team-page.md", entry)
-        ja = self.read("facilitator/ja/team-page.md")
+        self.assertIn("discovery/kickoff.md", entry)
+        self.assertIn("templates/kickoff.md", entry)
+        self.assertNotIn("scenario", entry.lower())
+        ja = self.read("facilitator/ja/kickoff.md")
         self.assertEqual(page.count("\n## "), ja.count("\n## "))  # the translation keeps every section
 
+    def test_skills_are_not_written_for_the_samples(self) -> None:
+        # The skills take their context from the kickoff page; no sample's product or answer belongs in them.
+        words = re.compile(r"AnyCompany|airline|flight|passenger|rebook|insurer|claim status|telehealth|broker", re.I)
+        for path in sorted((ROOT / "skills").rglob("*.md")) + sorted((ROOT / "cowork").rglob("*.md")):
+            if path.name == "journey-shell.md":
+                continue
+            with self.subTest(file=str(path.relative_to(ROOT))):
+                found = words.search(path.read_text(encoding="utf-8"))
+                self.assertIsNone(found, found and found.group(0))
+
     def test_samples_state_the_direction_of_the_metric(self) -> None:
-        for rel in ("samples/anycompany-air/README.md", "samples/anycompany-health/README.md"):
-            metric = self.read(rel).split("## The business metric", 1)[1].split("\n## ", 1)[0]
+        for rel in ("samples/anycompany-air/discovery/kickoff.md", "samples/anycompany-health/discovery/kickoff.md"):
             with self.subTest(sample=rel):
-                self.assertRegex(metric, r"(Higher|Lower) is better\.")
+                self.assertRegex(self.read(rel), r"\*\*Which direction is good:\*\* (Higher|Lower) is better")
 
 
 if __name__ == "__main__":

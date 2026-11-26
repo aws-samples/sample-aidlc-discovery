@@ -38,7 +38,7 @@ Scoring decides which problem the rest of the day goes to. The team brings 3 to 
 - **Validate**: Every candidate has the five fields below, and no two solve the same problem
 - **On failure**: If the team brings features, ask what problem each one solves and for whom
 
-Each candidate is a problem with five fields: who has it, the problem, the evidence from Signals, the business metric it moves, and the person on the team who would own the build. Keep the name the team gave each of its candidates, such as "Self-service rebooking", next to the problem it is written as, so the team finds its own candidates in every later artifact; give each candidate from Signals a short name of the same kind. If the team brought none, draft 3 to 5 from the top signals and ask the team to confirm or edit them. Merge candidates that solve the same problem.
+Each candidate is a problem with five fields: who has it, the problem, the evidence from Signals, the business metric it moves, and the person on the team who would own the build. Keep the name the team gave each of its candidates, such as "Self-service returns", next to the problem it is written as, so the team finds its own candidates in every later artifact; give each candidate from Signals a short name of the same kind. If the team brought none, draft 3 to 5 from the top signals and ask the team to confirm or edit them. Merge candidates that solve the same problem.
 
 **Then add candidates from Signals.** When the team brought its own candidates, add two or three drawn from Signals themes that none of them covers, including telemetry-only signals. Write each as a problem with its evidence, and mark it "From Signals". The team keeps or drops each one, a quick call: kept ones take the next number in the Candidates table, go through the gate, and are scored like the rest; dropped ones are recorded with the reason and not scored. If every theme is covered, say so and add none. So up to eight candidates can reach the gate; the 3 to 5 is the team's own list, not a limit on what is scored. The gate and the merges usually leave 3 to 5 to score.
 
@@ -85,7 +85,7 @@ Then **drop** any candidate that fails one of these, and record which. Failing t
 | **Feasibility** | 15 | New data, platform, and skills needed | Some data or platform work needed | Data in place, builds on the existing product and platform |
 | **Adoption load** | 10 | Heavy change for users, or they have not adopted what already shipped in this area | Moderate change in how users work | Fits how users already work |
 
-Score **business outcome** against the business metric agreed at setup, in the direction setup recorded as good, not against a metric the candidate names for itself. A candidate that moves the metric the wrong way, for example by removing tickets when more tickets mean more onboardings, scores 1 on outcome. A candidate that moves only its own metric (baggage calls, when the metric is the self-service rebooking rate) scores low on outcome, however real its pain.
+Score **business outcome** against the business metric agreed at setup, in the direction setup recorded as good, not against a metric the candidate names for itself. A candidate that moves the metric the wrong way, for example by removing tickets when more tickets mean more onboardings, scores 1 on outcome. A candidate that moves only its own metric (delivery-tracking calls, when the metric is the self-service return rate) scores low on outcome, however real its pain.
 
 Weighted score = the sum of (score × weight) ÷ 100, from 1.0 to 5.0.
 

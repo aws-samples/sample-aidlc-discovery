@@ -23,7 +23,7 @@ Share the packs privately, not in a public place. `train-the-trainer-chat.md` ha
 **Trainees, before they arrive** (send this the day before):
 - Install the skill (in AWS Quick Desktop with **Create**, **From folder**; in Cowork, open the `.skill` file in a chat and choose **Save skill**), start a new chat, and run `List my skills`. Bring a screenshot of the result. Everyone installs, not only the facilitators: anyone may need to take over, and the homework needs it.
 - Copy `samples/anycompany-air/` to a scratch folder the app can access.
-- Read the scenario page, `README.md` in that folder. Nothing else.
+- Read the kickoff page, `discovery/kickoff.md` in that folder. Nothing else.
 - Tell trainees which team they are in, who facilitates each half, and which role card they play.
 
 Installs are the most common failure. Every minute spent fixing one in the session comes out of practice time.

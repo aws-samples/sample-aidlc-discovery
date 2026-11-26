@@ -6,8 +6,9 @@ Every sample is a realistic, fictional business case that a team can run a full 
 
 ```text
 samples/<slug>/
-├── README.md               the scenario page the team reads
+├── README.md               what the sample is, and how to run it
 └── discovery/
+    ├── kickoff.md          the kickoff page the team filled in, from skills/aidlc-discovery/templates/kickoff.md
     ├── data/               exports, for production-data samples
     └── signal-briefs/      briefs and aggregates, for the Signal Brief sample
 scripts/samples/<slug>.py   the generator that writes discovery/
@@ -16,17 +17,18 @@ facilitator/<slug>.md       spoilers: the designed truths and what good looks li
 
 The sample folder is the working folder a team gives the assistant access to, so it holds no scripts and no answers: the assistant can read everything in it. Generators live under `scripts/samples/`, and facilitator notes under `facilitator/`.
 
-## The scenario page (`README.md`)
+## The kickoff page (`discovery/kickoff.md`)
 
-1. **The company and its product**, in two or three sentences.
-2. **Customers and segments**, with rough sizes.
-3. **The team**: four to six roles, each with what they believe before Discovery. At least one belief must be the loud request the data does not support.
-4. **The business metric** the team wants to move, with its current baseline, the period it covers, and which direction is good (higher or lower).
-5. **Candidate use cases** the team brings, 3 to 5, each written as a problem with five fields: who has it, the problem, the evidence the team thinks it has, the business metric it moves, and the owner.
-6. **The data**: one line per file with its source, record count, and period.
-7. **How to run it**: the folder to grant, the data input, and the prompt to start Discovery.
+A sample is laid out the way a customer's working folder is, so the skills take their context from the same page a real team fills in, and nothing in the skills is written for a sample. The page follows `skills/aidlc-discovery/templates/kickoff.md`, section for section:
 
-Never reveal the designed truths on this page.
+1. **The product**: the company and its size, the product, who uses it with rough shares, who pays, and why now.
+2. **The team**: four to six roles, each with what they believe before Discovery. At least one belief must be the loud request the data does not support.
+3. **The business metric** the team wants to move, with its baseline, the period it covers, and which direction is good (higher or lower).
+4. **Candidate use cases**, 3 to 5, each written as a problem: who has it, the problem, the evidence the team thinks it has, the business metric it moves, the owner, and the team's idea, if it has one.
+5. **The data**: the input, where it is, the period, "Sample data: Yes", one line per file with its source and record count, and the telemetry if any.
+6. **What we already know we cannot change.**
+
+Never reveal the designed truths on this page. `README.md` only says what the sample is and gives the prompt that starts Discovery.
 
 ## The data
 

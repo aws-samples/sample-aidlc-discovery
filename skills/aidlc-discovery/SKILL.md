@@ -52,9 +52,9 @@ Discovery ends with a decision on what to build and why. Building, running, and 
 - If the working folder holds this skill's own source (a `skills/aidlc-discovery/` folder), say so in one line and recommend connecting a copy of a sample or the product's repository instead.
 - In unattended runs, never ask: use the configured project, and continue it if it exists.
 
-Draft the setup from what you can find first (the request, the team page `discovery/team-page.md` or a sample's scenario page, the working folder, `config.md`, the data files), then confirm it in one or two rounds (see Shared rules): the product and who uses it; who is on the team; the business metric the work should move, **which direction is good** (higher or lower), and its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never assume the direction of the metric: scoring depends on it. (Unattended runs follow the default in "Unattended runs".) If the request contains a term you cannot place (an engagement reference, a code name), ask what it is in the first round, never twice. Never write a customer account, CRM, or sales identifier, or a revenue amount (a share that sizes a segment, such as "a third of revenue", is fine). If the team uses the bundled sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
+Draft the setup from what you can find first (the kickoff page `discovery/kickoff.md`, the request, the working folder, `config.md`, the data files), then confirm it in one or two rounds (see Shared rules): the product and who uses it; who is on the team; the business metric the work should move, **which direction is good** (higher or lower), and its current value; and how the data comes in (`production`, `signal-briefs`, or `synthetic`) and where it is. Never assume the direction of the metric: scoring depends on it. (Unattended runs follow the default in "Unattended runs".) If the request contains a term you cannot place (an engagement reference, a code name), ask what it is in the first round, never twice. Never write a customer account, CRM, or sales identifier, or a revenue amount (a share that sizes a segment, such as "a third of revenue", is fine). If the kickoff page or the data says it is sample data, say that the run is a demonstration and its brief is not evidence for a build. If the data does not match the product, do not generate a dataset to fill the gap; ask the team to bring real data, write Signal Briefs, or use a synthetic dataset prepared beforehand.
 
-**The team page.** `templates/team-page.md` in this skill's folder is a one-page form the team fills in before the day: the product, the team and what each role believes, the business metric with its direction and baseline, 3 to 5 candidate use cases, the data, and what cannot change. When the team asks for it, or when there is nothing to draft the setup from, offer to save a blank copy as `discovery/team-page.md`, in the project language, for the team to fill in; recommend answering the setup questions now when the team is already in the room. When the page exists, draft the whole setup from it and confirm it in one round. A belief on the page goes into Signals as that role's expectation, after the team confirms it.
+**The kickoff page.** `discovery/kickoff.md` is the one page a team fills in before the workshop, from `templates/kickoff.md` in this skill's folder: the product, the team and what each role believes, the business metric with its direction and baseline, 3 to 5 candidate use cases, the data, and what cannot change. It is where Discovery takes its context from: never assume a product, a company, or a metric the page, the team, or the data does not give. When the page exists, draft the whole setup from it and confirm it in one round; a belief on the page goes into Signals as that role's expectation, once the team confirms it. When there is none, ask the setup questions; and when the team asks for the page, or there is nothing at all to draft from, offer to save a blank copy of the template as `discovery/kickoff.md`, in the project language, for the team to fill in.
 
 Read `config.md` in the working folder if it exists, and `config.default.md` in this skill's folder for defaults: a key that `config.md` does not set takes its value from `config.default.md`.
 
@@ -122,7 +122,7 @@ These apply in every phase, so the job skills can assume them.
 
 1. **The team decides.** Draft, cite, and ask. Never present a score, ranking, or decision as final until the team confirms it.
 2. **Evidence labels.** Every claim in the PR/FAQ, PRD, GTM section, and brief is **Known** (backed by data from Signals), **Assumed** (believed, not shown), or **Needs evidence** (it matters to the decision and has to be tested).
-3. **Anonymized.** Quotes carry no names, emails, companies, or account identifiers. Replace each one inside a quote with a bracketed role, such as `[corporate account]` or `[agent]`, and keep every other word as written: the quote still counts as verbatim. Raw data stays in `discovery/data/`.
+3. **Anonymized.** Quotes carry no names, emails, companies, or account identifiers. Replace each one inside a quote with a bracketed role, such as `[business customer]` or `[agent]`, and keep every other word as written: the quote still counts as verbatim. Raw data stays in `discovery/data/`.
 4. **No architecture.** Discovery decides who, what, and why. Technology choices belong to the build.
 5. **Files, not chat.** Save every artifact under `discovery/{{project}}/` as soon as it exists, so the team keeps it and later steps can read it.
 6. **One step at a time.** Say which phase and step the team is in, and what comes next.
@@ -206,8 +206,8 @@ When `config.md` sets `unattended: true`, run every phase without stopping: use 
 
 | Decision | Default in an unattended run |
 |----------|------------------------------|
-| Which direction of the metric is good | As the scenario or `config.md` states it. If neither does, infer it from the metric's wording, and record it as **Assumed** |
-| The team's expectations before Signals | The beliefs the scenario page gives for each role, turned into expectation lines as `team-expectations.md` says, before any analysis; a belief that names no problem (a caution, a preference) is left out, with the reason; "none" if the page gives none |
+| Which direction of the metric is good | As the kickoff page or `config.md` states it. If neither does, infer it from the metric's wording, and record it as **Assumed** |
+| The team's expectations before Signals | The beliefs the kickoff page gives for each role, turned into expectation lines as `team-expectations.md` says, before any analysis; a belief that names no problem (a caution, a preference) is left out, with the reason; "none" if the page gives none |
 | Candidates from Signals | Keep each one; the gate decides |
 | Score overrides, and re-scoring in Validate | None |
 | Prototype version handed off | The latest |
@@ -251,7 +251,7 @@ Now: [phase], [step]. Next: [the next step]. Updated [date and time].
 | Direction | [Higher or Lower] is better | Confirmed |
 | Baseline | [value], [period] | Confirmed |
 | Data input | [production, signal-briefs, or synthetic], in [location] | Confirmed |
-| Note | [only with sample data:] Demonstration run on sample data; the brief is not evidence for a build | |
+| Note | [only with sample data, as the kickoff page or the data says:] Demonstration run on sample data; the brief is not evidence for a build | |
 
 ## Phase status
 [The progress board's first table, with its Key artifact column, and the three lists below it]

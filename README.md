@@ -134,10 +134,10 @@ Two samples are ready to run. AnyCompany Air is the default: start there if you 
 - [**AnyCompany Air**](samples/anycompany-air/): an airline whose customers and corporate accounts complain. 400 records from reviews, call center contacts, social posts, NPS, corporate account notes, and travel agencies, plus operations data and the app's telemetry (real user monitoring journeys, backend spans, and top errors). Production data with telemetry.
 - [**AnyCompany Health**](samples/anycompany-health/): an insurer's portal for members, employers, and brokers. Regulated, so the data never leaves the insurer: 10 Signal Briefs and aggregate statistics only. Signal Briefs.
 
-Each sample's `README.md` is the scenario page: the company, who is on the team and what they believe, the business metric with its baseline, the candidate use cases the team brings, and the prompt that starts Discovery. To run one:
+Each sample folder is laid out the way a real team's working folder is: its kickoff page, `discovery/kickoff.md`, holds the company, who is on the team and what they believe, the business metric with its baseline, the candidate use cases, and the data, and the data sits next to it. The skills take all their context from that page, exactly as they do for a customer. To run one:
 
 1. Give the app the sample's folder, for example `samples/anycompany-air`. In AWS Quick Desktop, open **Settings**, then **My computer**, then **Local folders**, and add it. In Cowork, connect it to a new task.
-2. Start Discovery with the prompt on the sample's page, and answer the setup questions as that team.
+2. Start Discovery with the prompt in the sample's `README.md`, confirm the setup the assistant drafts from the kickoff page, and answer as that team.
 
 The skill asks once, optionally, for the team's expectations before it shows any analysis, and stops for review at the end of every phase. With sample data it says the run is a demonstration: the flow is real, but the brief is not evidence for a build.
 
@@ -145,7 +145,7 @@ The skill asks once, optionally, for the team's expectations before it shows any
 
 ## Use your own data
 
-**Start with the team page.** A real team has no scenario page, so give it [`skills/aidlc-discovery/templates/team-page.md`](skills/aidlc-discovery/templates/team-page.md) (in Japanese, [`facilitator/ja/team-page.md`](facilitator/ja/team-page.md)) a week before the workshop: one page with the product, the team and what each role believes, the business metric with its direction and baseline, 3 to 5 candidate use cases, the data, and what cannot change. Save the filled-in page as `discovery/team-page.md` in the working folder, and setup drafts everything from it in one confirmation. The assistant can also save a blank copy for you: ask for the team page.
+**Start with the kickoff page.** Give the team [`skills/aidlc-discovery/templates/kickoff.md`](skills/aidlc-discovery/templates/kickoff.md) (in Japanese, [`facilitator/ja/kickoff.md`](facilitator/ja/kickoff.md)) a week before the workshop: one page with the product, the team and what each role believes, the business metric with its direction and baseline, 3 to 5 candidate use cases, the data, and what cannot change. Save the filled-in page as `discovery/kickoff.md` in the working folder, next to the data, the same layout as the samples, and setup drafts everything from it in one confirmation. The assistant can also save a blank copy for you: ask for the kickoff page.
 
 Choose how the data comes in at setup:
 
