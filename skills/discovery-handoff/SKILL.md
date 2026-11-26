@@ -185,7 +185,9 @@ prototype notes, and one line on how the versions evolved. Note an in-codebase p
 branch if one exists, and that it is disposable.
 
 ## 12. Current product
-The current-product map summary, or "Greenfield: no existing codebase."
+The current-product map summary. Without a map, the line that applies:
+"Greenfield: there is no product yet." or "Existing product: no current-product map,
+because its code was not in the working folder."
 
 ## 13. Constraints
 Constraints the team stated: regulation, systems that must integrate,
@@ -209,7 +211,7 @@ Relative links to every artifact under discovery/[project]/.
 
 ### Don't
 - Write architecture, technology choices, or code into the brief.
-- Write customer account, CRM, or sales identifiers, or revenue figures, into the team's repository.
+- Write customer account, CRM, or sales identifiers, or revenue amounts, into the team's repository. A share that sizes a segment, such as "a third of revenue", is fine.
 - Start AI-DLC; print the command.
 
 ### Common Failures

@@ -8,7 +8,7 @@ Legs:
   workshop     the whole workshop, unattended, ending with the Discovery brief
   mismatch     the data is about a different product; the skill must not analyze or invent data
   missing-prd  Handoff on the workshop's results without the PRD; it must refuse
-  team         a second model plays the scenario's team turn by turn, so the checkpoints are tested
+  team         a second model plays the team on the kickoff page turn by turn, so the checkpoints are tested
 
 Usage:
   python3 tests/e2e/run_e2e.py --sample air --legs workshop,mismatch --budget-usd 15
@@ -131,7 +131,7 @@ def run_leg(leg: str, short: str, out: Path, skill: Path, args: argparse.Namespa
 
     if leg == "team":
         prepare(ws, skill, slug, project, data_input, unattended=False)
-        scenario = (ws / "README.md").read_text(encoding="utf-8")
+        kickoff = (ws / "discovery" / "kickoff.md").read_text(encoding="utf-8")
         session = str(uuid.uuid4())
         r = claude(prompt("team-start"), ws, args.budget_usd, args.model, session=session)
         turns = [{"facilitator": r.get("result", "")}]
@@ -141,7 +141,7 @@ def run_leg(leg: str, short: str, out: Path, skill: Path, args: argparse.Namespa
         for _ in range(args.max_turns):
             if (ws / "discovery" / project / "handoff" / "next-steps.md").is_file():
                 break
-            reply = claude(prompt("team-player", scenario=scenario, message=turns[-1]["facilitator"]),
+            reply = claude(prompt("team-player", kickoff=kickoff, message=turns[-1]["facilitator"]),
                            scratch, 2.0, args.team_model or args.model, tools="Read")
             cost += reply.get("total_cost_usd", 0) or 0
             turns[-1]["team"] = reply.get("result", "").strip()

@@ -15,17 +15,16 @@ The guide uses AnyCompany Air, the default sample.
 - Read `anycompany-air.md`, the answer key. Do not share it until the reveal.
 
 **Packs.** Trainees do not build the skill. Make two zips (the trainer runs `python3 scripts/build.py` first):
-- **Trainee pack:** `dist/aidlc-discovery` (the built plugin), `samples/anycompany-air/`, `role-cards.html`, and a START-HERE note.
+- **Trainee pack:** `dist/quick/aidlc-discovery` (the built plugin) for AWS Quick, or `dist/cowork/aidlc-discovery-cowork-vX.Y.Z.skill` (built with `--target cowork`) for Cowork, `samples/anycompany-air/`, `role-cards.html`, and a START-HERE note.
 - **Facilitator pack:** the same, plus `facilitator/dry-run-air.md` and `facilitator/run-sheet.md`. Only the named facilitators get it: the dry run gives answers away.
 
 Share the packs privately, not in a public place. `train-the-trainer-chat.md` has the pre-work message and every message to post during the 2-hour session.
 
 **Trainees, before they arrive** (send this the day before):
-- Install the skill in AWS Quick Desktop with **Create**, **From folder**, start a new chat, and run `List my skills`. Bring a screenshot of the result. Everyone installs, not only the facilitators: anyone may need to take over, and the homework needs it.
-- Copy `samples/anycompany-air/` to a scratch folder AWS Quick can access.
-- Read the scenario page, `README.md` in that folder. Nothing else.
+- Install the skill (in AWS Quick Desktop with **Create**, **From folder**; in Cowork, open the `.skill` file in a chat and choose **Save skill**), start a new chat, and run `List my skills`. Bring a screenshot of the result. Everyone installs, not only the facilitators: anyone may need to take over, and the homework needs it.
+- Copy `samples/anycompany-air/` to a scratch folder the app can access.
+- Read the kickoff page, `discovery/kickoff.md` in that folder. Nothing else.
 - Tell trainees which team they are in, who facilitates each half, and which role card they play.
-- **One Space per team (recommended).** The first facilitator of each team creates a Space and names it (for example "Team 2 AnyCompany Air"), copies the AnyCompany Air sample into it (the copy prompt in `dry-run-air.md`, step 0), and shares it with the team as **Owners**. Everyone attaches it to a new chat before the session. Then every trainee follows the run in their own AWS Quick, not only on a shared screen, and the second facilitator takes over from their own chat.
 
 Installs are the most common failure. Every minute spent fixing one in the session comes out of practice time.
 
@@ -34,7 +33,7 @@ Installs are the most common failure. Every minute spent fixing one in the sessi
 - **Optional roles**, for teams of 6 or more: UX designer, commercial director. In a smaller team, the facilitator of the other half plays them, or someone holds two cards.
 - **Observer**, for a seventh person: watches the facilitator against the "Facilitator practice" tips in `run-sheet.md` and reports two things at the debrief.
 
-**Room:** one laptop per team, with AWS Quick Desktop signed in, on a screen everyone can see. A screen for the trainer. Print `role-cards.html` (open it in a browser, then print), one sheet per team, and cut along the lines.
+**Room:** one laptop per team, with AWS Quick Desktop or Claude Cowork signed in, on a screen everyone can see. A screen for the trainer. Print `role-cards.html` (open it in a browser, then print), one sheet per team, and cut along the lines.
 
 ## Agenda (in person, 3.5 hours)
 
@@ -49,14 +48,14 @@ Installs are the most common failure. Every minute spent fixing one in the sessi
 - Anyone who fails: remove the plugin, import again, start a new chat. Show this once on the big screen: it is the fix for most "it behaves strangely" problems on the day.
 
 **00:30 Live dry run, part 1 (60 min)**
-Teams follow `dry-run-air.md`. The first facilitator runs Quick and the room; the others speak in role, in their own words, using the expectation lines and challenges on their cards, and the facilitator types or pastes their answers. Stop the room after each phase for a 5-minute debrief.
+Teams follow `dry-run-air.md`. The first facilitator runs the app and the room; the others speak in role, in their own words, using the expectation lines and challenges on their cards, and the facilitator types or pastes their answers. Stop the room after each phase for a 5-minute debrief.
 - **Kickoff and Signals (30 min).** Debrief: did the assistant ask once for expectations before showing anything, without pushing? Did disruption come first, even though "Delayed baggage" is the largest single call reason? How did the customer service operations lead's challenge go? Did the Say and do table keep the payment timeouts below disruption, even though they are the loudest errors? The head of digital's belief was contradicted: how would you let them save face?
 - **Working Backwards, scoring (30 min).** The head of digital overrides the booking flow pain score, with a reason. Debrief: was the override recorded and labelled Assumed? Which candidate did the gate drop, and why? Then paste the lunch line so the PR/FAQ drafts during the break.
 
 **01:30 Break (15 min)**
 
 **01:45 Live dry run, part 2 (60 min)**
-The second facilitator takes over Quick and the room; the first takes their role card.
+The second facilitator takes over the app and the room; the first takes their role card.
 - **Working Backwards, the PR/FAQ (20 min).** Read the press release aloud. Debrief: does the Today statement name an outcome, not a feature? Does the North Star name a capability, not a product? Seven paragraphs, 500 to 700 words? GREEN, AMBER, or RED, and what is the prototype slice?
 - **Prototype (20 min).** Click Flow, Mobile, and Desktop. Say only "looks good" at the click-through. Debrief: what did the persona critique find that you missed?
 - **Validate and Handoff (20 min).** Run the pre-mortem, then decide "commit, test first" with the condition from the dry run. Debrief: could an engineer who wasn't here start from the brief?
@@ -90,7 +89,7 @@ The printable version is `role-cards.html`. Play the person, not the answer: say
 
 ## If a run stalls
 
-AWS Quick can be slow, or a team's run can go wrong in a way that would take the rest of the session to fix. Don't let a team sit and wait. Move them to the matching folder of your demo run for the rest of that phase, and have them debrief from those files. They can rejoin their own run at the next phase or in their solo dry run.
+The assistant can be slow, or a team's run can go wrong in a way that would take the rest of the session to fix. Don't let a team sit and wait. Move them to the matching folder of your demo run for the rest of that phase, and have them debrief from those files. They can rejoin their own run at the next phase or in their solo dry run.
 
 ## Running it remotely
 
@@ -108,7 +107,7 @@ The same agenda works on a video call with breakout rooms. What changes is how y
 - Prepare a shared progress list (a document or a chat thread) where each team posts one line when it finishes a phase: "Team 3: Signals done, ops lead challenged."
 
 **In the call.**
-- **Screen share inside the breakout.** The facilitator shares AWS Quick. Role players keep their cameras on and answer out loud, in role; the facilitator types or pastes their answers. At the halfway point, the first facilitator keeps sharing and the second takes over the room and drives by voice. That avoids moving the working folder in the middle of the session.
+- **Screen share inside the breakout.** The facilitator shares the app. Role players keep their cameras on and answer out loud, in role; the facilitator types or pastes their answers. At the halfway point, the first facilitator keeps sharing and the second takes over the room and drives by voice. That avoids moving the working folder in the middle of the session.
 - **Debrief in the chat, not in the main room.** Moving everyone out of breakouts and back costs 3 to 5 minutes each time. Post the debrief questions in the chat at each phase, and teams answer in a thread. Bring everyone back only three times: the break, the readouts, and the failure drill.
 - **Visit the breakouts** in rotation, and spend longest with teams whose progress line is missing.
 - **Keep the clock in the chat.** Post "10 minutes left in Signals" warnings. A remote room drifts faster than a physical one.
@@ -131,7 +130,7 @@ When you only have two hours, teams run the phases where the room matters most, 
 - Did it ask once for expectations before showing anything, without pushing?
 - Did disruption come first, and how did the ops lead's staffing challenge go?
 
-**00:45 Breakouts, part 2: Working Backwards (35 min).** The second facilitator takes over. With a team Space, they paste the take-over prompt from `run-sheet.md` in their own chat and share their screen; the first stops writing and takes their role card. Without one, the first keeps sharing Quick and the second drives by voice. Score with "agree with all" except the head of digital's booking flow override, take the recommended use case forward, then paste "Draft the PR/FAQ now." Answer the debrief in the chat while it drafts, then read the press release aloud and go through the five questions. Debrief questions, posted at 01:10:
+**00:45 Breakouts, part 2: Working Backwards (35 min).** The second facilitator takes over the room; the first keeps sharing the app, types what the second asks for, and plays their role card. Score with "agree with all" except the head of digital's booking flow override, take the recommended use case forward, then paste "Draft the PR/FAQ now." Answer the debrief in the chat while it drafts, then read the press release aloud and go through the five questions. Debrief questions, posted at 01:10:
 - Did it add candidates from Signals, and did the team keep or drop each with a reason? Was the override recorded with its reason and labelled Assumed? Did the 3D seat map fail the gate?
 - Does the Today statement name an outcome? Does the North Star name a capability, not a product? What was the readiness verdict?
 

@@ -8,6 +8,53 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- **Cowork build.** `python3 scripts/build.py --target cowork` builds the same skills for Claude Cowork as one `.skill` file: Cowork tool names, `${CLAUDE_SKILL_DIR}` paths, and a "Running in Cowork" section. The AWS Quick build is unchanged.
+- **Journey app**, in both builds: `discovery/[project]/journey.html`, one page that the room can follow, with the five phases, a **Now** banner with the current step and the next one, every artifact rendered, the prototype versions clickable in place, the decision and its conditions, and the evidence labels counted. The page is a fixed shell (`references/journey-shell.md`) that renders the project's files itself; a short Python update, in `references/journey-app.md`, copies the files into it at the start of every step and at every checkpoint, and checks that the shell is unchanged. AWS Quick opens it in the session tab, Cowork in the file preview. It never reloads by itself, so a reader keeps their place; reload it to see the latest step.
+- In Cowork, each round of questions also appears as question cards. The skill publishes no artifact unless the team asks, because Cowork asks to approve every artifact call: the journey app and the prototype versions open in the file preview, and the browser view of `journey.html` follows every step. An artifact the team asks for gets an id of its own per run, recorded in `PROJECT.md`, so it never collides with an earlier run's.
+- The README, the facilitator guides (English and Japanese), and the sample pages cover Claude Cowork next to AWS Quick: install, connecting a folder, and running the workshop.
+- **Install with your assistant.** The README gives a prompt to paste into AWS Quick or Cowork, and install steps written for the assistant: it gets the right release package and prepares it, and the user does the last click. Each release now also publishes the Cowork `.skill` file. The packages are named for their tool and built in their own folder: `dist/quick/aidlc-discovery-quick-vX.Y.Z.zip` and `dist/cowork/aidlc-discovery-cowork-vX.Y.Z.skill`.
+- **Kickoff page** (`skills/aidlc-discovery/templates/kickoff.md`, and in Japanese `facilitator/ja/kickoff.md`): one page a team fills in before the workshop, with the product, the team and its beliefs, the business metric with its direction and baseline, the candidate use cases, the data, and the constraints. Saved as `discovery/kickoff.md` next to the data, it is where the skills take their context from, and setup drafts everything from it in one confirmation. The assistant saves a blank copy when asked.
+- **Expectations from the kickoff page.** Signals drafts the team's expectations from what each role wrote on the kickoff page, keeping their words and role, and asks the team to keep, change, add, or skip them before any analysis. Before, it asked an open question, so a quick "skip" lost the beliefs the page already held.
+- **Plain language everywhere.** Shared rule 12 now sits in the entry skill in full and covers every reply, every question and its answer options (question cards too), every recommendation, and every artifact: plain, everyday words a second-language reader understands on the first read. `references/plain-writing.md` is loaded before the first reply and adds rules for idioms ("bear on", "surface", "land"), vague stand-in nouns ("findings", "insights"), short sentences, and plain questions.
+- **Getting the kickoff page** (`facilitator/kickoff-call.md`, and in Japanese `facilitator/ja/kickoff-call.md`): the timeline, the invitation and reminder emails, what to say and ask on a 30-minute kickoff call, red flags, and the checks three days before. The template's use cases section is now "Ideas we already have", and every section carries guidance and a worked example in quote blocks, which the skill ignores.
+- **The samples follow the customer layout.** Each sample folder has its filled-in `discovery/kickoff.md` (with Japanese translations under `facilitator/ja/samples/`), and its `README.md` only says what the sample is and how to run it. The start prompt is just the project name. The skills no longer mention a scenario page or carry examples from the samples: a test keeps the samples' products and answers out of them, and the e2e prompts read the kickoff page.
+- **Start or resume.** When Discovery starts, it lists the projects already in the working folder and asks whether to continue one or start a new one. It never overwrites a project: a new run with a used name becomes `[project]-2`. The journey update keeps a `Now:` line in `PROJECT.md`, so a new chat resumes at the exact step with "Continue AI-DLC Discovery for [project]".
+- **Development builds say so.** A build from anything but a clean checkout of the release tag ends the skill's description with its commit, such as "Development build f149ce5 of 3.0.0.", so `List my skills` shows which build is installed. Release builds pass `--release`.
+- `tests/e2e/check_workspace.py` grades a working folder from any harness, with `--journey` for the journey app checks; `tests/test_cowork.py` covers the Cowork build, and `tests/test_journey.py` the journey app.
+
+### Removed
+
+- **Breaking:** pods. A project is one team and one use case; several teams each run their own project, at their own table.
+- **Breaking:** the team Space (`discovery-team-space`): saving Discovery in an AWS Quick Space, the Storage and Driver lines in `PROJECT.md`, and taking over from another person's chat. Discovery is saved in the working folder, with one person at the keyboard. The `storage` and `space_name` config keys are gone. Data can still come from a Space.
+
+### Fixed
+
+Gaps that the first Cowork end-to-end run had to guess at, in both builds:
+
+- **Unattended defaults.** The entry skill now has a default for every decision the team would make (the metric's direction, the team's expectations, candidates from Signals, overrides and re-scoring, the prototype version, commit, pivot, or park, building or testing first, the build route), and takes the round's recommended answer for anything else.
+- **Config.** A key that `config.md` does not set takes its value from `config.default.md`.
+- **Scoring.** The 3 to 5 is the team's own list; with the candidates from Signals, up to eight reach the gate.
+- **Brief section 12** tells a product with no code in the working folder apart from a greenfield one.
+- **Prioritization** writes the trend in words, as the plain-writing rules ask, not with arrows.
+- **Samples** state which direction of the business metric is good.
+- **Personas.** The count is the number of end-user personas, the satisfied customer included; a buyer persona, when the buyer is a different person, comes on top.
+- **PR/FAQ.** The 500 to 700 words are a check, not a target: a short release means a paragraph is missing its job, and words are never added only to reach the range.
+- **Prototype.** The test moment must sit on the core flow with no detour before it, instead of "two taps from the start", which a longer flow cannot meet.
+- **Say and do.** The Signals template and the telemetry reference use the same column name, Reading.
+- **Unattended runs** record "none given (unattended run)" where a step asks for the team's own input and has no recommendation, instead of writing a view as the team's.
+- **Quotes.** An identifier inside a quote is replaced with a bracketed role, such as `[corporate account]`, and the quote still counts as verbatim.
+- **Press release.** Paragraph 2 opens with the customer's situation today; only the other paragraphs open with what the product does.
+- **Revenue.** Revenue amounts stay out of the repository; a share that sizes a segment, such as "a third of revenue", is fine.
+- **Signal scores** have their 1 to 10 bands in Signals itself, the same bands Validate's prioritization uses, with ties ranked by severity.
+- **Persona backgrounds** come from the data, then the market the data implies, then the company's home market, and only then the project language.
+- **Scoring** keeps the team's name for each of its candidates next to the problem it is written as, in the Candidates table and the Taken forward line.
+- **No time estimates.** The phase and step durations are removed: they were guesses. The survey's length limit and the P0 size check stay.
+- **No placeholders** such as `[City]` or `[Name]` in a finished artifact: the press release uses the title alone, or the date without a city, and the gap goes to the open items.
+- **Step order.** The readiness check drafts from what exists before the PRD; `draft` mode includes the feature description; Prototype logs a version before it opens it.
+- **`PROJECT.md`** has one template in the entry skill, which the journey app reads.
+
 ---
 
 ## [3.0.0] — 2026-11-11

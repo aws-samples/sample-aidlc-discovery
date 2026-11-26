@@ -27,20 +27,20 @@ license: MIT-0
 
 ## Overview
 
-Scoring decides which problem the rest of the day goes to. The team brings 3 to 5 candidate use cases, or draws them from the signals. Each one goes through a gate, six weighted scores, a confidence rating, and a decision. It scores problems, not features. The skill drafts every score with the evidence behind it; the team reviews every score, overrides any it disagrees with, and owns the ranking.
+Scoring decides which problem the rest of the day goes to. The team brings 3 to 5 candidate use cases, or draws them from the signals, and the skill adds up to three more from the signals. Each one goes through a gate, six weighted scores, a confidence rating, and a decision. It scores problems, not features. The skill drafts every score with the evidence behind it; the team reviews every score, overrides any it disagrees with, and owns the ranking.
 
 ## Workflow
 
 ### Step 1: Candidate use cases
 - **Mode**: `agentic`
-- **Input**: The team's candidates, or `signals/signal-summary.md` and any Signal Briefs; the personas
-- **Output**: 3 to 5 candidates, each written as a problem
+- **Input**: The team's candidates ("Ideas we already have" on the kickoff page, `discovery/kickoff.md`, or what the team names), or `signals/signal-summary.md` and any Signal Briefs; the personas
+- **Output**: The team's 3 to 5 candidates and up to three From Signals, each written as a problem
 - **Validate**: Every candidate has the five fields below, and no two solve the same problem
 - **On failure**: If the team brings features, ask what problem each one solves and for whom
 
-Each candidate is a problem with five fields: who has it, the problem, the evidence from Signals, the business metric it moves, and the person on the team who would own the build. If the team brought none, draft 3 to 5 from the top signals and ask the team to confirm or edit them. Merge candidates that solve the same problem.
+Each candidate is a problem with five fields: who has it, the problem, the evidence from Signals, the business metric it moves, and the person on the team who would own the build. Keep the name the team gave each of its candidates, such as "Self-service returns", next to the problem it is written as, so the team finds its own candidates in every later artifact; give each candidate from Signals a short name of the same kind. If the team brought none, draft 3 to 5 from the top signals and ask the team to confirm or edit them. Merge candidates that solve the same problem.
 
-**Then add candidates from Signals.** When the team brought its own candidates, add two or three drawn from Signals themes that none of them covers, including telemetry-only signals. Write each as a problem with its evidence, and mark it "From Signals". The team keeps or drops each one, which takes about a minute: kept ones take the next number in the Candidates table, go through the gate, and are scored like the rest; dropped ones are recorded with the reason and not scored. If every theme is covered, say so and add none.
+**Then add candidates from Signals.** When the team brought its own candidates, add two or three drawn from Signals themes that none of them covers, including telemetry-only signals. Write each as a problem with its evidence, and mark it "From Signals". The team keeps or drops each one, a quick call: kept ones take the next number in the Candidates table, go through the gate, and are scored like the rest; dropped ones are recorded with the reason and not scored. If every theme is covered, say so and add none. So up to eight candidates can reach the gate; the 3 to 5 is the team's own list, not a limit on what is scored. The gate and the merges usually leave 3 to 5 to score.
 
 ### Step 2: Weights
 - **Mode**: `agentic`
@@ -85,7 +85,7 @@ Then **drop** any candidate that fails one of these, and record which. Failing t
 | **Feasibility** | 15 | New data, platform, and skills needed | Some data or platform work needed | Data in place, builds on the existing product and platform |
 | **Adoption load** | 10 | Heavy change for users, or they have not adopted what already shipped in this area | Moderate change in how users work | Fits how users already work |
 
-Score **business outcome** against the business metric agreed at setup, in the direction setup recorded as good, not against a metric the candidate names for itself. A candidate that moves the metric the wrong way, for example by removing tickets when more tickets mean more onboardings, scores 1 on outcome. A candidate that moves only its own metric (baggage calls, when the metric is the self-service rebooking rate) scores low on outcome, however real its pain.
+Score **business outcome** against the business metric agreed at setup, in the direction setup recorded as good, not against a metric the candidate names for itself. A candidate that moves the metric the wrong way, for example by removing tickets when more tickets mean more onboardings, scores 1 on outcome. A candidate that moves only its own metric (delivery-tracking calls, when the metric is the self-service return rate) scores low on outcome, however real its pain.
 
 Weighted score = the sum of (score × weight) ÷ 100, from 1.0 to 5.0.
 
@@ -111,7 +111,7 @@ The data rarely shows strategy or platform, so draft strategic fit and feasibili
 | 2.5 to 3.4 | Any | **Defer.** Revisit at the 30-day follow-up with new evidence. |
 | Below 2.5 | Any | **Drop.** Record why. |
 
-**One decision per team.** Only one candidate is "build first" or "prototype to learn": the one with the highest weighted score. Any other that qualifies is **Defer, next in line**, so the day has one clear focus. With pods, each pod has one.
+**One decision per team.** Only one candidate is "build first" or "prototype to learn": the one with the highest weighted score. Any other that qualifies is **Defer, next in line**, so the day has one clear focus.
 
 ### Step 6: The team reviews and selects
 - **Mode**: `agentic`
@@ -121,7 +121,7 @@ The data rarely shows strategy or platform, so draft strategic fit and feasibili
 - **Validate**: The team confirmed or overrode every score, and named what it takes forward
 - **On failure**: If the team disagrees with the framework's decision, record its decision and the reason; the team owns the call
 
-Show the table one candidate at a time. For each score, show the evidence and ask: agree, or change it? Record every override with the reason. Then ask which use case the team takes forward: the top "build first", or the top "prototype to learn" when there is no "build first". With pods, each pod takes one; two pods never take the same one.
+Show the table one candidate at a time. For each score, show the evidence and ask: agree, or change it? Record every override with the reason. Then ask which use case the team takes forward: the top "build first", or the top "prototype to learn" when there is no "build first".
 
 ### Step 7: Re-score after Validate (mode `rescore`)
 - **Mode**: `agentic`
@@ -144,7 +144,7 @@ Once a PRD exists for a selected use case, follow `references/roi-analyzer.md` i
 Weights: pain 25, outcome 25, reach 15, fit 10, feasibility 15, adoption 10 [note any sponsor shift]
 
 ## Candidates
-| # | Use case (problem) | Who | Business metric | Owner | Source (team or From Signals) |
+| # | Name | Use case (problem) | Who | Business metric | Owner | Source (team or From Signals) |
 
 ## From Signals
 | Candidate | Evidence | Kept or dropped | Reason |
@@ -171,7 +171,7 @@ Weights: pain 25, outcome 25, reach 15, fit 10, feasibility 15, adoption 10 [not
 | # | Dimension | Draft | Team | Reason | When |
 
 ## Taken forward
-[Use case], [build first or prototype to learn], by [pod or team]
+#[N] [Name]: [problem], [build first or prototype to learn]
 ```
 
 ## Lessons Learned

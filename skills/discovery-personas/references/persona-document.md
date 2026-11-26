@@ -10,7 +10,7 @@ Save each persona as its own file, `discovery/[project]/working-backwards/person
 ## Identity
 - **Age:** [Range]
 - **Location:** [City/Region]
-- **Background:** [Nationality or culture] (from the data) | [Nationality or culture] (from the project language, **Assumed**)
+- **Background:** [Nationality or culture] (from the data) | (from the data's market, **Assumed**) | (from the company's home market, **Assumed**) | (from the project language, **Assumed**)
 - **Occupation:** [Job Title]
 - **Bio:** [2-3 sentences background story]
 
@@ -57,7 +57,7 @@ Trigger → Action → Thought process → Desired outcome.]
 
 ## Rules
 
-1. **Real quotes only.** Every quote is copied verbatim from the feedback or a Signal Brief, anonymized. Never invent one.
+1. **Real quotes only.** Every quote is copied verbatim from the feedback or a Signal Brief, with identifiers replaced by a bracketed role, as the entry skill's Shared rule 3 says. Never invent one.
 2. **Evidence count.** Under the tagline, add `**Based on:** [N] feedback items` or `[N] Signal Briefs`.
 3. **Confidence.** High: five or more items. Medium: two to four. Low: one item, or inferred. On a synthetic dataset, never higher than Medium.
 4. **No real people.** Names are invented; nothing identifies a real customer.

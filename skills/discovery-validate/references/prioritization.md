@@ -55,7 +55,7 @@ For EACH problem, score on these dimensions (1-10):
    - 4-6: 2-3 segments
    - 7-10: Universal problem
 
-4. **Trend** (↑ growing, → stable, ↓ declining): Is it getting worse?
+4. **Trend** (growing, stable, or declining): Is it getting worse?
 
 5. **Effort Estimate** (S/M/L/XL): Rough implementation effort
 
@@ -63,7 +63,7 @@ For EACH problem, score on these dimensions (1-10):
 
 | Rank | Problem | Frequency | Severity | Reach | Score | Trend | Effort | Confidence |
 |------|---------|-----------|----------|-------|-------|-------|--------|-----------|
-| 1    | ...     | 8         | 9        | 7     | 24    | ↑     | M      | HIGH      |
+| 1    | ...     | 8         | 9        | 7     | 24    | growing | M    | HIGH      |
 
 **Priority Score** = Frequency + Severity + Reach (max 30)
 

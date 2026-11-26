@@ -15,7 +15,7 @@ inputs:
     type: string
     required: true
   - name: use_case
-    description: "The use case being validated. With pods, each pod validates its own."
+    description: "The use case being validated."
     type: string
     required: true
   - name: mode
@@ -31,7 +31,7 @@ license: MIT-0
 
 ## Overview
 
-Validate answers: what could make this fail, and how will we know it worked? The team spends about 45 minutes trying to prove the idea will fail, using only what it already has: the data, the personas, and the prototype. It does not wait for surveys. Anything it cannot confirm or refute stays an open hypothesis and goes into the brief; real users test the prototype in the follow-up. It ends with the team's decision: commit, pivot, or park.
+Validate answers: what could make this fail, and how will we know it worked? The team tries to prove the idea will fail, using only what it already has: the data, the personas, and the prototype. It does not wait for surveys. Anything it cannot confirm or refute stays an open hypothesis and goes into the brief; real users test the prototype in the follow-up. It ends with the team's decision: commit, pivot, or park.
 
 ## Workflow
 
@@ -43,7 +43,7 @@ Validate answers: what could make this fail, and how will we know it worked? The
 - **Validate**: The prototype and the persona critique exist
 - **On failure**: If the persona critique is missing, ask **discovery-prototype** to finish its critique and iteration first; the critique is the main evidence for the first two risks
 
-Then re-walk the iterated prototype with the primary personas, only for the findings the iteration changed: did the change fix it? Five minutes, recorded in the risk review. The critique judged the first build; Validate judges the one the team will hand off.
+Then re-walk the iterated prototype with the primary personas, only for the findings the iteration changed: did the change fix it? Keep it short, and record it in the risk review. The critique judged the first build; Validate judges the one the team will hand off.
 
 ### Step 2: Four risks
 - **Mode**: `agentic`

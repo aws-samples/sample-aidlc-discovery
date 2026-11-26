@@ -5,30 +5,29 @@ One day, one product engineering team, five phases. Keep this page open beside y
 ## Before the day
 
 **Install, a day ahead.**
-- In AWS Quick Desktop: **Customize**, **Skills**, **Create**, **From folder**, then pick `dist/aidlc-discovery` (built with `python3 scripts/build.py`).
-- Import stores a snapshot. Editing the folder afterwards changes nothing. To update: remove the plugin, import again, start a new chat.
+- In AWS Quick Desktop: **Customize**, **Skills**, **Create**, **From folder**, then pick `dist/quick/aidlc-discovery` (built with `python3 scripts/build.py`). Import stores a snapshot. Editing the folder afterwards changes nothing. To update: remove the plugin, import again, start a new chat.
+- In Claude Cowork: build with `python3 scripts/build.py --target cowork`, open `dist/cowork/aidlc-discovery-cowork-vX.Y.Z.skill` in a chat, and choose **Save skill**. To update: build again, save the new `.skill` over the old one, start a new task.
 - Check the install in a new chat: `List my skills` shows one skill, AI-DLC Discovery.
-- Run the 30-second module check: "Use the aidlc-discovery skill. Load modules/discovery-signals.md with file_read and tell me what Step 1 says." It must answer: the team's expectations, optional, asked once before any analysis. If it cannot find the file, reinstall.
+- Run the 30-second module check: "Use the aidlc-discovery skill. Load modules/discovery-signals.md with file_read and tell me what Step 1 says." In Cowork, say `Read` instead of `file_read`. It must answer: the team's expectations, optional, asked once before any analysis. If it cannot find the file, reinstall.
 
 **Rehearse once.** Run a sample end to end (see `dry-run-air.md`). New facilitators can also take the half-day session in `train-the-trainer.md`. You will meet every checkpoint before the team does.
 
-**Agree with the team:**
-- **Who is in the room.** The product owner and engineering lead who own the build. Add design, data, support, or sales as needed. 4 to 6 people, or pods of 4 to 5.
-- **The data input.** Production data in their own AWS Quick (the default), Signal Briefs when data cannot be loaded into a tool, or a synthetic dataset prepared before the day. Never let the assistant invent data on the day.
+**Agree with the team,** on the kickoff page: send `skills/aidlc-discovery/templates/kickoff.md` (in Japanese, `facilitator/ja/kickoff.md`) a week ahead, and save the filled-in page as `discovery/kickoff.md` in the working folder, next to the data, as in the samples. Setup then drafts everything from it. `kickoff-call.md` has the email to send, what to ask on the 30-minute call, and the checks three days before.
+- **Who is in the room.** The product owner and engineering lead who own the build. Add design, data, support, or sales as needed. 4 to 6 people. With several teams, give each table its own laptop, its own project, and its own data.
+- **The data input.** Production data in their own AWS Quick or Cowork (the default), Signal Briefs when data cannot be loaded into a tool, or a synthetic dataset prepared before the day. Never let the assistant invent data on the day.
 - **Telemetry, if the team has it.** Daily aggregates per journey step from their monitoring (CloudWatch, Datadog, or OpenTelemetry exports in S3): sessions per step from real user monitoring, requests, errors, and latency per service, and the top error codes, with a short map from each step to its screen and backend route. Never raw logs or traces: they are too large and carry personal data. Telemetry is read next to the feedback, never instead of it.
 - **3 to 5 candidate use cases,** each written as a problem: who has it, the problem, the evidence they think they have, the business metric it moves, and the owner.
 - **The business metric and its baseline.** If there is no baseline, name who gets it by the 7-day follow-up.
-- **A working folder** AWS Quick can access, ideally the product's own repository.
-- **Where the workshop is saved.** Recommended: a team Space (AWS Quick only), so everyone in the room can follow the workshop from their own AWS Quick, open the prototype, and take over facilitation, and the workshop stays in AWS Quick after the day. The team creates the Space and names it (**Spaces**, then **Create space**), shares it with the people who will follow or take over as **Owners**, and each person attaches it to their chat with the **+** menu, then **Spaces**. Or use a local working folder on the facilitator's laptop. **Where the data goes:** everyone a Space is shared with can read it. Put the customer data in the team Space only if it is shared with nobody who should not see the data; otherwise keep it in the working folder or in a separate, restricted Space, and name that in the start prompt. The skill asks you to confirm before it analyzes data that sits in the workshop's Space. Sample data is fictional and can go in the Space.
+- **A working folder** the app can access, ideally the product's own repository.
 
 ## The day
 
 ### 09:00 Kickoff (30 min)
 - **Goal:** everyone knows why they are here and how the day runs.
 - **Say:** "Today we decide what to build next, from evidence, and we leave with a brief the build starts from. The assistant drafts; you decide. It stops after every phase, and nothing moves on until you say so."
-- **Ask the assistant:** "Start AI-DLC Discovery. Project: [name]. Save Discovery in the [Space name] space. Data: [input], in [folder]." Leave out the Space sentence to save in the working folder.
-- **With a Space attached,** it asks once whether to save the workshop in the Space or the folder. Say the Space, and tell the room AWS Quick may ask to approve each save. Everyone else attaches the Space now and follows along in their own chat, reading, not writing.
-- **Good looks like:** it drafts the setup from what it can find (a scenario page, the folder, `config.md`) and asks the room to confirm, or asks in one or two rounds of numbered questions, each with a recommended answer, when there is nothing to draft from. Then it writes `PROJECT.md`. Read the draft aloud and have the product owner confirm the business metric and which direction is good: everything is scored against it.
+- **Ask the assistant:** "Start AI-DLC Discovery. Project: [name]." With a kickoff page, that is all: the rest comes from the page. Without one, add "Data: [input], in [folder]."
+- **Put the journey on the room's screen.** After setup, open `discovery/[project]/journey.html` from the working folder in a browser, on the screen the room watches. It shows the step the team is on, what comes next, and every artifact so far. Reload it when you want the latest step: it never reloads by itself, so it does not pull anyone away from what they are reading. Keep the chat beside it, or switch to it when the team answers.
+- **Good looks like:** it drafts the setup from what it can find (the kickoff page, the folder, `config.md`) and asks the room to confirm, or asks in one or two rounds of numbered questions, each with a recommended answer, when there is nothing to draft from. Then it writes `PROJECT.md`. Read the draft aloud and have the product owner confirm the business metric and which direction is good: everything is scored against it.
 - **Facilitator practice:** don't confirm the setup yourself. Ask the product owner, "Is anything here wrong or missing?" If the sponsor leaves after the kickoff, ask them now whether the metric is the one they care about.
 
 ### 09:30 Signals (60 min)
@@ -57,7 +56,7 @@ One day, one product engineering team, five phases. Keep this page open beside y
 - **Personas, buyer and end user:** when the person who buys is not the person who uses (a travel manager and a traveller), there should be one persona for each. The buyer judges value and cost; the end user judges the workflow.
 - **Facilitator practice, weights:** settle them with the sponsor before the first score, and say why: "Once we see scores, nobody can move a weight to help their favourite."
 - **Timing tip:** when the room agrees with a candidate's drafts, choose "agree with all" and move on. Spend the time on the scores people disagree with.
-- **Checkpoint:** every score confirmed or overridden, with reasons recorded, and one use case selected (one per pod).
+- **Checkpoint:** every score confirmed or overridden, with reasons recorded, and one use case selected.
 
 ### 12:00 Lunch (60 min)
 - **Ask the assistant:** "We're breaking for lunch. Draft the PR/FAQ while we're away."
@@ -108,15 +107,14 @@ One day, one product engineering team, five phases. Keep this page open beside y
 - **Ask the room:** "Could an engineer who wasn't here start from this brief?"
 
 ### 16:20 Readout (40 min)
-- Each pod shows the sponsor its decision, the prototype on the Flow view, the success criteria, and the next steps. Agree the next step and its owner before people leave.
+- The team shows the sponsor its decision, the prototype on the Flow view, the success criteria, and the next steps. Agree the next step and its owner before people leave.
 - **Facilitator practice, the sponsor's question:** answer "why not do the thing I believed?" with the evidence from Signals, not an opinion, then bring it back to the next step. A readout ends with a name and a date.
 
 ## When things go wrong
 
-- **The skill is not installed, or behaves like an older version.** `List my skills`, then the module check. If either fails, remove the plugin, import again, and start a new chat. Copying files into the AWS Quick profile by hand is not a fix: AWS Quick keeps its own snapshot.
+- **The skill is not installed, or behaves like an older version.** `List my skills`, then the module check. If either fails, reinstall as in "Before the day" and start a new chat. In AWS Quick, copying files into the profile by hand is not a fix: AWS Quick keeps its own snapshot.
 - **It shows analysis before asking for expectations, or jumps ahead to verdicts.** Say: "Stop. Follow the aidlc-discovery skill one step at a time. Load the module for this phase and start at Step 1." If it still improvises, the skill is not loaded; see above.
-- **Someone else takes over facilitation, with a team Space.** In their own AWS Quick, with the Space attached: "Continue AI-DLC Discovery for [project] from discovery/[project]/PROJECT.md in the [space] space. I'm taking over as [role]. Start at [step]." The previous driver stops writing. If two people wrote at once, the last save wins: compare what each changed and redo the lost change.
-- **The chat is lost, or you reinstalled the skill mid-workshop.** Start a new chat with access to the working folder and say: "Continue AI-DLC Discovery for [project] from discovery/[project]/PROJECT.md. [What is done.] Start at [the next step]." It reads the saved files and picks up from there.
+- **The chat is lost, or you reinstalled the skill mid-workshop.** Start a new chat with access to the working folder and say: "Continue AI-DLC Discovery for [project]." It reads the `Now:` line in `discovery/[project]/PROJECT.md`, says where the workshop stands, and picks up at that step. Say "start at [step]" if you want a different one.
 - **A module path does not resolve.** It should retry with the skill's full installed path. If it doesn't, tell it to.
 - **The data does not match the product.** It should stop and offer real data, Signal Briefs, or a prepared dataset. Never accept data it writes on the spot: it can only echo what the team just said.
 - **The prototype is one plain page.** It did not build from the shell. Say: "Load modules/discovery-prototype/references/prototype-shell.md and copy that HTML exactly, filling only the edit region." Ask it to quote the `EDIT BELOW` line first, to prove it read the file.

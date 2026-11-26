@@ -1,10 +1,10 @@
 # Readiness check
 
-Run after the PR/FAQ and before the prototype. The check makes sure the PR/FAQ says enough to build a prototype that proves something, so the prototype session validates answers instead of discovering them.
+Run after the PR/FAQ and before the PRD. The check makes sure the PR/FAQ says enough to build a prototype that proves something, so the prototype session validates answers instead of discovering them.
 
 ## The seven questions
 
-Write each question as one short, natural question that ends with a question mark, the way a colleague would ask it. It asks about the row's topic; the "What a ready answer contains" column is what the answer covers, not a list the question repeats. For each question, **draft a full answer** from the PR/FAQ, the PRD so far, and the signals: three to five sentences, not a status label. Where the answer is missing or vague, write what is there and mark the gap inline with `[GAP]`, saying what is missing and how to get it.
+Write each question as one short, natural question that ends with a question mark, the way a colleague would ask it. It asks about the row's topic; the "What a ready answer contains" column is what the answer covers, not a list the question repeats. For each question, **draft a full answer** from the PR/FAQ, the feature description, the personas, and the signals: three to five sentences, not a status label. Where the answer is missing or vague, write what is there and mark the gap inline with `[GAP]`, saying what is missing and how to get it.
 
 | # | Question | What a ready answer contains |
 |---|----------|------------------------------|

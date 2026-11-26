@@ -52,23 +52,24 @@ Above the paragraphs: a short, bold **headline**, and a one-sentence **subheadin
 
 | Para | Its only job |
 |------|--------------|
-| 1 | **Summary.** Location, a future date, what launched, for whom, and the one thing to know. Assume the reader stops here. |
+| 1 | **Summary.** The location (the company's home city, when the team or the kickoff page gives it; otherwise begin with the date), a future date, what launched, for whom, and the one thing to know. Assume the reader stops here. |
 | 2 | **Problem.** The customer's situation today, the friction, and what it costs them. No solution and no product name. |
 | 3 | **Solution.** How the product helps, at a high level, in plain language. No step-by-step experience. |
-| 4 | **Leader quote** from the company launching the product: why it matters, in two or three short, confident sentences. Format: "Quote," says [Name], [Title]. |
+| 4 | **Leader quote** from the company launching the product: why it matters, in two or three short, confident sentences. Format: "Quote," says [Name], [Title]. Without a name from the team, use the title alone: "says the head of digital at [company]". |
 | 5 | **Customer experience.** One journey from trigger to outcome, step by step, for each persona that matters. No architecture. |
 | 6 | **Customer testimonial.** Two or three sentences in the persona's own voice: a feeling or a concrete benefit, as they would tell a colleague. Avoid the "I used to, now I" pattern. Use the persona's name as in its file. Mark it as synthetic. |
 | 7 | **Call to action.** Where to get started, in one or two sentences. |
 
 ### Rules
-- 500 to 700 words from the headline to the end of paragraph 7. Fewer usually means a paragraph is missing; more means FAQ material has crept in.
+- About 500 to 700 words from the headline to the end of paragraph 7. The range is a check, not a target. Fewer usually means a paragraph is missing its job: find it and complete it. More means FAQ material has crept in: move it to the FAQ. Never add or cut words only to reach the range; a release where every paragraph does its job stands at any length.
 - Flowing paragraphs only. Headings inside the press release turn it into a vision document.
+- No placeholders such as `[City]` or `[Name]` in the finished release. Write around a fact the team has not given, as paragraphs 1 and 4 say, and add it to the open items in `PROJECT.md`, so the team can fill it in.
 - The customer is the subject: "Chefs can now…", not "[Company] launches a platform that…".
-- Start every paragraph positively, with what the product does. Objections belong in the FAQ.
+- Start every paragraph positively, with what the product does or makes possible, except paragraph 2, whose job is the problem: it opens with the customer's situation today. Objections belong in the FAQ.
 - No superlatives and no "first" or "first-ever" without evidence.
 - Draft lean: three or four sentences a paragraph.
 - **Labels stay out of the way.** A press release reads as journalism, not as a report. Known claims carry no label in it. Label a claim only when it is Assumed or Needs evidence, once, at the end of its sentence. The FAQ carries the labels for every number.
-- **Each claim keeps the scope of its evidence.** A number from one account, one quote, or one month is written as that: "one corporate account reports…", never as a general fact. If you need a general claim, use a figure that covers the whole data.
+- **Each claim keeps the scope of its evidence.** A number from one account, one quote, or one month is written as that: "one business customer reports…", never as a general fact. If you need a general claim, use a figure that covers the whole data.
 - **Use the North Star's numbers.** Targets in the press release and the FAQ are the ones in the North Star. If one differs, for example a smaller pilot target, say so and why.
 
 ### User Prompt Template
@@ -88,7 +89,7 @@ Evidence (every number and claim must come from here):
 ### Quality checks before moving on
 
 1. Count the paragraphs between the subheading and the FAQ: exactly seven, each doing only its job.
-2. Count the words: 500 to 700.
+2. Count the words. Outside 500 to 700, check paragraph by paragraph, as the rule above says, and record the count.
 3. Can every claim about the problem and its impact point to evidence in the Signal Analysis Report? Label each claim Known, Assumed, or Needs evidence.
 4. Would a real customer in the target segment recognize themselves?
 5. Run `writing-audit.md` on the whole PR/FAQ.

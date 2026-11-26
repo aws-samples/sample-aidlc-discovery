@@ -31,7 +31,7 @@ python3 tests/e2e/run_e2e.py --sample all --legs workshop,team --budget-usd 20
 | `workshop` | A full Discovery run, unattended, ending with the Discovery brief |
 | `mismatch` | Data about a different product: no analysis, and no invented data |
 | `missing-prd` | Handoff without the PRD refuses to write a brief (reuses the workshop leg's results) |
-| `team` | A second model plays the scenario's team turn by turn, so the checkpoints, overrides, iteration, and test-first decision are tested |
+| `team` | A second model plays the team on the sample's kickoff page turn by turn, so the checkpoints, overrides, iteration, and test-first decision are tested |
 
 Measured cost per sample: the `workshop`, `mismatch`, and `missing-prd` legs together about $3.50 to $4.60 (AnyCompany Air and Health); the team leg about $110 (measured on a former sample, 36 turns, each resuming the whole session). Run the team leg before a release, not on every change.
 
@@ -43,8 +43,20 @@ Checks:
 
 Each run writes `.e2e/<timestamp>/` with every workspace, transcript, and cost, plus `report.md`. Calls are billed to the AWS account the Claude Code CLI uses, and `--budget-usd` caps every call.
 
-These runs test the method and the artifacts. They run in Claude Code, not AWS Quick, so check a release in AWS Quick by hand as well: import it, start Discovery on a sample, and build a prototype.
+These runs test the method and the artifacts. They run in Claude Code, not AWS Quick or Cowork, so check a release in AWS Quick by hand as well (and in Cowork, see below): import it, start Discovery on a sample, and build a prototype.
 
-## Team Space mode
+## Cowork runs (by hand, or unattended)
 
-The automated tests run in Claude Code, which has no AWS Quick Spaces, so they cover the local folder only. Test team Space mode by hand in AWS Quick Desktop with two people, following "Optional: run it in a team Space" in `facilitator/dry-run-air.md`: the Space confirmed, `PROJECT.md` with the Storage and Driver lines, artifacts at the usual paths in the Space, the take-over, the stop when the other person tries to write, and no customer data in the Space.
+Cowork runs in the desktop app, so it has no headless runner. Build the Cowork skill, run Discovery in Cowork on a copy of a sample, then grade the working folder with the same checks:
+
+```bash
+python3 scripts/build.py --target cowork
+mkdir -p .e2e/cowork-air && cp -r samples/anycompany-air .e2e/cowork-air/workspace
+# add config.md with unattended: true (as run_e2e.py writes it), connect the folder in Cowork,
+# and start the run with the prompt in tests/e2e/prompts/workshop.md
+python3 tests/e2e/check_workspace.py .e2e/cowork-air/workspace --sample air --journey
+```
+
+`--journey` (or `--cowork`) adds the journey app checks (C), for a run in either tool: the app was created, its data parses, the page is the shell unchanged, it holds every artifact and prototype version, the Now banner is set, it loads nothing from the web, and, with node installed, it shows the five phases complete and the decision. `tests/test_cowork.py` covers the Cowork build, and `tests/test_journey.py` the shell, the update script as the skill states it, and the page's renderer (in node), without model calls.
+
+Measured on AnyCompany Air (2026-11-25, three unattended runs, one Cowork session each): 36 checks, 0 failed in the first two; the third failed O03 only because scoring renamed the team's candidates, which scoring now keeps. About 100 to 140 tool calls and 40 to 90 minutes a run; the journey app updated 7 to 8 times and the prototype artifact twice.

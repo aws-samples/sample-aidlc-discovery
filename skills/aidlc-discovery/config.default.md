@@ -14,12 +14,6 @@ data_location: "discovery/data/"
 ## Output Settings
 
 ```yaml
-# Where Discovery is saved: local (the working folder) | space (an AWS Quick team Space, see discovery-team-space)
-storage: "local"
-
-# With storage: space, the team Space. The team creates and names it; empty: use the Space attached to the chat
-space_name: ""
-
 # Where to save generated artifacts (default: discovery/[project]/ in the working folder)
 output_folder: "discovery/"
 
@@ -50,7 +44,7 @@ default_days: 30
 # Maximum feedback items to include in LLM context
 max_context_items: 50
 
-# Default number of personas to generate
+# Default number of end-user personas, the satisfied customer included (a buyer persona comes on top)
 default_persona_count: 3
 
 # Default categories (comma-separated, or "auto" for AI detection)

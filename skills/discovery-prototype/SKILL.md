@@ -13,7 +13,7 @@ inputs:
     type: string
     required: true
   - name: use_case
-    description: "The selected use case. With pods, each pod builds its own prototype."
+    description: "The selected use case."
     type: string
     required: true
   - name: design_standards
@@ -47,7 +47,7 @@ Plan the core user flow as 4 to 8 screens: the entry point, the steps of the mai
 - **Mode**: `agentic`
 - **Tool**: `file_write`, then `open_in_session_tab`
 - **Input**: The confirmed screen list; `{{design_standards}}` if given
-- **Output**: `discovery/{{project}}/prototype/v1.html`, copied to `prototype/index.html`, open in a session tab
+- **Output**: `discovery/{{project}}/prototype/v1.html`, copied to `prototype/index.html`; `prototype/versions.md` and `prototype/notes.md`; the build open in a session tab
 - **Validate**: Every must-have below is present, and every item on the quality bar in `references/html-prototype.md` passes
 - **On failure**: If a must-have is missing, the shell was edited outside the markers; start again from a fresh copy of the shell
 
@@ -59,7 +59,7 @@ Build every version from the shell, never from scratch and never by editing an e
 
 Put the design into the screens: the persona's real content, the states, one failure state, and the element under test marked with `class="test-moment"` on the screen that has `data-test-moment`. Adjust the look through `theme` (for example the accent color), not by editing the shell's styles.
 
-Open it on the **Flow** view (`v1.html#/flow`), so the team sees the whole journey before clicking through it. Then write the first entry in `prototype/versions.md`.
+Write the first entry in `prototype/versions.md`, and the screens, core flow, and test moment in `prototype/notes.md`. Then open it on the **Flow** view (`v1.html#/flow`), so the team sees the whole journey before clicking through it.
 
 ### Step 3: Team click-through
 - **Mode**: `agentic`
