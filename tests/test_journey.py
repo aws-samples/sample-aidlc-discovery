@@ -76,7 +76,8 @@ class ShellTests(unittest.TestCase):
         self.assertNotRegex(SHELL, r'<(script|link|img|iframe)[^>]+(src|href)="https?:')
         self.assertEqual("", DATA.search(SHELL).group(2))
         self.assertEqual(1, SHELL_MD.count("```html"))
-        for marker in ("/* collect:begin */", "/* collect:end */", 'id="now"', 'location.protocol === "file:"'):
+        for marker in ("/* collect:begin */", "/* collect:end */", 'id="now"', 'location.protocol === "file:"',
+                       'fetch(url, { cache: "no-store" })', "whenIdle(reloadHere)", '"journey-view"'):
             self.assertIn(marker, SHELL)
 
     def test_update_script_is_short(self) -> None:

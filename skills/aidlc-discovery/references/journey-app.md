@@ -35,7 +35,7 @@ PROJECT = pathlib.Path("discovery/[project]")  # the project folder, as Python s
 SHELL = None  # where references/journey-shell.md is, if Python can read it; None otherwise
 NOW = {"phase": "Signals", "step": "[step]", "doing": "[what the team is doing now]", "next": "[the next step]"}
 
-SHAPE = "357c3d4730dd"
+SHAPE = "0a14d6d1b253"
 DATA = re.compile(r'(<script id="journey-data" type="application/json">)(.*?)(</script>)', re.S)
 page_file = PROJECT / "journey.html"
 page = page_file.read_text(encoding="utf-8") if page_file.is_file() else ""

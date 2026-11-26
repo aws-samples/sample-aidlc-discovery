@@ -443,11 +443,35 @@ iframe.proto { width: 100%; height: max(640px, 78vh); border: 1px solid var(--ru
   $("#title").textContent = D.title;
   document.title = D.title;
   $("#updated").textContent = "Updated " + D.updated;
-  const LIVE = location.protocol === "file:";
-  if (LIVE) {
-    document.documentElement.classList.add("live-view");
-    $("#live").replaceWith(el("span", { class: "live", text: "Live: refreshes every 15 seconds" }));
-    setTimeout(() => { try { sessionStorage.setItem("journey-scroll", String(window.scrollY)); } catch (e) { /* private mode */ } location.reload(); }, 15000);
+  // Stay current, wherever the page is shown: a browser tab (file:) or an app's preview frame.
+  // Reload only when nobody has touched the page for a while, and come back to the same view and scroll.
+  const reloadHere = () => {
+    try { sessionStorage.setItem("journey-scroll", String(window.scrollY)); } catch (e) { /* storage blocked */ }
+    try { location.reload(); } catch (e) { /* reload blocked */ }
+  };
+  const live = (text) => { document.documentElement.classList.add("live-view"); $("#live").replaceWith(el("span", { class: "live", text })); };
+  let touched = Date.now();
+  ["click", "keydown", "scroll", "wheel", "touchstart"].forEach((t) => addEventListener(t, () => { touched = Date.now(); }, { passive: true }));
+  const whenIdle = (fn) => { const tick = () => (Date.now() - touched >= 15000 ? fn() : setTimeout(tick, 2000)); tick(); };
+  const timed = () => { live("Live: refreshes every 15 seconds"); setTimeout(() => whenIdle(reloadHere), 15000); };
+  if (location.protocol === "file:") timed();
+  else {
+    // In a preview: read the file again every 10 seconds and reload only when its data changed.
+    // If the preview does not let the page read its own file, reload on a timer instead.
+    const url = location.href.split("#")[0];
+    let first = true;
+    const poll = async () => {
+      try {
+        const text = await (await fetch(url, { cache: "no-store" })).text();
+        const m = text.match(/<script id="journey-data" type="application\/json">([\s\S]*?)<\/script>/);
+        if (!m) throw new Error("not the journey page");
+        if (m[1].trim() && m[1].trim() !== blob) { whenIdle(reloadHere); return; }
+        if (first) live("Live: updates when the files change");
+        first = false;
+        setTimeout(poll, 10000);
+      } catch (e) { if (first) timed(); }
+    };
+    poll();
   }
   if (D.now && (D.now.phase || D.now.step)) {
     const n = $("#now"); n.classList.add("on");
@@ -571,6 +595,7 @@ iframe.proto { width: 100%; height: max(640px, 78vh); border: 1px solid var(--ru
     if (opts.focus) $("#pane").focus({ preventScroll: true });
     const hash = view === "overview" ? "" : "#" + view + (state.doc ? "/" + state.doc : state.proto ? "/proto/" + state.proto : "");
     try { history.replaceState(null, "", hash || location.pathname + location.search); } catch (e) { /* sandboxed viewers */ }
+    try { sessionStorage.setItem("journey-view", hash); } catch (e) { /* storage blocked */ }
     if (!opts.keepScroll) window.scrollTo({ top: 0 });
   }
 
@@ -580,7 +605,9 @@ iframe.proto { width: 100%; height: max(640px, 78vh); border: 1px solid var(--ru
     if (doc) { e.preventDefault(); const d = docs[doc.dataset.doc]; if (d) go(d.phase, { doc: d.path, focus: true }); return; }
     if (proto) { e.preventDefault(); go("prototype", { proto: proto.dataset.proto, focus: true }); }
   });
-  const [start, ...rest] = decodeURIComponent((location.hash || "").replace(/^#\/?/, "")).split("/");
+  let where = location.hash || "";
+  if (!where) { try { where = sessionStorage.getItem("journey-view") || ""; } catch (e) { /* storage blocked */ } }
+  const [start, ...rest] = decodeURIComponent(where.replace(/^#\/?/, "")).split("/");
   const sub = rest.join("/");
   if (!D.phases.some((p) => p.id === start)) go("overview", { keepScroll: true });
   else if (sub.startsWith("proto/")) go(start, { proto: sub.slice(6), keepScroll: true });
