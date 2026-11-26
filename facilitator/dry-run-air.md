@@ -27,7 +27,7 @@ It finds the kickoff page, `discovery/kickoff.md`, and takes the product, the te
 
 **Answer as the team:** confirm the draft if it matches the kickoff page: the product (the website and app), the six roles (the commercial director joins the kickoff and readout), the business metric (self-service rebooking rate for disrupted passengers, 12%, higher is better), the five candidate use cases, and the data.
 
-**Watch for:** a draft of the setup filled in from the kickoff page, for you to confirm or correct in one step, a `PROJECT.md` file, and a note that sample data makes this a demonstration. Then `journey.html` opens in the session tab (in Cowork, in the file preview) with a **Now** banner. Open it in a browser as well, as you would on the room's screen, and check that the banner moves at every step.
+**Watch for:** a draft of the setup filled in from the kickoff page, for you to confirm or correct in one step, a `PROJECT.md` file, and a note that sample data makes this a demonstration. Then `journey.html` opens in the session tab (in Cowork, in the file preview) with a **Now** banner. Open it in a browser as well, as you would on the room's screen. After a step, reload it and check that the banner moved.
 
 **Answer:** when it asks whether the scope is right, choose **Confirmed** (or type it).
 

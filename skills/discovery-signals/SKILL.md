@@ -37,12 +37,12 @@ Signals answers "what are customers telling us?" It turns the team's customer fe
 
 ### Step 1: The team's expectations (optional)
 - **Mode**: `agentic`
-- **Input**: The team, before it sees any analysis
+- **Input**: The team, before it sees any analysis; what each role believes, from the kickoff page `discovery/kickoff.md` if it exists
 - **Output**: `discovery/{{project}}/signals/team-expectations.md`, with the team's expectations or a line saying it had none
 - **Validate**: The file exists before the analysis; any expectations are written as the team gave them
 - **On failure**: None; no expectations is a valid answer
 
-Ask once, in a single question, whether the team already expects the data to show something. If it does, write each expectation down as given, without improving it, so the report can show where the data agrees and where it does not. If it has none, or says skip, write the file with "No expectations recorded before the analysis." and go straight to Step 2 in the same message. Do not explain why expectations matter, ask again, or set a minimum. Follow `references/team-expectations.md`.
+If the kickoff page records what each role believes, draft one expectation from each belief that names a problem, keeping the person's words and role, and show them in one question before any analysis: keep them, change them, add more, or skip. Recommend keeping them. Otherwise, ask once, in a single question, whether the team already expects the data to show something. If it does, write each expectation down as given, without improving it, so the report can show where the data agrees and where it does not. If it has none, or says skip, write the file with "No expectations recorded before the analysis." and go straight to Step 2 in the same message. Do not explain why expectations matter, ask again, or set a minimum. Follow `references/team-expectations.md`.
 
 ### Step 2: Find and check the data
 - **Mode**: `agentic`

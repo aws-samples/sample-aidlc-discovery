@@ -2,9 +2,24 @@
 
 Optional. Ask before any analysis, so whatever the team already believes is on record before the AI's report can shape it. These are the team's beliefs and intuitions, not the testable hypotheses that Step 5 writes from the data. Many teams arrive with none; that is fine.
 
+## From the kickoff page
+
+When `discovery/kickoff.md` records what each role believes, the team has already answered. Turn each belief that names a problem into an expectation line (Format below), with the role after it, and show the list in one question before any analysis. Leave out a belief that names no problem, such as a caution or a preference, and say why in one line. The quoted text shows what the round covers, not the wording to paste.
+
+```markdown
+**Q1** - **Your expectations, from the kickoff page**: Before I show you anything, here is what each of you wrote on the kickoff page, as expectations the data can check:
+- E1. We expect [segment] to [problem], because [what the person has seen]. ([role])
+- E2. ...
+Keep them, change any, add more, or skip?
+
+**Recommendation:** Keep them. Each one gets a verdict in the report.
+```
+
+Write what the team confirms. If it says skip, write the "none" line below, as with the open question.
+
 ## The question
 
-Ask it once, as one question in the round format, with no recommendation of what to believe. The quoted text shows what the round covers, not the wording to paste.
+When there is no kickoff page, or it records no beliefs, ask it once, as one question in the round format, with no recommendation of what to believe. The quoted text shows what the round covers, not the wording to paste.
 
 ```markdown
 **Q1** - **Any expectations before we look?**: Before I show you anything, do you already expect the data to show something: a problem, who has it, or why? List as many as you like. If nothing comes to mind, say skip and I'll go straight to the data.
@@ -28,7 +43,7 @@ Turn each answer into one line the data could prove wrong, keeping the team's wo
 # Team expectations: [product]
 **What this is:** our expectations, written [date] before we looked at the data. The Signal Analysis Report gives each one a verdict. The open questions the data raises are in `hypotheses.md`.
 
-- **E1.** We expect ... because ...
+- **E1.** We expect ... because ... ([role], if known)
 - **E2.** ...
 ```
 

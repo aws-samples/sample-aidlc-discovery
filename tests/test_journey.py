@@ -76,9 +76,11 @@ class ShellTests(unittest.TestCase):
         self.assertNotRegex(SHELL, r'<(script|link|img|iframe)[^>]+(src|href)="https?:')
         self.assertEqual("", DATA.search(SHELL).group(2))
         self.assertEqual(1, SHELL_MD.count("```html"))
-        for marker in ("/* collect:begin */", "/* collect:end */", 'id="now"', 'location.protocol === "file:"',
-                       'fetch(url, { cache: "no-store" })', "whenIdle(reloadHere)", '"journey-view"'):
+        for marker in ("/* collect:begin */", "/* collect:end */", 'id="now"', '"journey-view"'):
             self.assertIn(marker, SHELL)
+        # No auto-refresh: a reload while someone reads a document takes them away from it.
+        for gone in ("location.reload", "setInterval", "fetch("):
+            self.assertNotIn(gone, SHELL)
 
     def test_update_script_is_short(self) -> None:
         # The assistant types it at every step in AWS Quick: keep it small.

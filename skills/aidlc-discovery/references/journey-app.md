@@ -6,7 +6,7 @@ One page per project, `discovery/{{project}}/journey.html`, that the room can fo
 
 1. Load `references/journey-shell.md` with `file_read`, and save its HTML code block to `discovery/{{project}}/journey.html` with `file_write`, exactly as it is. Never retype it from memory, shorten it, or reformat it.
 2. Run the update below, with Now set to Setup.
-3. Open `journey.html` with `open_in_session_tab`. Then tell the team in one line: "To put the journey on the room's screen, open `discovery/{{project}}/journey.html` from the working folder in a browser. It refreshes itself every 15 seconds."
+3. Open `journey.html` with `open_in_session_tab`. Then tell the team in one line: "To put the journey on the room's screen, open `discovery/{{project}}/journey.html` from the working folder in a browser. Reload the page to see the latest step."
 
 ## Update it at every step
 
@@ -35,7 +35,7 @@ PROJECT = pathlib.Path("discovery/[project]")  # the project folder, as Python s
 SHELL = None  # where references/journey-shell.md is, if Python can read it; None otherwise
 NOW = {"phase": "Signals", "step": "[step]", "doing": "[what the team is doing now]", "next": "[the next step]"}
 
-SHAPE = "0a14d6d1b253"
+SHAPE = "7f70f3714d46"
 DATA = re.compile(r'(<script id="journey-data" type="application/json">)(.*?)(</script>)', re.S)
 page_file = PROJECT / "journey.html"
 page = page_file.read_text(encoding="utf-8") if page_file.is_file() else ""

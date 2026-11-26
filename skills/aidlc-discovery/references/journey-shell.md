@@ -142,7 +142,6 @@ iframe.proto { width: 100%; height: max(640px, 78vh); border: 1px solid var(--ru
   .station .key { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .line i { transition: none; } }
-.live-view .line i { transition: none; }
 /* Now: what the room is doing, updated at every step. */
 .now { display: none; margin: 16px 0 0; padding: 12px 16px; border-left: 4px solid var(--nav); background: var(--sheet);
   border-radius: 0 8px 8px 0; max-width: 1100px; box-shadow: 0 1px 0 var(--rule); }
@@ -151,8 +150,6 @@ iframe.proto { width: 100%; height: max(640px, 78vh); border: 1px solid var(--ru
 .now .where { font: 600 clamp(17px, 2vw, 21px)/1.3 var(--serif); }
 .now .doing { display: block; margin-top: 4px; font: clamp(15px, 1.6vw, 18px)/1.5 var(--serif); color: #2b3742; }
 .now .next { display: block; margin-top: 4px; font-size: 14px; color: var(--muted); }
-.live { font-size: 13px; color: var(--known); }
-.live::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--known); margin-right: 6px; vertical-align: 1px; }
 .station.here .dot { box-shadow: 0 0 0 5px var(--wash), 0 0 0 7px var(--nav); }
 .waiting { padding: 40px clamp(16px, 4vw, 48px); font: 18px/1.6 var(--serif); color: var(--muted); max-width: 60ch; }
 @media (prefers-reduced-motion: no-preference) { .station.here .dot { animation: here 2.4s ease-in-out infinite; } }
@@ -162,7 +159,7 @@ iframe.proto { width: 100%; height: max(640px, 78vh); border: 1px solid var(--ru
 </head>
 <body>
 <header class="top">
-  <div class="titlebar"><h1 class="project" id="title"></h1><span id="demo"></span><span class="updated" id="updated"></span><span id="live"></span></div>
+  <div class="titlebar"><h1 class="project" id="title"></h1><span id="demo"></span><span class="updated" id="updated"></span></div>
   <p class="product" id="product"></p>
   <div class="now" id="now" aria-live="polite"></div>
   <nav class="track" id="track" aria-label="Discovery phases"><div class="line" aria-hidden="true"><i></i></div></nav>
@@ -443,36 +440,6 @@ iframe.proto { width: 100%; height: max(640px, 78vh); border: 1px solid var(--ru
   $("#title").textContent = D.title;
   document.title = D.title;
   $("#updated").textContent = "Updated " + D.updated;
-  // Stay current, wherever the page is shown: a browser tab (file:) or an app's preview frame.
-  // Reload only when nobody has touched the page for a while, and come back to the same view and scroll.
-  const reloadHere = () => {
-    try { sessionStorage.setItem("journey-scroll", String(window.scrollY)); } catch (e) { /* storage blocked */ }
-    try { location.reload(); } catch (e) { /* reload blocked */ }
-  };
-  const live = (text) => { document.documentElement.classList.add("live-view"); $("#live").replaceWith(el("span", { class: "live", text })); };
-  let touched = Date.now();
-  ["click", "keydown", "scroll", "wheel", "touchstart"].forEach((t) => addEventListener(t, () => { touched = Date.now(); }, { passive: true }));
-  const whenIdle = (fn) => { const tick = () => (Date.now() - touched >= 15000 ? fn() : setTimeout(tick, 2000)); tick(); };
-  const timed = () => { live("Live: refreshes every 15 seconds"); setTimeout(() => whenIdle(reloadHere), 15000); };
-  if (location.protocol === "file:") timed();
-  else {
-    // In a preview: read the file again every 10 seconds and reload only when its data changed.
-    // If the preview does not let the page read its own file, reload on a timer instead.
-    const url = location.href.split("#")[0];
-    let first = true;
-    const poll = async () => {
-      try {
-        const text = await (await fetch(url, { cache: "no-store" })).text();
-        const m = text.match(/<script id="journey-data" type="application\/json">([\s\S]*?)<\/script>/);
-        if (!m) throw new Error("not the journey page");
-        if (m[1].trim() && m[1].trim() !== blob) { whenIdle(reloadHere); return; }
-        if (first) live("Live: updates when the files change");
-        first = false;
-        setTimeout(poll, 10000);
-      } catch (e) { if (first) timed(); }
-    };
-    poll();
-  }
   if (D.now && (D.now.phase || D.now.step)) {
     const n = $("#now"); n.classList.add("on");
     n.append(el("span", { class: "tag", text: "Now" }), el("span", { class: "where", text: [D.now.phase, D.now.step].filter(Boolean).join(" \u00b7 ") }));
@@ -612,9 +579,6 @@ iframe.proto { width: 100%; height: max(640px, 78vh); border: 1px solid var(--ru
   if (!D.phases.some((p) => p.id === start)) go("overview", { keepScroll: true });
   else if (sub.startsWith("proto/")) go(start, { proto: sub.slice(6), keepScroll: true });
   else go(start, { doc: docs[sub] ? sub : undefined, keepScroll: true });
-  let y = null;
-  try { y = sessionStorage.getItem("journey-scroll"); sessionStorage.removeItem("journey-scroll"); } catch (e) { /* private mode */ }
-  if (y !== null) requestAnimationFrame(() => window.scrollTo(0, +y));
 })();
 </script>
 </body>

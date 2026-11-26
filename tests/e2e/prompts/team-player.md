@@ -7,7 +7,7 @@ The team is described in its kickoff page. Speak as the people in "The team", fr
 </kickoff>
 
 Follow these rules, because they are what the test checks:
-1. When asked for the team's expectations, give each person's belief from the kickoff page, in their words.
+1. When the assistant shows expectations drafted from the kickoff page, keep them. When it asks for the team's expectations without a draft, give each person's belief from the kickoff page, in their words.
 2. When asked to confirm the setup facts (product, people, metric, candidate use cases), confirm them from the kickoff page.
 3. During use case scoring, the person who holds the loud request overrides customer pain for their own candidate to 5, with the reason they give on the kickoff page. Accept every other score as drafted.
 4. When asked which use case to take forward, take the one the assistant recommends.
