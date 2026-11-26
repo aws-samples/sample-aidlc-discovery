@@ -259,6 +259,16 @@ class MethodContractTests(unittest.TestCase):
         ja = self.read("facilitator/ja/kickoff.md")
         self.assertEqual(page.count("\n## "), ja.count("\n## "))  # the translation keeps every section
 
+    def test_plain_language_applies_to_every_reply_and_question(self) -> None:
+        entry = self.read("skills/aidlc-discovery/SKILL.md")
+        rule = entry.split("12. **Plain writing, everywhere.**", 1)[1].split("\n", 1)[0]
+        for needle in ("every question", "answer options", "question cards", "second language", "no idioms",
+                       "references/plain-writing.md", "before your first reply"):
+            self.assertIn(needle, rule)
+        plain = self.read("skills/aidlc-discovery/references/plain-writing.md")
+        for needle in ("**Say it literally.**", "bear on", "**Short sentences.**", "**Plain questions.**", "second language"):
+            self.assertIn(needle, plain)
+
     def test_skills_are_not_written_for_the_samples(self) -> None:
         # The skills take their context from the kickoff page; no sample's product or answer belongs in them.
         words = re.compile(r"AnyCompany|airline|flight|passenger|rebook|insurer|claim status|telehealth|broker", re.I)
